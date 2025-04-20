@@ -4033,7 +4033,7 @@ country_event = {
 				save_global_event_target_as = marauder_rally_point
 				set_planet_flag = marauder_rally_point
 				set_planet_flag = CmtFlagMarauderExpRallyPoint
-				log = "Backup Code for marauder_rally_point Processed on [This.GetName] at [This.System.GetName]"
+				log = "Backup Code for marauder_rally_point Processed on \\[This.GetName] at \\[This.System.GetName]"
 			}
 		}
 
@@ -4100,6 +4100,16 @@ country_event = {
 		}
 
 		if = {
+			limit = { NOT = { has_civic = civic_great_khans_vision } }
+			change_government = {
+				authority = auth_dictatorial
+				civics = { civic = civic_great_khans_vision }
+				cooldown = no
+				remove_invalid_civics = yes
+			}
+		}
+
+		if = {
 			limit = { is_militarist = no }
 			# limit = { is_pacifist = yes }
 			shift_ethic = ethic_militarist
@@ -4120,9 +4130,7 @@ country_event = {
 				country_remove_ethic = ethic_egalitarian
 			}
 			else = { country_remove_ethic = ethic_fanatic_egalitarian }
-			# shift_ethic = ethic_fanatic_spiritualist
 			country_add_ethic = ethic_authoritarian
-			# shift_ethic = ethic_fanatic_authoritarian
 		}
 
 		if = {
@@ -4169,8 +4177,10 @@ country_event = {
 			force_add_civic = civic_fanatic_purifiers
 		}
 
-		force_add_civic = civic_great_khans_vision
-		force_add_civic = civic_shared_burden
+		if = {
+			limit = { NOT = { has_civic = civic_shared_burden } }
+			force_add_civic = civic_shared_burden
+		}
 
 		add_resource = {
 			energy	=	20000
@@ -4231,17 +4241,18 @@ country_event = {
 				# trait = leader_trait_demolisher_3
 			}
 		}
-		# Bug: There is a possibility the species has no class and the trigger gets true somehow
+		room_name_override = "khorgis_khan_1_room" # Should work with 3.8
 		if = { ## Compat. Khorgis Khan: Scourge of the Stars
 			limit = { is_species_class = "GC_CORGI" species_portrait = "mam_corgi" }
+			# Bug: There is a possibility the species has no class and the trigger gets true somehow
 			set_name = "NAME_KHORGI_KHAN"
-			room_name_override = "khorgis_khan_1_room" # Should work with 3.8
+			# room_name_override = "khorgis_khan_1_room"
 			last_created_leader = { set_name = "NAME_Khorgis_Khan" }
 		}
-		# else = {
-		# 	set_name = random
-		# 	room_name_override = "ethic_spaceship_room" # Should work with 3.8
-		# }
+		else = {
+			set_name = random
+			# room_name_override = "ethic_spaceship_room"
+		}
 
 		last_created_leader = {
 			inline_script = { ### NSC FREEBOOTERS SUPPORT has_global_flag = has_nsc_freebooters_mod
@@ -4361,8 +4372,8 @@ country_event = {
 			can_assign_to_council = no
 			effect = {
 				recruitable = no
-				# remove_trait = leader_trait_ruler_great_khan
-				# add_trait = leader_trait_great_khan
+				remove_trait = leader_trait_ruler_great_khan
+				add_trait = leader_trait_great_khan
 				set_leader_flag = great_khan
 				set_leader_flag = legendary_leader
 				save_global_event_target_as = great_khan
@@ -4386,16 +4397,16 @@ country_event = {
 					remove_trait = nsc_freebooter_leader_trait_ruler_great_khan
 					add_trait_no_notify = nsc_freebooter_admiral_trait_great_khan
 					if = {
-						limit = { has_trait = nsc_freebooter_admiral_trait_great_khan }
+						limit = { has_trait = leader_trait_ruler_great_khan }
+						remove_trait = leader_trait_ruler_great_khan
+					}
+					if = {
+						limit = { has_trait = leader_trait_great_khan }
 						remove_trait = leader_trait_great_khan
 					}
 				}
 				"
 				toggle = @has_nsc_freebooter_mod
-			}
-			if = {
-				limit = { NOT = { has_global_flag = has_nsc_freebooters_mod } }
-				remove_trait = leader_trait_ruler_great_khan add_trait_no_notify = leader_trait_great_khan
 			}
 			if = {
 				limit = { NOT = { has_trait = leader_trait_gunship_specialization_3 } }

@@ -1,4 +1,4 @@
-Ever felt like the Great Khan doesn’t really do anything great? Then this mod is for you!
+[h3]Ever felt like the Great Khan doesn’t really do anything great? Then this mod is for you![/h3]
 [h3]Prologue[/h3]
 This is a continuation of [i][url=//steamcommunity.com/workshop/filedetails/2129462916]The Great Khan Expanded[/url] (2.7) by Kinneyj47[/i]. It has been completely overhauled and extended, several fixes, compat, +built-in [i]Crisis Manager s.b[/i].
 
@@ -30,14 +30,14 @@ These are new (AI can use) features[strike], which are not fully tested,[/strike
 ⠀✔️ ZoFE 4.0
 ⠀✔️ ACE
 ⠀✔️ NSC3 must be below
-⠀✔️ (NSC) Freebooter Origin
+⠀✔️ (NSC) Freebooters Origin [☠]
 ⠀✔️ BSW3 [url=//steamcommunity.com/workshop/filedetails/2608679059]- Patch[/url]
 ⠀✔️ Real Space - Ships in Scaling Lite [url=//steamcommunity.com/workshop/filedetails/2738343929]- Patch[/url]
 ⠀✔️ Real System Scale 6x [url=//steamcommunity.com/workshop/filedetails/2991974361]- Patch[/url]
 ⠀✔️ ACOT override (should be above)
 ⠀✔️ Khorgis Khan (should be below)
 ⠀• probably mods modifying AI, ships of Horde or Gray Tempest.
-⠀✖️ Probably NOT compat with mods:⠀modifying Marauders before Great Khan reigns.
+⠀✖️ Probably NOT compat with mods: modifying Marauders before Great Khan reigns.
 
 [b]Load order[/b]: should be below all Crisis Managers and ADT and above NSC3
 
@@ -63,9 +63,9 @@ These are new (AI can use) features[strike], which are not fully tested,[/strike
 ⠀• 🇰🇷 [URL=//steamcommunity.com/workshop/filedetails/3460900014]AOS[/URL] (– 11.Apr.2025)
 ⠀• All other with fallback, if you would like to help and share translations into your language, please let me know.
 
-[h3]Minor Recommendations[/h3]
-⠀• [url=//steamcommunity.com/workshop/filedetails/3253479588]Freebooters Origin[/url] (reborn)
-⠀• [url=//steamcommunity.com/workshop/filedetails/2752952962]Realistic Pirates[/url] (inbuilt compat)
+[h3]Recommendations[/h3]
+⠀• [url=//steamcommunity.com/workshop/filedetails/3253479588]Freebooters Origin [☠][/url] (reborn)
+⠀• [url=//steamcommunity.com/workshop/filedetails/2752952962]Realistic Pirates [☠][/url] (inbuilt compat)
 ⠀• [url=//steamcommunity.com/workshop/filedetails/1899861671]Spaceborne Civs Expanded[/url] (inbuilt compat)
 ⠀• [url=//steamcommunity.com/workshop/filedetails/2936292863]Marauders & Menacing Remodeled[/url] (inbuilt compat)
 ⠀• [url=//steamcommunity.com/workshop/filedetails/2584335328]Powerful & Realistic Orbital Bombardments [☠][/url]
@@ -82,10 +82,10 @@ Files directly affected by [i]load order[/i] (not that important – but all wit
 ⠀• marauder_initializers.txt (mainly for new species traits and Voidborn origin)
 [/code]
 
-[h3]Possible To-Do / Planned[/h3]
-⠀• Marauder can conquer/board humanoid ships⁉
-⠀• Marauder origin
-[strike]⠀• Dyn. power: Khan can update his ships with conquered techs (including mod overpowered techs).[/strike]
+[h3]To-Do/Planned[/h3]
+⠀[strike]• Marauder can conquer/board humanoid ships[/strike]
+⠀[strike]• Marauder origin[/strike]
+Everything for now in Freebooters Origin.
 
 [hr][h3]Credit[/h3]
 ⠀• Kinneyj47 – initiating this mod

@@ -1031,7 +1031,7 @@ system_event = {
 		# }
 	}
 	immediate = {	# system_owner does not exists
-		# log = "test khan.310 [former_starbase_owner.GetName] or [Fromfrom.Owner.GetName]"
+		# log = "test khan.310 \\[former_starbase_owner.GetName] or \\[Fromfrom.Owner.GetName]"
 		if = {
 			limit = {
 				exists = starbase
@@ -1053,7 +1053,7 @@ system_event = {
 				limit = { NOT = { has_star_flag = starbase_destroyed } }
 				system_event = { id = khan.310 days = 2 scopes = { from = root fromfrom = fromfrom } }
 				set_timed_star_flag = { flag = starbase_destroyed days = 5 }
-				log = "khan.310 starbase owned by [former_starbase_owner.GetName] or [Fromfrom.Owner.GetName]"
+				log = "khan.310 starbase owned by \\[former_starbase_owner.GetName] or \\[Fromfrom.Owner.GetName]"
 			}
 			break = yes
 		}
@@ -1597,7 +1597,7 @@ country_event = {
 			}
 			owner_species = { save_event_target_as = marauder_species }
 		}
-		log = "Handover raider_khanate [From.GetName] to Diadochi [This.GetName]."
+		log = "Handover raider_khanate \\[From.GetName] to Diadochi \\[This.GetName]."
 		if = {
 			limit = {
 				OR = {
@@ -1652,7 +1652,7 @@ country_event = {
 				}
 				position = 0
 				order_by = trigger:num_sapient_pops
-				log = "Give system [Prev.GetName] back to [This.Owner.GetName]"
+				log = "Give system \\[Prev.GetName] back to \\[This.Owner.GetName]"
 				owner = { save_event_target_as = planet_owner }
 				prev = {	# commit_system_to = { EMPIRE = prevprev.planet_owner } # The target scope is solved there (so add 1 more prev)
 					commit_system_to = { EMPIRE = event_target:planet_owner }
