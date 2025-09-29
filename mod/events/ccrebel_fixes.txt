@@ -191,7 +191,7 @@ country_event = {
 	id = rebellionfix.36
 	hide_window = yes
 	is_triggered_only = yes
-	trigger = { is_country_type = default }
+	trigger = { merg_is_default_empire = yes }
 	immediate = {
 		if = { # Vanilla Bug Fix (v3.11) for syncretic species by FirePrince https://forum.paradoxplaza.com/forum/threads/stellaris-massive-overlooked-issue-with-syncretic-evolution-origin.1622715/
 			limit = { any_owned_species = { is_same_species = root.owner_species has_trait = trait_syncretic_proles } }
@@ -200,7 +200,7 @@ country_event = {
 				limit = { is_same_species = root.owner_species has_trait = trait_syncretic_proles }
 				export_trigger_value_to_variable = {
 					trigger = count_species_pop
-					variable = species_pop_count
+					variable = var_species_pops_percent
 					parameters = {
 						limit = {
 							is_exact_same_species = prevprev
@@ -211,9 +211,9 @@ country_event = {
 				}
 			}
 			ordered_owned_species = {
-				limit = { is_variable_set = species_pop_count }
+				limit = { is_variable_set = var_species_pops_percent }
 				position = 0
-				order_by = species_pop_count
+				order_by = var_species_pops_percent
 				save_event_target_as = syncretic_species
 			}
 			export_trigger_value_to_variable = {
@@ -225,23 +225,23 @@ country_event = {
 			}
 			owner_species = {
 				if = {
-					limit = { NOR = { has_trait = trait_syncretic_proles is_variable_set = species_pop_count } }
+					limit = { NOR = { has_trait = trait_syncretic_proles is_variable_set = var_species_pops_percent } }
 					export_trigger_value_to_variable = {
 						trigger = count_species_pop
-						variable = species_pop_count
+						variable = var_species_pops_percent
 						parameters = {
 							limit = { NOT = { has_trait = trait_syncretic_proles } is_owned_by = root }
 						}
 					}
 					if = {
-						limit = { check_variable = { which = species_pop_count value > event_target:syncretic_species.species_pop_count } }
-						clear_variable = species_pop_count
+						limit = { check_variable = { which = var_species_pops_percent value > event_target:syncretic_species.var_species_pops_percent } }
+						clear_variable = var_species_pops_percent
 					}
 				}
 			}
 
 			if = {
-				limit = { owner_species = { is_variable_set = species_pop_count } }
+				limit = { owner_species = { is_variable_set = var_species_pops_percent } }
 				modify_species = {
 					species = event_target:syncretic_species
 					remove_trait = trait_syncretic_proles
@@ -266,7 +266,7 @@ country_event = {
 							is_enslaved = yes
 							is_unemployed = yes
 							has_citizenship_rights = no
-							has_job_category = worker
+							has_job_category = worker # pop scope FIXME for v4.0
 						}
 					}
 					change_species = event_target:syncretic_species
@@ -275,8 +275,8 @@ country_event = {
 			log = "FIX: Changed rebelling syncretic species \\[Root.owner_species.GetName] from \\[Root.GetName]!"
 			clear_variable = syncretic_pops
 			every_owned_species = {
-				limit = { is_same_species = root.owner_species is_variable_set = species_pop_count }
-				clear_variable = species_pop_count
+				limit = { is_same_species = root.owner_species is_variable_set = var_species_pops_percent }
+				clear_variable = var_species_pops_percent
 			}
 		}
 		if = {
@@ -1480,6 +1480,6 @@ country_event = {
 		else = { change_government = random }
 		fire_on_action = { on_action = empire_init_create_ships }
 	}
-	after = {	# set_name = random # Because sometimes native didn't work?
+	after = { # set_name = random # Because sometimes native didn't work?
 	}
 }

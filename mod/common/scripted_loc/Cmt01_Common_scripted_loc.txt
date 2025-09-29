@@ -369,9 +369,11 @@ defined_text = {
 	text = {
 		trigger = {
 			has_global_flag = CmtFlagEndGameEdition
-			OR = {
-				event_target:CmtGlobalVar = { check_variable = { which = CmtVarCrisisPower_Endgame value < 1 } }
-				event_target:CmtGlobalVar = { check_variable = { which = CmtVarCrisisPower_Endgame value > 4 } }
+			event_target:CmtGlobalVar = {
+				OR = {
+					check_variable = { which = CmtVarCrisisPower_Endgame value < 1 }
+					check_variable = { which = CmtVarCrisisPower_Endgame value > 4 }
+				}
 			}
 		}
 		localization_key = CrisisManagerMenu.EndgamePower0
@@ -415,9 +417,11 @@ defined_text = {
 	text = {
 		trigger = {
 			has_global_flag = CmtFlagMidGameEdition
-			OR = {
-				event_target:CmtGlobalVar = { check_variable = { which = CmtVarCrisisPower_Midgame value < 1 } }
-				event_target:CmtGlobalVar = { check_variable = { which = CmtVarCrisisPower_Midgame value > 4 } }
+			event_target:CmtGlobalVar = {
+				OR = {
+					check_variable = { which = CmtVarCrisisPower_Midgame value < 1 }
+					check_variable = { which = CmtVarCrisisPower_Midgame value > 4 }
+				}
 			}
 		}
 		localization_key = CrisisManagerMenu.MidgamePower0

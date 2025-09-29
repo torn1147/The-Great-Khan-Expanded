@@ -41,7 +41,7 @@ country_event = {
 				}
 				create_leader = {
 					class = commander
-					species = owner_species					# event_target:mercenary_enclave_species
+					species = owner_species # event_target:mercenary_enclave_species
 					name = random
 					skill = 3
 					background_ethic = "ethic_militarist"
@@ -105,7 +105,7 @@ country_event = {
 						is_offer_terms_actual = { target = event_target:mercenary_enclave_country }
 					}
 					make_special_trade = { target = event_target:mercenary_enclave_country }
-					set_country_flag = mercenary_enclave_rented_fleet					# For tracking returning customers
+					set_country_flag = mercenary_enclave_rented_fleet # For tracking returning customers
 					event_target:mercenary_enclave_country = {
 						add_trust = {
 							who = root
@@ -153,7 +153,7 @@ country_event = {
 				}
 				create_leader = {
 					class = commander
-					species = owner_species					# event_target:mercenary_enclave_species
+					species = owner_species # event_target:mercenary_enclave_species
 					name = random
 					skill = 3
 					background_ethic = "ethic_militarist"
@@ -230,7 +230,7 @@ event = {
 				exists = event_target:great_khan.fleet
 			}
 			event_target:great_khan.fleet = { save_event_target_as = khan_fleet }
-		} else = {
+			} else = {
 			event_target:raider_khanate = {
 				random_owned_fleet = {
 					limit = { has_fleet_flag = khan_fleet }
@@ -399,7 +399,7 @@ event = {
 					controller = { CmtTriggerIsKhanCountry = yes }
 				}
 				end_fleet_contract = {
-					initiator = event_target:raider_khanate					# controller
+					initiator = event_target:raider_khanate # controller
 					reason = cancelled
 				}
 			}
@@ -485,8 +485,8 @@ country_event = {
 				}
 				order_forced_return = yes
 				auto_follow_fleet = { target = event_target:mercenary_enclave_station }
-			} else_if = {
-				limit = { exists = solar_system can_go_mia = yes }				# Otherwise CTD
+				} else_if = {
+				limit = { exists = solar_system can_go_mia = yes } # Otherwise CTD
 				set_mia = mia_return_home
 			}
 			root = {
@@ -518,7 +518,7 @@ country_event = {
 	immediate = {
 		create_leader = {
 			class = commander
-			species = owner_species			# event_target:mercenary_enclave_species
+			species = owner_species # event_target:mercenary_enclave_species
 			name = random
 			skill = 3
 			background_ethic = "ethic_militarist"
@@ -526,7 +526,10 @@ country_event = {
 			can_manually_change_location = no
 			hide_leader = yes
 			custom_description = "custom_mercenary_admiral_desc"
-			traits = { trait = leader_trait_mercenary_warrior trait = subclass_commander_admiral }
+			traits = {
+				trait = leader_trait_mercenary_warrior
+				trait = subclass_commander_admiral
+			}
 			effect = { add_trait = random_common }
 		}
 		random_owned_fleet = {

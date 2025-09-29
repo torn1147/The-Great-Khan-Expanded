@@ -221,7 +221,7 @@ create_pirate_fleet = {
 			effect = {
 				set_owner = event_target:pirate_band
 				if = {
-					limit = { event_target:pirate_system = { trade_intercepted_value >= 100 } }
+					limit = { event_target:pirate_system = { trade_intercepted_value > 99 } }
 					create_dyn_pirate_fleet = { Pirate_Galleon = 1 Skull = 6 Brigand = 6 }
 				}
 				else_if = {
@@ -1080,20 +1080,25 @@ create_thalassocracy_fleet = {
 			effect = {
 				set_owner = event_target:thalassocracy_country
 				if = {
-					limit = { event_target:thalassocracy_target_system = { has_system_trade_value < 100 } }
-					create_thalassocracy_ships_1 = yes
-				}
-				if = {
 					limit = {
 						event_target:thalassocracy_target_system = {
-							has_system_trade_value > 100
+							has_system_trade_value < 100
+							event_target:pirate_system = { trade_intercepted_value < 100 }
+						}
+					}
+					create_thalassocracy_ships_1 = yes
+				}
+				else_if = {
+					limit = {
+						event_target:thalassocracy_target_system = {
+							has_system_trade_value >= 100
 							has_system_trade_value < 140
+							event_target:pirate_system = { trade_intercepted_value < 140 }
 						}
 					}
 					create_thalassocracy_ships_2 = yes
 				}
-				if = {
-					limit = { event_target:thalassocracy_target_system = { has_system_trade_value > 140 } }
+				else = {
 					create_thalassocracy_ships_3 = yes
 				}
 				# set_fleet_formation = { }
@@ -1225,7 +1230,7 @@ create_thalassocracy_ships_3 = {
 
 thalassocracy_patrol = {
 	optimize_memory
-	if = {	# Visit every planet in a system once.
+	if = { # Visit every planet in a system once.
 		limit = {
 			solar_system = {
 				any_system_planet = {
@@ -1241,7 +1246,7 @@ thalassocracy_patrol = {
 			}
 		}
 	}
-	else_if = {	# Leave for the next unvisited system.
+	else_if = { # Leave for the next unvisited system.
 		limit = {
 			solar_system = {
 				any_neighbor_system = {

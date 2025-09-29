@@ -27,7 +27,7 @@ preset_satrapy_scholarium_nice_01 = {
 		modifier = {
 			factor = 0.5
 			has_specialist_subject_type = { TYPE = scholarium }
-			NOT = { FROM = { is_specialist_subject_type = { TYPE = scholarium } } }
+			NOT = { from = { is_specialist_subject_type = { TYPE = scholarium } } }
 		}
 		modifier = {
 			factor = 1.5
@@ -86,7 +86,7 @@ preset_satrapy_scholarium_nice_02 = {
 		modifier = {
 			factor = 0.5
 			has_specialist_subject_type = { TYPE = scholarium }
-			NOT = { FROM = { is_specialist_subject_type = { TYPE = scholarium } } }
+			NOT = { from = { is_specialist_subject_type = { TYPE = scholarium } } }
 		}
 		modifier = {
 			factor = 1.5
@@ -144,7 +144,7 @@ preset_satrapy_scholarium_mean_01 = {
 		modifier = {
 			factor = 0.5
 			has_specialist_subject_type = { TYPE = scholarium }
-			NOT = { FROM = { is_specialist_subject_type = { TYPE = scholarium } } }
+			NOT = { from = { is_specialist_subject_type = { TYPE = scholarium } } }
 		}
 		modifier = {
 			factor = 1.5
@@ -202,7 +202,7 @@ preset_satrapy_scholarium_mean_02 = {
 		modifier = {
 			factor = 0.5
 			has_specialist_subject_type = { TYPE = scholarium }
-			NOT = { FROM = { is_specialist_subject_type = { TYPE = scholarium } } }
+			NOT = { from = { is_specialist_subject_type = { TYPE = scholarium } } }
 		}
 		modifier = {
 			factor = 1.5
@@ -260,7 +260,7 @@ preset_satrapy_scholarium_mean_03 = {
 		modifier = {
 			factor = 0.5
 			has_specialist_subject_type = { TYPE = scholarium }
-			NOT = { FROM = { is_specialist_subject_type = { TYPE = scholarium } } }
+			NOT = { from = { is_specialist_subject_type = { TYPE = scholarium } } }
 		}
 		modifier = {
 			factor = 1.5
@@ -314,7 +314,7 @@ preset_satrapy_prospectorium_nice_01 = {
 		modifier = {
 			factor = 0.5
 			has_specialist_subject_type = { TYPE = prospectorium }
-			NOT = { FROM = { is_specialist_subject_type = { TYPE = prospectorium } } }
+			NOT = { from = { is_specialist_subject_type = { TYPE = prospectorium } } }
 		}
 		modifier = {
 			factor = 1.5
@@ -372,7 +372,7 @@ preset_satrapy_prospectorium_nice_02 = {
 		modifier = {
 			factor = 0.5
 			has_specialist_subject_type = { TYPE = prospectorium }
-			NOT = { FROM = { is_specialist_subject_type = { TYPE = prospectorium } } }
+			NOT = { from = { is_specialist_subject_type = { TYPE = prospectorium } } }
 		}
 		modifier = {
 			factor = 1.5
@@ -430,7 +430,7 @@ preset_satrapy_prospectorium_mean_01 = {
 		modifier = {
 			factor = 0.5
 			has_specialist_subject_type = { TYPE = prospectorium }
-			NOT = { FROM = { is_specialist_subject_type = { TYPE = prospectorium } } }
+			NOT = { from = { is_specialist_subject_type = { TYPE = prospectorium } } }
 		}
 		modifier = {
 			factor = 1.5
@@ -489,7 +489,7 @@ preset_satrapy_prospectorium_mean_02 = {
 		modifier = {
 			factor = 0.5
 			has_specialist_subject_type = { TYPE = prospectorium }
-			NOT = { FROM = { is_specialist_subject_type = { TYPE = prospectorium } } }
+			NOT = { from = { is_specialist_subject_type = { TYPE = prospectorium } } }
 		}
 		modifier = {
 			factor = 1.5
@@ -548,7 +548,7 @@ preset_satrapy_prospectorium_mean_03 = {
 		modifier = {
 			factor = 0.5
 			has_specialist_subject_type = { TYPE = prospectorium }
-			NOT = { FROM = { is_specialist_subject_type = { TYPE = prospectorium } } }
+			NOT = { from = { is_specialist_subject_type = { TYPE = prospectorium } } }
 		}
 		modifier = {
 			factor = 1.5
@@ -602,7 +602,7 @@ preset_satrapy_bulwark_nice_01 = {
 		modifier = {
 			factor = 0.5
 			has_specialist_subject_type = { TYPE = bulwark }
-			NOT = { FROM = { is_specialist_subject_type = { TYPE = bulwark } } }
+			NOT = { from = { is_specialist_subject_type = { TYPE = bulwark } } }
 		}
 		modifier = {
 			factor = 1.5
@@ -663,7 +663,7 @@ preset_satrapy_bulwark_nice_02 = {
 		modifier = {
 			factor = 0.5
 			has_specialist_subject_type = { TYPE = bulwark }
-			NOT = { FROM = { is_specialist_subject_type = { TYPE = bulwark } } }
+			NOT = { from = { is_specialist_subject_type = { TYPE = bulwark } } }
 		}
 		modifier = {
 			factor = 1.5
@@ -720,7 +720,7 @@ preset_satrapy_bulwark_mean_01 = {
 		modifier = {
 			factor = 0.5
 			has_specialist_subject_type = { TYPE = bulwark }
-			NOT = { FROM = { is_specialist_subject_type = { TYPE = bulwark } } }
+			NOT = { from = { is_specialist_subject_type = { TYPE = bulwark } } }
 		}
 		modifier = {
 			factor = 1.5
@@ -777,7 +777,7 @@ preset_satrapy_bulwark_mean_02 = {
 		modifier = {
 			factor = 0.5
 			has_specialist_subject_type = { TYPE = bulwark }
-			NOT = { FROM = { is_specialist_subject_type = { TYPE = bulwark } } }
+			NOT = { from = { is_specialist_subject_type = { TYPE = bulwark } } }
 		}
 		modifier = {
 			factor = 1.5
@@ -834,7 +834,7 @@ preset_satrapy_bulwark_mean_03 = {
 		modifier = {
 			factor = 0.5
 			has_specialist_subject_type = { TYPE = bulwark }
-			NOT = { FROM = { is_specialist_subject_type = { TYPE = bulwark } } }
+			NOT = { from = { is_specialist_subject_type = { TYPE = bulwark } } }
 		}
 		modifier = {
 			factor = 1.5

@@ -5,15 +5,16 @@ wg_satrapy_independence = {
 	hide_if_no_cb = yes
 	total_war = yes
 	set_defender_wargoal = wg_great_expansion # wg_assert_overlordship
+	allowed_peace_offers = { status_quo surrender demand_surrender }
 
 	potential = { always = yes }
 	possible = {
 		is_subject_of_khan = yes
 		custom_tooltip = {
 			fail_text = cannot_use_against_emperor
-			OR = {
-				from = { is_galactic_emperor = no }
-				is_galactic_community_member = no
+			NAND = {
+				from = { is_galactic_emperor = yes }
+				is_galactic_community_member = yes
 			}
 		}
 		custom_tooltip = {
@@ -25,8 +26,6 @@ wg_satrapy_independence = {
 			}
 		}
 	}
-
-	allowed_peace_offers = { status_quo surrender demand_surrender }
 
 	on_status_quo = {
 		custom_tooltip = wg_independence_status_quo
@@ -155,9 +154,9 @@ wg_ae_uprising = {
 	hide_if_no_cb = yes
 	total_war = yes
 	set_defender_wargoal = wg_ae_domination
+	allowed_peace_offers = { status_quo surrender demand_surrender }
 	potential = { always = yes }
 	possible = { always = yes }
-	allowed_peace_offers = { status_quo surrender demand_surrender }
 
 	on_status_quo = {
 		custom_tooltip = wg_independence_status_quo
@@ -212,6 +211,7 @@ wg_ae_uprising = {
 wg_marauder_expansion = {
 	casus_belli = cb_satrapy_subjugation
 	set_defender_wargoal = wg_end_threat
+	allowed_peace_offers = { status_quo surrender demand_surrender }
 	hide_if_no_cb = yes
 	release_occupied_systems_on_status_quo = yes
 	total_war = yes # no
@@ -220,8 +220,6 @@ wg_marauder_expansion = {
 		from = { is_galactic_emperor = yes }
 		imperial_authority >= 100
 	}
-
-	allowed_peace_offers = { status_quo surrender demand_surrender }
 
 	surrender_acceptance = -100
 	war_exhaustion = 0.75
@@ -456,7 +454,7 @@ wg_marauder_expansion = {
 wg_war_in_heaven = {
 	casus_belli = cb_event
 	total_war = yes
-	allowed_peace_offers = { status_quo }
+	allowed_peace_offers = { status_quo demand_surrender }
 	surrender_acceptance = -900
 	war_exhaustion = 0.25
 	set_defender_wargoal = wg_war_in_heaven
@@ -717,9 +715,7 @@ wg_great_expansion = {
 	cede_claims = occupied_only
 	total_war = yes
 	release_occupied_systems_on_status_quo = yes
-	allowed_peace_offers = {
-		status_quo # Otherwise the defender is fully inhaled.
-	}
+	allowed_peace_offers = { status_quo demand_surrender }
 	surrender_acceptance = -600
 	war_exhaustion = 0.75
 	# set_defender_wargoal = wg_great_expansion

@@ -1,10 +1,11 @@
-version="3.14.1592653.1"
+version="3.14.1592653.2"
 tags={
 	"Events"
 	"Crisis"
 	"Gameplay"
 	"Marauders"
 	"Fixes"
+	"3.14"
 }
 dependencies={
 	"[Salvaged+]Marauders & Menacing Remodeled"

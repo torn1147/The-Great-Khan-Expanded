@@ -377,6 +377,7 @@ resolution_custodian_end_custodianship = {
 
 		modifier = {
 			factor = 20
+			exists = from
 			is_rival = from
 			desc = gal_com_target_is_rival
 		}

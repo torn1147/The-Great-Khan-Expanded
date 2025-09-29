@@ -7,7 +7,7 @@
 # [effect_on_blob] Invalid center target at file: scripted effect assign_fourth_diadochi_planets
 
 # This = Fleet
-create_dyn_marauder_fleet = {	# default: OUTRIDER = 18 LANCER = 12 CHAMPION = 6 GLORY = 1
+create_dyn_marauder_fleet = { # default: OUTRIDER = 18 LANCER = 12 CHAMPION = 6 GLORY = 1
 	optimize_memory
 	while = { count = $OUTRIDER|18$
 		# count = @\[ $AMOUNT|3$ * 6 ]
@@ -52,9 +52,17 @@ create_1st_khan_fleet = {
 	optimize_memory
 	create_fleet = {
 		name = "NAME_Chosen_of_the_Great_Khan"
+		settings = {
+			can_upgrade = no
+			can_disband = no
+			can_change_composition = no
+			can_change_leader = no
+			uses_naval_capacity = no
+			spawn_debris = yes
+		}
 		effect = {
 			set_owner = event_target:raider_khanate
-			create_ship = {	# name = "NAME_JuukTidir"
+			create_ship = { # name = "NAME_JuukTidir"
 				design = "NAME_JuukTidir"
 				# random_existing_design = npc_galleon_01
 				graphical_culture = "npf_01" # _dirty
@@ -76,6 +84,13 @@ create_1st_khan_fleet = {
 			set_location = { target = event_target:marauder_rally_point distance = 45 angle = random }
 			set_home_base = event_target:marauder_rally_point.solar_system.starbase
 		}
+	}
+}
+
+create_2nd_khan_fleet = {
+	optimize_memory
+	create_fleet = {
+		name = "NAME_Chosen_of_the_Great_Khan"
 		settings = {
 			can_upgrade = no
 			can_disband = no
@@ -84,16 +99,9 @@ create_1st_khan_fleet = {
 			uses_naval_capacity = no
 			spawn_debris = yes
 		}
-	}
-}
-
-create_2nd_khan_fleet = {
-	optimize_memory
-	create_fleet = {
-		name = "NAME_Chosen_of_the_Great_Khan"
 		effect = {
 			set_owner = event_target:raider_khanate
-			create_ship = {	# name = "NAME_Glorious_Might"
+			create_ship = { # name = "NAME_Glorious_Might"
 				design = "NAME_Glorious_Might"
 				# random_existing_design = npc_galleon_01
 				graphical_culture = "npf_01_dirty"
@@ -113,14 +121,6 @@ create_2nd_khan_fleet = {
 			save_event_target_as = khan_fleet
 			set_location = { target = event_target:marauder_rally_point distance = 45 angle = random }
 			set_home_base = event_target:marauder_rally_point.solar_system.starbase
-		}
-		settings = {
-			can_upgrade = no
-			can_disband = no
-			can_change_composition = no
-			can_change_leader = no
-			uses_naval_capacity = no
-			spawn_debris = yes
 		}
 	}
 }
@@ -517,9 +517,18 @@ get_marauder_raid_source = {
 		event_target:raid_source.solar_system = { save_event_target_as = marauder_system }
 	}
 	else = {
-		log_error = "No raid source found for marauder \\[This.GetName]!"
-		destroy_country = yes
-		break = yes
+		log = "No marauder raid source found \\[This.GetName], they disappear!"
+		if = {
+			limit = {
+				num_fleets > 0
+				any_controlled_fleet = { is_mobile = yes is_civilian = no }
+			}
+			set_faction_hostility = { set_hostile = yes }
+			set_country_type = pirate
+		}
+		else = {
+			destroy_country = yes
+		}
 	}
 }
 
@@ -847,13 +856,13 @@ commit_system_to = {
 }
 
 # This = root = Marauder
-get_marauder_species = {	# log = "GET MARAUDER SPECIES"
+get_marauder_species = { # log = "GET MARAUDER SPECIES"
 	[[PLANET]
 	if = { limit = { exists = prev prev = { is_scope_valid = yes is_scope_type = planet } }
 		# log = "GET MARAUDER PLANET SPECIES"
 		if = {
 			limit = {
-				exists = event_target:marauder_country_1	# root = { has_country_flag = marauder_1 }
+				exists = event_target:marauder_country_1 # root = { has_country_flag = marauder_1 }
 				OR = {
 					prev.solar_system = { has_star_flag = marauder_capital_1 }
 					AND = {
@@ -894,7 +903,7 @@ get_marauder_species = {	# log = "GET MARAUDER SPECIES"
 
 	if = {
 		limit = {
-			OR = {	# This error log turns me crazy: is_same_species/is_exact_same_species: Unable to resolve species from 'event_target:marauder_species' (no_scope scope)
+			OR = { # This error log turns me crazy: is_same_species/is_exact_same_species: Unable to resolve species from 'event_target:marauder_species' (no_scope scope)
 				NAND = {
 					exists = event_target:marauder_species
 					event_target:marauder_species = { is_scope_valid = yes }
@@ -912,7 +921,7 @@ get_marauder_species = {	# log = "GET MARAUDER SPECIES"
 				}
 			}
 			# any_owned_pop_species = { not used by vanilla
-			any_owned_species = {	# is_scope_valid = yes
+			any_owned_species = { # is_scope_valid = yes
 				# is_scope_type = species
 				OR = {
 					species_can_be_necrophaged = yes
@@ -929,7 +938,7 @@ get_marauder_species = {	# log = "GET MARAUDER SPECIES"
 		}
 		# random_owned_pop_species = { not used by vanilla
 		random_owned_species = {
-			limit = {	# is_scope_valid = yes
+			limit = { # is_scope_valid = yes
 				# is_scope_type = species
 				OR = {
 					species_can_be_necrophaged = yes
@@ -971,7 +980,7 @@ get_marauder_species = {	# log = "GET MARAUDER SPECIES"
 				# modifier = { add = 2 prev = { count_owned_pop = { count > 10 limit = { is_same_species = prevprev } } } }
 				modifier = { factor = 1.5
 					prev = {
-						count_owned_pop = { count > 22
+						count_owned_pop = { count >  22
 							limit = { is_same_species = prevprev }
 						}
 					}
@@ -994,7 +1003,7 @@ get_marauder_species = {	# log = "GET MARAUDER SPECIES"
 	}
 
 	if = {
-		limit = {	# This error log turns me crazy: is_same_species/is_exact_same_species: Unable to resolve species from 'event_target:marauder_species' (no_scope scope)
+		limit = { # This error log turns me crazy: is_same_species/is_exact_same_species: Unable to resolve species from 'event_target:marauder_species' (no_scope scope)
 			NAND = {
 				exists = event_target:marauder_species
 				event_target:marauder_species = { is_scope_valid = yes }
@@ -1071,7 +1080,7 @@ get_marauder_species = {	# log = "GET MARAUDER SPECIES"
 	}
 	# Common Fallback
 	if = {
-		limit = {	# This error log turns me crazy: is_same_species/is_exact_same_species: Unable to resolve species from 'event_target:marauder_species' (no_scope scope)
+		limit = { # This error log turns me crazy: is_same_species/is_exact_same_species: Unable to resolve species from 'event_target:marauder_species' (no_scope scope)
 			OR = {
 				NOT = { exists = event_target:marauder_species }
 				event_target:marauder_species = {
@@ -1093,22 +1102,22 @@ get_marauder_species = {	# log = "GET MARAUDER SPECIES"
 	else_if = {
 		limit = {
 			pop_percentage = {
-				limit = { is_same_species = event_target:marauder_species }
 				percentage > 0.65
+				limit = { is_same_species = event_target:marauder_species }
 			}
 			OR = {
 				AND = {
 					exists = event_target:great_khan
 					pop_percentage = {
-						limit = { is_same_species = event_target:great_khan.species }
 						percentage < 0.2
+						limit = { is_same_species = event_target:great_khan.species }
 					}
 				}
 				AND = {
 					NOT = { exists = event_target:great_khan.species }
 					pop_percentage = {
-						limit = { is_same_species = owner_species }
 						percentage < 0.25
+						limit = { is_same_species = owner_species }
 					}
 				}
 			}
@@ -1119,7 +1128,7 @@ get_marauder_species = {	# log = "GET MARAUDER SPECIES"
 }
 
 # Update zz_diplo_vanilla_scripted_effects.txt from "Expanded Espionage and Diplomacy"
-create_privateer_fleet = {	# Event targets created by create_privateer_country.
+create_privateer_fleet = { # Event targets created by create_privateer_country.
 	event_target:privateer_band = {
 		if = {
 			limit = {
@@ -1220,7 +1229,7 @@ create_privateer_fleet = {	# Event targets created by create_privateer_country.
 # Create global Rally Point event_targets (HELPER).
 # Former event id = marauder.499 (<v3.13)
 # This = marauder country
-create_marauder_rally_points = {	### Rally Point of Fleets 1/3: Set Event Targets; Set Owner Species to Target
+create_marauder_rally_points = { ### Rally Point of Fleets 1/3: Set Event Targets; Set Owner Species to Target
 	if = {
 		limit = { exists = event_target:marauder_country_1 }
 		event_target:marauder_country_1 = {
@@ -1235,7 +1244,7 @@ create_marauder_rally_points = {	### Rally Point of Fleets 1/3: Set Event Target
 							save_global_event_target_as = CmtTargetMarauderRallyPoint1
 						}
 					}
-					else = {	## Backup Code: raid_source NOT Found in Capital System
+					else = { ## Backup Code: raid_source NOT Found in Capital System
 						random_system_planet = {
 							limit = { is_star = no }
 							weights = { base = 1
@@ -1249,7 +1258,7 @@ create_marauder_rally_points = {	### Rally Point of Fleets 1/3: Set Event Target
 					}
 				}
 			}
-			else = {	## Backup Code: Capital System NOT Found
+			else = { ## Backup Code: Capital System NOT Found
 				random_planet_within_border = {
 					limit = { is_star = no }
 					weights = { base = 1
@@ -1287,7 +1296,7 @@ create_marauder_rally_points = {	### Rally Point of Fleets 1/3: Set Event Target
 	}
 	if = {
 		limit = { exists = event_target:marauder_country_2 }
-		event_target:marauder_country_2 = {	# owner_species = { save_global_event_target_as = CmtTargetSpecies_Marauder2 }
+		event_target:marauder_country_2 = { # owner_species = { save_global_event_target_as = CmtTargetSpecies_Marauder2 }
 			if = {
 				limit = { any_system_within_border = { has_star_flag = marauder_capital_2 } }
 				random_system_within_border = {
@@ -1299,7 +1308,7 @@ create_marauder_rally_points = {	### Rally Point of Fleets 1/3: Set Event Target
 							save_global_event_target_as = CmtTargetMarauderRallyPoint2
 						}
 					}
-					else = {	## Backup Code: raid_source NOT found in Capital System
+					else = { ## Backup Code: raid_source NOT found in Capital System
 						random_system_planet = {
 							limit = { is_star = no }
 							weights = { base = 1
@@ -1313,7 +1322,7 @@ create_marauder_rally_points = {	### Rally Point of Fleets 1/3: Set Event Target
 					}
 				}
 			}
-			else = {	## Backup Code: Capital System NOT Found
+			else = { ## Backup Code: Capital System NOT Found
 				random_planet_within_border = {
 					limit = { is_star = no }
 					weights = { base = 1
@@ -1351,7 +1360,7 @@ create_marauder_rally_points = {	### Rally Point of Fleets 1/3: Set Event Target
 	}
 	if = {
 		limit = { exists = event_target:marauder_country_3 }
-		event_target:marauder_country_3 = {	# owner_species = { save_global_event_target_as = CmtTargetSpecies_Marauder3 }
+		event_target:marauder_country_3 = { # owner_species = { save_global_event_target_as = CmtTargetSpecies_Marauder3 }
 			if = {
 				limit = { any_system_within_border = { has_star_flag = marauder_capital_3 } }
 				random_system_within_border = {
@@ -1363,7 +1372,7 @@ create_marauder_rally_points = {	### Rally Point of Fleets 1/3: Set Event Target
 							save_global_event_target_as = CmtTargetMarauderRallyPoint3
 						}
 					}
-					else = {	## Backup Code: raid_source NOT Found in Capital System
+					else = { ## Backup Code: raid_source NOT Found in Capital System
 						random_system_planet = {
 							limit = { is_star = no }
 							weights = { base = 1
@@ -1377,7 +1386,7 @@ create_marauder_rally_points = {	### Rally Point of Fleets 1/3: Set Event Target
 					}
 				}
 			}
-			else = {	## Backup Code: Capital System NOT Found
+			else = { ## Backup Code: Capital System NOT Found
 				random_planet_within_border = {
 					limit = { is_star = no }
 					weights = { base = 1

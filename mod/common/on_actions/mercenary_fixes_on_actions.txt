@@ -1,9 +1,25 @@
 # A planets controller becomes a country not the same as the owner.
 # Root = Planet
 # From = Planet Owner
-# FromFrom = Planet Controller (the one occupying)
+# fromfrom = Planet Controller (the one occupying)
 on_planet_occupied = {
 	events = {
 		marauder.30 # Mercenary need new target
+	}
+}
+
+# This = subject
+# From = subject's overlord
+on_becoming_subject = {
+	events = {
+		khan.530 # Stuck bug fix
+	}
+}
+
+# This = destroyed country
+# From = optional, destroyer (country)
+on_country_destroyed = {
+	events = {
+		marauder.600 # Awakened Marauders dead
 	}
 }

@@ -34,44 +34,44 @@
 ###################
 
 ### Critical (Lifespan of Khan, debug code)
-@CmtConstKhanLifespan_1a =	1		### Minimum Lifespan / day
-@CmtConstKhanLifespan_1b =	0.025	### Probability of Death (2%/month for 1)
-@CmtConstKhanLifespan_1c =	35		### Maximum Lifespan / day (days = 1c)
-@CmtConstKhanLifespan_1d =	5		### Maximum Lifespan / day (random = 1d)
-@CmtConstKhanLifespan_1e =	8		### Time-Lag of Post-Death Process (days = 1e)
-@CmtConstKhanLifespan_1f =	4		### Time-Lag of Post-Death Process (random = 1f)
+@CmtConstKhanLifespan_1a =	1 ### Minimum Lifespan / day
+@CmtConstKhanLifespan_1b =	0.025 ### Probability of Death (2%/month for 1)
+@CmtConstKhanLifespan_1c =	35 ### Maximum Lifespan / day (days = 1c)
+@CmtConstKhanLifespan_1d =	5 ### Maximum Lifespan / day (random = 1d)
+@CmtConstKhanLifespan_1e =	8 ### Time-Lag of Post-Death Process (days = 1e)
+@CmtConstKhanLifespan_1f =	4 ### Time-Lag of Post-Death Process (random = 1f)
 
 ### Fleeting (Lifespan of Khan)
-@CmtConstKhanLifespan_2a =	4320	### Minimum Lifespan / day
-@CmtConstKhanLifespan_2b =	0.75	### Probability of Death (2%/month for 1)
-@CmtConstKhanLifespan_2c =	7200	### Maximum Lifespan / day (days = 1c)
-@CmtConstKhanLifespan_2d =	2880	### Maximum Lifespan / day (random = 1d)
-@CmtConstKhanLifespan_2e =	90		### Time-Lag of Post-Death Process (days = 1e)
-@CmtConstKhanLifespan_2f =	60		### Time-Lag of Post-Death Process (random = 1f)
+@CmtConstKhanLifespan_2a =	4320 ### Minimum Lifespan / day
+@CmtConstKhanLifespan_2b =	0.75 ### Probability of Death (2%/month for 1)
+@CmtConstKhanLifespan_2c =	7200 ### Maximum Lifespan / day (days = 1c)
+@CmtConstKhanLifespan_2d =	2880 ### Maximum Lifespan / day (random = 1d)
+@CmtConstKhanLifespan_2e =	90 ### Time-Lag of Post-Death Process (days = 1e)
+@CmtConstKhanLifespan_2f =	60 ### Time-Lag of Post-Death Process (random = 1f)
 
 ### Standard (Lifespan of Khan)
-@CmtConstKhanLifespan_3a =	7200	### Minimum Lifespan / day
-@CmtConstKhanLifespan_3b =	1.00	### Probability of Death (2%/month for 1)
-@CmtConstKhanLifespan_3c =	10800	### Maximum Lifespan / day (days = 1c)
-@CmtConstKhanLifespan_3d =	5000	### Maximum Lifespan / day (random = 1d)
-@CmtConstKhanLifespan_3e =	200		### Time-Lag of Post-Death Process (days = 1e)
-@CmtConstKhanLifespan_3f =	100		### Time-Lag of Post-Death Process (random = 1f)
+@CmtConstKhanLifespan_3a =	7200 ### Minimum Lifespan / day
+@CmtConstKhanLifespan_3b =	1.00 ### Probability of Death (2%/month for 1)
+@CmtConstKhanLifespan_3c =	10800 ### Maximum Lifespan / day (days = 1c)
+@CmtConstKhanLifespan_3d =	5000 ### Maximum Lifespan / day (random = 1d)
+@CmtConstKhanLifespan_3e =	200 ### Time-Lag of Post-Death Process (days = 1e)
+@CmtConstKhanLifespan_3f =	100 ### Time-Lag of Post-Death Process (random = 1f)
 
 ### Enduring (Lifespan of Khan)
-@CmtConstKhanLifespan_4a =	10800	### Minimum Lifespan / day
-@CmtConstKhanLifespan_4b =	3.00	### Probability of Death (2%/month for 1)
-@CmtConstKhanLifespan_4c =	16200	### Maximum Lifespan / day (days = 1c)
-@CmtConstKhanLifespan_4d =	5400	### Maximum Lifespan / day (random = 1d)
-@CmtConstKhanLifespan_4e =	270		### Time-Lag of Post-Death Process (days = 1e)
-@CmtConstKhanLifespan_4f =	180		### Time-Lag of Post-Death Process (random = 1f)
+@CmtConstKhanLifespan_4a =	10800 ### Minimum Lifespan / day
+@CmtConstKhanLifespan_4b =	3.00 ### Probability of Death (2%/month for 1)
+@CmtConstKhanLifespan_4c =	16200 ### Maximum Lifespan / day (days = 1c)
+@CmtConstKhanLifespan_4d =	5400 ### Maximum Lifespan / day (random = 1d)
+@CmtConstKhanLifespan_4e =	270 ### Time-Lag of Post-Death Process (days = 1e)
+@CmtConstKhanLifespan_4f =	180 ### Time-Lag of Post-Death Process (random = 1f)
 
 ### Venerable (Lifespan of Khan)
-@CmtConstKhanLifespan_5a =	18000	### Minimum Lifespan / day
-@CmtConstKhanLifespan_5b =	5.00	### Probability of Death (2%/month for 1)
-@CmtConstKhanLifespan_5c =	27000	### Maximum Lifespan / day (days = 1c)
-@CmtConstKhanLifespan_5d =	9000	### Maximum Lifespan / day (random = 1d)
-@CmtConstKhanLifespan_5e =	360		### Time-Lag of Post-Death Process (days = 1e)
-@CmtConstKhanLifespan_5f =	360		### Time-Lag of Post-Death Process (random = 1f)
+@CmtConstKhanLifespan_5a =	18000 ### Minimum Lifespan / day
+@CmtConstKhanLifespan_5b =	5.00 ### Probability of Death (2%/month for 1)
+@CmtConstKhanLifespan_5c =	27000 ### Maximum Lifespan / day (days = 1c)
+@CmtConstKhanLifespan_5d =	9000 ### Maximum Lifespan / day (random = 1d)
+@CmtConstKhanLifespan_5e =	360 ### Time-Lag of Post-Death Process (days = 1e)
+@CmtConstKhanLifespan_5f =	360 ### Time-Lag of Post-Death Process (random = 1f)
 
 ### Immortality (Lifespan of Khan): Directly Written in Event/Effect
 # @CmtConstKhanLifespan_6e =	360		### Time-Lag of Post-Death Process (days = 1e)
@@ -105,7 +105,7 @@ country_event = {
 				}
 			}
 			prev = { save_event_target_as = new_khanate }
-			country_event = { id = marauder.609 days = -1 }		# Fully handover
+			country_event = { id = marauder.609 days = -1 } # Fully handover
 		}
 		every_subject = {
 			limit = {
@@ -160,8 +160,8 @@ country_event = {
 		has_global_flag = war_in_heaven_ongoing
 		CmtTriggerIsKhanCountry = yes
 		NOR = {
-			has_global_flag = war_in_heaven_nonaligned_league		## Leader Chosen
-			has_global_flag = war_in_heaven_seeking_league_leader	## Now Ordering
+			has_global_flag = war_in_heaven_nonaligned_league ## Leader Chosen
+			has_global_flag = war_in_heaven_seeking_league_leader ## Now Ordering
 		}
 		has_galactic_emperor = no # Galactic Empire serves this purpose.
 	}
@@ -697,7 +697,7 @@ country_event = {
 				}
 			}
 			root = { save_event_target_as = new_khanate }
-			country_event = { id = marauder.609 days = 30 }		# Fully handover
+			country_event = { id = marauder.609 days = 30 } # Fully handover
 		}
 	}
 }
@@ -776,7 +776,6 @@ country_event = {
 				}
 			}
 			add_opinion_modifier = { who = from modifier = opinion_war_in_heaven_enemy }
-
 		}
 		ai_chance = {
 			factor = 2
@@ -919,7 +918,7 @@ country_event = {
 			inline_script = { # ZOFE
 				script = merger_of_rules/toggled_code
 				code = "
-					is_zofe_fe = no
+				is_zofe_fe = no
 				"
 				toggle = @has_zofe_vanilla
 			}
@@ -1050,7 +1049,7 @@ country_event = {
 			inline_script = { # ZOFE
 				script = merger_of_rules/toggled_code
 				code = "
-					is_zofe_fe = no
+				is_zofe_fe = no
 				"
 				toggle = @has_zofe_vanilla
 			}
@@ -1236,7 +1235,7 @@ country_event = {
 			modifier = { factor = 0 is_subject = no }
 		}
 	}
-	option = {		## For ZoFE
+	option = { ## For ZoFE
 		name = war_in_heaven.4.e
 		trigger = {
 			exists = event_target:FirstSleeper
@@ -1273,14 +1272,14 @@ country_event = {
 	inline_script = { # ZOFE
 		script = merger_of_rules/toggled_code
 		code = "
-	option = {
-		name = war_in_heaven.4.f
-		trigger = { is_zofe_fe = yes }
-		ai_chance = {
-			factor = 50
-			modifier = { factor = 0 is_zofe_fe = no }
+		option = {
+			name = war_in_heaven.4.f
+			trigger = { is_zofe_fe = yes }
+			ai_chance = {
+				factor = 50
+				modifier = { factor = 0 is_zofe_fe = no }
+			}
 		}
-	}
 		"
 		toggle = @has_zofe_vanilla
 	}
@@ -1561,16 +1560,16 @@ country_event = {
 			limit = { is_country_type = dormant_marauders }
 			switch = { trigger = has_country_flag
 				marauder_1 = { every_playable_country = {
-					limit = { CmtTriggerCountryHiringMarauder1 = yes }
-					set_country_flag = CmtFlagHiringMarauder1
+						limit = { CmtTriggerCountryHiringMarauder1 = yes }
+						set_country_flag = CmtFlagHiringMarauder1
 				} root = { set_country_flag = marauder_1 } }
 				marauder_2 = { every_playable_country = {
-					limit = { CmtTriggerCountryHiringMarauder2 = yes }
-					set_country_flag = CmtFlagHiringMarauder2
+						limit = { CmtTriggerCountryHiringMarauder2 = yes }
+						set_country_flag = CmtFlagHiringMarauder2
 				} root = { set_country_flag = marauder_2 } }
 				marauder_3 = { every_playable_country = {
-					limit = { CmtTriggerCountryHiringMarauder3 = yes }
-					set_country_flag = CmtFlagHiringMarauder3
+						limit = { CmtTriggerCountryHiringMarauder3 = yes }
+						set_country_flag = CmtFlagHiringMarauder3
 				} root = { set_country_flag = marauder_3 } }
 			}
 			set_country_type = ruined_marauders
@@ -1580,7 +1579,7 @@ country_event = {
 			country_event = { id = marauder.77 days = 18 }
 		}
 
-		country_event = { id = marauder.78 days = 6 }	## Mercenaries Join the Great Khan.
+		country_event = { id = marauder.78 days = 6 } ## Mercenaries Join the Great Khan.
 
 		every_country = {
 			limit = {
@@ -1625,6 +1624,11 @@ country_event = {
 					limit = { is_ai = no }
 					country_event = { id = khan.294 } # Major Notify
 				}
+
+				modifier = { factor = 0
+					has_global_flag = war_in_heaven_debug # Test WiH
+					NOT = { has_global_flag = CmtFlagDebugMode }
+				}
 				# TODO observer_event ?
 				modifier = { factor = 0.75
 					num_fallen_empires_setting > 0
@@ -1633,10 +1637,6 @@ country_event = {
 				modifier = { factor = 0.75
 					num_fallen_empires_setting > 1
 					count_country = { count > 1 limit = { merg_is_fallen_empire = yes } }
-				}
-				modifier = { factor = 0
-					has_global_flag = war_in_heaven_debug # Test WiH
-					NOT = { has_global_flag = CmtFlagDebugMode }
 				}
 			}
 			50 = { # FE Awakening
@@ -1654,13 +1654,12 @@ country_event = {
 							NOT = { has_global_flag = endgame_crisis_early_start }
 							default_endgame_early_start_triggers = yes
 						}
-						NOT = { any_country = {
-							OR = {
-								is_valid_fallen_empire_for_task = yes
-								AND = { is_fallen_empire = yes is_gestalt = no fleet_power > 90000 }
-							}
+						count_country = { count = 0 limit = {
+								OR = {
+									is_valid_fallen_empire_for_task = yes
+									AND = { is_fallen_empire = yes is_gestalt = no fleet_power > 90000 }
+								}
 						} }
-
 					}
 				}
 				modifier = { factor = 0.5
@@ -1858,7 +1857,7 @@ event = {
 		if = {
 			limit = {
 				exists = event_target:global_event_country
-				host_has_dlc = "Apocalypse"
+				has_apocalypse_dlc = yes
 				NOR = { exists = event_target:CmtGlobalVar has_global_flag = CmtFlagActivated }
 			}
 			# if = { limit = { NOT = { exists = event_target:global_event_country } }
@@ -1945,7 +1944,7 @@ event = {
 				# 				base = 1
 				# 				modifier = { add = 1 leader_age > 85 }
 				# 				modifier = { add = 2 is_idle = yes }
-				# 				modifier = { add = 3 has_level < 3 }
+				# 				modifier = { add = 3 has_base_skill < 3 }
 				# 				modifier = { add = 1 gender = female } # hehe
 				# 			}
 				# 			set_leader_flag = great_khan
@@ -1988,7 +1987,8 @@ event = {
 					}
 					country_event = { id = khan.312 days = 4 } # Create Garrison Dummy Country
 					# Fix cleared global targets (for unknown reason)
-					country_event = { id = marauder.78 days = 2 }	## Mercenaries Join the Great Khan.
+					country_event = { id = marauder.78 days = 2 } ## Mercenaries Join the Great Khan.
+					country_event = { id = khan.530 days = 3 } # Stuck bug fix
 				}
 				else_if = {
 					limit = { has_global_flag = great_khan_wins }
@@ -2067,7 +2067,7 @@ country_event = {
 			limit = { has_ethic = ethic_fanatic_xenophobe }
 			country_remove_ethic = ethic_fanatic_xenophobe
 		}
-		shift_ethic = ethic_xenophile # Omit purge pops and be the crisis
+		shift_ethic = ethic_xenophile # Omit purge pops and be the crisis.
 
 		set_policy = { policy = diplomatic_stance option = diplo_stance_belligerent cooldown = yes }
 
@@ -2125,7 +2125,7 @@ country_event = {
 						}
 					}
 					else_if = { limit = { count_starbase_modules = { count < 2 } }
-					set_starbase_module = { slot = 2 module = anchorage }
+						set_starbase_module = { slot = 2 module = anchorage }
 						set_starbase_module = { slot = 3 module = anchorage }
 						if = {
 							limit = { NOT = { is_starbase_building_module = anchorage } }
@@ -2133,7 +2133,7 @@ country_event = {
 						}
 					}
 					else_if = { limit = { count_starbase_modules = { count < 3 } }
-					set_starbase_module = { slot = 3 module = anchorage }
+						set_starbase_module = { slot = 3 module = anchorage }
 						if = {
 							limit = { NOT = { is_starbase_building_module = anchorage } }
 							set_starbase_module = { slot = 4 module = anchorage }
@@ -2344,7 +2344,7 @@ country_event = { ## Return of the Khan ##
 		remove_global_flag = great_khan_dead
 		event_target:CmtGlobalVar = { set_variable = { which = CmtVarKhanMultiple value = 5 } } # Unify All Marauders
 		country_event = { id = marauder.500 }
-		country_event = { id = khan.306 days = -1 }		# Check/Create fallback rally_point
+		country_event = { id = khan.306 days = -1 } # Check/Create fallback rally_point
 	}
 	after = {
 		event_target:marauder_rally_point = {
@@ -2397,19 +2397,32 @@ country_event = {
 	trigger = {
 		has_global_flag = true_great_khan_crisis
 		NOT = { has_global_flag = great_khan_dead }
-		exists = event_target:raider_khanate
 		merg_is_default_empire = yes
+		is_ai = yes
+		is_subject = no
 		OR = {
 			has_country_flag = new_khanate_flag
 			has_country_flag = democratic_khanate_flag
 			has_country_flag = restored_marauders_flag
 		}
-		is_subject = no
-		is_ai = yes
+		exists = event_target:raider_khanate
+		has_communications = event_target:raider_khanate
 		relative_power = {
 			who = event_target:raider_khanate
 			category = fleet
 			value < equivalent
+		}
+		event_target:raider_khanate = {
+			# Added in v4.0 (due stuck bug, Khan didn't find enemies)
+			# Possible create a trade offer for systems to the next enemy in .551
+			any_neighbor_country = {
+				merg_is_default_empire = yes
+				NOR = {
+					is_same_empire = prevprev
+					is_subject_of_khan = yes
+				}
+				is_hostile_to = prev
+			}
 		}
 	}
 	mean_time_to_happen = {
@@ -2424,8 +2437,8 @@ country_event = {
 	}
 }
 
-### Deprecated (TODO)
-### Drums of War - Khan Expanding War (Cycle) on_action yearly/on_becoming_subject MTTH 360
+### Khan needs an enemy
+### Drums of War - Khan Expanding War (Cycle) on_becoming_subject
 # This = Khan / subject
 country_event = {
 	id = khan.529
@@ -2459,42 +2472,51 @@ country_event = {
 		}
 		event_target:raider_khanate = {
 			if = {
-				limit = {
-					any_playable_country = {
+				limit = { # (added in v4.0)
+					any_neighbor_country = {
+						merg_is_default_empire = yes
 						has_communications = prev
 						NOR = {
 							has_truce = prev
-							is_subject_of_khan = yes
-							is_at_war_with = prev
-							is_same_empire = prev
-						}
-					}
-				}
-				random_neighbor_country = {
-					limit = {
-						merg_is_default_empire = yes
-						NOR = {
-							is_same_empire = prev
-							has_truce = prev
-							is_subject_of_khan = yes
 							is_at_war_with = prev
 						}
+						is_subject_of_khan = yes
 					}
-					weights = { base = 1
-						modifier = { add = 9 relative_power = { who = prev category = fleet value < equivalent } }
-						modifier = { add = 3 relative_power = { who = prev category = fleet value = equivalent } }
-						modifier = { add = 9 opinion_level = { who = prev level < neutral } }
-						modifier = { add = 3 opinion_level = { who = prev level = neutral } }
-						modifier = { add = 33
-							any_owned_fleet = {
-								is_mobile = yes
-								is_civilian = no
-								exists = solar_system
-								solar_system = { is_owned_by = root }
+					NOT = {
+						any_neighbor_country = { # Counts also subject neighbors somehow
+							merg_is_default_empire = yes
+							NOR = {
+								has_truce = prev
+								is_subject_of_khan = yes
+								is_at_war_with = prev
+							}
+							prev = { # Is real neighbor
+								any_system_within_border = {
+									any_country_neighbor_to_system = { is_same_empire = prevprev }
+								}
 							}
 						}
 					}
+				}
+				# Added in v4.0 (due stuck bug, Khan didn't find enemies)
+				# Possible create a trade offer for systems to the next enemy in .551
+				random_neighbor_country = {
+					limit = {
+						merg_is_default_empire = yes
+						has_communications = prev
+						NOR = {
+							has_truce = prev
+							is_at_war_with = prev
+						}
+						is_subject_of_khan = yes
+					}
+					weights = { base = 1
+						modifier = { add = 99 is_ai = yes }
+						modifier = { add = 9 opinion_level = { who = prev level < neutral } }
+					}
+					set_subject_of = { who = none }
 					prev = {
+						set_faction_hostility = { target = prev set_hostile = yes }
 						declare_war = { target = prev name = "NAME_Expansion" attacker_war_goal = "wg_great_expansion" }
 					}
 					if = {
@@ -2502,89 +2524,109 @@ country_event = {
 						change_variable = { which = "planets_lost_to_marauder" value = 3 }
 					}
 				}
+			}
+			else_if = {
+				limit = {
+					any_playable_country = {
+						has_communications = prev
+						NOR = {
+							is_same_empire = prev
+							has_truce = prev
+							is_subject_of_khan = yes
+							is_at_war_with = prev
+						}
+					}
+				}
+				if = {
+					limit = {
+						any_neighbor_country = {
+							merg_is_default_empire = yes
+							NOR = {
+								is_same_empire = prev
+								has_truce = prev
+								is_subject_of_khan = yes
+								is_at_war_with = prev
+							}
+						}
+					}
+					random_neighbor_country = {
+						limit = {
+							merg_is_default_empire = yes
+							NOR = {
+								is_same_empire = prev
+								has_truce = prev
+								is_subject_of_khan = yes
+								is_at_war_with = prev
+							}
+						}
+						weights = { base = 1
+							modifier = { add = 9 relative_power = { who = prev category = fleet value < equivalent } }
+							modifier = { add = 3 relative_power = { who = prev category = fleet value = equivalent } }
+							modifier = { add = 9 opinion_level = { who = prev level < neutral } }
+							modifier = { add = 3 opinion_level = { who = prev level = neutral } }
+							modifier = { add = 33
+								any_owned_fleet = {
+									is_mobile = yes
+									is_civilian = no
+									exists = solar_system
+									solar_system = { is_owned_by = prevprevprev }
+								}
+							}
+						}
+						prev = {
+							set_faction_hostility = { target = prev set_hostile = yes }
+							declare_war = { target = prev name = "NAME_Expansion" attacker_war_goal = "wg_great_expansion" }
+						}
+						if = {
+							limit = { has_origin = origin_khan_successor }
+							change_variable = { which = "planets_lost_to_marauder" value = 3 }
+						}
+					}
+				}
 				# Expand over the border?
-				# if = {
-				# 	limit = {
-				# 		count_war = { count < 6 }
-				# 		# every_war = {
-				# 		# 	limit = { count_war_participants = { limit = { <triggers> } side = defender count < 4
-				# 		# }
-				# 	}
-				# 	random_country = {
-				# 		limit = {
-				# 			has_communications = prev
-				# 			merg_is_default_empire = yes
-				# 			NOR = {
-				# 				prev = { is_overlord_to = prev }
-				# 				is_at_war_with = prev
-				# 				is_same_empire = prev
-				# 			}
-				# 		}
-				# 		weights = {
-				# 			base = 1
-				# 			modifier = { add = 3 relative_power = { who = prev category = fleet value < equivalent } }
-				# 			modifier = { add = 1 relative_power = { who = prev category = fleet value = equivalent } }
-				# 			modifier = { add = 3 opinion_level = { who = prev level < neutral } }
-				# 			modifier = { add = 1 opinion_level = { who = prev level = neutral } }
-				# 			modifier = { add = 2 has_federation = no }
-				# 		}
-				# 		set_faction_hostility = {
-				# 			target = prev
-				# 			set_hostile = yes
-				# 		}
-				# 		prev = {
-				# 			declare_war = {
-				# 				target = prev
-				# 				name = "NAME_Expansion"
-				# 				attacker_war_goal = "wg_great_expansion"
-				# 			}
-				# 			set_faction_hostility = {
-				# 				target = prev
-				# 				set_hostile = yes
-				# 			}
-				# 		}
-				# 		if = {
-				# 			limit = { has_origin = origin_khan_successor }
-				# 			change_variable = { which = "planets_lost_to_marauder" value = 3 }
-				# 		}
-				# 	}
-				# }
+				else_if = {
+					limit = {
+						count_war = { count < 4 }
+						# every_war = {
+						# 	limit = { count_war_participants = { limit = { <triggers> } side = defender count < 4
+						# }
+					}
+					random_playable_country = {
+						limit = {
+							has_communications = prev
+							NOR = {
+								is_same_empire = prev
+								prev = { is_overlord_to = prev }
+								is_at_war_with = prev
+							}
+						}
+						weights = {
+							base = 1
+							modifier = { add = 3 relative_power = { who = prev category = fleet value < equivalent } }
+							modifier = { add = 1 relative_power = { who = prev category = fleet value = equivalent } }
+							modifier = { add = 3 opinion_level = { who = prev level < neutral } }
+							modifier = { add = 1 opinion_level = { who = prev level = neutral } }
+							modifier = { add = 2 has_federation = no }
+						}
+						prev = {
+							set_faction_hostility = { target = prev set_hostile = yes }
+							declare_war = {
+								target = prev
+								name = "NAME_Expansion"
+								attacker_war_goal = "wg_great_expansion"
+							}
+						}
+						if = {
+							limit = { has_origin = origin_khan_successor }
+							change_variable = { which = "planets_lost_to_marauder" value = 3 }
+						}
+					}
+				}
 			}
 			# country_event = { id = khan.529 days = @CmtConstKhanLifespan_5e random = @CmtConstKhanLifespan_4e } still on_action for temp savegame
 		}
 		# else = { country_event = { id = khan.529 days = 400 } }
 	}
-}
-
-# TODO: Player could chose!? Mysteric Bug Reported: Somehow player lost systems to the new new_khanate fully unrelated??
-# Player Defeating the Khan and choosing to be Successor
-# Root = human player
-# From = raider_khanate
-country_event = {
-	id = khan.605
-	hide_window = yes
-	is_triggered_only = yes
-	trigger = {
-		is_scope_valid = yes
-		is_scope_type = country
-		is_country_type = default
-		is_ai = no
-		exists = from
-		from = {
-			is_scope_valid = yes
-			is_scope_type = country
-			is_country_type = default
-			is_ai = yes
-		}
-	}
-	immediate = {
-		from = {
-			set_player = root
-			add_resource = { energy = 10000 }
-			country_event = { id = khan.218 days = 8 } # galcom
-		}
-	}
-	# after = {  }
 }
 
 # # Get a new Khan? (before marauder future) now 510
@@ -3126,7 +3168,7 @@ country_event = {
 		if = {
 			limit = {
 				has_global_flag = war_in_heaven_ongoing
- 				root = { is_at_war = yes }
+				root = { is_at_war = yes }
 			}
 			random_subject = {
 				limit = {
@@ -3174,8 +3216,8 @@ country_event = {
 								has_country_flag = rebelling_satrapy
 								is_same_empire = root
 								is_at_war = yes
+								is_subject_of_khan = yes
 							}
-							is_subject_of_khan = no
 						}
 						if = {
 							limit = {
@@ -3380,7 +3422,7 @@ country_event = {
 			break = yes
 		}
 		remove_country_flag = has_machinesmith # Regular cycle
-		if = { # Only one cycle for Khan Endgame
+		if = { # Only one cycle for Khan Endgame.
 			limit = {
 				OR = {
 					NOT = { has_global_flag = great_khan_wins }

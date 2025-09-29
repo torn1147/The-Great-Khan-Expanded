@@ -1,35 +1,46 @@
 ## For compatibility: Dummy triggers - to be overwritten by their respective mods.
-merg_is_molten = { is_planet_class = pc_molten }
-merg_is_toxic = { is_planet_class = pc_toxic }
-merg_is_frozen = { is_planet_class = pc_frozen }
-merg_is_barren = { is_planet_class = pc_barren }
-merg_is_barren_cold = { is_planet_class = pc_barren_cold }
-merg_is_gaia_basic = {
+merg_is_molten = { optimize_memory is_planet_class = pc_molten }
+merg_is_toxic = { optimize_memory is_planet_class = pc_toxic }
+merg_is_frozen = { optimize_memory is_planet_class = pc_frozen }
+merg_is_barren = { optimize_memory is_planet_class = pc_barren }
+merg_is_barren_cold = { optimize_memory is_planet_class = pc_barren_cold }
+merg_is_arctic = {
 	optimize_memory
-	OR = {
-		is_planet_class = pc_gaia
-		# All These Worlds
-		inline_script = {
-			script = merger_of_rules/toggled_code
-			code = " atw_is_gaia = yes"
-			toggle = @has_atw_lite
-		}
-		# Planetary Diversity
-		inline_script = {
-			script = merger_of_rules/toggled_code
-			code = " pd_is_planet_class_gaia = yes"
-			toggle = @has_planetary_diversity
-		}
-		 # Nanite Machine and Distant Stars Overhaul
-		inline_script = {
-			script = merger_of_rules/toggled_code
-			code = " is_nanite_gaia = yes"
-			toggle = @dso_pnm
-		}
-	}
+	# OR = {
+	is_planet_class = pc_arctic
+	# 	# Planetary Diversity
+	# 	is_pd_arctic = yes
+	# 	# All These Worlds
+	# 	atw_is_arctic = yes
+	# }
 }
+# merg_is_gaia_basic = {
+# 	optimize_memory
+# 	OR = {
+# 		is_planet_class = pc_gaia
+# 		# All These Worlds
+# 		inline_script = {
+# 			script = merger_of_rules/toggled_code
+# 			code = "atw_is_gaia = yes"
+# 			toggle = @has_atw_lite
+# 		}
+# 		# Planetary Diversity
+# 		inline_script = {
+# 			script = merger_of_rules/toggled_code
+# 			code = "pd_is_planet_class_gaia = yes"
+# 			toggle = @has_planetary_diversity
+# 		}
+# 		# Nanite Machine and Distant Stars Overhaul
+# 		inline_script = {
+# 			script = merger_of_rules/toggled_code
+# 			code = "is_nanite_gaia = yes"
+# 			toggle = @dso_pnm
+# 		}
+# 	}
+# }
 
 merg_is_shielded_world = {
+	optimize_memory
 	OR = {
 		is_planet_class = pc_habitat_shielded
 		is_planet_class = pc_ringworld_shielded
@@ -65,13 +76,14 @@ is_ds_skycatcher = {
 
 # Listing habitats
 merg_is_habitat = {
+	optimize_memory
 	habitable_structure = yes  # Exlcude some entities is_artificial = yes
 	OR = {
 		is_planet_class = pc_habitat
 		# Acquisition of Technology
 		inline_script = {
 			script = merger_of_rules/toggled_code
-			code = " is_aot_habitat = yes "
+			code = "is_aot_habitat = yes"
 			toggle = @has_acquisition_of_tech
 		}
 		# DarkSpace

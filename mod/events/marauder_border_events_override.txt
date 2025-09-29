@@ -166,9 +166,9 @@ country_event = {
 		# Note: system_within_border caching is quite funky at a time like this when many borders are changing hands. The starbase ownership is checked to be extra sure, since it is not cached (unlike system ownership - though that probably would have worked too)
 		if = {
 			limit = {
-				OR = {
-					NOT = { has_global_flag = marauder_crisis_ongoing }
-					event_target:new_khanate = { is_marauder = no }
+				NAND = {
+					has_global_flag = marauder_crisis_ongoing
+					event_target:new_khanate = { is_marauder = yes }
 				}
 			}
 			# Return colonies that have only the starbase conquered.
@@ -182,6 +182,7 @@ country_event = {
 				if = {
 					limit = {
 						any_system_colony = {
+							has_owner = yes
 							NOR = {
 								is_owned_by = root
 								is_controlled_by = root
@@ -206,7 +207,6 @@ country_event = {
 					ordered_system_colony = {
 						limit = {
 							has_owner = yes
-							exists = owner
 							NOR = {
 								is_owned_by = root
 								is_controlled_by = root
@@ -220,7 +220,7 @@ country_event = {
 						order_by = trigger:num_sapient_pops
 						log = "Give system [Prev.GetName] back to [This.Owner.GetName]"
 						owner = { save_event_target_as = planet_owner }
-						prev = {	# commit_system_to = { EMPIRE = prevprev.planet_owner } # The target scope is solved there (so add 1 more prev)
+						prev = { # commit_system_to = { EMPIRE = prevprev.planet_owner } # The target scope is solved there (so add 1 more prev)
 							commit_system_to = { EMPIRE = event_target:planet_owner }
 							add_claims = { who = root num_of_claims = 1 show_notification = no }
 						}
@@ -248,7 +248,7 @@ country_event = {
 			limit = {
 				solar_system = {
 					has_owner = yes
-					is_owned_by = event_target:integrated_empire		# Note: caching is quite funky at a time like this when many borders are changing hands. The starbase ownership is checked to be extra sure, since it is not cached (unlike system ownership - though that probably would have worked too)
+					is_owned_by = event_target:integrated_empire # Note: caching is quite funky at a time like this when many borders are changing hands. The starbase ownership is checked to be extra sure, since it is not cached (unlike system ownership - though that probably would have worked too)
 					OR = { # Just double check
 						owner = { is_ai = yes }
 						is_capital_system = no
@@ -282,7 +282,7 @@ country_event = {
 			}
 		}
 
-		event_target:new_khanate = {	# Fire when country finishes being integrated
+		event_target:new_khanate = { # Fire when country finishes being integrated
 			# From = subject
 			fire_on_action = { on_action = on_subject_integrated }
 			if = {
@@ -351,8 +351,8 @@ country_event = {
 					limit = { is_marauder = no }
 					owner_species = { save_event_target_as = marauder_species }
 					add_500_unity_per_year_passed = yes
-					country_event = { id = game_start.6 days = 6 random = 4 }	# advanced_empire
-					country_event = { id = game_start.9 days = 12 random = 8 }	# empire_init_create_ships civil
+					country_event = { id = game_start.6 days = 6 random = 4 } # advanced_empire
+					country_event = { id = game_start.9 days = 12 random = 8 } # empire_init_create_ships civil
 					### Units
 					create_ship_design = { design = "NAME_Pirate_Transport" }
 					add_ship_design = last_created_design
@@ -405,9 +405,9 @@ country_event = {
 							}
 						}
 						if = {
-							limit = { count_owned_pop = { count < 17 limit = { is_same_species = prev.owner_species } } }
+							limit = { count_owned_pop = { count <  17 limit = { is_same_species = prev.owner_species } } }
 							while = { count = 17
-								limit = { count_owned_pop = { count < 17 limit = { is_same_species = prev.owner_species } } }
+								limit = { count_owned_pop = { count <  17 limit = { is_same_species = prev.owner_species } } }
 								create_pop = { species = prev.owner_species ethos = { ethic = "ethic_militarist" ethic = "ethic_egalitarian" } }
 							}
 						}
@@ -527,7 +527,7 @@ country_event = {
 			limit = {
 				exists = event_target:integrated_empire
 				event_target:integrated_empire = { is_scope_valid = yes is_scope_type = country }
-				exists = event_target:integrated_empire.owner	# Double scope is another workaround
+				exists = event_target:integrated_empire.owner # Double scope is another workaround
 			}
 			# Establish Communications
 			every_country = {
@@ -855,12 +855,12 @@ country_event = {
 			}
 		}
 		restore_country_backup_data = yes
-		every_subject = {	# limit = { is_default_or_fallen = yes }
+		every_subject = { # limit = { is_default_or_fallen = yes }
 			# set_subject_of = { who = none }
 			# country_event = { id = marauder.670 days = 3 }		# Notify Satrap End
-			country_event = { id = marauder.671 days = 10 }			# Notify Garrison End
+			country_event = { id = marauder.671 days = 10 } # Notify Garrison End
 		}
-		country_event = { id = marauder.609 }						# Fully handover + empire init
+		country_event = { id = marauder.609 } # Fully handover + empire init
 	}
 	after = {
 		if = {
@@ -875,7 +875,7 @@ country_event = {
 			}
 		}
 		else_if = {
-			limit = { is_country_type = default }
+			limit = { merg_is_default_empire = yes }
 			country_event = { id = khan.605 days = 2 scopes = { from = event_target:new_khanate } }
 		}
 		if = {
@@ -940,7 +940,7 @@ country_event = {
 	hide_window = yes
 	is_triggered_only = yes
 
-	immediate = {	# log = "Begin Sector Assignment"
+	immediate = { # log = "Begin Sector Assignment"
 		if = {
 			limit = {
 				exists = event_target:CmtGlobalVar
@@ -959,7 +959,7 @@ country_event = {
 			}
 			random_list = {
 				66 = { # Fractures into Diadochi.
-					modifier = { factor = 0	# Should not happen if Marauders are too small
+					modifier = { factor = 0 # Should not happen if Marauders are too small
 						OR = {
 							AND = { num_sectors < 3 num_owned_planets < 10 }
 							num_owned_planets < 6
@@ -1018,7 +1018,7 @@ country_event = {
 		else = {
 			random_list = {
 				66 = { # Fractures into Diadochi.
-					modifier = { factor = 0 num_sectors < 3 num_owned_planets < 10 }	# Should not happen if Marauders are too small
+					modifier = { factor = 0 num_sectors < 3 num_owned_planets < 10 } # Should not happen if Marauders are too small
 					modifier = { factor = 2 OR = { num_sectors > 4 num_owned_planets > 18 } }
 					country_event = { id = marauder.601 }
 				}
@@ -1096,7 +1096,7 @@ country_event = {
 				add_intel = { amount = 100 who = prev }
 				add_opinion_modifier = { modifier = opinion_traitor_to_empire who = prev }
 				add_opinion_modifier = { modifier = opinion_flavors_down who = prev }
-				set_variable = { which = num_sapient_pops value = trigger:num_sapient_pops }
+				set_variable = { which = var_sapient_pop_amount value = trigger:num_sapient_pops }
 				save_event_target_as = planet_owner_2
 				## Prevent extreme balcanization
 				# Potential system
@@ -1374,8 +1374,8 @@ country_event = {
 							owner = {
 								save_event_target_as = planet_owner
 								if = {
-									limit = { NOT = { is_variable_set = num_sapient_pops } }
-									set_variable = { which = num_sapient_pops value = trigger:num_sapient_pops }
+									limit = { NOT = { is_variable_set = var_sapient_pop_amount } }
+									set_variable = { which = var_sapient_pop_amount value = trigger:num_sapient_pops }
 								}
 								capital_scope.solar_system = {
 									closest_system = {
@@ -1395,11 +1395,11 @@ country_event = {
 										# commit_system_to = { EMPIRE = prevprevprevprev.prev }
 										# prevprev = { commit_system_to = { EMPIRE = prevprevprevprev.prev.owner } }
 										if = { # Take the same from the other country (only if more pops)
-											limit = { event_target:planet_owner_2 = { check_variable_arithmetic = { which = num_sapient_pops add = 100 value > event_target:planet_owner.num_sapient_pops } } }
+											limit = { event_target:planet_owner_2 = { check_variable_arithmetic = { which = var_sapient_pop_amount add = 100 value > event_target:planet_owner.var_sapient_pop_amount } } }
 											commit_system_to = { EMPIRE = event_target:planet_owner }
 										}
 										if = { # Take the same from the other country (only if more pops)
-											limit = { event_target:planet_owner = { check_variable_arithmetic = { which = num_sapient_pops add = 100 value > event_target:planet_owner_2.num_sapient_pops } } }
+											limit = { event_target:planet_owner = { check_variable_arithmetic = { which = var_sapient_pop_amount add = 100 value > event_target:planet_owner_2.var_sapient_pop_amount } } }
 											prevprevprev = { commit_system_to = { EMPIRE = event_target:planet_owner_2 } }
 										}
 									}
@@ -1435,9 +1435,9 @@ country_event = {
 				has_origin = origin_khan_successor
 				has_government = gov_diadochi
 				has_country_flag = diadochi
-				is_variable_set = num_sapient_pops
+				is_variable_set = var_sapient_pop_amount
 			}
-			clear_variable = num_sapient_pops
+			clear_variable = var_sapient_pop_amount
 		}
 	}
 }

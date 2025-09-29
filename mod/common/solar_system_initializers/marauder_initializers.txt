@@ -20,7 +20,7 @@ marauder_1_1 = {
 		base = 0
 		modifier = {
 			add = 2000000
-			host_has_dlc = "Apocalypse"
+			has_apocalypse_dlc = yes
 			num_marauder_empires_to_spawn > 0
 			is_in_cluster = resource_cluster_1 # Defined in code; see RESOURCE_CLUSTER_COUNT
 			NOR = {
@@ -1104,7 +1104,7 @@ marauder_2_1 = {
 		base = 0
 		modifier = {
 			add = 2000000
-			host_has_dlc = "Apocalypse"
+			has_apocalypse_dlc = yes
 			num_marauder_empires_to_spawn > 1
 			is_in_cluster = resource_cluster_2 # Defined in code; see RESOURCE_CLUSTER_COUNT
 			NOR = {
@@ -2122,7 +2122,7 @@ marauder_3_1 = {
 		base = 0
 		modifier = {
 			add = 2000000
-			host_has_dlc = "Apocalypse"
+			has_apocalypse_dlc = yes
 			num_marauder_empires_to_spawn > 2
 			is_in_cluster = resource_cluster_3 # Defined in code; see RESOURCE_CLUSTER_COUNT
 			NOR = {

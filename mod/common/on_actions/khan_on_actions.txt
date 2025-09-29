@@ -5,8 +5,8 @@ on_game_start = {
 }
 on_single_player_save_game_load = {
 	events = {
-		khan.300
 		marauder.99
+		khan.300
 	}
 }
 
@@ -36,7 +36,7 @@ on_yearly_pulse_country = {
 # From = subject's overlord
 on_becoming_subject = {
 	events = {
-		khan.529
+		khan.529 # Drums of war
 	}
 }
 

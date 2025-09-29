@@ -17,6 +17,7 @@ fleet_event = {
 			use_bypasses = yes
 			limit = {
 				any_system_colony = {
+					has_owner = yes
 					is_owned_by = from
 					num_sapient_pops > 1
 					is_planet_eligible_for_treasure_planet = yes
@@ -24,6 +25,7 @@ fleet_event = {
 			}
 			random_system_colony = {
 				limit = {
+					has_owner = yes
 					is_owned_by = from
 					num_sapient_pops > 1
 					is_planet_eligible_for_treasure_planet = yes
@@ -61,11 +63,11 @@ country_event = {
 			is_country_type = marauder_raiders
 			has_country_flag = raid_ongoing
 			any_owned_fleet = {
-				has_fleet_flag = raiding_fleet				# hired_raiding_fleet not used by vanilla
+				has_fleet_flag = raiding_fleet # hired_raiding_fleet not used by vanilla
 				exists = solar_system
 				is_fleet_idle = yes
 				NOR = { has_fleet_order = move_to_system_point_order has_fleet_order = orbit_planet_order }
-				NOT = { has_fleet_flag = raiding_fleet_checked }				# Prevent double call, somehow too fast for idle check
+				NOT = { has_fleet_flag = raiding_fleet_checked } # Prevent double call, somehow too fast for idle check
 			}
 			OR = {
 				AND = {
@@ -91,18 +93,18 @@ country_event = {
 			}
 		}
 	}
-	immediate = {	# Find marauder_raiding_country (child)
+	immediate = { # Find marauder_raiding_country (child)
 		log = "Check for stuck raiding marauders"
 		random_country = {
 			limit = {
 				is_country_type = marauder_raiders
 				has_country_flag = raid_ongoing
 				any_owned_fleet = {
-					has_fleet_flag = raiding_fleet					# hired_raiding_fleet not used by vanilla
+					has_fleet_flag = raiding_fleet # hired_raiding_fleet not used by vanilla
 					exists = solar_system
 					is_fleet_idle = yes
 					NOR = { has_fleet_order = move_to_system_point_order has_fleet_order = orbit_planet_order }
-					NOT = { has_fleet_flag = raiding_fleet_checked }					# Prevent double call, somehow too fast for idle check
+					NOT = { has_fleet_flag = raiding_fleet_checked } # Prevent double call, somehow too fast for idle check
 				}
 				OR = {
 					AND = {
@@ -129,7 +131,7 @@ country_event = {
 						has_relation_flag = { who = root flag = current_target }
 					}
 				}
-				weights = { base = 1					# Passive raid flag
+				weights = { base = 1 # Passive raid flag
 					modifier = { add = 10
 						NOT = { has_country_flag = under_marauder_attack }
 						any_playable_country = {
@@ -153,22 +155,23 @@ country_event = {
 				# Find stuck raiding fleet
 				random_owned_fleet = {
 					limit = {
-						has_fleet_flag = raiding_fleet						# hired_raiding_fleet not used by vanilla
+						has_fleet_flag = raiding_fleet # hired_raiding_fleet not used by vanilla
 						exists = solar_system
 						is_fleet_idle = yes
 						NOR = { has_fleet_order = move_to_system_point_order has_fleet_order = orbit_planet_order }
-						NOT = { has_fleet_flag = raiding_fleet_checked }						# Prevent double call, somehow too fast for idle check
+						NOT = { has_fleet_flag = raiding_fleet_checked } # Prevent double call, somehow too fast for idle check
 					}
 					log = "Raiding Marauders stuck at [This.System.GetName]"
 					if = {
 						limit = {
-							prev = { is_hostile = event_target:marauder_target }							# Because can_access_system just useful for hostile
+							prev = { is_hostile = event_target:marauder_target } # Because can_access_system just useful for hostile
 							closest_system = {
 								min_steps = 1
 								max_steps = 30
 								use_bypasses = yes
 								limit = {
 									any_system_colony = {
+										has_owner = yes
 										is_owned_by = event_target:marauder_target
 										num_sapient_pops > 1
 										is_planet_eligible_for_treasure_planet = yes
@@ -185,6 +188,7 @@ country_event = {
 							limit = {
 								is_owned_by = event_target:marauder_target
 								any_system_colony = {
+									has_owner = yes
 									is_owned_by = event_target:marauder_target
 									num_sapient_pops > 1
 									is_planet_eligible_for_treasure_planet = yes
@@ -193,6 +197,7 @@ country_event = {
 							}
 							random_system_colony = {
 								limit = {
+									has_owner = yes
 									is_owned_by = event_target:marauder_target
 									num_sapient_pops > 1
 									is_planet_eligible_for_treasure_planet = yes
@@ -206,7 +211,7 @@ country_event = {
 						set_timed_fleet_flag = {
 							flag = raiding_fleet_checked
 							days = 1
-						}						# Prevent double call, somehow too fast for idle check
+						} # Prevent double call, somehow too fast for idle check
 						clear_orders = yes
 						remove_auto_move_target = yes
 						clear_fleet_actions = this
@@ -248,7 +253,7 @@ country_event = {
 								prev = { can_access_system = prev }
 							}
 							prev = {
-								set_timed_fleet_flag = { flag = raiding_fleet_checked days = 1 }								# Prevent double call, somehow too fast for idle check
+								set_timed_fleet_flag = { flag = raiding_fleet_checked days = 1 } # Prevent double call, somehow too fast for idle check
 								clear_orders = yes
 								remove_auto_move_target = yes
 								clear_fleet_actions = this
@@ -271,7 +276,7 @@ country_event = {
 					prev = {
 						set_faction_hostility = {
 							target = event_target:marauder_target
-							set_hostile = yes							# Has full effect only after 1 day
+							set_hostile = yes # Has full effect only after 1 day
 						}
 					}
 				}
@@ -288,7 +293,7 @@ fleet_event = {
 	id = marauder.29
 	hide_window = yes
 	is_triggered_only = yes
-	trigger = {	# exists = event_target:raid_planet
+	trigger = { # exists = event_target:raid_planet
 		exists = from
 	}
 	immediate = {	log = "Try fallback routing"
@@ -300,6 +305,7 @@ fleet_event = {
 			limit = {
 				is_owned_by = from
 				any_system_colony = {
+					has_owner = yes
 					is_owned_by = from
 					num_sapient_pops > 1
 					is_planet_eligible_for_treasure_planet = yes
@@ -308,6 +314,7 @@ fleet_event = {
 			}
 			random_system_colony = {
 				limit = {
+					has_owner = yes
 					is_owned_by = from
 					num_sapient_pops > 1
 					is_planet_eligible_for_treasure_planet = yes
@@ -511,7 +518,7 @@ fleet_event = {
 # Mercenary need new target (on_planet_occupied)
 # Compare marauder.103
 # From = Planet Owner
-# FromFrom = Planet Controller (the one occupying)
+# fromfrom = Planet Controller (the one occupying)
 planet_event = {
 	id = marauder.30
 	hide_window = yes
@@ -597,7 +604,7 @@ planet_event = {
 			## Refresh Agreement
 			if = {
 				limit = {
-					from = {	# from = { is_hostile = prev }
+					from = { # from = { is_hostile = prev }
 						is_hostile = event_target:marauder_country
 						has_relation_flag = { who = event_target:marauder_country flag = hired_fleet }
 					}
@@ -740,6 +747,7 @@ planet_event = {
 						use_bypasses = yes
 						limit = {
 							any_system_colony = {
+								has_owner = yes
 								is_owned_by = event_target:raid_victim
 								NOR = { num_sapient_pops < 3 is_occupied_flag = yes has_planet_flag = planet_raided }
 								is_planet_eligible_for_treasure_planet = yes
@@ -748,6 +756,7 @@ planet_event = {
 						}
 						random_system_colony = {
 							limit = {
+								has_owner = yes
 								is_owned_by = event_target:raid_victim
 								NOR = { num_sapient_pops < 3 is_occupied_flag = yes has_planet_flag = planet_raided }
 								is_planet_eligible_for_treasure_planet = yes
@@ -807,7 +816,6 @@ planet_event = {
 					}
 				}
 			}
-
 		}
 	}
 }

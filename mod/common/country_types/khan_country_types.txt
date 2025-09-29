@@ -319,12 +319,14 @@ pirate = {
 	can_have_their_comms_shared = no
 	can_receive_envoys = no
 	government = no
+	# orbital_bombardment = yes
+	# needs_survey = no
 	observable = no
 	playable = no
 	piracy_risk = no
 	diplomatic_wars = no
 	share_survey_data = no
-	# custom_starbase =
+	# custom_starbase = pirate_starbase
 	uses_origins = no
 	targets = {
 		default

@@ -24,7 +24,7 @@ country_event = {
 	immediate = {	# Possible flag fix (to be sure) - sometimes not removed.
 		if = {
 			limit = {
-				host_has_dlc = "Apocalypse"
+				has_apocalypse_dlc = yes
 				has_global_flag = CmtFlagMidGameEdition
 				has_global_flag = marauder_crisis_started
 				has_global_flag = marauder_crisis_ongoing
@@ -187,7 +187,7 @@ country_event = {
 		name = CrisisManagerMenu.7000.7138.A.name
 		custom_tooltip = BLANK_STRING
 		allow = {
-			host_has_dlc = "Apocalypse"
+			has_apocalypse_dlc = yes
 			crisis_happened_and_defeated = no
 			hidden_trigger = {
 				OR = {
@@ -212,7 +212,7 @@ country_event = {
 	option = { # Not possible (not ongoing)
 		name = CrisisManagerMenu.7000.7138.B.name
 		custom_tooltip = CrisisManagerMenu.7000.7138.B.tooltip
-		allow = { host_has_dlc = "Apocalypse" }
+		allow = { has_apocalypse_dlc = yes }
 		trigger = {
 			has_global_flag = CmtFlagMidGameEdition
 			NOR = {
@@ -226,7 +226,7 @@ country_event = {
 	option = { # Possible (but ongoing)
 		name = CrisisManagerMenu.7000.7138.C.name
 		custom_tooltip = CrisisManagerMenu.7000.7138.C.tooltip
-		allow = { host_has_dlc = "Apocalypse" }
+		allow = { has_apocalypse_dlc = yes }
 		trigger = {
 			has_global_flag = CmtFlagMidGameEdition
 			has_global_flag = marauder_crisis_ongoing
@@ -238,7 +238,7 @@ country_event = {
 	option = { # Make immortal - Possible (ongoing)
 		name = CrisisManagerMenu.4842f.title # CrisisManagerMenu.7000.7138.D.name
 		custom_tooltip = CrisisManagerMenu.4842.warn # CrisisManagerMenu.7000.7138.D.tooltip
-		allow = { host_has_dlc = "Apocalypse" }
+		allow = { has_apocalypse_dlc = yes }
 		trigger = {
 			has_global_flag = CmtFlagMidGameEdition
 			has_global_flag = marauder_crisis_ongoing
@@ -265,7 +265,7 @@ country_event = {
 	option = { # Remove immortal - Possible (ongoing)
 		name = CrisisManagerMenu.7000.7138.E.name
 		custom_tooltip = CrisisManagerMenu.7000.7138.E.tooltip
-		allow = { host_has_dlc = "Apocalypse" }
+		allow = { has_apocalypse_dlc = yes }
 		trigger = {
 			has_global_flag = CmtFlagMidGameEdition
 			has_global_flag = marauder_crisis_ongoing
@@ -3198,7 +3198,7 @@ country_event = {
 	option = {
 		name = CrisisManagerMenu.7400c.name
 		custom_tooltip = BLANK_STRING
-		trigger = { host_has_dlc = "Apocalypse" }
+		trigger = { has_apocalypse_dlc = yes }
 		hidden_effect = { country_event = { id = CrisisManagerMenu.7413 } }
 	}
 	option = {
@@ -3918,7 +3918,7 @@ country_event = {
 					random = { chance = 33 CmtEffectCreateSleeperStandard = yes }
 					random = { chance = 25 CmtEffectCreateSleeperTitan = yes }
 					if = {
-						limit = { host_has_dlc = "Apocalypse" }
+						limit = { has_apocalypse_dlc = yes }
 						random = { chance = 10 CmtEffectCreateSleeperColossus = yes }
 					}
 				}
@@ -3943,7 +3943,7 @@ country_event = {
 					CmtEffectCreateSleeperStandard = yes
 					CmtEffectCreateSleeperTitan = yes
 					if = {
-						limit = { host_has_dlc = "Apocalypse" }
+						limit = { has_apocalypse_dlc = yes }
 						CmtEffectCreateSleeperColossus = yes
 					}
 				}
@@ -3968,7 +3968,7 @@ country_event = {
 						last_created_fleet = { create_fallen_empire_titan = yes }
 					}
 					if = {
-						limit = { host_has_dlc = "Apocalypse" }
+						limit = { has_apocalypse_dlc = yes }
 						CmtEffectCreateSleeperColossus = yes
 					}
 				}
@@ -3993,7 +3993,7 @@ country_event = {
 						last_created_fleet = { create_fallen_empire_titan = yes }
 					}
 					if = {
-						limit = { host_has_dlc = "Apocalypse" }
+						limit = { has_apocalypse_dlc = yes }
 						CmtEffectCreateSleeperColossus = yes
 						CmtEffectCreateSleeperColossus = yes
 					}

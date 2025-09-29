@@ -7,17 +7,23 @@
 #########################################
 #########################################
 namespace = khan
+#
+####		SHORT DOCU		###
+#
+## khan.300 Set Mod Flag (on_game_start)
+# khan.605 Player Defeating the Khan and choosing to be Successor
 
-# Placeholder since v.3.9.1 (parser crashes if missing)
-country_event = { id = khan.296 hide_window = yes is_triggered_only = yes is_test_event = yes trigger = { always = no } immediate = { } }
-country_event = { id = khan.298 hide_window = yes is_triggered_only = yes is_test_event = yes trigger = { always = no } immediate = { } }
+# Placeholder since v3.9.1 (parser crashes if missing)
+country_event = { id = khan.218 hide_window = yes is_triggered_only = yes is_test_event = yes trigger = { always = no } }
+country_event = { id = khan.296 hide_window = yes is_triggered_only = yes is_test_event = yes trigger = { always = no } }
+country_event = { id = khan.298 hide_window = yes is_triggered_only = yes is_test_event = yes trigger = { always = no } }
 
 # (on_game_start) Gets overwritten by The Great Khan Expanded
 event = {
 	id = khan.300
 	hide_window = yes
 	is_triggered_only = yes
-	immediate = {	# Config only for minimal compatibility Crisis Manager.
+	immediate = { # Config only for minimal compatibility Crisis Manager.
 		# if = { limit = { NOT = { exists = event_target:global_event_country } }
 		# 	random_country = { limit = { is_country_type = global_event }
 		# 		save_global_event_target_as = global_event_country
@@ -56,12 +62,30 @@ event = {
 
 		if = { # Workaround bugfix (unknown reason on saveload): Khan fights own subjects (seems since v.3.1)
 			limit = { has_global_flag = marauder_crisis_ongoing exists = event_target:raider_khanate }
-			event_target:raider_khanate = {	# Fix ongoing hostility (is_hostile seems not immediately working on load)
+			event_target:raider_khanate = { # Fix ongoing hostility (is_hostile seems not immediately working on load)
 				if = {
 					limit = { has_country_flag = declared_crisis }
 					remove_country_flag = declared_crisis
 				}
-				country_event = { id = khan.309 }
+				if = {
+					limit = {
+						# Compare khan.529 (added in v4.0)
+						any_neighbor_country = { # Counts also subject neighbors somehow
+							merg_is_default_empire = yes
+							NOR = {
+								has_truce = prev
+								is_subject_of_khan = yes
+								is_at_war_with = prev
+							}
+							prev = { # Is real neighbor
+								any_system_within_border = {
+									any_country_neighbor_to_system = { is_same_empire = prevprev }
+								}
+							}
+						}
+					}
+					country_event = { id = khan.309 }
+				}
 				country_event = { id = khan.309 days = 4 } # Friendly to be sure
 				# TODO TEMP FIX KHAN NO RESPAWN.
 				country_event = { id = marauder.507 days = 105 random = 80 }
@@ -139,7 +163,7 @@ system_event = {
 					}
 				}
 			}
-			else = {	# TODO Trying to create a starbase with an invalid starbase design sik'El'Re for ship size starbase_citadel (note: starbases cannot have components that allow them to move or go FTL)
+			else = { # TODO Trying to create a starbase with an invalid starbase design sik'El'Re for ship size starbase_citadel (note: starbases cannot have components that allow them to move or go FTL)
 				create_starbase = {
 					size = starbase_citadel
 					module = "shipyard"
@@ -190,7 +214,7 @@ starbase_event = {
 		has_starbase_size > starbase_fe_outpost
 		NOT = { has_starbase_size = starbase_marauder }
 	}
-	immediate = {	# if = {# Removed in 3.8.3
+	immediate = { # if = {# Removed in 3.8.3
 		# 	limit = {
 		# 		exists = event_target:raider_khanate
 		# 		NOT = { is_owned_by = event_target:raider_khanate }
@@ -351,7 +375,7 @@ ship_event = {
 			solar_system = {
 				if = {
 					limit = {
-						count_system_colony = { count = 0 limit = { is_owned_by = from.owner } }
+						count_system_colony = { count = 0 limit = { has_owner = yes is_owned_by = from.owner } }
 						any_system_planet = {
 							colonizable_planet = yes
 							OR = {
@@ -400,12 +424,12 @@ ship_event = {
 					}
 					else_if = {
 						limit = {
-							any_system_planet = {	# colonizable_planet = yes
+							any_system_planet = { # colonizable_planet = yes
 								any_playable_country = { exists = home_planet prev = { is_planet = prev.home_planet } }
 							}
 						}
 						random_system_planet = {
-							limit = {	# colonizable_planet = yes
+							limit = { # colonizable_planet = yes
 								any_playable_country = { exists = home_planet prev = { is_planet = prev.home_planet } }
 							}
 							random_playable_country = {
@@ -417,6 +441,7 @@ ship_event = {
 					else_if = {
 						limit = {
 							any_system_colony = {
+								has_owner = yes
 								NOT = { is_owned_by = root.owner }
 								NAND = {
 									exists = controller
@@ -426,7 +451,7 @@ ship_event = {
 						}
 						random_system_colony = {
 							limit = {
-								is_colony = yes
+								has_owner = yes
 								NOT = { is_owned_by = root.owner }
 								NAND = {
 									exists = controller
@@ -480,7 +505,7 @@ ship_event = {
 			}
 		}
 	}
-	immediate = {	# fleet = { every_owned_ship = { set_disable_at_health = -1 set_disabled = no } }
+	immediate = { # fleet = { every_owned_ship = { set_disable_at_health = -1 set_disabled = no } }
 		if = {
 			limit = {
 				exists = owner
@@ -614,7 +639,7 @@ country_event = {
 # Reenable fleets (hack)
 # from = former opponent
 country_event = {
-	id = khan.307	# Same as a_deadly_tempest.13007
+	id = khan.307 # Same as a_deadly_tempest.13007
 	hide_window = yes
 	is_triggered_only = yes
 	# trigger = {
@@ -679,7 +704,7 @@ country_event = {
 			has_country_flag = attacking_fleets_stopped
 		}
 	}
-	immediate = {	# log = "Fix ongoing hostility"		# [This.GetName]
+	immediate = { # log = "Fix ongoing hostility"		# [This.GetName]
 		# Before we need to stop fleets attacking.
 		if = {
 			limit = {
@@ -897,15 +922,37 @@ country_event = {
 		## Fix ongoing hostility
 		if = { limit = { is_overlord = yes }
 			# log = "The Great Khan is_overlord"
-			every_subject = {
-				limit = {	# is_subject_of_khan = yes
-					NOT = { has_country_flag = rebelling_satrapy }
-					is_hostile = prev
-					prev = { is_hostile = prev }
+			if = {
+				limit = {
+					# Compare khan.529 (added in v4.0)
+					any_neighbor_country = { # Counts also subject neighbors somehow
+						merg_is_default_empire = yes
+						NOR = {
+							has_truce = prev
+							is_subject_of_khan = yes
+							is_at_war_with = prev
+						}
+						prev = { # Is real neighbor
+							any_system_within_border = {
+								any_country_neighbor_to_system = { is_same_empire = prevprev }
+							}
+						}
+					}
 				}
-				log = "Fix ongoing hostility for [This.GetName]"
-				prev = {
-					country_event = { id = khan.308 scopes = { from = prev } days = -1 } # Set friendly
+				every_subject = {
+					limit = {
+						is_hostile = prev
+						prev = { is_hostile = prev }
+						is_subject_of_khan = yes # I know, this is very srange, but it happens for some unknown reason
+						NOR = {
+							has_country_flag = rebelling_satrapy
+							is_same_empire = prev # I know, this is very srange, but it happens for some unknown reason
+						}
+					}
+					log = "Fix ongoing hostility for [This.GetName]"
+					prev = {
+						country_event = { id = khan.308 scopes = { from = prev } days = -1 } # Set friendly
+					}
 				}
 			}
 			if = { limit = { has_federation = yes }
@@ -932,7 +979,7 @@ country_event = {
 			if = {
 				limit = { exists = event_target:marauders_garrison_1 }
 				event_target:marauders_garrison_1 = { # Performance: Just use custom event target once in favor of native engine scopes.
-					root = {	## Set_neutral
+					root = { ## Set_neutral
 						every_country = {
 							limit = {
 								has_communications = root
@@ -977,7 +1024,7 @@ country_event = {
 						}
 						## Set_friendly
 						every_subject = {
-							limit = {	# is_subject_of_khan = yes
+							limit = { # is_subject_of_khan = yes
 								NOR = {
 									is_same_empire = prevprev
 									has_country_flag = rebelling_satrapy
@@ -1023,14 +1070,14 @@ system_event = {
 	id = khan.310
 	hide_window = yes
 	is_triggered_only = yes
-	trigger = {	# NOT = { exists = starbase }
+	trigger = { # NOT = { exists = starbase }
 		exists = fromfrom
 		exists = event_target:former_starbase_owner
 		# NAND = {
 		# 	starbase = { has_starbase_size = starbase_citadel }
 		# }
 	}
-	immediate = {	# system_owner does not exists
+	immediate = { # system_owner does not exists
 		# log = "test khan.310 \\[former_starbase_owner.GetName] or \\[Fromfrom.Owner.GetName]"
 		if = {
 			limit = {
@@ -1067,7 +1114,7 @@ system_event = {
 			}
 			create_starbase = {
 				size = "starbase_starfortress"
-				owner = event_target:former_starbase_owner				# from.owner
+				owner = event_target:former_starbase_owner # from.owner
 			}
 		}
 		else_if = {
@@ -1118,7 +1165,11 @@ country_event = {
 	id = khan.312
 	hide_window = yes
 	is_triggered_only = yes
-	trigger = { has_global_flag = marauder_crisis_ongoing exists = event_target:raider_khanate is_same_empire = event_target:raider_khanate }
+	trigger = {
+		has_global_flag = marauder_crisis_ongoing
+		exists = event_target:raider_khanate
+		is_same_empire = event_target:raider_khanate
+	}
 	immediate = {
 		if = {
 			limit = { NOT = { exists = event_target:marauders_garrison_1 } }
@@ -1169,7 +1220,7 @@ country_event = {
 					establish_communications_no_message = prev
 					# establish_contact = { who = event_target:marauders_garrison_1 } # location = event_target:capital_planet
 					set_faction_hostility = { target = prev set_friendly = yes }
-					every_subject = {	# limit = { is_hostile = prev }
+					every_subject = { # limit = { is_hostile = prev }
 						prevprev = {
 							country_event = { id = khan.308 days = -1 scopes = { from = prev } } # Set friendly
 						}
@@ -1267,7 +1318,7 @@ planet_event = {
 	hide_window = yes
 	is_triggered_only = yes
 	pre_triggers = { has_owner = yes is_ai = yes }
-	trigger = {	# has_global_flag = marauder_crisis_ongoing
+	trigger = { # has_global_flag = marauder_crisis_ongoing
 		NOT = { exists = leader }
 		exists = owner
 		owner = {
@@ -1302,6 +1353,110 @@ planet_event = {
 	}
 }
 
+## Khan fleet attacks closest hostile system.
+# Give The Great Khan a kick, prevent strange AI idle/stuck bug./on_becoming_subject MTTH 360
+# This = Khan / subject
+# From = subject's overlord (on_becoming_subject)
+country_event = {
+	id = khan.530
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		has_global_flag = marauder_crisis_ongoing
+		CmtTriggerNowInKhanCrisis = yes
+		exists = event_target:great_khan.fleet
+		OR = {
+			CmtTriggerIsKhanCountry = yes
+			AND = {
+				exists = from
+				from = { is_same_empire = event_target:raider_khanate }
+				is_subject_of_khan = yes
+				NOT = { has_country_flag = rebellion_cooldown }
+			}
+		}
+	}
+	immediate = {
+		event_target:great_khan.fleet = {
+			if = {
+				limit = { is_fleet_idle = yes exists = solar_system }
+				closest_system = {
+					limit = {
+						exists = starbase
+						can_generate_trade_value = yes
+						owner = {
+							NOT = { is_same_empire = event_target:raider_khanate }
+							OR = { is_hostile_to = root is_hostile = root }
+						}
+						count_system_colony = { count > 0 }
+						prev = { can_access_system = prev }
+					}
+					max_steps = 14
+					random_system_colony = {
+						weights = { base = 1
+							modifier = { add = 99 is_owned_by = space_owner }
+						}
+						prevprev = {
+							auto_move_to_planet = { target = prev clear_auto_move_on_arrival = yes }
+							# auto_follow_fleet = { target = prev.starbase.fleet attack_fleet = yes }
+						}
+					}
+				}
+			}
+			owner = {
+				while = { count = 2
+					random_owned_fleet = {
+						limit = {
+							is_fleet_idle = yes
+							exists = solar_system
+							NOR = {
+								has_fleet_flag = khan_fleet
+								has_fleet_flag = satrapy_garrison
+								has_fleet_flag = satrapy_garrison_fleet
+								is_same_value = prevprev
+							}
+							exists = leader
+							leader = {
+								is_immortal = no
+							}
+						}
+						weights = { base = 1
+							modifier = { add = 99 leader = { has_trait = subclass_commander_admiral } }
+							modifier = { add = 66 solar_system = { is_same_value = prevprev.solar_system } }
+						}
+						auto_follow_fleet = { target = prevprev }
+					}
+					# random_owned_leader = {
+					# 	limit = {
+					# 		is_idle = no # means assigned
+					# 		leader_class = commander
+					# 		is_immortal = no
+					# 		exists = fleet
+					# 		fleet = {
+					# 			is_fleet_idle = yes
+					# 			NOR = {
+					# 				has_fleet_flag = khan_fleet
+					# 				has_fleet_flag = satrapy_garrison
+					# 				has_fleet_flag = satrapy_garrison_fleet
+					# 				is_same_value = prevprevprev
+					# 			}
+					# 		}
+					# 	}
+					# 	weights = { base = 1
+					# 		modifier = { add = 99 has_trait = subclass_commander_admiral }
+					# 		modifier = { add = 66
+					# 			fleet = { exists = solar_system solar_system = { is_same_value = prevprevprev.solar_system } }
+					# 		}
+					# 	}
+					# 	fleet = {
+					# 		auto_follow_fleet = { target = prevprevprev }
+					# 	}
+					# }
+				}
+			}
+		}
+	}
+}
+
 # Marauder joining the True Khan
 country_event = {
 	id = khan.552
@@ -1321,7 +1476,7 @@ country_event = {
 	is_triggered_only = yes
 	hide_window = yes
 	trigger = { is_subject_of_khan = no }
-	immediate = {	## If has_federation give Horde malus partial back.
+	immediate = { ## If has_federation give Horde malus partial back.
 		if = {
 			limit = { exists = capital_scope }
 			capital_scope = { save_event_target_as = capital_planet }
@@ -1503,6 +1658,38 @@ country_event = {
 	}
 }
 
+# TODO: Player could chose!? Mysteric Bug Reported: Somehow player lost systems to the new new_khanate fully unrelated??
+# Player Defeating the Khan and choosing to be Successor
+# Root = human player
+# From = raider_khanate
+country_event = {
+	id = khan.605
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		is_scope_valid = yes
+		is_scope_type = country
+		merg_is_default_empire = yes
+		is_ai = no
+		exists = from
+		from = {
+			is_scope_valid = yes
+			is_scope_type = country
+			merg_is_default_empire = yes
+			is_ai = yes
+		}
+	}
+	immediate = {
+		from = {
+			set_player = root
+			add_resource = { energy = 10000 }
+			if = { limit = { has_global_flag = gf_great_khan_active }
+				country_event = { id = khan.218 days = 8 } # Galcom
+			}
+		}
+	}
+}
+
 # Remove old Marauder
 country_event = {
 	id = khan.606
@@ -1518,7 +1705,7 @@ country_event = {
 			if = {
 				limit = {
 					count_system_within_border = { count = 0
-						limit = { any_system_colony = { is_owned_by = root is_under_colonization = no uses_habitat_capitals = no } }
+						limit = { any_system_colony = { has_owner = yes is_owned_by = root is_under_colonization = no uses_habitat_capitals = no } }
 					}
 				}
 				country_event = { id = marauder.604 days = 1 } # Old Ways
@@ -1542,7 +1729,7 @@ country_event = {
 			}
 		}
 		else_if = {
-			limit = { NOR = { is_country_type = default is_ai = yes } }
+			limit = { NOR = { merg_is_default_empire = yes is_ai = yes } }
 			destroy_country = yes
 		}
 
@@ -1558,7 +1745,7 @@ country_event = {
 			clear_global_event_target = raider_khanate
 		}
 		else_if = {
-			limit = { NOR = { is_country_type = default is_ai = yes } }
+			limit = { NOR = { merg_is_default_empire = yes is_ai = yes } }
 			destroy_country = yes
 		}
 		if = {
@@ -1573,6 +1760,25 @@ country_event = {
 	}
 }
 
+# TODO: Awakened Marauders dead (on_country_destroyed): for now just marauder.600
+# From = destroyer
+# This = raider_khanate
+# country_event = {
+# 	id = khan.608
+# 	hide_window = yes
+# 	is_triggered_only = yes
+# 	trigger = {
+# 		has_global_flag = marauder_crisis_started
+# 		exists = event_target:raider_khanate
+# 		is_scope_valid = yes
+# 		is_scope_type = country
+# 		is_same_empire = event_target:raider_khanate
+# 	}
+# 	immediate = {
+# 		# Give destroyer opportunity to be the Khan, compare marauder.510
+# 	}
+# }
+
 # Handover parts of marauder country for Diadochi (HIDDEN) SET_DIADOCHI_LEADERS_AND_FLEET
 # Maybe buggy because to late and raider_khanate not exists
 # Via marauder.601 and marauder.609
@@ -1582,7 +1788,7 @@ country_event = {
 	id = khan.610
 	hide_window = yes
 	is_triggered_only = yes
-	trigger = {	# NOT = { has_global_flag = great_khan_wins }
+	trigger = { # NOT = { has_global_flag = great_khan_wins }
 	}
 	immediate = {
 		set_country_flag = diadochi
@@ -1617,6 +1823,7 @@ country_event = {
 				exists = starbase
 				starbase = { is_owned_by = root }
 				any_system_colony = {
+					has_owner = yes
 					NOR = {
 						is_owned_by = root
 						is_controlled_by = root
@@ -1640,6 +1847,7 @@ country_event = {
 			}
 			ordered_system_colony = {
 				limit = {
+					has_owner = yes
 					NOR = {
 						is_owned_by = root
 						is_controlled_by = root
@@ -1647,14 +1855,13 @@ country_event = {
 						is_controlled_by = event_target:raider_khanate
 						merg_is_habitat = yes
 					}
-					exists = owner
 					owner = { is_default_or_fallen = yes }
 				}
 				position = 0
 				order_by = trigger:num_sapient_pops
 				log = "Give system \\[Prev.GetName] back to \\[This.Owner.GetName]"
 				owner = { save_event_target_as = planet_owner }
-				prev = {	# commit_system_to = { EMPIRE = prevprev.planet_owner } # The target scope is solved there (so add 1 more prev)
+				prev = { # commit_system_to = { EMPIRE = prevprev.planet_owner } # The target scope is solved there (so add 1 more prev)
 					commit_system_to = { EMPIRE = event_target:planet_owner }
 					add_claims = { who = root num_of_claims = 1 show_notification = no }
 				}
@@ -1773,7 +1980,7 @@ country_event = {
 							modifier = { add = 1 is_inside_nebula = yes }
 							modifier = { add = 2 has_natural_wormhole = yes }
 							modifier = { factor = 3 is_bottleneck_system = yes }
-							modifier = { factor = 5 any_system_colony = { is_under_colonization = no } }
+							modifier = { factor = 5 any_system_colony = { has_owner = yes is_under_colonization = no } }
 						}
 						starbase = {
 							set_starbase_size = starbase_starhold
@@ -1849,7 +2056,7 @@ country_event = {
 					modifier = { add = 2 is_capital = yes }
 					modifier = { add = 3 solar_system = { is_potential_diadochi_system = no } }
 				}
-				prev = {	# CmtEffectCreateFleet_KhanStandard = yes
+				prev = { # CmtEffectCreateFleet_KhanStandard = yes
 					while = { count = 2 CmtEffectCreateFleet_KhanArmy = yes CmtEffectCreateFleet_KhanConstructor = yes }
 				}
 				# save_event_target_as = unit_spawn_point
@@ -1975,16 +2182,16 @@ country_event = {
 		give_tech_no_error_effect = { MESSAGE = no TECH = tech_hyper_drive_2 }
 		# give_tech_no_error_effect = { MESSAGE = no TECH = tech_physics_2 }
 		give_tech_no_error_effect = { MESSAGE = no TECH = tech_starbase_3 }
-		add_research_option = tech_wormhole_stabilization	# Tier 3 later prerequisites = { "tech_hyper_drive_2" }
+		add_research_option = tech_wormhole_stabilization # Tier 3 later prerequisites = { "tech_hyper_drive_2" }
 		add_tech_progress = { tech = tech_wormhole_stabilization progress = 0.95 }
 		give_tech_no_error_effect = { MESSAGE = yes TECH = tech_wormhole_stabilization }
 		set_country_flag = encountered_first_wormhole
 		add_seen_bypass_type = wormhole
 
-		country_event = { id = khan.612 days = 72 }						# Build Habitats
-		country_event = { id = game_start.6 days = 6	random = 2 }	# advanced_empire
-		country_event = { id = game_start.8 days = 9	random = 3 }	# +tech +resources
-		country_event = { id = game_start.9 days = 12	random = 4 }	# empire_init_create_ships
+		country_event = { id = khan.612 days = 72 } # Build Habitats
+		country_event = { id = game_start.6 days = 6	random = 2 } # advanced_empire
+		country_event = { id = game_start.8 days = 9	random = 3 } # +tech +resources
+		country_event = { id = game_start.9 days = 12	random = 4 } # empire_init_create_ships
 		event_target:new_diadochi_capital = {
 			planet_event = { id = game_start.20 days = 80	random = 30 } # Remove blockers on capital
 			planet_event = { id = game_start.21 days = 120	random = 40 } # Upgrade colony shelter on additional colonies.
@@ -2091,7 +2298,7 @@ fleet_event = {
 			}
 		}
 	}
-	after = {	# Assign leader to fleet
+	after = { # Assign leader to fleet
 		if = {
 			limit = {
 				NOR = { exists = leader is_ship_class = shipclass_transport }
@@ -2119,7 +2326,7 @@ country_event = {
 		is_ai = yes
 		OR = { has_origin = origin_khan_successor is_country_type = awakened_marauders }
 	}
-	immediate = {	# TODO: Capital habitat? Special deposits? Flavor difference between khan, diadochi and fed?
+	immediate = { # TODO: Capital habitat? Special deposits? Flavor difference between khan, diadochi and fed?
 		# Place increasingly many habitats depending on game year, late game Khan should be scary too! (I really should scale the initial crisis strength too...)
 		if = { # Because we loop
 			limit = { NOT = { is_variable_set = marauder_habitat_count } }
@@ -2145,7 +2352,7 @@ country_event = {
 				divide_variable = { which = marauder_habitat_count value = 7 }
 				change_variable = { which = marauder_habitat_count value = 3 }
 			}
-			else = {	# Five habitats base + every 5 systems.
+			else = { # Five habitats base + every 5 systems.
 				divide_variable = { which = marauder_habitat_count value = 6 }
 				change_variable = { which = marauder_habitat_count value = 4 }
 			}
@@ -2156,8 +2363,8 @@ country_event = {
 			random_system_within_border = {
 				limit = {
 					exists = starbase
-					NOT = {
-						any_system_planet = {
+					count_system_planet = { count = 0
+						limit = {
 							is_star = no
 							is_artificial = yes
 							OR = {
@@ -2243,7 +2450,7 @@ system_event = {
 		}
 		NOT = { has_star_flag = ring_world_built }
 	}
-	immediate = {	# log = "---Attempting habitat construction in [This.GetName]"
+	immediate = { # log = "---Attempting habitat construction in [This.GetName]"
 		random_system_planet = {
 			limit = {
 				NOR = {
@@ -2364,12 +2571,12 @@ system_event = {
 						create_pop = {
 							species = from.owner_species
 							ethos = { ethic = "ethic_militarist" ethic = "ethic_egalitarian" }
-							count = 5
+							size = 5
 						}
 						# set_owner = space_owner
 						set_controller = from # space_owner
 						# set_name = random # TODO more variations? # create_colony effect creates already a random name, we want to maintain names
-						add_building = building_hab_major_capital	# 3 jobs
+						add_building = building_hab_major_capital # 3 jobs
 						# add_building = building_foundry_1			# 2
 						# add_building = building_foundry_1			# 2
 						# add_building = building_factory_1			# 2
@@ -2401,7 +2608,7 @@ system_event = {
 							}
 						}
 						else = {
-							add_district = district_hab_industrial
+							# add_district = district_hab_industrial removed in v4.0
 							if = {
 								limit = { check_modifier_value = { modifier = district_hab_energy_max value > 0 } }
 								add_district = { district_type = district_hab_energy ignore_cap = yes }
@@ -2413,7 +2620,7 @@ system_event = {
 			}
 			from = {
 				change_variable = { which = marauder_habitat_count value = -1 }
-				country_event = { id = khan.612 days = 480 }		# Build Habitats
+				country_event = { id = khan.612 days = 480 } # Build Habitats
 			}
 		}
 		# Unknown "Unexpected token: country_event, near line: 3543

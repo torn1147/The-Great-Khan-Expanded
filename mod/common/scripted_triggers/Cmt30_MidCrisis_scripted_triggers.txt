@@ -63,6 +63,7 @@ CmtTriggerHasPotentialKhanAwaking = {
 		AND = { is_ai = no has_country_flag = new_khanate_flag }
 		AND = {
 			has_country_flag = marauder_1
+			count_system_within_border = { count > 0 } # Double check, because strange error log:  Wrong scope for trigger 'has_star_flag'
 			any_system_within_border = {
 				has_star_flag = marauder_system
 				OR = {
@@ -73,6 +74,7 @@ CmtTriggerHasPotentialKhanAwaking = {
 		}
 		AND = {
 			has_country_flag = marauder_2
+			count_system_within_border = { count > 0 } # Double check, because strange error log:  Wrong scope for trigger 'has_star_flag
 			any_system_within_border = {
 				has_star_flag = marauder_system
 				OR = {
@@ -83,6 +85,7 @@ CmtTriggerHasPotentialKhanAwaking = {
 		}
 		AND = {
 			has_country_flag = marauder_3
+			count_system_within_border = { count > 0 } # Double check, because strange error log:  Wrong scope for trigger 'has_star_flag
 			any_system_within_border = {
 				has_star_flag = marauder_system
 				OR = {

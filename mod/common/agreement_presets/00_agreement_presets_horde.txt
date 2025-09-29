@@ -32,7 +32,7 @@ preset_machinesmith_satrapy = {
 		modifier = {
 			factor = 0.5
 			has_specialist_subject_type = { TYPE = scholarium }
-			NOT = { FROM = { is_specialist_subject_type = { TYPE = scholarium } } }
+			NOT = { from = { is_specialist_subject_type = { TYPE = scholarium } } }
 		}
 		modifier = {
 			factor = 1.5
@@ -92,7 +92,7 @@ preset_fabricator_satrapy = {
 		modifier = {
 			factor = 0.5
 			has_specialist_subject_type = { TYPE = prospectorium }
-			NOT = { FROM = { is_specialist_subject_type = { TYPE = prospectorium } } }
+			NOT = { from = { is_specialist_subject_type = { TYPE = prospectorium } } }
 		}
 		modifier = {
 			factor = 1.5
@@ -152,7 +152,7 @@ preset_war_satrapy = {
 		modifier = {
 			factor = 0.5
 			has_specialist_subject_type = { TYPE = bulwark }
-			NOT = { FROM = { is_specialist_subject_type = { TYPE = bulwark } } }
+			NOT = { from = { is_specialist_subject_type = { TYPE = bulwark } } }
 		}
 		modifier = {
 			factor = 1.5
