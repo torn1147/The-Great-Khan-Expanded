@@ -89,7 +89,6 @@ country_event = {
 		name = CmtTextGoBack.name
 		country_event = { id = CrisisManagerMenu.100 }
 	}
-
 }
 
 ### Variable Checker
@@ -479,14 +478,14 @@ country_event = {
 				if = {
 					limit = { always = no }
 					change_variable = { which = CmtVarIfElseCheck value = -1000 }
-				} else = { change_variable = { which = CmtVarIfElseCheck value = 0.1 } }		## New Structure
+				} else = { change_variable = { which = CmtVarIfElseCheck value = 0.1 } } ## New Structure
 			} else = { change_variable = { which = CmtVarIfElseCheck value = -1000 } }
 			if = {
 				limit = { always = no }
 				if = {
 					limit = { always = yes }
 					change_variable = { which = CmtVarIfElseCheck value = -1000 }
-				} else = { change_variable = { which = CmtVarIfElseCheck value = 0.2 } }		## Old Structure
+				} else = { change_variable = { which = CmtVarIfElseCheck value = 0.2 } } ## Old Structure
 			}
 
 			if = {

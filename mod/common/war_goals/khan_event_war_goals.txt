@@ -155,6 +155,7 @@ wg_ae_uprising = {
 	total_war = yes
 	set_defender_wargoal = wg_ae_domination
 	allowed_peace_offers = { status_quo surrender demand_surrender }
+
 	potential = { always = yes }
 	possible = { always = yes }
 
@@ -212,6 +213,7 @@ wg_marauder_expansion = {
 	casus_belli = cb_satrapy_subjugation
 	set_defender_wargoal = wg_end_threat
 	allowed_peace_offers = { status_quo surrender demand_surrender }
+
 	hide_if_no_cb = yes
 	release_occupied_systems_on_status_quo = yes
 	total_war = yes # no
@@ -299,7 +301,7 @@ wg_marauder_expansion = {
 				event_target:raider_khanate = {
 					if = {
 						limit = { is_hostile = prev }
-						set_faction_hostility = { target = prev set_hostile = no set_neutral = yes }
+						set_faction_hostility = { target = prev set_neutral = yes }
 					}
 					country_event = { id = khan.309 days = 1 } # Friendly to be sure
 				}
@@ -519,7 +521,7 @@ wg_war_in_heaven = {
 						event_target:raider_khanate = {
 							if = {
 								limit = { is_hostile = prev }
-								set_faction_hostility = { target = prev set_hostile = no set_neutral = yes }
+								set_faction_hostility = { target = prev set_neutral = yes }
 							}
 							country_event = { id = khan.309 days = 1 } # Friendly to be sure
 						}
@@ -749,7 +751,7 @@ wg_great_expansion = {
 				event_target:raider_khanate = {
 					if = {
 						limit = { is_hostile = prev }
-						set_faction_hostility = { target = prev set_hostile = no set_neutral = yes }
+						set_faction_hostility = { target = prev set_neutral = yes }
 					}
 					country_event = { id = khan.309 days = 1 } # Friendly to be sure
 				}

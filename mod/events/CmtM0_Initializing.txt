@@ -47,15 +47,15 @@ event = {
 			limit = { CmtTriggerAnyManagedEventTriggered = yes }
 			every_playable_country = {
 				limit = { NOR = { is_ai = yes has_active_event = { CrisisManagerMenu.12 } } }
-				country_event = { id = CrisisManagerMenu.12 }		## Warning: Crisis Happened Already
+				country_event = { id = CrisisManagerMenu.12 } ## Warning: Crisis Happened Already
 			}
 		} else = {
 			event_target:global_event_country = {
-				country_event = { id = CrisisManagerMenu.21 }		## Initializing Variables
+				country_event = { id = CrisisManagerMenu.21 } ## Initializing Variables
 			}
 			random_playable_country = {
 				limit = { NOR = { is_ai = yes has_active_event = { CrisisManagerMenu.11 } } }
-				country_event = { id = CrisisManagerMenu.11 }		## Activating Notification
+				country_event = { id = CrisisManagerMenu.11 } ## Activating Notification
 			}
 		}
 		# log="Cmt Save loaded 2" # [This.GetName]
@@ -64,7 +64,7 @@ event = {
 
 ### Manual Call Up (Called from 'Mod Menu')
 country_event = {
-	id = CrisisManagerMenu.3	# Same as CrisisManagerMenu.3
+	id = CrisisManagerMenu.3 # Same as CrisisManagerMenu.3
 	hide_window = yes
 	is_triggered_only = yes
 	trigger = { is_ai = no }
@@ -166,7 +166,7 @@ country_event = {
 	title = CrisisManagerMenu.14.name
 	desc = CrisisManagerMenu.14.desc
 	picture = GFX_evt_galactic_senate
-	is_triggered_only = yes	# no?
+	is_triggered_only = yes # no?
 	trigger = {
 		has_country_flag = CmtFlagNowInMenu
 		NOR = { has_country_flag = CmtFlagNeverWarn14 is_ai = yes }
@@ -196,14 +196,14 @@ country_event = {
 		# CmtEffectHardCoatedSettings = yes
 		remove_global_flag = CmtFlagDebugMode
 		# country_event = { id = CrisisManagerControl.9011 }	##	For only debugging
-		country_event = { id = CrisisManagerMenu.2000 }			## Apply Vanilla Template
-		country_event = { id = CrisisManagerMenu.2001 }			## Auto apply of Template
+		country_event = { id = CrisisManagerMenu.2000 } ## Apply Vanilla Template
+		country_event = { id = CrisisManagerMenu.2001 } ## Auto apply of Template
 		if = {
 			limit = {
 				always = @CmtT201_ConstSleeperFleet_ApplyOnStart
 				has_global_flag = CmtFlagSleeperEdition
 			}
-			CmtEffectApplyTemplate201 = yes						## Apply Template for Initialization for Fleets of Sleepers.
+			CmtEffectApplyTemplate201 = yes ## Apply Template for Initialization for Fleets of Sleepers.
 		}
 		# TODO outsource?
 		# Dyn. L-Gate clue req counter.

@@ -653,7 +653,7 @@ country_event = {
 		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarOpeningEventSpeed value = 6 } } }
 	}
 	option = {
-		name = "fircon.2535.c"		## What dose it mean?
+		name = "fircon.2535.c" ## What dose it mean?
 		# custom_tooltip = CrisisManagerMenu.3160y.tooltip
 		hidden_effect = { set_country_flag = CmtFlagSpMenu }
 	}

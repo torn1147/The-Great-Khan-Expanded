@@ -38,8 +38,8 @@
 # @CmtConstKhanFleetPowerUpperLimit_T6 =	375000		##		375 k
 # @CmtConstKhanFleetPowerUpperLimit_T7 =	750000		##		750 k
 
-@CmtConstGraygooFleetNumberUpperLimit =	100		## >~4000 k
-@CmtGraygooFleetNumberGuardAwakeLimit =	0.7		# Percent of FleetLimit (1 = 100)
+@CmtConstGraygooFleetNumberUpperLimit =	100 ## >~4000 k
+@CmtGraygooFleetNumberGuardAwakeLimit =	0.7 # Percent of FleetLimit (1 = 100)
 
 ##############
 ###- Khan -###

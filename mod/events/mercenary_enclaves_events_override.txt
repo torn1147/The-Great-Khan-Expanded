@@ -230,7 +230,7 @@ event = {
 				exists = event_target:great_khan.fleet
 			}
 			event_target:great_khan.fleet = { save_event_target_as = khan_fleet }
-			} else = {
+		} else = {
 			event_target:raider_khanate = {
 				random_owned_fleet = {
 					limit = { has_fleet_flag = khan_fleet }
@@ -485,7 +485,7 @@ country_event = {
 				}
 				order_forced_return = yes
 				auto_follow_fleet = { target = event_target:mercenary_enclave_station }
-				} else_if = {
+			} else_if = {
 				limit = { exists = solar_system can_go_mia = yes } # Otherwise CTD
 				set_mia = mia_return_home
 			}

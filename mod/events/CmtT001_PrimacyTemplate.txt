@@ -173,7 +173,6 @@ country_event = {
 				set_variable = { which = CmtVarDoubleGurdian value = @CmtT001_ConstDoubleGurdian }
 				set_variable = { which = CmtVarGuardianWornOut value = @CmtT001_ConstGuardianWornOut }
 				set_variable = { which = CmtVarMechFeAwaking value = @CmtT001_ConstMechFeAwaking }
-
 			}
 
 			### Mid Game Edition

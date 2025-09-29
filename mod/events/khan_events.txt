@@ -1000,7 +1000,7 @@ country_event = {
 									is_subject_of_khan = yes
 								}
 							}
-							prevprev = { set_faction_hostility = { target = prev set_hostile = no set_neutral = yes } }
+							prevprev = { set_faction_hostility = { target = prev set_neutral = yes } }
 						}
 						## Set_hostile
 						every_relation = {

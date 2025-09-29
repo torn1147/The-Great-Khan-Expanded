@@ -504,7 +504,7 @@ country_event = {
 		}
 	}
 	desc = {
-		text = CrisisManagerMenu.4210.desc3		## Not Requirement of Jump Drive.
+		text = CrisisManagerMenu.4210.desc3 ## Not Requirement of Jump Drive.
 		trigger = {
 			NOT = { has_global_flag = CmtFlagForbiddenExds }
 			has_global_flag = CmtFlagNoJumpButExds
@@ -699,7 +699,7 @@ country_event = {
 				remove_country_flag = CmtFlagGoBack
 				country_event = { id = CrisisManagerMenu.4220 }
 			} else_if = {
-				limit = { has_country_flag = CmtFlagSpMenu }		## Specified Priority
+				limit = { has_country_flag = CmtFlagSpMenu } ## Specified Priority
 				remove_country_flag = CmtFlagSpMenu
 				country_event = { id = CrisisManagerMenu.4230 }
 			} else_if = {
