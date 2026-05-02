@@ -3776,6 +3776,7 @@ country_event = {
 				OR = {
 					free_district_slots > 0
 					free_building_slots > 0
+					khan_has_upgradable_buildings = yes
 				}
 				OR = {
 					AND = {

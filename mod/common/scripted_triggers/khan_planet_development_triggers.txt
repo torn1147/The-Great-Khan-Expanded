@@ -5,6 +5,44 @@
 # These triggers count all buildings that could occupy a zone's slots (planet-wide)
 # and check against the 3-slot (1 zone) or 6-slot (2+ zones) capacity.
 #########################################
+
+# True if planet has any building that P4 (building upgrades) can upgrade.
+# Upgrades use remove+add so they don't need free building slots.
+# Used in the every_owned_planet limit to allow development even when slots are full.
+khan_has_upgradable_buildings = {
+	OR = {
+		# P4a — Capital upgrades
+		AND = { has_building = building_colony_shelter sapient_pop_amount >= 1000 }
+		AND = { has_building = building_capital NOT = { has_building = building_major_capital } sapient_pop_amount >= 2500 }
+		AND = { has_building = building_major_capital NOT = { has_building = building_system_capital } sapient_pop_amount >= 5000 }
+		# P4b — Tier 1 → Tier 2
+		has_building = building_foundry_1
+		has_building = building_factory_1
+		has_building = building_stronghold
+		has_building = building_energy_grid
+		has_building = building_mineral_purification_plant
+		has_building = building_food_processing_facility
+		has_building = building_luxury_residence
+		has_building = building_commercial_zone
+		has_building = building_holo_theatres
+		has_building = building_medical_1
+		has_building = building_precinct_house
+		has_building = building_autochthon_monument
+		has_building = building_research_lab_1
+		has_building = building_physics_lab_1
+		has_building = building_biolab_1
+		has_building = building_engineering_facility_1
+		# P4c — Tier 2 → Tier 3 (require upgraded capital)
+		AND = { has_upgraded_capital = yes has_building = building_foundry_2 }
+		AND = { has_upgraded_capital = yes has_building = building_factory_2 }
+		AND = { has_upgraded_capital = yes has_building = building_research_lab_2 }
+		AND = { has_upgraded_capital = yes has_building = building_physics_lab_2 }
+		AND = { has_upgraded_capital = yes has_building = building_biolab_2 }
+		AND = { has_upgraded_capital = yes has_building = building_engineering_facility_2 }
+		AND = { has_upgraded_capital = yes has_building = building_heritage_site }
+	}
+}
+
 # True if planet has 2+ research-type zones (each adds 3 building slots)
 khan_has_multiple_research_zones = {
 	calc_true_if = {
