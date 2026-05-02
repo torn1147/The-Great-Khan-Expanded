@@ -10,21 +10,33 @@ can_take_hostile_actions = {
 				has_communications = root
 			}
 		}
-		custom_tooltip = { text = "CAN_TAKE_HOSTILE_ACTION_FIRST_CONTACT_PROTOCOL" always = no }
+		custom_tooltip = {
+			text = "CAN_TAKE_HOSTILE_ACTION_FIRST_CONTACT_PROTOCOL"
+			always = no
+		}
 	}
 	else_if = {
 		limit = {
 			has_country_flag = fotd_seperatist_country@ROOT
 			root = { has_origin = origin_fear_of_the_dark }
 		}
-		custom_tooltip = { text = "CAN_TAKE_HOSTILE_ACTION_FOTD" always = no }
+		custom_tooltip = {
+			text = "CAN_TAKE_HOSTILE_ACTION_FOTD"
+			always = no
+		}
 	}
 	else_if = {
 		limit = {
-			NOR = { has_country_flag = hostile_to_nomads is_hostile = root }
+			NOR = {
+				has_country_flag = hostile_to_nomads
+				is_hostile = root
+			}
 			root = { is_country_type = nomad }
 		}
-		custom_tooltip = { text = "CAN_TAKE_HOSTILE_ACTION_FIRST_CONTACT_PROTOCOL" always = no }
+		custom_tooltip = {
+			text = "CAN_TAKE_HOSTILE_ACTION_FIRST_CONTACT_PROTOCOL"
+			always = no
+		}
 	}
 	else_if = {	# Attacking primitives with non-interference
 		limit = {
@@ -34,7 +46,10 @@ can_take_hostile_actions = {
 			}
 			is_primitive = yes
 		}
-		custom_tooltip = { text = "CAN_TAKE_HOSTILE_ACTION_NATIVE_INTERFERENCE" always = no }
+		custom_tooltip = {
+			text = "CAN_TAKE_HOSTILE_ACTION_NATIVE_INTERFERENCE"
+			always = no
+		}
 	}
 	else_if = {
 		limit = {
@@ -42,18 +57,20 @@ can_take_hostile_actions = {
 			root = { merg_is_default_empire = yes }
 			capital_scope = {
 				root = {
-					count_planet_within_border = { count = 0
-						limit = { is_same_value = prevprev }
-
-					}
+					NOT = { any_planet_within_border = { is_same_value = prevprev } }
 				}
 			}
 		}
-		custom_tooltip = { text = "" always = no }
+		custom_tooltip = {
+			text = ""
+			always = no
+		}
 	}
 	else_if = {
 		limit = {
-			root = { any_agreement = { agreement_preset = preset_satrapy } }
+			root = {
+				any_agreement = { agreement_preset = preset_satrapy }
+			}
 			is_country_type = faction
 			root = {
 				any_owned_planet = {
@@ -62,7 +79,10 @@ can_take_hostile_actions = {
 				}
 			}
 		}
-		custom_tooltip = { text = "" always = yes }
+		custom_tooltip = {
+			text = ""
+			always = yes
+		}
 	}
 	else_if = {
 		limit = {
@@ -71,17 +91,27 @@ can_take_hostile_actions = {
 				any_agreement = { agreement_preset = preset_satrapy }
 			}
 		}
-		custom_tooltip = { text = "CAN_TAKE_HOSTILE_ACTION_SATRAPY" always = no }
+		custom_tooltip = {
+			text = "CAN_TAKE_HOSTILE_ACTION_SATRAPY"
+			always = no
+		}
 	}
 	else_if = {
 		limit = {
 			exists = overlord
 			overlord = { is_same_empire = root }
-			root = { any_agreement = { agreement_preset = preset_satrapy } }
+			root = {
+				any_agreement = { agreement_preset = preset_satrapy }
+			}
 		}
-		custom_tooltip = { text = "CAN_TAKE_HOSTILE_ACTION_OVERLORD" always = no }
+		custom_tooltip = {
+			text = "CAN_TAKE_HOSTILE_ACTION_OVERLORD"
+			always = no
+		}
 	}
-	else = { always = yes }
+	else = {
+		always = yes
+	}
 }
 
 # this = system
@@ -102,7 +132,10 @@ ai_should_restrict_system = {
 		}
 		AND = {
 			root = {
-				OR = { merg_is_fallen_empire = yes is_marauder = yes }
+				OR = {
+					merg_is_fallen_empire = yes
+					is_marauder = yes
+				}
 			}
 			has_star_flag = guardian
 			any_fleet_in_system = {
@@ -112,7 +145,10 @@ ai_should_restrict_system = {
 		}
 		AND = {
 			root = {
-				OR = { is_crisis_faction = yes merg_is_awakened_fe = yes }
+				OR = {
+					is_crisis_faction = yes
+					merg_is_awakened_fe = yes
+				}
 			}
 			has_star_flag = guardian
 			any_fleet_in_system = {

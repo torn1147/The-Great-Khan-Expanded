@@ -1,23 +1,19 @@
 # Bug Fixes 3.12.2 from Dr. Addiction  https://steamcommunity.com/workshop/filedetails/?id=2871620925
 # The resolution "A United Front" will now increase the damage done to the Great Khan.
 # Accordingly, the damage bonus of resolution "Anti-Piracy Initiative" to Khan has been removed. (In vanilla, AI will always trying passing "A United Front" when Khan awakened, but the resolution has no effect to Khan but reduce Energy production. )
-
 @resolution_weight_hated = 3
 @resolution_weight_disliked = 4
 @resolution_weight_unpopular = 5
 @resolution_weight_normal = 6
 @resolution_weight_popular = 6.5
 @resolution_weight_loved = 7
-
 @resolution_cost_t1 = 100
 @resolution_cost_t2 = 150
 @resolution_cost_t3 = 200
 @resolution_cost_t4 = 250
 @resolution_cost_t5 = 300
 @resolution_cost_denounce = 25
-
 @resolution_flag_timer = 360
-
 # United Front
 resolution_custodian_united_front = {
 	icon = "GFX_resolution_united_front"
@@ -28,6 +24,7 @@ resolution_custodian_united_front = {
 			influence = @resolution_cost_t3
 		}
 	}
+
 	target = no
 
 	modifier = {
@@ -62,85 +59,68 @@ resolution_custodian_united_front = {
 		is_galactic_custodian = yes
 		OR = {
 			any_country = { is_crisis_faction = yes }
-			any_country = {
-				has_been_declared_crisis = yes
-			}
+			any_country = { has_been_declared_crisis = yes }
 		}
 	}
 
 	ai_weight = {
 		base = @resolution_weight_disliked
-
 		modifier = {
 			factor = 12
 			any_neighbor_country = { is_crisis_faction = yes }
 			desc = gal_com_neighboring_crisis_empire
 		}
-
 		modifier = {
 			factor = 1.6
 			is_militarist = yes
 			desc = ethic_militarist
 		}
-
 		modifier = {
 			factor = 4
 			has_crisis_stage_1 = yes
 			desc = gal_com_crisis_stage_1
 		}
-
 		modifier = {
 			factor = 6
 			has_crisis_stage_2 = yes
 			desc = gal_com_crisis_stage_2
 		}
-
 		modifier = {
 			factor = 8
 			has_crisis_stage_3 = yes
 			desc = gal_com_crisis_stage_3
 		}
-
 		modifier = {
 			factor = 20
 			has_crisis_stage_4 = yes
 			desc = gal_com_crisis_stage_4
 		}
-
 		modifier = {
 			factor = 20
 			any_playable_country = { has_country_flag = crisis_sphere_revealed }
 			desc = gal_com_crisis_sphere_revealed
 		}
-
 		modifier = {
 			factor = 8
 			any_playable_country = { has_been_declared_crisis = yes }
 			desc = gal_com_someone_declared_crisis
 		}
-
 		modifier = {
 			factor = 8
 			has_global_flag = gray_goo_crisis_active
 			desc = gal_com_someone_is_revealed_crisis
 		}
-
 		modifier = {
 			factor = 8
 			has_global_flag = marauder_crisis_ongoing
 			desc = gal_com_someone_is_revealed_crisis
 		}
-
 		modifier = {
 			factor = 0.5
 			has_ai_personality = xenophobic_isolationists
-			count_neighbor_country = {
-				count = 0
-				limit = { is_crisis_faction = yes }
-			}
+			NOT = { any_neighbor_country = { is_crisis_faction = yes } }
 			desc = personality_xenophobic_isolationists
 		}
-
 		modifier = {
 			factor = 0
 			OR = {
@@ -149,35 +129,28 @@ resolution_custodian_united_front = {
 			}
 			desc = gal_com_we_have_crisis_perk
 		}
-
 		modifier = {
 			factor = 4
 			is_galactic_custodian = yes
 			desc = gal_com_is_the_custodian
 		}
-
 		modifier = {
 			factor = 20
 			is_militarist = yes
 			is_galactic_custodian = yes
 			desc = gal_com_militarist_custodian
 		}
-
 		modifier = {
 			factor = 0
 			is_subject = yes
-			overlord = {
-				is_fallen_empire = yes
-			}
+			overlord = { is_fallen_empire = yes }
 			desc = gal_com_subject_of_fallen_empire
 		}
-
 		modifier = {
 			factor = 10
 			any_country = { merg_is_awakened_fe = yes }
 			desc = gal_com_exists_awakened_fallen_empire
 		}
-
 		modifier = {
 			factor = 20
 			has_global_flag = war_in_heaven_ongoing
@@ -196,15 +169,16 @@ resolution_custodian_anti_piracy = {
 			influence = @resolution_cost_t3
 		}
 	}
+
 	target = no
 
 	modifier = {
 		description = resolution_custodian_anti_piracy_modifier_desc
-		#local_trade_protection_add = 5 # removed in 4.x
+		planet_jobs_trade_produces_mult = 0.05
 		damage_vs_country_type_pirate_mult = 0.2
 		damage_vs_country_type_dormant_marauders_mult = 0.2
 		# damage_vs_country_type_awakened_marauders_mult = 0.2
-		#damage_vs_country_type_pirate_waves_country_mult = 0.2 # pirate_waves country type doesn't exist
+		# damage_vs_country_type_pirate_waves_country_mult = 0.2 # pirate_waves country type doesn't exist
 		country_energy_produces_mult = -0.03
 	}
 
@@ -231,23 +205,17 @@ resolution_custodian_anti_piracy = {
 
 	ai_weight = {
 		base = @resolution_weight_disliked
-
 		modifier = {
 			factor = 0.5
 			is_gestalt = yes
-			count_neighbor_country = {
-				count = 0
-				limit = { is_country_type = dormant_marauders }
-			}
+			NOT = { any_neighbor_country = { is_country_type = dormant_marauders } }
 			desc = ethic_gestalt_consciousness
 		}
-
 		modifier = {
 			factor = 0.5
 			has_ai_personality = xenophobic_isolationists
 			desc = personality_xenophobic_isolationists
 		}
-
 		modifier = {
 			factor = 4
 			is_galactic_custodian = yes
@@ -266,6 +234,7 @@ resolution_custodian_end_custodianship = {
 			influence = @resolution_cost_t3
 		}
 	}
+
 	target = no
 
 	modifier = {
@@ -292,105 +261,84 @@ resolution_custodian_end_custodianship = {
 
 	ai_weight = {
 		base = @resolution_weight_popular
-
 		modifier = {
 			factor = 1.6
 			is_xenophobe = yes
-			count_neighbor_country = {
-				count = 0
-				limit = { is_crisis_faction = yes }
-			}
+			NOT = { any_neighbor_country = { is_crisis_faction = yes } }
 			desc = ethic_xenophobe
 		}
-
 		modifier = {
 			factor = 0.2
 			any_country = { is_crisis_faction = yes }
 			desc = gal_com_someone_is_revealed_crisis
 		}
-
 		modifier = {
 			factor = 0.2
 			any_playable_country = { has_been_declared_crisis = yes }
 			desc = gal_com_someone_declared_crisis
 		}
-
 		modifier = {
 			factor = 0.2
 			has_global_flag = gray_goo_crisis_active
 			desc = gal_com_ongoing_grey_goo_crisis
 		}
-
 		modifier = {
 			factor = 0.2
 			has_global_flag = marauder_crisis_ongoing
 			desc = gal_com_ongoing_great_khan_crisis
 		}
-
 		modifier = {
 			factor = 0.2
 			any_neighbor_country = { is_crisis_faction = yes }
 			desc = gal_com_neighboring_crisis_empire
 		}
-
 		modifier = {
 			factor = 0.1
 			has_crisis_stage_2 = yes
 			desc = gal_com_crisis_stage_2
 		}
-
 		modifier = {
 			factor = 0
 			has_crisis_stage_3 = yes
 			desc = gal_com_crisis_stage_3
 		}
-
 		modifier = {
 			factor = 0
 			has_crisis_stage_4 = yes
 			desc = gal_com_crisis_stage_4
 		}
-
 		modifier = {
 			factor = 0
 			any_playable_country = { has_country_flag = crisis_sphere_revealed }
 			desc = gal_com_crisis_sphere_revealed
 		}
-
 		modifier = {
 			factor = 20
 			has_ascension_perk = ap_become_the_crisis
 			desc = gal_com_we_have_crisis_perk
 		}
-
 		modifier = {
 			factor = 0
 			is_galactic_custodian = yes
 			desc = gal_com_is_the_custodian
 		}
-
 		modifier = {
 			factor = 20
 			is_subject = yes
-			overlord = {
-				is_fallen_empire = yes
-			}
+			overlord = { is_fallen_empire = yes }
 			desc = gal_com_subject_of_fallen_empire
 		}
-
 		modifier = {
 			factor = 20
 			exists = from
 			is_rival = from
 			desc = gal_com_target_is_rival
 		}
-
 		modifier = {
 			factor = 0.2
 			any_country = { merg_is_awakened_fe = yes }
 			desc = gal_com_exists_awakened_fallen_empire
 		}
-
 		modifier = {
 			factor = 0.2
 			has_global_flag = war_in_heaven_ongoing
@@ -409,6 +357,7 @@ resolution_emperor_united_front = {
 			influence = @resolution_cost_t3
 		}
 	}
+
 	target = no
 
 	modifier = {
@@ -450,77 +399,62 @@ resolution_emperor_united_front = {
 
 	ai_weight = {
 		base = @resolution_weight_disliked
-
 		modifier = {
 			factor = 12
 			any_neighbor_country = { is_crisis_faction = yes }
 			desc = gal_com_neighboring_crisis_empire
 		}
-
 		modifier = {
 			factor = 1.6
 			is_militarist = yes
 			desc = ethic_militarist
 		}
-
 		modifier = {
 			factor = 4
 			has_crisis_stage_1 = yes
 			desc = gal_com_crisis_stage_1
 		}
-
 		modifier = {
 			factor = 6
 			has_crisis_stage_2 = yes
 			desc = gal_com_crisis_stage_2
 		}
-
 		modifier = {
 			factor = 8
 			has_crisis_stage_3 = yes
 			desc = gal_com_crisis_stage_3
 		}
-
 		modifier = {
 			factor = 20
 			has_crisis_stage_4 = yes
 			desc = gal_com_crisis_stage_4
 		}
-
 		modifier = {
 			factor = 20
 			any_playable_country = { has_country_flag = crisis_sphere_revealed }
 			desc = gal_com_crisis_sphere_revealed
 		}
-
 		modifier = {
 			factor = 8
 			any_playable_country = { has_been_declared_crisis = yes }
 			desc = gal_com_someone_declared_crisis
 		}
-
 		modifier = {
 			factor = 8
 			has_global_flag = gray_goo_crisis_active
 			desc = gal_com_someone_is_revealed_crisis
 		}
-
 		modifier = {
 			factor = 8
 			has_global_flag = marauder_crisis_ongoing
 			desc = gal_com_someone_is_revealed_crisis
 		}
-
 		modifier = {
 			factor = 0.5
 			has_ai_personality = xenophobic_isolationists
-			count_neighbor_country = {
-				count = 0
-				limit = { is_crisis_faction = yes }
-			}
+			NOT = { any_neighbor_country = { is_crisis_faction = yes } }
 			desc = personality_xenophobic_isolationists
 		}
-
 		modifier = {
 			factor = 0
 			OR = {
@@ -529,35 +463,28 @@ resolution_emperor_united_front = {
 			}
 			desc = gal_com_we_have_crisis_perk
 		}
-
 		modifier = {
 			factor = 4
 			is_galactic_custodian = yes
 			desc = gal_com_is_the_custodian
 		}
-
 		modifier = {
 			factor = 20
 			is_militarist = yes
 			is_galactic_custodian = yes
 			desc = gal_com_militarist_custodian
 		}
-
 		modifier = {
 			factor = 0
 			is_subject = yes
-			overlord = {
-				is_fallen_empire = yes
-			}
+			overlord = { is_fallen_empire = yes }
 			desc = gal_com_subject_of_fallen_empire
 		}
-
 		modifier = {
 			factor = 10
 			any_country = { merg_is_awakened_fe = yes }
 			desc = gal_com_exists_awakened_fallen_empire
 		}
-
 		modifier = {
 			factor = 20
 			has_global_flag = war_in_heaven_ongoing

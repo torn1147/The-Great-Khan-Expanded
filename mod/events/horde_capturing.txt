@@ -1,4 +1,5 @@
 ### By 0.01 KD (New Generation of the World)
+
 namespace = mod_horde_capturing
 # on_system_gained
 # From = system
@@ -8,7 +9,12 @@ country_event = {
 	id = mod_horde_capturing.0
 	hide_window = yes
 	is_triggered_only = yes
-	trigger = { is_country_type = awakened_marauders is_difficulty > 2 }
+
+	trigger = {
+		is_country_type = awakened_marauders
+		is_difficulty > 2
+	}
+
 	immediate = {
 		country_event = { id = mod_horde_capturing.1 days = 21 }
 	}
@@ -18,12 +24,14 @@ country_event = {
 	id = mod_horde_capturing.1
 	hide_window = yes
 	is_triggered_only = yes
+
 	trigger = {
 		fromfrom = {
 			exists = space_owner
 			space_owner = { is_same_empire = root }
 		}
 	}
+
 	immediate = {
 		fromfrom = {
 			every_system_colony = {
@@ -39,29 +47,54 @@ country_event = {
 				root = {
 					change_variable = { which = horde_planet_captured value = 1 }
 					if = {
-						limit = { check_variable = { which = horde_planet_captured value > 9 } }
+						limit = {
+							check_variable = { which = horde_planet_captured value > 9 }
+						}
 						set_variable = { which = horde_planet_captured value = 9 }
 					}
 				}
 				# Check 1
+				# switch = { trigger = count_owned_pop_amount
+				# 	1400 <		{ set_variable = { which = temp_size value = 3 } }
+				# 	2700 <		{ set_variable = { which = temp_size value = 4 } }
+				# 	4000 <		{ set_variable = { which = temp_size value = 5 } }
+				# 	5300 <		{ set_variable = { which = temp_size value = 6 } }
+				# 	default =	{ set_variable = { which = temp_size value = 7 } }
+				# }
+				export_trigger_value_to_variable = {
+					trigger = count_owned_pop_amount
+					variable = planet_pop_amount
+					parameters = { limit = { is_sapient = yes } }
+				}
 				if = {
-					limit = { sapient_pop_amount >= 5300 }
-					set_variable = { which = temp_size value = 7 }
+					limit = {
+						check_variable = { which = planet_pop_amount value < 1400 }
+					}
+					set_variable = { which = temp_size value = 3 }
 				}
 				else_if = {
-					limit = { sapient_pop_amount >= 4000 }
-					set_variable = { which = temp_size value = 6 }
+					limit = {
+						check_variable = { which = planet_pop_amount value < 2700 }
+					}
+					set_variable = { which = temp_size value = 4 }
 				}
 				else_if = {
-					limit = { sapient_pop_amount >= 2700 }
+					limit = {
+						check_variable = { which = planet_pop_amount value < 4000 }
+					}
 					set_variable = { which = temp_size value = 5 }
 				}
 				else_if = {
-					limit = { sapient_pop_amount >= 1400 }
-					set_variable = { which = temp_size value = 4 }
+					limit = {
+						check_variable = { which = planet_pop_amount value < 5300 }
+					}
+					set_variable = { which = temp_size value = 6 }
 				}
-				else = {
-					set_variable = { which = temp_size value = 3 }
+				else_if = {
+					limit = {
+						check_variable = { which = planet_pop_amount value < 6500 }
+					}
+					set_variable = { which = temp_size value = 7 }
 				}
 				# Check 2
 				if = {
@@ -78,7 +111,9 @@ country_event = {
 				# sum
 				subtract_variable = { which = temp_size value = root.horde_planet_captured }
 				if = {
-					limit = { check_variable = { which = temp_size value < 2 } }
+					limit = {
+						check_variable = { which = temp_size value < 2 }
+					}
 					set_variable = { which = temp_size value = 2 }
 				}
 				subtract_variable = { which = temp_size value = 1 }
@@ -87,7 +122,7 @@ country_event = {
 					root = {
 						create_leader = {
 							class = commander
-							species = owner_main_species
+							species = owner_species
 							name = random
 							skill = 4
 							leader_age_min = 25
@@ -99,9 +134,12 @@ country_event = {
 						name = NAME_Horde_ground_troops
 						species = root.species
 						type = "basic_horde"
-						effect = { assign_leader = last_created_leader }
+						effect = {
+							assign_leader = last_created_leader
+						}
 					}
-					while = { count = temp_size
+					while = {
+						count = temp_size
 						create_army = {
 							owner = root
 							name = NAME_Horde_ground_troops
@@ -115,7 +153,7 @@ country_event = {
 					root = {
 						create_leader = {
 							class = commander
-							species = owner_main_species
+							species = owner_species
 							name = random
 							skill = 5
 							leader_age_min = 25
@@ -127,9 +165,12 @@ country_event = {
 						name = NAME_Horde_ground_troops
 						species = root.species
 						type = "admiral_horde"
-						effect = { assign_leader = last_created_leader }
+						effect = {
+							assign_leader = last_created_leader
+						}
 					}
-					while = { count = temp_size
+					while = {
+						count = temp_size
 						create_army = {
 							owner = root
 							name = NAME_Horde_ground_troops
@@ -142,7 +183,7 @@ country_event = {
 					root = {
 						create_leader = {
 							class = commander
-							species = owner_main_species
+							species = owner_species
 							name = random
 							skill = 6
 							leader_age_min = 25
@@ -154,9 +195,12 @@ country_event = {
 						name = NAME_Horde_ground_troops
 						species = root.species
 						type = "gros_horde"
-						effect = { assign_leader = last_created_leader }
+						effect = {
+							assign_leader = last_created_leader
+						}
 					}
-					while = { count = temp_size
+					while = {
+						count = temp_size
 						create_army = {
 							owner = root
 							name = NAME_Horde_ground_troops
@@ -165,30 +209,57 @@ country_event = {
 						}
 					}
 				}
-				clear_variable = temp_size
+				# switch = { trigger = count_owned_pop_amount
+				# 	1000 <		{ planet_event = { id = mod_horde_capturing.2 days = 1080 } }
+				# 	2000 <		{ planet_event = { id = mod_horde_capturing.2 days = 972 } }
+				# 	3000 <		{ planet_event = { id = mod_horde_capturing.2 days = 864 } }
+				# 	4000 <		{ planet_event = { id = mod_horde_capturing.2 days = 756 } }
+				# 	5000 <		{ planet_event = { id = mod_horde_capturing.2 days = 648 } }
+				# 	default =	{ planet_event = { id = mod_horde_capturing.2 days = 540 } }
+				# }
+				export_trigger_value_to_variable = {
+					trigger = count_owned_pop_amount
+					variable = planet_pop_amount
+					parameters = { limit = { is_sapient = yes } }
+				}
 				if = {
-					limit = { sapient_pop_amount >= 5000 }
-					planet_event = { id = mod_horde_capturing.2 days = 540 }
+					limit = {
+						check_variable = { which = planet_pop_amount value < 1000 }
+					}
+					planet_event = { id = mod_horde_capturing.2 days = 1080 }
 				}
 				else_if = {
-					limit = { sapient_pop_amount >= 4000 }
-					planet_event = { id = mod_horde_capturing.2 days = 648 }
+					limit = {
+						check_variable = { which = planet_pop_amount value < 2000 }
+					}
+					planet_event = { id = mod_horde_capturing.2 days = 972 }
 				}
 				else_if = {
-					limit = { sapient_pop_amount >= 3000 }
-					planet_event = { id = mod_horde_capturing.2 days = 756 }
-				}
-				else_if = {
-					limit = { sapient_pop_amount >= 2000 }
+					limit = {
+						check_variable = { which = planet_pop_amount value < 3000 }
+					}
 					planet_event = { id = mod_horde_capturing.2 days = 864 }
 				}
 				else_if = {
-					limit = { sapient_pop_amount >= 1000 }
-					planet_event = { id = mod_horde_capturing.2 days = 972 }
+					limit = {
+						check_variable = { which = planet_pop_amount value < 4000 }
+					}
+					planet_event = { id = mod_horde_capturing.2 days = 756 }
 				}
-				else = {
-					planet_event = { id = mod_horde_capturing.2 days = 1080 }
+				else_if = {
+					limit = {
+						check_variable = { which = planet_pop_amount value < 5000 }
+					}
+					planet_event = { id = mod_horde_capturing.2 days = 648 }
 				}
+				else_if = {
+					limit = {
+						check_variable = { which = planet_pop_amount value < 6000 }
+					}
+					planet_event = { id = mod_horde_capturing.2 days = 540 }
+				}
+				clear_variable = temp_size
+				clear_variable = planet_pop_amount
 			}
 		}
 	}
@@ -198,10 +269,12 @@ planet_event = {
 	id = mod_horde_capturing.2
 	hide_window = yes
 	is_triggered_only = yes
+
 	trigger = {
-		exists = owner
+		has_owner = yes
 		owner = { is_country_type = awakened_marauders }
 	}
+
 	immediate = {
 		add_building = building_fortress
 		khan_develop_planet_initial = yes
@@ -221,15 +294,21 @@ planet_event = {
 		owner = {
 			set_variable = { which = temp_var_horde value = root.temp_size }
 			if = {
-				limit = { check_variable = { which = horde_planet_captured value > 8 } }
+				limit = {
+					check_variable = { which = horde_planet_captured value > 8 }
+				}
 				subtract_variable = { which = temp_var_horde value = 3 }
 			}
 			else_if = {
-				limit = { check_variable = { which = horde_planet_captured value > 5 } }
+				limit = {
+					check_variable = { which = horde_planet_captured value > 5 }
+				}
 				subtract_variable = { which = temp_var_horde value = 2 }
 			}
 			else_if = {
-				limit = { check_variable = { which = horde_planet_captured value > 2 } }
+				limit = {
+					check_variable = { which = horde_planet_captured value > 2 }
+				}
 				subtract_variable = { which = temp_var_horde value = 1 }
 			}
 		}
@@ -237,7 +316,8 @@ planet_event = {
 		owner = { clear_variable = temp_var_horde }
 		if = {
 			limit = { is_difficulty < 5 }
-			while = { count = temp_size
+			while = {
+				count = temp_size
 				create_army = {
 					owner = root.owner
 					name = elite_basic_horde
@@ -248,7 +328,8 @@ planet_event = {
 		}
 		else_if = {
 			limit = { is_difficulty = 5 }
-			while = { count = temp_size
+			while = {
+				count = temp_size
 				create_army = {
 					owner = root.owner
 					name = elite_admiral_horde
@@ -258,7 +339,8 @@ planet_event = {
 			}
 		}
 		else = {
-			while = { count = temp_size
+			while = {
+				count = temp_size
 				create_army = {
 					owner = root.owner
 					name = elite_gros_horde
@@ -276,16 +358,26 @@ planet_event = {
 	id = mod_horde_capturing.3
 	hide_window = yes
 	is_triggered_only = yes
+
 	trigger = {
-		exists = owner
+		has_owner = yes
 		owner = { is_country_type = awakened_marauders }
 	}
+
 	immediate = {
 		create_fleet = {
 			effect = {
 				set_owner = root.owner
-				create_ship = { name = random design = "NAME_Void_Dwelling" graphical_culture = "pirate_01" }
-				set_location = { target = prev distance = 10 angle = 0 }
+				create_ship = {
+					name = random
+					design = "NAME_Void_Dwelling"
+					graphical_culture = "pirate_01"
+				}
+				set_location = {
+					target = prev
+					distance = 10
+					angle = 0
+				}
 				# TODO
 				# add_modifier = { modifier = advanced_debuff days = -1 }
 				# add_modifier = { modifier = big_debuff days = -1 }
@@ -302,10 +394,17 @@ country_event = {
 	id = mod_horde_capturing.4
 	hide_window = yes
 	is_triggered_only = yes
-	trigger = { is_country_type = awakened_marauders is_difficulty > 2 }
+
+	trigger = {
+		is_country_type = awakened_marauders
+		is_difficulty > 2
+	}
+
 	immediate = {
 		if = {
-			limit = { check_variable = { which = horde_planet_captured value > 0 } }
+			limit = {
+				check_variable = { which = horde_planet_captured value > 0 }
+			}
 			subtract_variable = { which = horde_planet_captured value = 1 }
 		}
 		else = {

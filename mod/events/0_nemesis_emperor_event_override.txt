@@ -7,18 +7,24 @@ country_event = {
 	hide_window = yes
 	is_test_event = yes
 	is_triggered_only = yes
+
 	trigger = {
 		# always = no
 		is_galactic_community_formed = yes
 	}
+
 	immediate = {
 		if = {
 			limit = { is_galactic_council_established = no }
 			set_council_size = 3
 			add_to_galactic_council = yes
-			while = { count = 2
-				random_playable_country = {
-					limit = { is_galactic_community_member = yes is_part_of_galactic_council = no is_galactic_custodian = no }
+			while = {
+				count = 2
+				random_galcom_member = {
+					limit = {
+						is_part_of_galactic_council = no
+						is_galactic_custodian = no
+					}
 					add_to_galactic_council = yes
 				}
 			}
@@ -26,7 +32,10 @@ country_event = {
 		else_if = {
 			limit = { has_galactic_custodian = yes }
 			random_playable_country = {
-				limit = { is_galactic_custodian = yes NOT = { is_same_empire = root } }
+				limit = {
+					is_galactic_custodian = yes
+					NOT = { is_same_empire = root }
+				}
 				country_event = { id = custodian.14 }
 			}
 		}
@@ -35,18 +44,26 @@ country_event = {
 			if = {
 				limit = {
 					any_playable_country = {
-						is_galactic_emperor = yes NOT = { is_same_empire = root } is_ai = yes
+						is_galactic_emperor = yes
+						NOT = { is_same_empire = root }
+						is_ai = yes
 					}
 				}
 				random_playable_country = {
-					limit = { is_galactic_emperor = yes NOT = { is_same_empire = root } is_ai = yes }
+					limit = {
+						is_galactic_emperor = yes
+						NOT = { is_same_empire = root }
+						is_ai = yes
+					}
 					save_event_target_as = gal_emperor
 					country_event = { id = emperor.202 }
 					restore_galactic_community_leader_backup_data = yes
 					set_galactic_emperor = no
 				}
 			}
-			else = { break = yes }
+			else = {
+				break = yes
+			}
 		}
 		set_galactic_custodian = yes
 		country_event = { id = custodian.1 }
@@ -67,6 +84,7 @@ country_event = {
 	hide_window = yes
 	is_test_event = yes
 	is_triggered_only = yes
+
 	trigger = {
 		NOR = {
 			is_subject = yes
@@ -74,6 +92,7 @@ country_event = {
 			has_ascension_perk = ap_cosmogenesis
 		}
 	}
+
 	immediate = {
 		if = {
 			limit = { is_galactic_community_member = no }
@@ -81,9 +100,13 @@ country_event = {
 		}
 		country_event = { id = custodian.499 } # set_galactic_custodian
 	}
+
 	after = {
 		if = {
-			limit = { is_galactic_custodian = yes is_galactic_emperor = no }
+			limit = {
+				is_galactic_custodian = yes
+				is_galactic_emperor = no
+			}
 			country_event = { id = emperor.1 days = 360 } # set_galactic_emperor
 		}
 	}
@@ -94,10 +117,12 @@ country_event = {
 	id = emperor.498
 	hide_window = yes
 	is_triggered_only = yes
+
 	trigger = {
 		has_nemesis = yes
 		# is_galactic_community_formed = yes
 	}
+
 	immediate = {
 		# if = {
 		# 	limit = { is_galactic_community_member = yes }

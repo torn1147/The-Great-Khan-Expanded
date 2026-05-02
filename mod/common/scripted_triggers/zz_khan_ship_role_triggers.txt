@@ -2,7 +2,6 @@
 # These are needed because the mod makes marauder ships designable (is_designable = yes)
 # and the vanilla 4.3.4 potential system uses these triggers to determine component availability.
 # Last-loaded definition wins, so this file (zz_ prefix) overrides 07_scripted_triggers_ships.txt.
-
 ship_uses_swarm_role = {
 	OR = {
 		# Regular Ships

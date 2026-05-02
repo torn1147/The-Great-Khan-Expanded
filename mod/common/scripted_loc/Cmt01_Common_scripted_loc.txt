@@ -5,12 +5,13 @@
 #####								#####
 #########################################
 #########################################
-
 #######################
 ###- Title of Menu -###
 #######################
+
 defined_text = {
 	name = GetName_CmtViewerModeFallenEmpire
+
 	text = {
 		trigger = {
 			has_global_flag = CmtFlagEndGameEdition
@@ -18,7 +19,6 @@ defined_text = {
 		}
 		localization_key = CmtNameFallenEmpire
 	}
-
 	text = {
 		trigger = {
 			has_global_flag = CmtFlagEndGameEdition
@@ -50,64 +50,116 @@ defined_text = {
 
 defined_text = {
 	name = GetSign_CmtVarEarliestEgpy
+
 	text = {
-		trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarEarliestEgpy value < 0 } } }
+		trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarEarliestEgpy value < 0 }
+			}
+		}
 		localization_key = ""
 	}
 	text = {
-		trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarEarliestEgpy value = 0 } } }
+		trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarEarliestEgpy value = 0 }
+			}
+		}
 		localization_key = CmtSignZero
 	}
 	text = {
-		trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarEarliestEgpy value > 0 } } }
+		trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarEarliestEgpy value > 0 }
+			}
+		}
 		localization_key = CmtSignPlus
 	}
 }
 
 defined_text = {
 	name = GetSign_CmtVarKhanEarliestMgpy
+
 	text = {
-		trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarKhanEarliestMgpy value < 0 } } }
+		trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarKhanEarliestMgpy value < 0 }
+			}
+		}
 		localization_key = ""
 	}
 	text = {
-		trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarKhanEarliestMgpy value = 0 } } }
+		trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarKhanEarliestMgpy value = 0 }
+			}
+		}
 		localization_key = CmtSignZero
 	}
 	text = {
-		trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarKhanEarliestMgpy value > 0 } } }
+		trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarKhanEarliestMgpy value > 0 }
+			}
+		}
 		localization_key = CmtSignPlus
 	}
 }
 
 defined_text = {
 	name = GetSign_CmtVarKhanLatestEgpy
+
 	text = {
-		trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarKhanLatestEgpy value < 0 } } }
+		trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarKhanLatestEgpy value < 0 }
+			}
+		}
 		localization_key = ""
 	}
 	text = {
-		trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarKhanLatestEgpy value = 0 } } }
+		trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarKhanLatestEgpy value = 0 }
+			}
+		}
 		localization_key = CmtSignZero
 	}
 	text = {
-		trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarKhanLatestEgpy value > 0 } } }
+		trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarKhanLatestEgpy value > 0 }
+			}
+		}
 		localization_key = CmtSignPlus
 	}
 }
 
 defined_text = {
 	name = GetSign_CmtVarSleeperEarliestEgsy
+
 	text = {
-		trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarSleeperEarliestEgsy value < 0 } } }
+		trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarSleeperEarliestEgsy value < 0 }
+			}
+		}
 		localization_key = ""
 	}
 	text = {
-		trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarSleeperEarliestEgsy value = 0 } } }
+		trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarSleeperEarliestEgsy value = 0 }
+			}
+		}
 		localization_key = CmtSignZero
 	}
 	text = {
-		trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarSleeperEarliestEgsy value > 0 } } }
+		trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarSleeperEarliestEgsy value > 0 }
+			}
+		}
 		localization_key = CmtSignPlus
 	}
 }
@@ -127,154 +179,215 @@ defined_text = {
 # 		localization_key = CmtSignPlus
 # 	}
 # }
-
 ########################
 ###- Toggle Options -###
 ########################
-
 ### Awakenable Sleepers
+
 defined_text = {
 	name = GetCurrentSetting_SleeperMaterialist
+
 	text = {
-		trigger = { has_global_flag = CmtFlagSleeperForbidMaterialist }
+		trigger = {
+			has_global_flag = CmtFlagSleeperForbidMaterialist
+		}
 		localization_key = CmtTextListedNone
 	}
 	text = {
-		trigger = { NOT = { has_global_flag = CmtFlagSleeperForbidMaterialist } }
+		trigger = {
+			NOT = { has_global_flag = CmtFlagSleeperForbidMaterialist }
+		}
 		localization_key = CmtIconFanaticMaterialist
 	}
 }
 
 defined_text = {
 	name = GetCurrentSetting_SleeperSpiritualist
+
 	text = {
-		trigger = { has_global_flag = CmtFlagSleeperForbidSpiritualist }
+		trigger = {
+			has_global_flag = CmtFlagSleeperForbidSpiritualist
+		}
 		localization_key = CmtTextListedNone
 	}
 	text = {
-		trigger = { NOT = { has_global_flag = CmtFlagSleeperForbidSpiritualist } }
+		trigger = {
+			NOT = { has_global_flag = CmtFlagSleeperForbidSpiritualist }
+		}
 		localization_key = CmtIconFanaticSpiritualist
 	}
 }
 
 defined_text = {
 	name = GetCurrentSetting_SleeperXenophile
+
 	text = {
-		trigger = { has_global_flag = CmtFlagSleeperForbidXenophile }
+		trigger = {
+			has_global_flag = CmtFlagSleeperForbidXenophile
+		}
 		localization_key = CmtTextListedNone
 	}
 	text = {
-		trigger = { NOT = { has_global_flag = CmtFlagSleeperForbidXenophile } }
+		trigger = {
+			NOT = { has_global_flag = CmtFlagSleeperForbidXenophile }
+		}
 		localization_key = CmtIconFanaticXenophile
 	}
 }
 
 defined_text = {
 	name = GetCurrentSetting_SleeperXenophobe
+
 	text = {
-		trigger = { has_global_flag = CmtFlagSleeperForbidXenophobe }
+		trigger = {
+			has_global_flag = CmtFlagSleeperForbidXenophobe
+		}
 		localization_key = CmtTextListedNone
 	}
 	text = {
-		trigger = { NOT = { has_global_flag = CmtFlagSleeperForbidXenophobe } }
+		trigger = {
+			NOT = { has_global_flag = CmtFlagSleeperForbidXenophobe }
+		}
 		localization_key = CmtIconFanaticXenophobe
 	}
 }
 
 ### Awakenable Ancient Rival
+
 defined_text = {
 	name = GetCurrentSetting_HeavenMaterialist
+
 	text = {
-		trigger = { has_global_flag = CmtFlagHeavenForbidMaterialist }
+		trigger = {
+			has_global_flag = CmtFlagHeavenForbidMaterialist
+		}
 		localization_key = CmtTextListedNone
 	}
 	text = {
-		trigger = { NOT = { has_global_flag = CmtFlagHeavenForbidMaterialist } }
+		trigger = {
+			NOT = { has_global_flag = CmtFlagHeavenForbidMaterialist }
+		}
 		localization_key = CmtIconFanaticMaterialist
 	}
 }
 
 defined_text = {
 	name = GetCurrentSetting_HeavenSpiritualist
+
 	text = {
-		trigger = { has_global_flag = CmtFlagHeavenForbidSpiritualist }
+		trigger = {
+			has_global_flag = CmtFlagHeavenForbidSpiritualist
+		}
 		localization_key = CmtTextListedNone
 	}
 	text = {
-		trigger = { NOT = { has_global_flag = CmtFlagHeavenForbidSpiritualist } }
+		trigger = {
+			NOT = { has_global_flag = CmtFlagHeavenForbidSpiritualist }
+		}
 		localization_key = CmtIconFanaticSpiritualist
 	}
 }
 
 defined_text = {
 	name = GetCurrentSetting_HeavenXenophile
+
 	text = {
-		trigger = { has_global_flag = CmtFlagHeavenForbidXenophile }
+		trigger = {
+			has_global_flag = CmtFlagHeavenForbidXenophile
+		}
 		localization_key = CmtTextListedNone
 	}
 	text = {
-		trigger = { NOT = { has_global_flag = CmtFlagHeavenForbidXenophile } }
+		trigger = {
+			NOT = { has_global_flag = CmtFlagHeavenForbidXenophile }
+		}
 		localization_key = CmtIconFanaticXenophile
 	}
 }
 
 defined_text = {
 	name = GetCurrentSetting_HeavenXenophobe
+
 	text = {
-		trigger = { has_global_flag = CmtFlagHeavenForbidXenophobe }
+		trigger = {
+			has_global_flag = CmtFlagHeavenForbidXenophobe
+		}
 		localization_key = CmtTextListedNone
 	}
 	text = {
-		trigger = { NOT = { has_global_flag = CmtFlagHeavenForbidXenophobe } }
+		trigger = {
+			NOT = { has_global_flag = CmtFlagHeavenForbidXenophobe }
+		}
 		localization_key = CmtIconFanaticXenophobe
 	}
 }
 
 ### What Lurks Beyond L-Gates
+
 defined_text = {
 	name = GetCurrentSetting_LgateSilence
+
 	text = {
-		trigger = { has_global_flag = CmtFlagLgateForbidSilence }
+		trigger = {
+			has_global_flag = CmtFlagLgateForbidSilence
+		}
 		localization_key = CmtTextListedNone
 	}
 	text = {
-		trigger = { NOT = { has_global_flag = CmtFlagLgateForbidSilence } }
+		trigger = {
+			NOT = { has_global_flag = CmtFlagLgateForbidSilence }
+		}
 		localization_key = CrisisManagerMenu.4920a.title
 	}
 }
 
 defined_text = {
 	name = GetCurrentSetting_LgateLdrake
+
 	text = {
-		trigger = { has_global_flag = CmtFlagLgateForbidLdrake }
+		trigger = {
+			has_global_flag = CmtFlagLgateForbidLdrake
+		}
 		localization_key = CmtTextListedNone
 	}
 	text = {
-		trigger = { NOT = { has_global_flag = CmtFlagLgateForbidLdrake } }
+		trigger = {
+			NOT = { has_global_flag = CmtFlagLgateForbidLdrake }
+		}
 		localization_key = CrisisManagerMenu.4920b.title
 	}
 }
 
 defined_text = {
 	name = GetCurrentSetting_LgateDessanu
+
 	text = {
-		trigger = { has_global_flag = CmtFlagLgateForbidDessanu }
+		trigger = {
+			has_global_flag = CmtFlagLgateForbidDessanu
+		}
 		localization_key = CmtTextListedNone
 	}
 	text = {
-		trigger = { NOT = { has_global_flag = CmtFlagLgateForbidDessanu } }
+		trigger = {
+			NOT = { has_global_flag = CmtFlagLgateForbidDessanu }
+		}
 		localization_key = CrisisManagerMenu.4920c.title
 	}
 }
 
 defined_text = {
 	name = GetCurrentSetting_LgateGraygoo
+
 	text = {
-		trigger = { has_global_flag = CmtFlagLgateForbidGraygoo }
+		trigger = {
+			has_global_flag = CmtFlagLgateForbidGraygoo
+		}
 		localization_key = CmtTextListedNone
 	}
 	text = {
-		trigger = { NOT = { has_global_flag = CmtFlagLgateForbidGraygoo } }
+		trigger = {
+			NOT = { has_global_flag = CmtFlagLgateForbidGraygoo }
+		}
 		localization_key = CrisisManagerMenu.4920d.title
 	}
 }
@@ -291,7 +404,6 @@ defined_text = {
 # 		localization_key = CrisisManagerMenu.5112a.title
 # 	}
 # }
-
 # defined_text = {
 # 	name = GetCurrentSetting_UprisingDroid
 # 	text = {
@@ -303,7 +415,6 @@ defined_text = {
 # 		localization_key = CrisisManagerMenu.5112b.title
 # 	}
 # }
-
 # defined_text = {
 # 	name = GetCurrentSetting_UprisingOrgSlave
 # 	text = {
@@ -315,7 +426,6 @@ defined_text = {
 # 		localization_key = CrisisManagerMenu.5112c.title
 # 	}
 # }
-
 # defined_text = {
 # 	name = GetCurrentSetting_UprisingBiotrophy
 # 	text = {
@@ -327,42 +437,52 @@ defined_text = {
 # 		localization_key = CrisisManagerMenu.5112d.title
 # 	}
 # }
-
 ######################
 ###- Crisis Power -###
 ######################
 
 defined_text = {
 	name = GetCurrentSetting_EndgamePower
+
 	text = {
-		trigger = { NOT = { has_global_flag = CmtFlagEndGameEdition } }
+		trigger = {
+			NOT = { has_global_flag = CmtFlagEndGameEdition }
+		}
 		localization_key = ""
 	}
 	text = {
 		trigger = {
 			has_global_flag = CmtFlagEndGameEdition
-			event_target:CmtGlobalVar = { check_variable = { which = CmtVarCrisisPower_Endgame value = 1 } }
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarCrisisPower_Endgame value = 1 }
+			}
 		}
 		localization_key = CrisisManagerMenu.EndgamePower1
 	}
 	text = {
 		trigger = {
 			has_global_flag = CmtFlagEndGameEdition
-			event_target:CmtGlobalVar = { check_variable = { which = CmtVarCrisisPower_Endgame value = 2 } }
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarCrisisPower_Endgame value = 2 }
+			}
 		}
 		localization_key = CrisisManagerMenu.EndgamePower2
 	}
 	text = {
 		trigger = {
 			has_global_flag = CmtFlagEndGameEdition
-			event_target:CmtGlobalVar = { check_variable = { which = CmtVarCrisisPower_Endgame value = 3 } }
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarCrisisPower_Endgame value = 3 }
+			}
 		}
 		localization_key = CrisisManagerMenu.EndgamePower3
 	}
 	text = {
 		trigger = {
 			has_global_flag = CmtFlagEndGameEdition
-			event_target:CmtGlobalVar = { check_variable = { which = CmtVarCrisisPower_Endgame value = 4 } }
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarCrisisPower_Endgame value = 4 }
+			}
 		}
 		localization_key = CrisisManagerMenu.EndgamePower4
 	}
@@ -382,35 +502,46 @@ defined_text = {
 
 defined_text = {
 	name = GetCurrentSetting_MidgamePower
+
 	text = {
-		trigger = { NOT = { has_global_flag = CmtFlagMidGameEdition } }
+		trigger = {
+			NOT = { has_global_flag = CmtFlagMidGameEdition }
+		}
 		localization_key = ""
 	}
 	text = {
 		trigger = {
 			has_global_flag = CmtFlagMidGameEdition
-			event_target:CmtGlobalVar = { check_variable = { which = CmtVarCrisisPower_Midgame value = 1 } }
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarCrisisPower_Midgame value = 1 }
+			}
 		}
 		localization_key = CrisisManagerMenu.MidgamePower1
 	}
 	text = {
 		trigger = {
 			has_global_flag = CmtFlagMidGameEdition
-			event_target:CmtGlobalVar = { check_variable = { which = CmtVarCrisisPower_Midgame value = 2 } }
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarCrisisPower_Midgame value = 2 }
+			}
 		}
 		localization_key = CrisisManagerMenu.MidgamePower2
 	}
 	text = {
 		trigger = {
 			has_global_flag = CmtFlagMidGameEdition
-			event_target:CmtGlobalVar = { check_variable = { which = CmtVarCrisisPower_Midgame value = 3 } }
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarCrisisPower_Midgame value = 3 }
+			}
 		}
 		localization_key = CrisisManagerMenu.MidgamePower3
 	}
 	text = {
 		trigger = {
 			has_global_flag = CmtFlagMidGameEdition
-			event_target:CmtGlobalVar = { check_variable = { which = CmtVarCrisisPower_Midgame value = 4 } }
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarCrisisPower_Midgame value = 4 }
+			}
 		}
 		localization_key = CrisisManagerMenu.MidgamePower4
 	}
@@ -431,10 +562,11 @@ defined_text = {
 ###########################
 ###- Manual Operations -###
 ###########################
-
 ### War in Heaven
+
 defined_text = {
 	name = GetEthic_ManualSleeperA
+
 	text = {
 		trigger = {
 			exists = event_target:CmtTargetManualSleeper1
@@ -474,6 +606,7 @@ defined_text = {
 
 defined_text = {
 	name = GetEthic_ManualSleeperB
+
 	text = {
 		trigger = {
 			exists = event_target:CmtTargetManualSleeper1
@@ -512,12 +645,15 @@ defined_text = {
 }
 
 ### Terminate FE or AFE
+
 defined_text = {
 	name = GetFallenEmpire_type
 	default = CmtIconEnd_FE
 	# trigger = { merg_is_fallen_empire = yes }
 	text = {
-		trigger = { merg_is_awakened_fe = yes }
+		trigger = {
+			merg_is_awakened_fe = yes
+		}
 		localization_key = CmtIconEnd_AFE
 	}
 	# text = {
@@ -558,8 +694,10 @@ defined_text = {
 }
 
 ### L-Gate
+
 defined_text = {
 	name = GetName_LgateManualOpenEvent
+
 	text = {
 		trigger = {
 			event_target:CmtGlobalVar = {
@@ -572,19 +710,35 @@ defined_text = {
 		localization_key = CrisisManagerMenu.7140b.name
 	}
 	text = {
-		trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarManualTemp value = 1 } } }
+		trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarManualTemp value = 1 }
+			}
+		}
 		localization_key = graygoo.550.name
 	}
 	text = {
-		trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarManualTemp value = 2 } } }
+		trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarManualTemp value = 2 }
+			}
+		}
 		localization_key = CrisisManagerMenu.7140c2.name
 	}
 	text = {
-		trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarManualTemp value = 3 } } }
+		trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarManualTemp value = 3 }
+			}
+		}
 		localization_key = graygoo.120_title
 	}
 	text = {
-		trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarManualTemp value = 4 } } }
+		trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarManualTemp value = 4 }
+			}
+		}
 		localization_key = CrisisManagerMenu.7140c4.name
 	}
 }
@@ -595,76 +749,149 @@ defined_text = {
 
 defined_text = {
 	name = GetName_LastAppliedTemplate
+
 	text = {
-		trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarTemplateCode value = 2000 } } }
+		trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarTemplateCode value = 2000 }
+			}
+		}
 		localization_key = CrisisManagerTemplate_T000.title
 	}
 	text = {
-		trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarTemplateCode value = 2001 } } }
+		trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarTemplateCode value = 2001 }
+			}
+		}
 		localization_key = CrisisManagerTemplate_T001.title
 	}
 	text = {
-		trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarTemplateCode value = 2101 } } }
+		trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarTemplateCode value = 2101 }
+			}
+		}
 		localization_key = CrisisManagerTemplate_T101.title
 	}
 	text = {
-		trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarTemplateCode value = 2102 } } }
+		trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarTemplateCode value = 2102 }
+			}
+		}
 		localization_key = CrisisManagerTemplate_T102.title
 	}
 	text = {
-		trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarTemplateCode value = 2103 } } }
+		trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarTemplateCode value = 2103 }
+			}
+		}
 		localization_key = CrisisManagerTemplate_T103.title
 	}
 	text = {
-		trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarTemplateCode value = 2104 } } }
+		trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarTemplateCode value = 2104 }
+			}
+		}
 		localization_key = CrisisManagerTemplate_T104.title
 	}
 	text = {
-		trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarTemplateCode value = 2105 } } }
+		trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarTemplateCode value = 2105 }
+			}
+		}
 		localization_key = CrisisManagerTemplate_T105.title
 	}
 	text = {
-		trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarTemplateCode value = 2106 } } }
+		trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarTemplateCode value = 2106 }
+			}
+		}
 		localization_key = CrisisManagerTemplate_T106.title
 	}
 	text = {
-		trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarTemplateCode value = 2107 } } }
+		trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarTemplateCode value = 2107 }
+			}
+		}
 		localization_key = CrisisManagerTemplate_T107.title
 	}
 	text = {
-		trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarTemplateCode value = 2108 } } }
+		trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarTemplateCode value = 2108 }
+			}
+		}
 		localization_key = CrisisManagerTemplate_T108.title
 	}
 	text = {
-		trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarTemplateCode value = 2109 } } }
+		trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarTemplateCode value = 2109 }
+			}
+		}
 		localization_key = CrisisManagerTemplate_T109.title
 	}
 	text = {
-		trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarTemplateCode value = 2110 } } }
+		trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarTemplateCode value = 2110 }
+			}
+		}
 		localization_key = CrisisManagerTemplate_T110.title
 	}
 	text = {
-		trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarTemplateCode value = 2111 } } }
+		trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarTemplateCode value = 2111 }
+			}
+		}
 		localization_key = CrisisManagerTemplate_T111.title
 	}
 	text = {
-		trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarTemplateCode value = 2112 } } }
+		trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarTemplateCode value = 2112 }
+			}
+		}
 		localization_key = CrisisManagerTemplate_T112.title
 	}
 	text = {
-		trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarTemplateCode value = 2113 } } }
+		trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarTemplateCode value = 2113 }
+			}
+		}
 		localization_key = CrisisManagerTemplate_T113.title
 	}
 	text = {
-		trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarTemplateCode value = 2114 } } }
+		trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarTemplateCode value = 2114 }
+			}
+		}
 		localization_key = CrisisManagerTemplate_T114.title
 	}
 	text = {
-		trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarTemplateCode value = 2115 } } }
+		trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarTemplateCode value = 2115 }
+			}
+		}
 		localization_key = CrisisManagerTemplate_T115.title
 	}
 	text = {
-		trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarTemplateCode value = 2116 } } }
+		trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarTemplateCode value = 2116 }
+			}
+		}
 		localization_key = CrisisManagerTemplate_T116.title
 	}
 	text = {

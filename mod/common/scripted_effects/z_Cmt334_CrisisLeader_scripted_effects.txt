@@ -13,11 +13,9 @@
 #	All scripts to creating leader in this file is scope free
 #
 #
-
 ###################
 ###- Constants -###
 ###################
-
 ##############
 ###- Khan -###
 ##############
@@ -51,30 +49,33 @@ CmtEffectCreateAdmiral_MarauderStandard = {
 			effect = {
 				random_list = {
 					6 = {
-						modifier = { factor = 0
+						modifier = {
+							factor = 0
 							OR = {
 								has_trait = leader_trait_aggressive
 								has_trait = leader_trait_cautious
 							}
 						}
-					add_trait = leader_trait_aggressive }
-					# 1 = { add_trait = leader_trait_skirmisher } council
+						add_trait = { trait = leader_trait_aggressive }
+					}
+					# 1 = { add_trait = { trait = leader_trait_skirmisher } } council
 					3 = {
 						modifier = { factor = 0 has_trait = leader_trait_engineer }
-						add_trait = leader_trait_engineer
+						add_trait = { trait = leader_trait_engineer }
 					}
 					1 = {
-						modifier = { factor = 0
+						modifier = {
+							factor = 0
 							OR = {
 								has_trait = leader_trait_wrecker
 								has_trait = leader_trait_juryrigger
 							}
 						}
-						add_trait = leader_trait_wrecker
+						add_trait = { trait = leader_trait_wrecker }
 					}
 					1 = {
 						modifier = { factor = 0 has_trait = leader_trait_annihilator }
-						add_trait = leader_trait_annihilator
+						add_trait = { trait = leader_trait_annihilator }
 					}
 				}
 				set_leader_flag = marauder_merc_leader
@@ -102,7 +103,7 @@ CmtEffectCreateAdmiral_OwnerStandard = {
 	optimize_memory
 	create_leader = {
 		class = commander
-		species = owner_main_species
+		species = owner_species
 		name = random
 		skill = 3
 		leader_age_min = 25

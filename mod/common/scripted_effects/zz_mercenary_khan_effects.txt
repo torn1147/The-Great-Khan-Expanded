@@ -5,11 +5,12 @@
 # [effect_on_blob] Invalid center target at file: scripted effect assign_second_diadochi_planets
 # [effect_on_blob] Invalid center target at file: scripted effect assign_third_diadochi_planets
 # [effect_on_blob] Invalid center target at file: scripted effect assign_fourth_diadochi_planets
-
 # This = Fleet
-create_dyn_marauder_fleet = { # default: OUTRIDER = 18 LANCER = 12 CHAMPION = 6 GLORY = 1
+# default: OUTRIDER = 18 LANCER = 12 CHAMPION = 6 GLORY = 1
+create_dyn_marauder_fleet = {
 	optimize_memory
-	while = { count = $OUTRIDER|18$
+	while = {
+		count = $OUTRIDER|18$
 		# count = @\[ $AMOUNT|3$ * 6 ]
 		create_ship = {
 			name = random
@@ -19,7 +20,8 @@ create_dyn_marauder_fleet = { # default: OUTRIDER = 18 LANCER = 12 CHAMPION = 6 
 			graphical_culture = "pirate_01" # "madd_01" # prev.owner
 		}
 	}
-	while = { count = $LANCER|12$
+	while = {
+		count = $LANCER|12$
 		create_ship = {
 			name = random
 			design = NAME_Lancer$VARIANT$
@@ -28,7 +30,8 @@ create_dyn_marauder_fleet = { # default: OUTRIDER = 18 LANCER = 12 CHAMPION = 6 
 			graphical_culture = prev.owner # "madd_01"
 		}
 	}
-	while = { count = $CHAMPION|6$
+	while = {
+		count = $CHAMPION|6$
 		create_ship = {
 			name = random
 			design = NAME_Void_Champion$VARIANT$
@@ -37,7 +40,8 @@ create_dyn_marauder_fleet = { # default: OUTRIDER = 18 LANCER = 12 CHAMPION = 6 
 			graphical_culture = prev.owner # "madd_01"
 		}
 	}
-	while = { count = $GLORY|1$
+	while = {
+		count = $GLORY|1$
 		create_ship = {
 			name = random
 			design = NAME_Ancestral_Glory$VARIANT$
@@ -52,14 +56,6 @@ create_1st_khan_fleet = {
 	optimize_memory
 	create_fleet = {
 		name = "NAME_Chosen_of_the_Great_Khan"
-		settings = {
-			can_upgrade = no
-			can_disband = no
-			can_change_composition = no
-			can_change_leader = no
-			uses_naval_capacity = no
-			spawn_debris = yes
-		}
 		effect = {
 			set_owner = event_target:raider_khanate
 			create_ship = { # name = "NAME_JuukTidir"
@@ -73,24 +69,27 @@ create_1st_khan_fleet = {
 				limit = {
 					OR = {
 						has_global_flag = expanded_spaceborne_installed
-						event_target:CmtGlobalVar = { check_variable = { which = CmtVarFleetPower_Khan value > 1.74 } }
+						event_target:CmtGlobalVar = {
+							check_variable = { which = CmtVarFleetPower_Khan value > 1.74 }
+						}
 					}
 				}
-				create_dyn_marauder_fleet = { OUTRIDER = 36 LANCER = 24 CHAMPION = 12 }
+				create_dyn_marauder_fleet = {
+					OUTRIDER = 36
+					LANCER = 24
+					CHAMPION = 12
+				}
 			}
 			else = {
 				create_dyn_marauder_fleet = { GLORY = 0 }
 			}
-			set_location = { target = event_target:marauder_rally_point distance = 45 angle = random }
+			set_location = {
+				target = event_target:marauder_rally_point
+				distance = 45
+				angle = random
+			}
 			set_home_base = event_target:marauder_rally_point.solar_system.starbase
 		}
-	}
-}
-
-create_2nd_khan_fleet = {
-	optimize_memory
-	create_fleet = {
-		name = "NAME_Chosen_of_the_Great_Khan"
 		settings = {
 			can_upgrade = no
 			can_disband = no
@@ -99,6 +98,13 @@ create_2nd_khan_fleet = {
 			uses_naval_capacity = no
 			spawn_debris = yes
 		}
+	}
+}
+
+create_2nd_khan_fleet = {
+	optimize_memory
+	create_fleet = {
+		name = "NAME_Chosen_of_the_Great_Khan"
 		effect = {
 			set_owner = event_target:raider_khanate
 			create_ship = { # name = "NAME_Glorious_Might"
@@ -112,15 +118,35 @@ create_2nd_khan_fleet = {
 				limit = {
 					OR = {
 						has_global_flag = expanded_spaceborne_installed
-						event_target:CmtGlobalVar = { check_variable = { which = CmtVarFleetPower_Khan value > 1.74 } }
+						event_target:CmtGlobalVar = {
+							check_variable = { which = CmtVarFleetPower_Khan value > 1.74 }
+						}
 					}
 				}
-				create_dyn_marauder_fleet = { OUTRIDER = 36 LANCER = 24 CHAMPION = 12 }
+				create_dyn_marauder_fleet = {
+					OUTRIDER = 36
+					LANCER = 24
+					CHAMPION = 12
+				}
 			}
-			else = { create_dyn_marauder_fleet = yes }
+			else = {
+				create_dyn_marauder_fleet = yes
+			}
 			save_event_target_as = khan_fleet
-			set_location = { target = event_target:marauder_rally_point distance = 45 angle = random }
+			set_location = {
+				target = event_target:marauder_rally_point
+				distance = 45
+				angle = random
+			}
 			set_home_base = event_target:marauder_rally_point.solar_system.starbase
+		}
+		settings = {
+			can_upgrade = no
+			can_disband = no
+			can_change_composition = no
+			can_change_leader = no
+			uses_naval_capacity = no
+			spawn_debris = yes
 		}
 	}
 }
@@ -128,6 +154,7 @@ create_2nd_khan_fleet = {
 create_marauder_fleet = {
 	optimize_memory # As replaced and not used by this mod
 	CmtEffectCreateAdmiral_MarauderStandard = yes
+
 	create_fleet = {
 		effect = {
 			random_list = {
@@ -137,10 +164,16 @@ create_marauder_fleet = {
 						limit = {
 							OR = {
 								has_global_flag = expanded_spaceborne_installed
-								event_target:CmtGlobalVar = { check_variable = { which = CmtVarFleetPower_Khan value > 1.74 } }
+								event_target:CmtGlobalVar = {
+									check_variable = { which = CmtVarFleetPower_Khan value > 1.74 }
+								}
 							}
 						}
-						create_dyn_marauder_fleet = { OUTRIDER = 32 LANCER = 16 CHAMPION = 12 }
+						create_dyn_marauder_fleet = {
+							OUTRIDER = 32
+							LANCER = 16
+							CHAMPION = 12
+						}
 					}
 					else = {
 						create_dyn_marauder_fleet = { OUTRIDER = 16 LANCER = 8 }
@@ -148,7 +181,8 @@ create_marauder_fleet = {
 				}
 				50 = { # Own ships
 					set_owner = root
-					while = { count = 16
+					while = {
+						count = 16
 						create_ship = {
 							name = random
 							prefix = no
@@ -156,7 +190,8 @@ create_marauder_fleet = {
 							graphical_culture = root
 						}
 					}
-					while = { count = 8
+					while = {
+						count = 8
 						create_ship = {
 							name = random
 							prefix = no
@@ -165,8 +200,13 @@ create_marauder_fleet = {
 						}
 					}
 					if = {
-						limit = { root = { any_owned_design = { is_ship_size = cruiser } } }
-						while = { count = 3
+						limit = {
+							root = {
+								any_owned_design = { is_ship_size = cruiser }
+							}
+						}
+						while = {
+							count = 3
 							create_ship = {
 								name = random
 								prefix = no
@@ -177,21 +217,35 @@ create_marauder_fleet = {
 					}
 				}
 			}
-
 			assign_leader = last_created_leader
-			set_location = { target = event_target:marauder_rally_point distance = 45 angle = random }
+			set_location = {
+				target = event_target:marauder_rally_point
+				distance = 45
+				angle = random
+			}
 			set_home_base = event_target:marauder_rally_point.solar_system.starbase
 		}
-		settings = { uses_naval_capacity = no can_upgrade = no can_change_composition = no }
+		settings = {
+			uses_naval_capacity = no
+			can_upgrade = no
+			can_change_composition = no
+		}
 	}
-	last_created_fleet = { set_owner = event_target:raider_khanate }
+
+	last_created_fleet = {
+		set_owner = event_target:raider_khanate
+	}
 }
 
 create_small_marauder_auxiliaries = {
 	optimize_memory
 	CmtEffectCreateAdmiral_MarauderEncourager = yes
+
 	create_fleet = {
-		name = { key = "NAME_Horde_Auxiliary_Fleet" variable_string = "\\[satrapy_species.GetName\\]" }
+		name = {
+			key = "NAME_Horde_Auxiliary_Fleet"
+			variable_string = "\\[satrapy_species.GetName\\]"
+		}
 		effect = {
 			set_owner = event_target:raider_khanate
 			set_fleet_flag = horde_auxuliaries
@@ -199,16 +253,32 @@ create_small_marauder_auxiliaries = {
 				limit = {
 					OR = {
 						has_global_flag = expanded_spaceborne_installed
-						event_target:CmtGlobalVar = { check_variable = { which = CmtVarFleetPower_Khan value > 1.74 } }
+						event_target:CmtGlobalVar = {
+							check_variable = { which = CmtVarFleetPower_Khan value > 1.74 }
+						}
 					}
 				}
-				create_dyn_marauder_fleet = { OUTRIDER = 20 LANCER = 8 CHAMPION = 4 GLORY = 0 }
+				create_dyn_marauder_fleet = {
+					OUTRIDER = 20
+					LANCER = 8
+					CHAMPION = 4
+					GLORY = 0
+				}
 			}
 			else = {
-				create_dyn_marauder_fleet = { OUTRIDER = 10 LANCER = 4 CHAMPION = 2 GLORY = 0 }
+				create_dyn_marauder_fleet = {
+					OUTRIDER = 10
+					LANCER = 4
+					CHAMPION = 2
+					GLORY = 0
+				}
 			}
 			assign_leader = last_created_leader
-			set_location = { target = root distance = 10 angle = random }
+			set_location = {
+				target = root
+				distance = 10
+				angle = random
+			}
 			set_home_base = root.solar_system.starbase
 		}
 		settings = {
@@ -224,8 +294,12 @@ create_small_marauder_auxiliaries = {
 create_medium_marauder_auxiliaries = {
 	optimize_memory
 	CmtEffectCreateAdmiral_MarauderEncourager = yes
+
 	create_fleet = {
-		name = { key = "NAME_Horde_Auxiliary_Fleet" variable_string = "\\[satrapy_species.GetName\\]" }
+		name = {
+			key = "NAME_Horde_Auxiliary_Fleet"
+			variable_string = "\\[satrapy_species.GetName\\]"
+		}
 		effect = {
 			set_owner = event_target:raider_khanate
 			set_fleet_flag = horde_auxuliaries
@@ -233,14 +307,26 @@ create_medium_marauder_auxiliaries = {
 				limit = {
 					OR = {
 						has_global_flag = expanded_spaceborne_installed
-						event_target:CmtGlobalVar = { check_variable = { which = CmtVarFleetPower_Khan value > 1.74 } }
+						event_target:CmtGlobalVar = {
+							check_variable = { which = CmtVarFleetPower_Khan value > 1.74 }
+						}
 					}
 				}
-				create_dyn_marauder_fleet = { OUTRIDER = 32 LANCER = 16 CHAMPION = 12 }
+				create_dyn_marauder_fleet = {
+					OUTRIDER = 32
+					LANCER = 16
+					CHAMPION = 12
+				}
 			}
-			else = { create_dyn_marauder_fleet = yes }
+			else = {
+				create_dyn_marauder_fleet = yes
+			}
 			assign_leader = last_created_leader
-			set_location = { target = root distance = 10 angle = random }
+			set_location = {
+				target = root
+				distance = 10
+				angle = random
+			}
 			set_home_base = root.solar_system.starbase
 		}
 		settings = {
@@ -256,8 +342,12 @@ create_medium_marauder_auxiliaries = {
 create_large_marauder_auxiliaries = {
 	optimize_memory
 	CmtEffectCreateAdmiral_MarauderEncourager = yes
+
 	create_fleet = {
-		name = { key = "NAME_Horde_Auxiliary_Fleet" variable_string = "\\[satrapy_species.GetName\\]" }
+		name = {
+			key = "NAME_Horde_Auxiliary_Fleet"
+			variable_string = "\\[satrapy_species.GetName\\]"
+		}
 		effect = {
 			set_owner = event_target:raider_khanate
 			set_fleet_flag = horde_auxuliaries
@@ -265,16 +355,30 @@ create_large_marauder_auxiliaries = {
 				limit = {
 					OR = {
 						has_global_flag = expanded_spaceborne_installed
-						event_target:CmtGlobalVar = { check_variable = { which = CmtVarFleetPower_Khan value > 1.74 } }
+						event_target:CmtGlobalVar = {
+							check_variable = { which = CmtVarFleetPower_Khan value > 1.74 }
+						}
 					}
 				}
-				create_dyn_marauder_fleet = { OUTRIDER = 44 LANCER = 24 CHAMPION = 16 }
+				create_dyn_marauder_fleet = {
+					OUTRIDER = 44
+					LANCER = 24
+					CHAMPION = 16
+				}
 			}
 			else = {
-				create_dyn_marauder_fleet = { OUTRIDER = 22 LANCER = 12 CHAMPION = 8 }
+				create_dyn_marauder_fleet = {
+					OUTRIDER = 22
+					LANCER = 12
+					CHAMPION = 8
+				}
 			}
 			assign_leader = last_created_leader
-			set_location = { target = root distance = 10 angle = random }
+			set_location = {
+				target = root
+				distance = 10
+				angle = random
+			}
 			set_home_base = root.solar_system.starbase
 		}
 		settings = {
@@ -290,8 +394,12 @@ create_large_marauder_auxiliaries = {
 create_very_large_marauder_auxiliaries = {
 	optimize_memory
 	CmtEffectCreateAdmiral_MarauderEncourager = yes
+
 	create_fleet = {
-		name = { key = "NAME_Horde_Auxiliary_Fleet" variable_string = "\\[satrapy_species.GetName\\]" }
+		name = {
+			key = "NAME_Horde_Auxiliary_Fleet"
+			variable_string = "\\[satrapy_species.GetName\\]"
+		}
 		effect = {
 			set_owner = event_target:raider_khanate
 			set_fleet_flag = horde_auxuliaries
@@ -299,16 +407,30 @@ create_very_large_marauder_auxiliaries = {
 				limit = {
 					OR = {
 						has_global_flag = expanded_spaceborne_installed
-						event_target:CmtGlobalVar = { check_variable = { which = CmtVarFleetPower_Khan value > 1.74 } }
+						event_target:CmtGlobalVar = {
+							check_variable = { which = CmtVarFleetPower_Khan value > 1.74 }
+						}
 					}
 				}
-				create_dyn_marauder_fleet = { OUTRIDER = 52 LANCER = 36 CHAMPION = 24 }
+				create_dyn_marauder_fleet = {
+					OUTRIDER = 52
+					LANCER = 36
+					CHAMPION = 24
+				}
 			}
 			else = {
-				create_dyn_marauder_fleet = { OUTRIDER = 26 LANCER = 18 CHAMPION = 12 }
+				create_dyn_marauder_fleet = {
+					OUTRIDER = 26
+					LANCER = 18
+					CHAMPION = 12
+				}
 			}
 			assign_leader = last_created_leader
-			set_location = { target = root distance = 10 angle = random }
+			set_location = {
+				target = root
+				distance = 10
+				angle = random
+			}
 			set_home_base = root.solar_system.starbase
 		}
 		settings = {
@@ -322,7 +444,10 @@ create_very_large_marauder_auxiliaries = {
 }
 
 create_marauder_successor_fleet = {
-	random_owned_planet = { save_event_target_as = fleet_position }
+	random_owned_planet = {
+		save_event_target_as = fleet_position
+	}
+
 	create_fleet = {
 		effect = {
 			set_owner = prev
@@ -330,26 +455,44 @@ create_marauder_successor_fleet = {
 				limit = {
 					OR = {
 						has_global_flag = expanded_spaceborne_installed
-						event_target:CmtGlobalVar = { check_variable = { which = CmtVarFleetPower_Khan value > 1.74 } }
+						event_target:CmtGlobalVar = {
+							check_variable = { which = CmtVarFleetPower_Khan value > 1.74 }
+						}
 					}
 				}
-				create_dyn_marauder_fleet = { OUTRIDER = 32 LANCER = 16 CHAMPION = 12 }
+				create_dyn_marauder_fleet = {
+					OUTRIDER = 32
+					LANCER = 16
+					CHAMPION = 12
+				}
 			}
 			else = {
 				create_dyn_marauder_fleet = { OUTRIDER = 16 LANCER = 8 }
 			}
 			# assign_leader = last_created_leader
-			set_location = { target = event_target:fleet_position distance = 45 angle = random }
+			set_location = {
+				target = event_target:fleet_position
+				distance = 45
+				angle = random
+			}
 			set_home_base = event_target:fleet_position.solar_system.starbase
 		}
-		settings = { uses_naval_capacity = no can_upgrade = no can_change_composition = no }
+		settings = {
+			uses_naval_capacity = no
+			can_upgrade = no
+			can_change_composition = no
+		}
 	}
 	# Fix unlimited leader creation
 	if = {
 		limit = {
 			NOR = {
-				count_owned_leader = { count > 12
-					limit = { leader_class = commander is_event_leader = no }
+				count_owned_leader = {
+					count > 12
+					limit = {
+						leader_class = commander
+						is_event_leader = no
+					}
 				}
 				any_owned_leader = {
 					leader_class = commander
@@ -362,7 +505,7 @@ create_marauder_successor_fleet = {
 		}
 		create_leader = {
 			class = commander
-			species = owner_main_species
+			species = owner_species
 			name = random
 			skill = 3
 			leader_age_min = 25
@@ -380,7 +523,13 @@ create_marauder_successor_fleet = {
 				is_councilor = no
 				is_ruler = no
 			}
-			weights = { base = 1 modifier = { add = 4 NOT = { exists = fleet } } }
+			weights = {
+				base = 1
+				modifier = {
+					add = 4
+					NOT = { exists = fleet }
+				}
+			}
 			last_created_fleet = { assign_leader = prev }
 		}
 	}
@@ -390,16 +539,18 @@ create_marauder_successor_fleet = {
 get_marauder_raid_source = {
 	random_planet_within_border = {
 		limit = { is_star = no }
-		weights = { base = 1
+		weights = {
+			base = 1
 			modifier = { add = 1 is_colonizable = yes }
 			modifier = { add = 6 has_planet_flag = raid_source }
 		}
 		save_event_target_as = raid_source
 	}
-
 	### Rally Point Fallback
 	if = {
-		limit = { NOT = { exists = event_target:raid_source } }
+		limit = {
+			NOT = { exists = event_target:raid_source }
+		}
 		switch = { trigger = has_country_flag
 			marauder_1 = {
 				random_system = {
@@ -442,10 +593,11 @@ get_marauder_raid_source = {
 			}
 		}
 	}
-
 	### Strong Fallback
 	if = {
-		limit = { NOT = { exists = event_target:raid_source } }
+		limit = {
+			NOT = { exists = event_target:raid_source }
+		}
 		# ordered_owned_starbase = {
 		random_owned_starbase = {
 			limit = {
@@ -459,7 +611,8 @@ get_marauder_raid_source = {
 			solar_system = {
 				random_system_planet = {
 					limit = { is_star = no }
-					weights = { base = 1
+					weights = {
+						base = 1
 						modifier = { add = 3 has_planet_flag = raid_source }
 						modifier = { add = 1 is_colonizable = yes }
 					}
@@ -470,16 +623,21 @@ get_marauder_raid_source = {
 	}
 	### Very Strong Fallback
 	if = {
-		limit = { NOT = { exists = event_target:raid_source } }
+		limit = {
+			NOT = { exists = event_target:raid_source }
+		}
 		random_owned_fleet = {
 			limit = {
 				exists = solar_system
-				solar_system = { any_system_planet = { is_star = no } }
+				solar_system = {
+					any_system_planet = { is_star = no }
+				}
 			}
 			solar_system = {
 				random_system_planet = {
 					limit = { is_star = no }
-					weights = { base = 1
+					weights = {
+						base = 1
 						modifier = { add = 3 has_planet_flag = raid_source }
 						modifier = { add = 1 is_colonizable = yes }
 					}
@@ -490,14 +648,19 @@ get_marauder_raid_source = {
 	}
 	### Very Last Fallback
 	if = {
-		limit = { NOT = { exists = event_target:raid_source } }
+		limit = {
+			NOT = { exists = event_target:raid_source }
+		}
 		if = {
-			limit = { any_controlled_fleet = { exists = solar_system } }
+			limit = {
+				any_controlled_fleet = { exists = solar_system }
+			}
 			random_controlled_fleet = {
 				limit = { exists = solar_system }
 				solar_system = {
 					random_system_planet = {
-						weights = { base = 1
+						weights = {
+							base = 1
 							modifier = { add = 3 has_planet_flag = raid_source }
 							modifier = { add = 1 is_colonizable = yes }
 							modifier = { add = 3 is_star = no }
@@ -508,7 +671,9 @@ get_marauder_raid_source = {
 			}
 		}
 		else_if = {
-			limit = { count_orbital_station = { count > 0 } }
+			limit = {
+				count_orbital_station = { count > 0 }
+			}
 			random_orbital_station = { save_event_target_as = raid_source }
 		}
 	}
@@ -542,7 +707,7 @@ get_marauder_raid_source = {
 # 				has_owner = yes
 # 				is_owned_by = root
 # 				merg_is_habitat = no
-# 				OR = { is_sector_capital = yes sapient_pop_amount > 5 }
+# 				OR = { is_sector_capital = yes sapient_pop_amount > 500 }
 # 			}
 # 		}
 # 		set_star_flag = $NUM$_diadochi_system
@@ -564,7 +729,6 @@ get_marauder_raid_source = {
 # 		log = "Exists diadochi_planet [diadochi_origin_@$NUM$.GetName]"
 # 	}
 # }
-
 # Speed optimized by FirePrince (no checks in loop)
 # NUM = diadochi count
 assign_diadochi_systems = {
@@ -577,14 +741,21 @@ assign_diadochi_systems = {
 	}
 	set_variable = { which = num_diadochi value = $NUM|1$ }
 	if = {
-		limit = { check_variable = { which = num_potential_diadochi_systems value > 0 } }
+		limit = {
+			check_variable = { which = num_potential_diadochi_systems value > 0 }
+		}
 		divide_variable = { which = num_potential_diadochi_systems value = num_diadochi }
 		ceiling_variable = num_potential_diadochi_systems
-
 		if = {
-			limit = { check_variable = { which = num_diadochi value > 3 } exists = event_target:first_diadochi_origin }
-			while = { count = num_potential_diadochi_systems # Vanilla static 100
-				limit = { any_system_within_border = { is_potential_diadochi_system = yes } }
+			limit = {
+				check_variable = { which = num_diadochi value > 3 }
+				exists = event_target:first_diadochi_origin
+			}
+			while = {
+				count = num_potential_diadochi_systems # Vanilla static 100
+				limit = {
+					any_system_within_border = { is_potential_diadochi_system = yes }
+				}
 				event_target:first_diadochi_origin = {
 					closest_system = {
 						limit = { is_potential_diadochi_system = yes }
@@ -616,9 +787,15 @@ assign_diadochi_systems = {
 			}
 		}
 		else_if = {
-			limit = { check_variable = { which = num_diadochi value > 2 } exists = event_target:second_diadochi_origin }
-			while = { count = num_potential_diadochi_systems
-				limit = { any_system_within_border = { is_potential_diadochi_system = yes } }
+			limit = {
+				check_variable = { which = num_diadochi value > 2 }
+				exists = event_target:second_diadochi_origin
+			}
+			while = {
+				count = num_potential_diadochi_systems
+				limit = {
+					any_system_within_border = { is_potential_diadochi_system = yes }
+				}
 				event_target:second_diadochi_origin = {
 					closest_system = {
 						limit = { is_potential_diadochi_system = yes }
@@ -643,8 +820,11 @@ assign_diadochi_systems = {
 			}
 		}
 		else = {
-			while = { count = num_potential_diadochi_systems
-				limit = { any_system_within_border = { is_potential_diadochi_system = yes } }
+			while = {
+				count = num_potential_diadochi_systems
+				limit = {
+					any_system_within_border = { is_potential_diadochi_system = yes }
+				}
 				event_target:third_diadochi_origin = {
 					closest_system = {
 						limit = { is_potential_diadochi_system = yes }
@@ -711,9 +891,10 @@ assign_diadochi_systems = {
 # 		}
 # 	}
 # }
-
 # Override needless wasting vanilla effect
-set_diadochi_claims = { optimize_memory }
+set_diadochi_claims = {
+	optimize_memory
+}
 
 # NOTE: Don't use with every_*_system..., as this could lead to strange behavior
 # Don't flip capital_system for human player, compare system_flip_control_effect (Rise and Fall)
@@ -724,7 +905,10 @@ commit_system_to = {
 	if = {
 		limit = {
 			has_owner = yes
-			NAND = { exists = event_target:former_owner is_owned_by = $EMPIRE$ }
+			NAND = {
+				exists = event_target:former_owner
+				is_owned_by = $EMPIRE$
+			}
 		}
 		owner = { save_event_target_as = former_owner }
 	}
@@ -740,7 +924,10 @@ commit_system_to = {
 				}
 				has_star_flag = switched_system
 				$EMPIRE$ = { is_same_empire = event_target:former_owner }
-				AND = { is_capital_system = yes space_owner = { is_ai = no } } # Just double check
+				AND = {
+					is_capital_system = yes
+					space_owner = { is_ai = no }
+				} # Just double check
 			}
 		}
 		log = "Break: System \\[This.GetName] has same old owner \\[This.starbase.fleet.Owner.GetName]"
@@ -780,7 +967,9 @@ commit_system_to = {
 			}
 			dismantle = yes
 		}
-		else = { set_owner = $EMPIRE$ }
+		else = {
+			set_owner = $EMPIRE$
+		}
 	}
 	# SLOW SAVE METHOD - just double check to omit wired caching behavior (aka: don't change the major loop condition in the loop itself)
 	export_trigger_value_to_variable = {
@@ -802,8 +991,11 @@ commit_system_to = {
 		variable = num_system_colonies
 	}
 	if = {
-		limit = { check_variable = { which = num_system_colonies value > 0 } }
-		while = { count = num_system_colonies # value:num_system_colonies
+		limit = {
+			check_variable = { which = num_system_colonies value > 0 }
+		}
+		while = {
+			count = num_system_colonies # value:num_system_colonies
 			limit = {
 				exists = event_target:former_owner
 				any_system_colony = { # Just double check
@@ -840,25 +1032,40 @@ commit_system_to = {
 		}
 	}
 	if = {
-		limit = { exists = prev prev = { is_scope_type = country } }
+		limit = {
+			exists = prev
+			prev = { is_scope_type = country }
+		}
 		every_system_colony = {
 			limit = {
 				has_owner = yes
 				is_under_colonization = yes
-				OR = { is_owned_by = event_target:former_owner is_controlled_by = event_target:former_owner }
+				OR = {
+					is_owned_by = event_target:former_owner
+					is_controlled_by = event_target:former_owner
+				}
 			}
 			destroy_colony = yes
 		}
-		add_claims = { who = event_target:former_owner num_of_claims = 10 show_notification = no }
+		add_claims = {
+			who = event_target:former_owner
+			num_of_claims = 10
+			show_notification = no
+		}
 	}
 	log = "Balcanization preventation: Diadochi system \\[This.GetName] switched to \\[This.starbase.fleet.Owner.GetName]!"
 	clear_variable = num_system_colonies
 }
 
 # This = root = Marauder
-get_marauder_species = { # log = "GET MARAUDER SPECIES"
+# log = "GET MARAUDER SPECIES"
+get_marauder_species = {
 	[[PLANET]
-	if = { limit = { exists = prev prev = { is_scope_valid = yes is_scope_type = planet } }
+	if = {
+		limit = {
+			exists = prev
+			prev = { is_scope_valid = yes is_scope_type = planet }
+		}
 		# log = "GET MARAUDER PLANET SPECIES"
 		if = {
 			limit = {
@@ -899,8 +1106,8 @@ get_marauder_species = { # log = "GET MARAUDER SPECIES"
 			}
 			event_target:marauder_country_3.owner_species = { save_event_target_as = marauder_species }
 		}
-	} ]
-
+	}
+	]
 	if = {
 		limit = {
 			OR = { # This error log turns me crazy: is_same_species/is_exact_same_species: Unable to resolve species from 'event_target:marauder_species' (no_scope scope)
@@ -916,7 +1123,11 @@ get_marauder_species = { # log = "GET MARAUDER SPECIES"
 						is_archetype = PRESAPIENT
 						is_species_class = PLANT
 						is_species_class = FUN
-						any_species_pop_group = { exists = owner is_owned_by = prevprev has_ethic = ethic_pacifist }
+						any_species_pop_group = {
+							exists = owner
+							is_owned_by = prevprev
+							pop_group_has_ethic = ethic_pacifist
+						}
 					}
 				}
 			}
@@ -925,14 +1136,27 @@ get_marauder_species = { # log = "GET MARAUDER SPECIES"
 				# is_scope_type = species
 				OR = {
 					species_can_be_necrophaged = yes
-					AND = { exists = event_target:great_khan is_same_species = event_target:great_khan }
-					AND = { exists = prev.owner_species is_same_species = prev.owner_species }
+					AND = {
+						exists = event_target:great_khan
+						is_same_species = event_target:great_khan
+					}
+					AND = {
+						exists = prev.owner_species
+						is_same_species = prev.owner_species
+					}
 				}
 				NOR = {
 					is_archetype = LITHOID
 					is_species_class = PLANT
 					is_species_class = FUN
-					any_species_pop_group = { exists = owner is_owned_by = prevprev OR = { has_ethic = ethic_pacifist has_ethic = ethic_xenophobe } }
+					any_species_pop_group = {
+						exists = owner
+						is_owned_by = prevprev
+						OR = {
+							pop_group_has_ethic = ethic_pacifist
+							pop_group_has_ethic = ethic_xenophobe
+						}
+					}
 				}
 			}
 		}
@@ -942,21 +1166,35 @@ get_marauder_species = { # log = "GET MARAUDER SPECIES"
 				# is_scope_type = species
 				OR = {
 					species_can_be_necrophaged = yes
-					AND = { exists = event_target:great_khan is_same_species = event_target:great_khan }
-					AND = { exists = prev.owner_species is_same_species = prev.owner_species }
+					AND = {
+						exists = event_target:great_khan
+						is_same_species = event_target:great_khan
+					}
+					AND = {
+						exists = prev.owner_species
+						is_same_species = prev.owner_species
+					}
 				}
 				species_has_happiness_with_owner = prev
 				NOR = {
 					is_archetype = LITHOID
 					is_species_class = PLANT
 					is_species_class = FUN
-					any_species_pop_group = { exists = owner is_owned_by = prevprev OR = { has_ethic = ethic_pacifist has_ethic = ethic_xenophobe } }
+					any_species_pop_group = {
+						exists = owner
+						is_owned_by = prevprev
+						OR = {
+							pop_group_has_ethic = ethic_pacifist
+							pop_group_has_ethic = ethic_xenophobe
+						}
+					}
 				}
 			}
-			weights = { base = 100
+			weights = {
+				base = 100
 				complex_trigger_modifier = { # v3.14 Add 5 for each happy pop of this species
-					trigger = count_owned_pop_amount
-					trigger_scope = root
+					trigger = count_species_pop_group
+					# trigger_scope = root
 					# potential = {
 					# 	species_has_happiness_with_owner = root
 					# }
@@ -964,35 +1202,57 @@ get_marauder_species = { # log = "GET MARAUDER SPECIES"
 						limit = {
 							is_owned_by = root
 							# is_same_species = prevprev # Prev should be root.target, prevprev the species??
-							pop_has_happiness = yes
+							pop_group_has_happiness = yes
 							happiness > 0.5
 						}
 					}
 					mode = add
 					mult = 5
 				}
-				modifier = { factor = 3
+				modifier = {
+					factor = 3
 					OR = {
-						AND = { exists = event_target:great_khan is_same_species = event_target:great_khan }
+						AND = {
+							exists = event_target:great_khan
+							is_same_species = event_target:great_khan
+						}
 						is_same_species = root.owner_species
 					}
 				}
-				# modifier = { add = 2 prev = { count_owned_pop_group = { count > 10 limit = { is_same_species = prevprev } } } }
-				modifier = { factor = 1.5
+				# modifier = { add = 2 prev = { count_owned_pop_amount = { count > 1000 limit = { is_same_species = prevprev } } } }
+				modifier = {
+					factor = 1.5
 					prev = {
-						count_owned_pop_group = { count >  22
+						count_owned_pop_amount = {
+							count > 2200
 							limit = { is_same_species = prevprev }
 						}
 					}
 				}
-				modifier = { factor = 2 prev = { exists = capital_scope capital_scope = { habitability = { who = prevprev value > 0.6 } } } }
-				modifier = { factor = 3 prev = { any_owned_planet = { is_homeworld = yes is_same_value = prevprev.home_planet } } }
+				modifier = {
+					factor = 2
+					prev = {
+						exists = capital_scope
+						capital_scope = {
+							habitability = { who = prevprev value > 0.6 }
+						}
+					}
+				}
+				modifier = {
+					factor = 3
+					prev = {
+						any_owned_planet = { is_homeworld = yes is_same_value = prevprev.home_planet }
+					}
+				}
 				# Division by zero: total random weight is 0, in weights section
 				complex_trigger_modifier = { # Multiply it by the percentage of pops of the country
 					trigger = pop_amount_percentage
 					trigger_scope = root
 					parameters = {
-						limit = { is_same_species = prevprev pop_has_happiness = yes }
+						limit = {
+							is_same_species = prevprev
+							pop_group_has_happiness = yes
+						}
 					}
 					mode = mult
 				}
@@ -1001,27 +1261,45 @@ get_marauder_species = { # log = "GET MARAUDER SPECIES"
 			save_event_target_as = marauder_species
 		}
 	}
-
 	if = {
 		limit = { # This error log turns me crazy: is_same_species/is_exact_same_species: Unable to resolve species from 'event_target:marauder_species' (no_scope scope)
 			NAND = {
 				exists = event_target:marauder_species
 				event_target:marauder_species = { is_scope_valid = yes }
 				event_target:marauder_species = { is_scope_type = species }
-				pop_amount_percentage = { percentage > 0.2 limit = { is_same_species = prev.owner_species } }
-				pop_amount_percentage = { percentage > 0.4 limit = { is_same_species = event_target:marauder_species } }
+				pop_amount_percentage = {
+					percentage > 0.2
+					limit = { is_same_species = prev.owner_species }
+				}
+				pop_amount_percentage = {
+					percentage > 0.4
+					limit = { is_same_species = event_target:marauder_species }
+				}
 			}
 			any_owned_species = {
 				OR = {
 					species_can_be_necrophaged = yes
-					AND = { exists = event_target:great_khan is_same_species = event_target:great_khan }
-					AND = { exists = owner_species is_same_species = prev.owner_species }
+					AND = {
+						exists = event_target:great_khan
+						is_same_species = event_target:great_khan
+					}
+					AND = {
+						exists = owner_species
+						is_same_species = prev.owner_species
+					}
 				}
 				NOR = {
 					is_archetype = LITHOID
 					is_species_class = PLANT
 					is_species_class = FUN
-					any_species_pop_group = { exists = owner is_owned_by = prevprev OR = { has_ethic = ethic_pacifist has_ethic = ethic_xenophobe } }
+					any_species_pop_group = {
+						exists = owner
+						is_owned_by = prevprev
+						OR = {
+							pop_group_has_ethic = ethic_pacifist
+							pop_group_has_ethic = ethic_xenophobe
+						}
+					}
 				}
 			}
 		}
@@ -1029,21 +1307,35 @@ get_marauder_species = { # log = "GET MARAUDER SPECIES"
 			limit = {
 				OR = {
 					species_can_be_necrophaged = yes
-					AND = { exists = event_target:great_khan is_same_species = event_target:great_khan }
-					AND = { exists = owner_species is_same_species = prev.owner_species }
+					AND = {
+						exists = event_target:great_khan
+						is_same_species = event_target:great_khan
+					}
+					AND = {
+						exists = owner_species
+						is_same_species = prev.owner_species
+					}
 				}
 				species_has_happiness_with_owner = prev
 				NOR = {
 					is_archetype = LITHOID
 					is_species_class = PLANT
 					is_species_class = FUN
-					any_species_pop_group = { exists = owner is_owned_by = prevprev OR = { has_ethic = ethic_pacifist has_ethic = ethic_xenophobe } }
+					any_species_pop_group = {
+						exists = owner
+						is_owned_by = prevprev
+						OR = {
+							pop_group_has_ethic = ethic_pacifist
+							pop_group_has_ethic = ethic_xenophobe
+						}
+					}
 				}
 			}
-			weights = { base = 100
+			weights = {
+				base = 100
 				complex_trigger_modifier = { # v3.14 Add 5 for each happy pop of this species
-					trigger = count_owned_pop_amount
-					trigger_scope = root
+					trigger = count_species_pop_group
+					# trigger_scope = root
 					# potential = {
 					# 	species_has_happiness_with_owner = root
 					# }
@@ -1051,16 +1343,20 @@ get_marauder_species = { # log = "GET MARAUDER SPECIES"
 						limit = {
 							is_owned_by = root
 							# is_same_species = prevprev # Prev should be prev.target, prevprev the species??
-							pop_has_happiness = yes
+							pop_group_has_happiness = yes
 							happiness > 0.5
 						}
 					}
 					mode = add
 					mult = 5
 				}
-				modifier = { factor = 2
+				modifier = {
+					factor = 2
 					OR = {
-						AND = { exists = event_target:great_khan is_same_species = event_target:great_khan }
+						AND = {
+							exists = event_target:great_khan
+							is_same_species = event_target:great_khan
+						}
 						is_same_species = root.owner_species
 					}
 				}
@@ -1069,7 +1365,10 @@ get_marauder_species = { # log = "GET MARAUDER SPECIES"
 					trigger = pop_amount_percentage
 					trigger_scope = root
 					parameters = {
-						limit = { is_same_species = prevprev pop_has_happiness = yes }
+						limit = {
+							is_same_species = prevprev
+							pop_group_has_happiness = yes
+						}
 					}
 					mode = mult
 				}
@@ -1081,17 +1380,18 @@ get_marauder_species = { # log = "GET MARAUDER SPECIES"
 	# Common Fallback
 	if = {
 		limit = { # This error log turns me crazy: is_same_species/is_exact_same_species: Unable to resolve species from 'event_target:marauder_species' (no_scope scope)
-			OR = {
-				NOT = { exists = event_target:marauder_species }
+			NAND = {
+				exists = event_target:marauder_species
 				event_target:marauder_species = {
-					NAND = {
-						is_scope_valid = yes
-						is_scope_type = species
-						any_species_pop_group = {
-							exists = owner
-							is_owned_by = prevprev
-							pop_has_happiness = yes
-							NOR = { has_ethic = ethic_pacifist has_ethic = ethic_xenophobe }
+					is_scope_valid = yes
+					is_scope_type = species
+					any_species_pop_group = {
+						exists = owner
+						is_owned_by = prevprev
+						pop_group_has_happiness = yes
+						NOR = {
+							pop_group_has_ethic = ethic_pacifist
+							pop_group_has_ethic = ethic_xenophobe
 						}
 					}
 				}
@@ -1114,7 +1414,7 @@ get_marauder_species = { # log = "GET MARAUDER SPECIES"
 					}
 				}
 				AND = {
-					NOT = { event_target:great_khan = { exists = species } }
+					NOT = { exists = event_target:great_khan }
 					pop_amount_percentage = {
 						percentage < 0.25
 						limit = { is_same_species = owner_species }
@@ -1128,7 +1428,8 @@ get_marauder_species = { # log = "GET MARAUDER SPECIES"
 }
 
 # Update zz_diplo_vanilla_scripted_effects.txt from "Expanded Espionage and Diplomacy"
-create_privateer_fleet = { # Event targets created by create_privateer_country.
+# Event targets created by create_privateer_country.
+create_privateer_fleet = {
 	event_target:privateer_band = {
 		if = {
 			limit = {
@@ -1152,10 +1453,9 @@ create_privateer_fleet = { # Event targets created by create_privateer_country.
 		else = {
 			set_variable = { which = pirates_f_tmp value = 1 }
 		}
-
 		create_leader = {
 			class = commander
-			species = owner_main_species
+			species = owner_species
 			name = random
 			skill = 1
 		}
@@ -1189,7 +1489,10 @@ create_privateer_fleet = { # Event targets created by create_privateer_country.
 				set_aggro_range = 800
 				queue_actions = {
 					find_closest_planet = {
-						trigger = { id = privateer.x1.trigger.1@prev is_star = yes }
+						trigger = {
+							id = privateer.x1.trigger.1@prev
+							is_star = yes
+						}
 						found_planet = {
 							orbit_planet = this
 							wait = { duration = 5 random = 5 }
@@ -1199,14 +1502,20 @@ create_privateer_fleet = { # Event targets created by create_privateer_country.
 						find_closest_system = {
 							trigger = {
 								id = privateer.x1.trigger.2@prev
-								NOR = { has_star_flag = hostile_system has_star_flag = recent_privateer_visit }
+								NOR = {
+									has_star_flag = hostile_system
+									has_star_flag = recent_privateer_visit
+								}
 								exists = starbase
 								starbase = { has_starbase_size = starbase_starport can_generate_trade_value = yes }
 							}
 							found_system = { move_to = this }
 						}
 						find_closest_planet = {
-							trigger = { id = privateer.x1.trigger.3@prev is_star = yes }
+							trigger = {
+								id = privateer.x1.trigger.3@prev
+								is_star = yes
+							}
 							found_planet = {
 								orbit_planet = this
 								wait = { duration = 5 random = 5 }
@@ -1229,16 +1538,22 @@ create_privateer_fleet = { # Event targets created by create_privateer_country.
 # Create global Rally Point event_targets (HELPER).
 # Former event id = marauder.499 (<v3.13)
 # This = marauder country
-create_marauder_rally_points = { ### Rally Point of Fleets 1/3: Set Event Targets; Set Owner Species to Target
+### Rally Point of Fleets 1/3: Set Event Targets; Set Owner Species to Target
+
+create_marauder_rally_points = {
 	if = {
 		limit = { exists = event_target:marauder_country_1 }
 		event_target:marauder_country_1 = {
 			if = {
-				limit = { any_system_within_border = { has_star_flag = marauder_capital_1 } }
+				limit = {
+					any_system_within_border = { has_star_flag = marauder_capital_1 }
+				}
 				random_system_within_border = {
 					limit = { has_star_flag = marauder_capital_1 }
 					if = {
-						limit = { any_system_planet = { has_planet_flag = raid_source } }
+						limit = {
+							any_system_planet = { has_planet_flag = raid_source }
+						}
 						random_system_planet = {
 							limit = { has_planet_flag = raid_source }
 							save_global_event_target_as = CmtTargetMarauderRallyPoint1
@@ -1247,7 +1562,8 @@ create_marauder_rally_points = { ### Rally Point of Fleets 1/3: Set Event Target
 					else = { ## Backup Code: raid_source NOT Found in Capital System
 						random_system_planet = {
 							limit = { is_star = no }
-							weights = { base = 1
+							weights = {
+								base = 1
 								modifier = { add = 1 is_a_planet = yes } # Possible inconsistent due other mods
 								modifier = { add = 2 is_colony = yes }
 								modifier = { add = 1 is_colonizable = yes }
@@ -1261,7 +1577,8 @@ create_marauder_rally_points = { ### Rally Point of Fleets 1/3: Set Event Target
 			else = { ## Backup Code: Capital System NOT Found
 				random_planet_within_border = {
 					limit = { is_star = no }
-					weights = { base = 1
+					weights = {
+						base = 1
 						# modifier = { add = 1 is_a_planet = yes } # Possible inconsistent due other mods
 						modifier = { add = 3 has_planet_flag = raid_source }
 						modifier = { add = 2 is_colony = yes }
@@ -1271,7 +1588,9 @@ create_marauder_rally_points = { ### Rally Point of Fleets 1/3: Set Event Target
 				}
 				log = "Backup Code for CmtTargetMarauderRallyPoint1 - 2 Processed"
 				if = {
-					limit = { NOT = { has_existing_ship_design = starbase_marauder } }
+					limit = {
+						NOT = { has_existing_ship_design = starbase_marauder }
+					}
 					create_ship_design = { design = "NAME_Marauder_Starbase" }
 					add_ship_design = last_created_design
 				}
@@ -1284,7 +1603,10 @@ create_marauder_rally_points = { ### Rally Point of Fleets 1/3: Set Event Target
 					}
 					random_system_within_border = {
 						random_neighbor_system = {
-							limit = { has_owner = no has_star_flag = marauder_capital_1 }
+							limit = {
+								has_owner = no
+								has_star_flag = marauder_capital_1
+							}
 							# prevprev = { save_event_target_as = marauder_starbase_owner }
 							# create_marauder_starbase = yes # TODO Error log drops: Failed to create a starbase
 							create_starbase = { owner = prevprev size = "starbase_marauder" }
@@ -1298,11 +1620,15 @@ create_marauder_rally_points = { ### Rally Point of Fleets 1/3: Set Event Target
 		limit = { exists = event_target:marauder_country_2 }
 		event_target:marauder_country_2 = { # owner_species = { save_global_event_target_as = CmtTargetSpecies_Marauder2 }
 			if = {
-				limit = { any_system_within_border = { has_star_flag = marauder_capital_2 } }
+				limit = {
+					any_system_within_border = { has_star_flag = marauder_capital_2 }
+				}
 				random_system_within_border = {
 					limit = { has_star_flag = marauder_capital_2 }
 					if = {
-						limit = { any_system_planet = { has_planet_flag = raid_source } }
+						limit = {
+							any_system_planet = { has_planet_flag = raid_source }
+						}
 						random_system_planet = {
 							limit = { has_planet_flag = raid_source }
 							save_global_event_target_as = CmtTargetMarauderRallyPoint2
@@ -1311,7 +1637,8 @@ create_marauder_rally_points = { ### Rally Point of Fleets 1/3: Set Event Target
 					else = { ## Backup Code: raid_source NOT found in Capital System
 						random_system_planet = {
 							limit = { is_star = no }
-							weights = { base = 1
+							weights = {
+								base = 1
 								modifier = { add = 1 is_a_planet = yes } # Possible inconsistent due other mods
 								modifier = { add = 2 is_colony = yes }
 								modifier = { add = 1 is_colonizable = yes }
@@ -1325,7 +1652,8 @@ create_marauder_rally_points = { ### Rally Point of Fleets 1/3: Set Event Target
 			else = { ## Backup Code: Capital System NOT Found
 				random_planet_within_border = {
 					limit = { is_star = no }
-					weights = { base = 1
+					weights = {
+						base = 1
 						# modifier = { add = 1 is_a_planet = yes } # Possible inconsistent due other mods
 						modifier = { add = 3 has_planet_flag = raid_source }
 						modifier = { add = 2 is_colony = yes }
@@ -1335,7 +1663,9 @@ create_marauder_rally_points = { ### Rally Point of Fleets 1/3: Set Event Target
 				}
 				log = "Backup Code for CmtTargetMarauderRallyPoint2 - 2 Processed"
 				if = {
-					limit = { NOT = { has_existing_ship_design = starbase_marauder } }
+					limit = {
+						NOT = { has_existing_ship_design = starbase_marauder }
+					}
 					create_ship_design = { design = "NAME_Marauder_Starbase" }
 					add_ship_design = last_created_design
 				}
@@ -1348,7 +1678,10 @@ create_marauder_rally_points = { ### Rally Point of Fleets 1/3: Set Event Target
 					}
 					random_system_within_border = {
 						random_neighbor_system = {
-							limit = { has_owner = no has_star_flag = marauder_capital_2 }
+							limit = {
+								has_owner = no
+								has_star_flag = marauder_capital_2
+							}
 							# prevprev = { save_event_target_as = marauder_starbase_owner }
 							# create_marauder_starbase = yes # TODO Error log drops: Failed to create a starbase
 							create_starbase = { owner = prevprev size = "starbase_marauder" }
@@ -1362,11 +1695,15 @@ create_marauder_rally_points = { ### Rally Point of Fleets 1/3: Set Event Target
 		limit = { exists = event_target:marauder_country_3 }
 		event_target:marauder_country_3 = { # owner_species = { save_global_event_target_as = CmtTargetSpecies_Marauder3 }
 			if = {
-				limit = { any_system_within_border = { has_star_flag = marauder_capital_3 } }
+				limit = {
+					any_system_within_border = { has_star_flag = marauder_capital_3 }
+				}
 				random_system_within_border = {
 					limit = { has_star_flag = marauder_capital_3 }
 					if = {
-						limit = { any_system_planet = { has_planet_flag = raid_source } }
+						limit = {
+							any_system_planet = { has_planet_flag = raid_source }
+						}
 						random_system_planet = {
 							limit = { has_planet_flag = raid_source }
 							save_global_event_target_as = CmtTargetMarauderRallyPoint3
@@ -1375,7 +1712,8 @@ create_marauder_rally_points = { ### Rally Point of Fleets 1/3: Set Event Target
 					else = { ## Backup Code: raid_source NOT Found in Capital System
 						random_system_planet = {
 							limit = { is_star = no }
-							weights = { base = 1
+							weights = {
+								base = 1
 								modifier = { add = 1 is_a_planet = yes } # Possible inconsistent due other mods
 								modifier = { add = 2 is_colony = yes }
 								modifier = { add = 1 is_colonizable = yes }
@@ -1389,7 +1727,8 @@ create_marauder_rally_points = { ### Rally Point of Fleets 1/3: Set Event Target
 			else = { ## Backup Code: Capital System NOT Found
 				random_planet_within_border = {
 					limit = { is_star = no }
-					weights = { base = 1
+					weights = {
+						base = 1
 						# modifier = { add = 1 is_a_planet = yes } # Possible inconsistent due other mods
 						modifier = { add = 3 has_planet_flag = raid_source }
 						modifier = { add = 2 is_colony = yes }
@@ -1399,7 +1738,9 @@ create_marauder_rally_points = { ### Rally Point of Fleets 1/3: Set Event Target
 				}
 				log = "Backup Code for CmtTargetMarauderRallyPoint3 - 2 Processed"
 				if = {
-					limit = { NOT = { has_existing_ship_design = starbase_marauder } }
+					limit = {
+						NOT = { has_existing_ship_design = starbase_marauder }
+					}
 					create_ship_design = { design = "NAME_Marauder_Starbase" }
 					add_ship_design = last_created_design
 				}
@@ -1412,7 +1753,10 @@ create_marauder_rally_points = { ### Rally Point of Fleets 1/3: Set Event Target
 					}
 					random_system_within_border = {
 						random_neighbor_system = {
-							limit = { has_owner = no has_star_flag = marauder_capital_3 }
+							limit = {
+								has_owner = no
+								has_star_flag = marauder_capital_3
+							}
 							# prevprev = { save_event_target_as = marauder_starbase_owner }
 							# create_marauder_starbase = yes # TODO Error log drops: Failed to create a starbase
 							create_starbase = { owner = prevprev size = "starbase_marauder" }
@@ -1425,10 +1769,17 @@ create_marauder_rally_points = { ### Rally Point of Fleets 1/3: Set Event Target
 }
 
 get_tech_from_prev = {
-	random = { chance = 35
+	random = {
+		chance = 35
 		if = {
-			limit = { prev = { can_copy_random_tech_from = { who = prev } } }
-			prev = { copy_random_tech_from = { who = prev } }
+			limit = {
+				prev = {
+					can_copy_random_tech_from = { who = prev }
+				}
+			}
+			prev = {
+				copy_random_tech_from = { who = prev }
+			}
 		}
 	}
 }

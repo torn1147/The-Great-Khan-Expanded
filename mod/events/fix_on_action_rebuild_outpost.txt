@@ -4,8 +4,8 @@
 # Fix multi colony by Fireprince
 #
 #########################################
-namespace = action
 
+namespace = action
 # Fix (Vanilla) split system can lead to Inability to be surveyed: https://forum.paradoxplaza.com/forum/threads/stellaris-system-with-dual-planets-ownership-and-no-starbases-are-stuck.1508942/# post-28052496
 # on_monthly_pulse
 # Compare action.85		# Flip planets to starbase owner
@@ -14,6 +14,7 @@ event = {
 	id = action.90
 	hide_window = yes
 	is_triggered_only = yes
+
 	trigger = {
 		any_playable_country = {
 			# any_system_within_border = {
@@ -25,6 +26,7 @@ event = {
 			}
 		}
 	}
+
 	immediate = {
 		every_system = {
 			limit = {
@@ -80,8 +82,12 @@ event = {
 								OR = {
 									is_homeworld = yes
 									has_modifier = instability_join_revolt
-									owner = { has_origin = origin_demonic_incursion }
-									owner = { has_country_flag = former_owner@prevprevprev }
+									owner = {
+										OR = {
+											has_origin = origin_demonic_incursion
+											has_country_flag = former_owner@prevprevprev
+										}
+									}
 								}
 							}
 							NOR = {
@@ -162,8 +168,12 @@ event = {
 								OR = {
 									is_homeworld = yes
 									has_modifier = instability_join_revolt
-									owner = { has_origin = origin_demonic_incursion }
-									owner = { has_country_flag = former_owner@prevprevprev }
+									owner = {
+										OR = {
+											has_origin = origin_demonic_incursion
+											has_country_flag = former_owner@prevprevprev
+										}
+									}
 								}
 							}
 							NOR = {
@@ -193,9 +203,7 @@ event = {
 				}
 				# Fruitful Origin - the outpost is being created for the first time
 				if = {
-					limit = {
-						has_planet_flag = seed_pods_colonization
-					}
+					limit = { has_planet_flag = seed_pods_colonization }
 					planet_event = { id = origin.7400 }
 				}
 				# else, fire the normal "Outpost Rebuilt!" event

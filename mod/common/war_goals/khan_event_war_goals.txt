@@ -453,7 +453,9 @@ wg_marauder_expansion = {
 wg_war_in_heaven = {
 	casus_belli = cb_event
 	total_war = yes
-	forbidden_peace_offers = { surrender = "" }
+	forbidden_peace_offers = {
+		surrender = ""
+	}
 	surrender_acceptance = -900
 	war_exhaustion = 0.25
 	set_defender_wargoal = wg_war_in_heaven
@@ -714,7 +716,9 @@ wg_great_expansion = {
 	cede_claims = occupied_only
 	total_war = yes
 	release_occupied_systems_on_status_quo = yes
-	forbidden_peace_offers = { surrender = "" }
+	forbidden_peace_offers = {
+		surrender = ""
+	}
 	surrender_acceptance = -600
 	war_exhaustion = 0.75
 	# set_defender_wargoal = wg_great_expansion

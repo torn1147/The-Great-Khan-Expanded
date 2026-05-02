@@ -7,21 +7,34 @@ utility_component_template = {
 	icon = "GFX_ship_part_nsc_ai_computer"
 	icon_frame = 1
 	power = -40
+
 	resources = {
 		category = ship_components
-		cost = { alloys = @cost4 }
+		cost = {
+			alloys = @cost4
+		}
 	}
 
 	ship_behavior = "nsc_ai"
-	prerequisites = { "tech_nsc_ai_computer_1" }
+
+	prerequisites = {
+		"tech_nsc_ai_computer_1"
+	}
+
 	component_set = "combat_computers"
 
-	size_restriction = { juggernaut Carrier Flagship explorationship }
+	size_restriction = {
+		juggernaut
+		Carrier
+		Flagship
+		explorationship
+	}
 
 	valid_for_country = {
 		is_ai = no
 		has_global_flag = has_nsc_active
 	}
+
 	ai_weight = {
 		weight = 0
 	}

@@ -14,11 +14,9 @@
 #	prev: Owner country
 #	prevprev: Location for creating fleets (e.g. planet)
 #
-
 ###################
 ###- Constants -###
 ###################
-
 ##############
 ###- Khan -###
 ##############

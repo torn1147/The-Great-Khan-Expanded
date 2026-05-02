@@ -1,3 +1,4 @@
+
 namespace = CrisisManagerMenu
 
 #####################################################
@@ -15,19 +16,22 @@ country_event = {
 	title = CrisisManagerMenu.2100.name
 	desc = CrisisManagerMenu.2100.desc
 	picture = GFX_evt_CmtMenuA
-
 	is_triggered_only = yes
-	trigger = { is_ai = no }
+
+	trigger = {
+		is_ai = no
+	}
 
 	after = {
-		hidden_effect = { country_event = { id = CrisisManagerMenu.100 } }
+		hidden_effect = {
+			country_event = { id = CrisisManagerMenu.100 }
+		}
 	}
 
 	option = {
 		name = CmtTextGoBack.name
 		custom_tooltip = BLANK_STRING
 	}
-
 	## Separator
 	option = {
 		name = CmtTextSeparator.name
@@ -41,9 +45,10 @@ country_event = {
 				CmtTriggerTemplateActivated_T104 = yes
 			}
 		}
-		allow = { hidden_trigger = { always = no } }
+		allow = {
+			hidden_trigger = { always = no }
+		}
 	}
-
 	option = {
 		name = CrisisManagerTemplate_T101.name
 		custom_tooltip = BLANK_STRING
@@ -104,7 +109,6 @@ country_event = {
 			country_event = { id = CrisisManagerMenu.2104 }
 		}
 	}
-
 	## Separator
 	option = {
 		name = CmtTextSeparator.name
@@ -118,9 +122,10 @@ country_event = {
 				CmtTriggerTemplateActivated_T108 = yes
 			}
 		}
-		allow = { hidden_trigger = { always = no } }
+		allow = {
+			hidden_trigger = { always = no }
+		}
 	}
-
 	option = {
 		name = CrisisManagerTemplate_T105.name
 		custom_tooltip = BLANK_STRING
@@ -181,7 +186,6 @@ country_event = {
 			country_event = { id = CrisisManagerMenu.2108 }
 		}
 	}
-
 	## Separator
 	option = {
 		name = CmtTextSeparator.name
@@ -195,9 +199,10 @@ country_event = {
 				CmtTriggerTemplateActivated_T112 = yes
 			}
 		}
-		allow = { hidden_trigger = { always = no } }
+		allow = {
+			hidden_trigger = { always = no }
+		}
 	}
-
 	option = {
 		name = CrisisManagerTemplate_T109.name
 		custom_tooltip = BLANK_STRING
@@ -258,7 +263,6 @@ country_event = {
 			country_event = { id = CrisisManagerMenu.2112 }
 		}
 	}
-
 	## Separator
 	option = {
 		name = CmtTextSeparator.name
@@ -272,9 +276,10 @@ country_event = {
 				CmtTriggerTemplateActivated_T116 = yes
 			}
 		}
-		allow = { hidden_trigger = { always = no } }
+		allow = {
+			hidden_trigger = { always = no }
+		}
 	}
-
 	option = {
 		name = CrisisManagerTemplate_T113.name
 		custom_tooltip = BLANK_STRING
@@ -335,6 +340,12 @@ country_event = {
 			country_event = { id = CrisisManagerMenu.2116 }
 		}
 	}
-	abort_trigger = { NOT = { has_country_flag = CmtFlagNowInMenu } }
-	abort_effect = { CmtEffectExitMenu = yes }
+
+	abort_trigger = {
+		NOT = { has_country_flag = CmtFlagNowInMenu }
+	}
+
+	abort_effect = {
+		CmtEffectExitMenu = yes
+	}
 }

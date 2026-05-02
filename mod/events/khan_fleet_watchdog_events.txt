@@ -1,9 +1,7 @@
 # Khan Fleet Watchdog - Unstick Stalled Fleets
 # Implements detection and unsticking logic for frozen Khan fleets
 # Adapted from Aggressive Crisis Engine's pathfinding loop detection pattern
-
 namespace = khan_watchdog
-
 # =============================================================================
 # PATHFINDING LOOP DETECTOR
 # Hooks on_entering_system_fleet. Detects fleets revisiting the same system
@@ -13,9 +11,9 @@ fleet_event = {
 	id = khan_watchdog.1
 	hide_window = yes
 	is_triggered_only = yes
-
 	# Scope: This = Fleet, From = System (via on_entering_system_fleet)
 	trigger = {
+		exists = owner
 		owner = { is_country_type = awakened_marauders }
 		is_mobile = yes
 		is_garrison = no
@@ -30,10 +28,7 @@ fleet_event = {
 					NOT = { has_star_flag = khan_fleet_visited@prev }
 				}
 				# First visit: set 40-day timed flag
-				set_timed_star_flag = {
-					flag = khan_fleet_visited@prev
-					days = 40
-				}
+				set_timed_star_flag = { flag = khan_fleet_visited@prev days = 40 }
 			}
 			else_if = {
 				limit = {
@@ -46,10 +41,7 @@ fleet_event = {
 					}
 				}
 				# Second visit within 40 days: fleet is looping — unstick it
-				prev = {
-					clear_orders = yes
-					clear_fleet_actions = this
-				}
+				prev = { clear_orders = yes clear_fleet_actions = this }
 				remove_star_flag = khan_fleet_visited@prev
 				prev = {
 					fleet_event = { id = khan_watchdog.2 days = 3 random = 7 }
@@ -129,9 +121,9 @@ country_event = {
 			limit = {
 				is_fleet_idle = yes
 				is_mobile = yes
-				is_garrison = no
-				is_civilian = no
 				NOR = {
+					is_garrison = yes
+					is_civilian = yes
 					has_fleet_flag = satrapy_garrison
 					has_fleet_flag = satrapy_garrison_fleet
 					solar_system = {
@@ -147,7 +139,6 @@ country_event = {
 			clear_fleet_actions = this
 			fleet_event = { id = khan_watchdog.2 days = 3 random = 7 }
 		}
-
 		# Unfollow idle transports to prevent follow-chain stalls
 		every_owned_fleet = {
 			limit = {

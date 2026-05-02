@@ -2,7 +2,6 @@
 @marauderClusterRange = 120
 
 ### MARAUDER SYSTEMS
-
 #####################
 ### Home System I ###
 #####################
@@ -10,12 +9,14 @@
 marauder_1_1 = {
 	class = "rl_standard_stars"
 	usage = misc_system_init
+
 	asteroid_belt = {
 		type = rocky_asteroid_belt
 		radius = 230
 	}
 
 	max_instances = 1
+
 	usage_odds = {
 		base = 0
 		modifier = {
@@ -25,23 +26,20 @@ marauder_1_1 = {
 			is_in_cluster = resource_cluster_1 # Defined in code; see RESOURCE_CLUSTER_COUNT
 			NOR = {
 				has_star_flag = empire_cluster
-				any_neighbor_system = {
-					has_star_flag = empire_cluster
-				}
+				is_fe_cluster = yes # Vfix
+				any_neighbor_system = { has_star_flag = empire_cluster is_fe_cluster = yes }
 			}
 		}
 	}
+
 	spawn_chance = 100
-
 	flags = { marauder_system marauder_capital_1 }
-
 	planet = {
 		class = star
 		orbit_distance = 0
 		orbit_angle = 1
 		size = { min = 20 max = 30 }
 		has_ring = no
-
 		init_effect = {
 			create_cluster = {
 				id = marauder_1_cluster
@@ -59,22 +57,20 @@ marauder_1_1 = {
 				portrait = random
 				traits = {
 					trait = "trait_pc_habitat_preference"
-					trait = "trait_void_dweller_1"
-					trait = "trait_robust"
-					trait = "trait_fertile"
+					trait = "trait_organic"
+					trait = "trait_extremely_adaptive"
+					trait = "trait_rapid_breeders"
 					trait = "trait_nomadic"
 					trait = "trait_quarrelsome"
-					trait = "trait_unruly"
 					trait = "trait_deviants"
-					trait = "trait_charismatic"
 				}
 			}
 			create_country = {
 				name_list = random
 				species = last_created_species
 				type = dormant_marauders
-				civics = { civic = civic_anarcho_tribalism civic = civic_warrior_culture civic = civic_barbaric_despoilers }
-				origin = "origin_void_dwellers"
+				civics = { civic = civic_anarcho_tribalism }
+				origin = "origin_default"
 				flag = {
 					background = { category = "backgrounds" file = "00_solid.dds" }
 					colors = { "black" "black" "null" "null" }
@@ -84,24 +80,23 @@ marauder_1_1 = {
 					ethic = ethic_xenophobe
 				}
 				ignore_initial_colony_error = yes
-				effect = {
-					set_graphical_culture = madd_01
-					save_global_event_target_as = marauder_country_1
-					set_country_flag = marauder_1
-					set_name = random
-					create_ship_design = { design = "NAME_Marauder_Starbase" }
-					add_ship_design = last_created_design
-					set_custom_capital_location = prev
-				}
 			}
-
+			last_created_country = {
+				set_graphical_culture = pirate_01
+				save_global_event_target_as = marauder_country_1
+				set_country_flag = marauder_1
+				set_name = random
+				create_ship_design = { design = "NAME_Marauder_Starbase" }
+				add_ship_design = last_created_design
+				set_custom_capital_location = prev
+			}
 			create_fleet = {
 				effect = {
 					set_owner = event_target:marauder_country_1
 					create_ship = {
 						name = random
 						design = "NAME_Warrior_Freehold"
-						graphical_culture = "madd_01"
+						graphical_culture = "pirate_01"
 					}
 					set_location = {
 						target = prev
@@ -116,7 +111,7 @@ marauder_1_1 = {
 					create_ship = {
 						name = random
 						design = "NAME_Warrior_Freehold"
-						graphical_culture = "madd_01"
+						graphical_culture = "pirate_01"
 					}
 					set_location = {
 						target = prev
@@ -131,7 +126,7 @@ marauder_1_1 = {
 					create_ship = {
 						name = random
 						design = "NAME_Warrior_Freehold"
-						graphical_culture = "madd_01"
+						graphical_culture = "pirate_01"
 					}
 					set_location = {
 						target = prev
@@ -146,7 +141,7 @@ marauder_1_1 = {
 					create_ship = {
 						name = random
 						design = "NAME_Warrior_Freehold"
-						graphical_culture = "madd_01"
+						graphical_culture = "pirate_01"
 					}
 					set_location = {
 						target = prev
@@ -161,7 +156,7 @@ marauder_1_1 = {
 					create_ship = {
 						name = random
 						design = "NAME_Warrior_Freehold"
-						graphical_culture = "madd_01"
+						graphical_culture = "pirate_01"
 					}
 					set_location = {
 						target = prev
@@ -176,7 +171,7 @@ marauder_1_1 = {
 					create_ship = {
 						name = random
 						design = "NAME_Warrior_Freehold"
-						graphical_culture = "madd_01"
+						graphical_culture = "pirate_01"
 					}
 					set_location = {
 						target = prev
@@ -191,7 +186,7 @@ marauder_1_1 = {
 					create_ship = {
 						name = random
 						design = "NAME_Warrior_Freehold"
-						graphical_culture = "madd_01"
+						graphical_culture = "pirate_01"
 					}
 					set_location = {
 						target = prev
@@ -206,7 +201,7 @@ marauder_1_1 = {
 					create_ship = {
 						name = random
 						design = "NAME_Warrior_Freehold"
-						graphical_culture = "madd_01"
+						graphical_culture = "pirate_01"
 					}
 					set_location = {
 						target = prev
@@ -221,11 +216,11 @@ marauder_1_1 = {
 					create_ship = {
 						name = random
 						design = "NAME_Ancestral_Glory"
-						graphical_culture = "madd_01"
+						graphical_culture = "pirate_01"
 					}
 					set_formation_scale = 2
 					set_fleet_stance = aggressive
-					# set_aggro_range_measure_from = self
+					set_aggro_range_measure_from = self
 					set_aggro_range = 250
 					set_location = {
 						target = prev
@@ -235,14 +230,9 @@ marauder_1_1 = {
 				}
 				settings = {
 					garrison = yes
-					uses_naval_capacity = no
 				}
 			}
-
-			create_ambient_object = {
-				type = "abandoned_starbase_01_object"
-				location = this
-			}
+			create_ambient_object = { type = "abandoned_starbase_01_object" location = this }
 		}
 	}
 
@@ -253,9 +243,7 @@ marauder_1_1 = {
 		orbit_distance = 25
 		size = 20
 		orbit_angle = 20
-
 		flags = { raid_source }
-
 		init_effect = {
 			create_fleet = {
 				effect = {
@@ -263,7 +251,7 @@ marauder_1_1 = {
 					create_ship = {
 						name = random
 						design = "NAME_Void_Dwelling"
-						graphical_culture = "madd_01"
+						graphical_culture = "pirate_01"
 					}
 					set_location = {
 						target = prev
@@ -274,13 +262,11 @@ marauder_1_1 = {
 			}
 		}
 	}
-
 	planet = {
 		class = pc_toxic
 		orbit_distance = 25
 		size = 11
 		orbit_angle = 100
-
 		init_effect = {
 			create_fleet = {
 				effect = {
@@ -288,7 +274,7 @@ marauder_1_1 = {
 					create_ship = {
 						name = random
 						design = "NAME_Void_Dwelling"
-						graphical_culture = "madd_01"
+						graphical_culture = "pirate_01"
 					}
 					set_location = {
 						target = prev
@@ -299,28 +285,20 @@ marauder_1_1 = {
 			}
 		}
 	}
-
 	planet = {
 		class = pc_gas_giant
 		orbit_distance = 40
 		orbit_angle = -60
 		size = 40
-
 		init_effect = {
-			create_ambient_object = {
-				type = "abandoned_starbase_01_object"
-				location = this
-			}
+			create_ambient_object = { type = "abandoned_starbase_01_object" location = this }
 		}
-
 		change_orbit = @base_moon_distance
-
 		moon = {
 			class = pc_barren
 			size = 8
 			orbit_angle = 90
 			orbit_distance = 6
-
 			init_effect = {
 				create_fleet = {
 					effect = {
@@ -328,7 +306,7 @@ marauder_1_1 = {
 						create_ship = {
 							name = random
 							design = "NAME_Void_Dwelling"
-							graphical_culture = "madd_01"
+							graphical_culture = "pirate_01"
 						}
 						set_location = {
 							target = prev
@@ -344,7 +322,6 @@ marauder_1_1 = {
 			size = 10
 			orbit_angle = 95
 			orbit_distance = 6
-
 			init_effect = {
 				create_fleet = {
 					effect = {
@@ -354,7 +331,7 @@ marauder_1_1 = {
 							create_ship = {
 								name = random
 								design = "NAME_Outrider"
-								graphical_culture = "madd_01"
+								graphical_culture = "pirate_01"
 							}
 						}
 						while = {
@@ -362,7 +339,7 @@ marauder_1_1 = {
 							create_ship = {
 								name = random
 								design = "NAME_Lancer"
-								graphical_culture = "madd_01"
+								graphical_culture = "pirate_01"
 							}
 						}
 						while = {
@@ -370,12 +347,12 @@ marauder_1_1 = {
 							create_ship = {
 								name = random
 								design = "NAME_Void_Champion"
-								graphical_culture = "madd_01"
+								graphical_culture = "pirate_01"
 							}
 						}
 						set_formation_scale = 2
 						set_fleet_stance = aggressive
-						# set_aggro_range_measure_from = self
+						set_aggro_range_measure_from = self
 						set_aggro_range = 250
 						set_location = {
 							target = prev
@@ -385,7 +362,6 @@ marauder_1_1 = {
 					}
 					settings = {
 						garrison = yes
-						uses_naval_capacity = no
 					}
 				}
 			}
@@ -395,16 +371,9 @@ marauder_1_1 = {
 			size = 9
 			orbit_angle = 125
 			orbit_distance = 6
-
 			init_effect = {
-				create_ambient_object = {
-					type = "abandoned_starbase_01_object"
-					location = this
-				}
-				create_ambient_object = {
-					type = "medium_debris_01_object"
-					location = this
-				}
+				create_ambient_object = { type = "abandoned_starbase_01_object" location = this }
+				create_ambient_object = { type = "medium_debris_01_object" location = this }
 			}
 		}
 		moon = {
@@ -412,7 +381,6 @@ marauder_1_1 = {
 			size = 11
 			orbit_angle = 160
 			orbit_distance = 6
-
 			init_effect = {
 				create_fleet = {
 					effect = {
@@ -420,7 +388,7 @@ marauder_1_1 = {
 						create_ship = {
 							name = random
 							design = "NAME_Void_Dwelling"
-							graphical_culture = "madd_01"
+							graphical_culture = "pirate_01"
 						}
 						set_location = {
 							target = prev
@@ -432,13 +400,11 @@ marauder_1_1 = {
 			}
 		}
 	}
-
 	planet = {
 		class = pc_barren_cold
 		orbit_distance = 40
 		size = 25
 		orbit_angle = 55
-
 		init_effect = {
 			create_fleet = {
 				effect = {
@@ -446,11 +412,11 @@ marauder_1_1 = {
 					create_ship = {
 						name = random
 						design = "NAME_Ancestral_Glory"
-						graphical_culture = "madd_01"
+						graphical_culture = "pirate_01"
 					}
 					set_formation_scale = 2
 					set_fleet_stance = aggressive
-					# set_aggro_range_measure_from = self
+					set_aggro_range_measure_from = self
 					set_aggro_range = 250
 					set_location = {
 						target = prev
@@ -464,28 +430,20 @@ marauder_1_1 = {
 			}
 		}
 	}
-
 	planet = {
 		class = pc_barren
 		orbit_distance = 25
 		size = 15
 		orbit_angle = 120
-
 		init_effect = {
-			create_ambient_object = {
-				type = "abandoned_starbase_01_object"
-				location = this
-			}
+			create_ambient_object = { type = "abandoned_starbase_01_object" location = this }
 		}
-
 		change_orbit = @base_moon_distance
-
 		moon = {
 			class = pc_frozen
 			size = 8
 			orbit_angle = 90
 			orbit_distance = 6
-
 			init_effect = {
 				create_fleet = {
 					effect = {
@@ -495,7 +453,7 @@ marauder_1_1 = {
 							create_ship = {
 								name = random
 								design = "NAME_Outrider"
-								graphical_culture = "madd_01"
+								graphical_culture = "pirate_01"
 							}
 						}
 						while = {
@@ -503,7 +461,7 @@ marauder_1_1 = {
 							create_ship = {
 								name = random
 								design = "NAME_Lancer"
-								graphical_culture = "madd_01"
+								graphical_culture = "pirate_01"
 							}
 						}
 						while = {
@@ -511,12 +469,12 @@ marauder_1_1 = {
 							create_ship = {
 								name = random
 								design = "NAME_Void_Champion"
-								graphical_culture = "madd_01"
+								graphical_culture = "pirate_01"
 							}
 						}
 						set_formation_scale = 2
 						set_fleet_stance = aggressive
-						# set_aggro_range_measure_from = self
+						set_aggro_range_measure_from = self
 						set_aggro_range = 250
 						set_location = {
 							target = prev
@@ -526,25 +484,21 @@ marauder_1_1 = {
 					}
 					settings = {
 						garrison = yes
-						uses_naval_capacity = no
 					}
 				}
 			}
 		}
 	}
-
 	planet = {
 		class = "pc_asteroid"
 		orbit_distance = 25
 		orbit_angle = -210
 		size = 5
 		has_ring = no
-
 		init_effect = {
 			set_deposit = d_minerals_8
 		}
 	}
-
 	planet = {
 		class = "pc_asteroid"
 		orbit_distance = 0
@@ -552,19 +506,16 @@ marauder_1_1 = {
 		size = 5
 		has_ring = no
 	}
-
 	planet = {
 		class = "pc_asteroid"
 		orbit_distance = 0
 		orbit_angle = 285
 		size = 5
 		has_ring = no
-
 		init_effect = {
 			set_deposit = d_minerals_8
 		}
 	}
-
 	planet = {
 		class = "pc_asteroid"
 		orbit_distance = 0
@@ -572,19 +523,16 @@ marauder_1_1 = {
 		size = 5
 		has_ring = no
 	}
-
 	planet = {
 		class = "pc_asteroid"
 		orbit_distance = 0
 		orbit_angle = -80
 		size = 5
 		has_ring = no
-
 		init_effect = {
 			set_deposit = d_minerals_8
 		}
 	}
-
 	planet = {
 		class = "pc_asteroid"
 		orbit_distance = 0
@@ -592,7 +540,6 @@ marauder_1_1 = {
 		size = 5
 		has_ring = no
 	}
-
 	planet = {
 		class = "pc_asteroid"
 		orbit_distance = 0
@@ -600,7 +547,6 @@ marauder_1_1 = {
 		size = 5
 		has_ring = no
 	}
-
 	planet = {
 		class = "pc_asteroid"
 		orbit_distance = 0
@@ -608,13 +554,11 @@ marauder_1_1 = {
 		size = 5
 		has_ring = no
 	}
-
 	planet = {
 		class = pc_barren_cold
 		orbit_distance = 30
 		size = 10
 		orbit_angle = 125
-
 		init_effect = {
 			create_fleet = {
 				effect = {
@@ -622,7 +566,7 @@ marauder_1_1 = {
 					create_ship = {
 						name = random
 						design = "NAME_Void_Dwelling"
-						graphical_culture = "madd_01"
+						graphical_culture = "pirate_01"
 					}
 					set_location = {
 						target = prev
@@ -633,13 +577,11 @@ marauder_1_1 = {
 			}
 		}
 	}
-
 	planet = {
 		class = pc_frozen
 		orbit_distance = 25
 		size = 8
 		orbit_angle = 125
-
 		init_effect = {
 			create_fleet = {
 				effect = {
@@ -647,7 +589,7 @@ marauder_1_1 = {
 					create_ship = {
 						name = random
 						design = "NAME_Void_Dwelling"
-						graphical_culture = "madd_01"
+						graphical_culture = "pirate_01"
 					}
 					set_location = {
 						target = prev
@@ -658,32 +600,21 @@ marauder_1_1 = {
 			}
 		}
 	}
-
 	planet = {
 		class = pc_frozen
 		orbit_distance = 25
 		size = 12
 		orbit_angle = 125
-
 		init_effect = {
-			create_ambient_object = {
-				type = "abandoned_starbase_01_object"
-				location = this
-			}
-			create_ambient_object = {
-				type = "medium_debris_01_object"
-				location = this
-			}
+			create_ambient_object = { type = "abandoned_starbase_01_object" location = this }
+			create_ambient_object = { type = "medium_debris_01_object" location = this }
 		}
-
 		change_orbit = @base_moon_distance
-
 		moon = {
 			class = pc_frozen
 			size = 8
 			orbit_angle = 90
 			orbit_distance = 6
-
 			init_effect = {
 				create_fleet = {
 					effect = {
@@ -691,11 +622,11 @@ marauder_1_1 = {
 						create_ship = {
 							name = random
 							design = "NAME_Ancestral_Glory"
-							graphical_culture = "madd_01"
+							graphical_culture = "pirate_01"
 						}
 						set_formation_scale = 2
 						set_fleet_stance = aggressive
-						# set_aggro_range_measure_from = self
+						set_aggro_range_measure_from = self
 						set_aggro_range = 250
 						set_location = {
 							target = prev
@@ -705,7 +636,6 @@ marauder_1_1 = {
 					}
 					settings = {
 						garrison = yes
-						uses_naval_capacity = no
 					}
 				}
 			}
@@ -731,7 +661,6 @@ marauder_1_1 = {
 marauder_1_2 = {
 	class = "rl_standard_stars"
 	flags = { marauder_system }
-
 	planet = {
 		count = 1
 		class = star
@@ -739,7 +668,6 @@ marauder_1_2 = {
 		orbit_angle = 1
 		size = { min = 20 max = 30 }
 		has_ring = no
-
 		init_effect = {
 			create_fleet = {
 				effect = {
@@ -747,7 +675,7 @@ marauder_1_2 = {
 					create_ship = {
 						name = random
 						design = "NAME_Void_Dwelling"
-						graphical_culture = "madd_01"
+						graphical_culture = "pirate_01"
 					}
 					set_location = {
 						target = prev
@@ -762,7 +690,7 @@ marauder_1_2 = {
 					create_ship = {
 						name = random
 						design = "NAME_Void_Dwelling"
-						graphical_culture = "madd_01"
+						graphical_culture = "pirate_01"
 					}
 					set_location = {
 						target = prev
@@ -777,11 +705,11 @@ marauder_1_2 = {
 					create_ship = {
 						name = random
 						design = "NAME_Ancestral_Glory"
-						graphical_culture = "madd_01"
+						graphical_culture = "pirate_01"
 					}
 					set_formation_scale = 2
 					set_fleet_stance = aggressive
-					# set_aggro_range_measure_from = self
+					set_aggro_range_measure_from = self
 					set_aggro_range = 250
 					set_location = {
 						target = prev
@@ -801,7 +729,7 @@ marauder_1_2 = {
 						create_ship = {
 							name = random
 							design = "NAME_Outrider"
-							graphical_culture = "madd_01"
+							graphical_culture = "pirate_01"
 						}
 					}
 					while = {
@@ -809,7 +737,7 @@ marauder_1_2 = {
 						create_ship = {
 							name = random
 							design = "NAME_Lancer"
-							graphical_culture = "madd_01"
+							graphical_culture = "pirate_01"
 						}
 					}
 					while = {
@@ -817,12 +745,12 @@ marauder_1_2 = {
 						create_ship = {
 							name = random
 							design = "NAME_Void_Champion"
-							graphical_culture = "madd_01"
+							graphical_culture = "pirate_01"
 						}
 					}
 					set_formation_scale = 2
 					set_fleet_stance = aggressive
-					# set_aggro_range_measure_from = self
+					set_aggro_range_measure_from = self
 					set_aggro_range = 250
 					set_location = {
 						target = prev
@@ -844,9 +772,7 @@ marauder_1_2 = {
 		class = "rl_unhabitable_planets"
 		orbit_distance = 20
 		orbit_angle = { min = 90 max = 270 }
-
 		change_orbit = @base_moon_distance
-
 		moon = {
 			count = { min = 0 max = 1 }
 			class = "rl_unhabitable_planets"
@@ -860,9 +786,7 @@ marauder_1_2 = {
 		create_marauder_starbase = yes
 		every_neighbor_system = {
 			set_star_flag = marauder_cluster
-			every_neighbor_system = {
-				set_star_flag = marauder_cluster
-			}
+			every_neighbor_system = { set_star_flag = marauder_cluster }
 		}
 	}
 }
@@ -870,12 +794,12 @@ marauder_1_2 = {
 # System III
 marauder_1_3 = {
 	class = "rl_standard_stars"
+
 	asteroid_belt = {
 		type = rocky_asteroid_belt
 		radius = 95
 	}
 	flags = { marauder_system }
-
 	planet = {
 		count = 1
 		class = star
@@ -883,7 +807,6 @@ marauder_1_3 = {
 		orbit_angle = 1
 		size = { min = 20 max = 30 }
 		has_ring = no
-
 		init_effect = {
 			create_fleet = {
 				effect = {
@@ -891,7 +814,7 @@ marauder_1_3 = {
 					create_ship = {
 						name = random
 						design = "NAME_Void_Dwelling"
-						graphical_culture = "madd_01"
+						graphical_culture = "pirate_01"
 					}
 					set_location = {
 						target = prev
@@ -906,7 +829,7 @@ marauder_1_3 = {
 					create_ship = {
 						name = random
 						design = "NAME_Void_Dwelling"
-						graphical_culture = "madd_01"
+						graphical_culture = "pirate_01"
 					}
 					set_location = {
 						target = prev
@@ -921,7 +844,7 @@ marauder_1_3 = {
 					create_ship = {
 						name = random
 						design = "NAME_Warrior_Freehold"
-						graphical_culture = "madd_01"
+						graphical_culture = "pirate_01"
 					}
 					set_location = {
 						target = prev
@@ -936,7 +859,7 @@ marauder_1_3 = {
 					create_ship = {
 						name = random
 						design = "NAME_Warrior_Freehold"
-						graphical_culture = "madd_01"
+						graphical_culture = "pirate_01"
 					}
 					set_location = {
 						target = prev
@@ -951,7 +874,7 @@ marauder_1_3 = {
 					create_ship = {
 						name = random
 						design = "NAME_Warrior_Freehold"
-						graphical_culture = "madd_01"
+						graphical_culture = "pirate_01"
 					}
 					set_location = {
 						target = prev
@@ -966,7 +889,7 @@ marauder_1_3 = {
 					create_ship = {
 						name = random
 						design = "NAME_Warrior_Freehold"
-						graphical_culture = "madd_01"
+						graphical_culture = "pirate_01"
 					}
 					set_location = {
 						target = prev
@@ -981,11 +904,11 @@ marauder_1_3 = {
 					create_ship = {
 						name = random
 						design = "NAME_Ancestral_Glory"
-						graphical_culture = "madd_01"
+						graphical_culture = "pirate_01"
 					}
 					set_formation_scale = 2
 					set_fleet_stance = aggressive
-					# set_aggro_range_measure_from = self
+					set_aggro_range_measure_from = self
 					set_aggro_range = 250
 					set_location = {
 						target = prev
@@ -1005,7 +928,7 @@ marauder_1_3 = {
 						create_ship = {
 							name = random
 							design = "NAME_Outrider"
-							graphical_culture = "madd_01"
+							graphical_culture = "pirate_01"
 						}
 					}
 					while = {
@@ -1013,7 +936,7 @@ marauder_1_3 = {
 						create_ship = {
 							name = random
 							design = "NAME_Lancer"
-							graphical_culture = "madd_01"
+							graphical_culture = "pirate_01"
 						}
 					}
 					while = {
@@ -1021,12 +944,12 @@ marauder_1_3 = {
 						create_ship = {
 							name = random
 							design = "NAME_Void_Champion"
-							graphical_culture = "madd_01"
+							graphical_culture = "pirate_01"
 						}
 					}
 					set_formation_scale = 2
 					set_fleet_stance = aggressive
-					# set_aggro_range_measure_from = self
+					set_aggro_range_measure_from = self
 					set_aggro_range = 250
 					set_location = {
 						target = prev
@@ -1058,15 +981,12 @@ marauder_1_3 = {
 		orbit_distance = 0
 		orbit_angle = { min = 90 max = 270 }
 	}
-
 	planet = {
 		count = { min = 1 max = 3 }
 		class = "rl_unhabitable_planets"
 		orbit_distance = 25
 		orbit_angle = { min = 90 max = 270 }
-
 		change_orbit = @base_moon_distance
-
 		moon = {
 			count = { min = 0 max = 1 }
 			class = "rl_unhabitable_planets"
@@ -1080,9 +1000,7 @@ marauder_1_3 = {
 		create_marauder_starbase = yes
 		every_neighbor_system = {
 			set_star_flag = marauder_cluster
-			every_neighbor_system = {
-				set_star_flag = marauder_cluster
-			}
+			every_neighbor_system = { set_star_flag = marauder_cluster }
 		}
 	}
 }
@@ -1094,12 +1012,14 @@ marauder_1_3 = {
 marauder_2_1 = {
 	class = "sc_black_hole"
 	usage = misc_system_init
+
 	asteroid_belt = {
 		type = rocky_asteroid_belt
 		radius = 270
 	}
 
 	max_instances = 1
+
 	usage_odds = {
 		base = 0
 		modifier = {
@@ -1109,23 +1029,20 @@ marauder_2_1 = {
 			is_in_cluster = resource_cluster_2 # Defined in code; see RESOURCE_CLUSTER_COUNT
 			NOR = {
 				has_star_flag = empire_cluster
-				any_neighbor_system = {
-					has_star_flag = empire_cluster
-				}
+				is_fe_cluster = yes # Vfix
+				any_neighbor_system = { has_star_flag = empire_cluster is_fe_cluster = yes }
 			}
 		}
 	}
+
 	spawn_chance = 100
-
 	flags = { marauder_system marauder_capital_2 }
-
 	planet = {
 		class = star
 		orbit_distance = 0
 		orbit_angle = 1
 		size = 30
 		has_ring = no
-
 		init_effect = {
 			create_cluster = {
 				id = marauder_2_cluster
@@ -1143,22 +1060,20 @@ marauder_2_1 = {
 				portrait = random
 				traits = {
 					trait = "trait_pc_habitat_preference"
-					trait = "trait_void_dweller_1"
-					trait = "trait_robust"
-					trait = "trait_fertile"
+					trait = "trait_organic"
+					trait = "trait_extremely_adaptive"
+					trait = "trait_rapid_breeders"
 					trait = "trait_nomadic"
 					trait = "trait_quarrelsome"
-					trait = "trait_unruly"
 					trait = "trait_deviants"
-					trait = "trait_communal"
 				}
 			}
 			create_country = {
 				name_list = random
 				species = last_created_species
 				type = dormant_marauders
-				civics = { civic = civic_anarcho_tribalism civic = civic_warrior_culture civic = civic_barbaric_despoilers }
-				origin = "origin_void_dwellers"
+				civics = { civic = civic_anarcho_tribalism }
+				origin = "origin_default"
 				flag = {
 					background = { category = "backgrounds" file = "00_solid.dds" }
 					colors = { "black" "black" "null" "null" }
@@ -1168,24 +1083,23 @@ marauder_2_1 = {
 					ethic = ethic_xenophobe
 				}
 				ignore_initial_colony_error = yes
-				effect = {
-					set_graphical_culture = madd_01
-					save_global_event_target_as = marauder_country_2
-					set_country_flag = marauder_2
-					set_name = random
-					create_ship_design = { design = "NAME_Marauder_Starbase" }
-					add_ship_design = last_created_design
-					set_custom_capital_location = prev
-				}
 			}
-
+			last_created_country = {
+				set_graphical_culture = pirate_01
+				save_global_event_target_as = marauder_country_2
+				set_country_flag = marauder_2
+				set_name = random
+				create_ship_design = { design = "NAME_Marauder_Starbase" }
+				add_ship_design = last_created_design
+				set_custom_capital_location = prev
+			}
 			create_fleet = {
 				effect = {
 					set_owner = event_target:marauder_country_2
 					create_ship = {
 						name = random
 						design = "NAME_Warrior_Freehold"
-						graphical_culture = "madd_01"
+						graphical_culture = "pirate_01"
 					}
 					set_location = {
 						target = prev
@@ -1200,7 +1114,7 @@ marauder_2_1 = {
 					create_ship = {
 						name = random
 						design = "NAME_Warrior_Freehold"
-						graphical_culture = "madd_01"
+						graphical_culture = "pirate_01"
 					}
 					set_location = {
 						target = prev
@@ -1215,7 +1129,7 @@ marauder_2_1 = {
 					create_ship = {
 						name = random
 						design = "NAME_Warrior_Freehold"
-						graphical_culture = "madd_01"
+						graphical_culture = "pirate_01"
 					}
 					set_location = {
 						target = prev
@@ -1230,7 +1144,7 @@ marauder_2_1 = {
 					create_ship = {
 						name = random
 						design = "NAME_Warrior_Freehold"
-						graphical_culture = "madd_01"
+						graphical_culture = "pirate_01"
 					}
 					set_location = {
 						target = prev
@@ -1245,7 +1159,7 @@ marauder_2_1 = {
 					create_ship = {
 						name = random
 						design = "NAME_Warrior_Freehold"
-						graphical_culture = "madd_01"
+						graphical_culture = "pirate_01"
 					}
 					set_location = {
 						target = prev
@@ -1260,7 +1174,7 @@ marauder_2_1 = {
 					create_ship = {
 						name = random
 						design = "NAME_Warrior_Freehold"
-						graphical_culture = "madd_01"
+						graphical_culture = "pirate_01"
 					}
 					set_location = {
 						target = prev
@@ -1275,7 +1189,7 @@ marauder_2_1 = {
 					create_ship = {
 						name = random
 						design = "NAME_Warrior_Freehold"
-						graphical_culture = "madd_01"
+						graphical_culture = "pirate_01"
 					}
 					set_location = {
 						target = prev
@@ -1290,7 +1204,7 @@ marauder_2_1 = {
 					create_ship = {
 						name = random
 						design = "NAME_Warrior_Freehold"
-						graphical_culture = "madd_01"
+						graphical_culture = "pirate_01"
 					}
 					set_location = {
 						target = prev
@@ -1299,14 +1213,13 @@ marauder_2_1 = {
 					}
 				}
 			}
-
 			create_fleet = {
 				effect = {
 					set_owner = event_target:marauder_country_2
 					create_ship = {
 						name = random
 						design = "NAME_Void_Dwelling"
-						graphical_culture = "madd_01"
+						graphical_culture = "pirate_01"
 					}
 					set_location = {
 						target = prev
@@ -1321,7 +1234,7 @@ marauder_2_1 = {
 					create_ship = {
 						name = random
 						design = "NAME_Void_Dwelling"
-						graphical_culture = "madd_01"
+						graphical_culture = "pirate_01"
 					}
 					set_location = {
 						target = prev
@@ -1336,7 +1249,7 @@ marauder_2_1 = {
 					create_ship = {
 						name = random
 						design = "NAME_Void_Dwelling"
-						graphical_culture = "madd_01"
+						graphical_culture = "pirate_01"
 					}
 					set_location = {
 						target = prev
@@ -1351,7 +1264,7 @@ marauder_2_1 = {
 					create_ship = {
 						name = random
 						design = "NAME_Void_Dwelling"
-						graphical_culture = "madd_01"
+						graphical_culture = "pirate_01"
 					}
 					set_location = {
 						target = prev
@@ -1366,7 +1279,7 @@ marauder_2_1 = {
 					create_ship = {
 						name = random
 						design = "NAME_Void_Dwelling"
-						graphical_culture = "madd_01"
+						graphical_culture = "pirate_01"
 					}
 					set_location = {
 						target = prev
@@ -1381,7 +1294,7 @@ marauder_2_1 = {
 					create_ship = {
 						name = random
 						design = "NAME_Void_Dwelling"
-						graphical_culture = "madd_01"
+						graphical_culture = "pirate_01"
 					}
 					set_location = {
 						target = prev
@@ -1390,10 +1303,7 @@ marauder_2_1 = {
 					}
 				}
 			}
-
-			create_ambient_object = {
-				type = "abandoned_starbase_01_object"
-			}
+			create_ambient_object = { type = "abandoned_starbase_01_object" }
 			last_created_ambient_object = {
 				set_location = {
 					target = prev
@@ -1401,9 +1311,7 @@ marauder_2_1 = {
 					angle = 30
 				}
 			}
-			create_ambient_object = {
-				type = "abandoned_starbase_01_object"
-			}
+			create_ambient_object = { type = "abandoned_starbase_01_object" }
 			last_created_ambient_object = {
 				set_location = {
 					target = prev
@@ -1411,9 +1319,7 @@ marauder_2_1 = {
 					angle = 90
 				}
 			}
-			create_ambient_object = {
-				type = "abandoned_starbase_01_object"
-			}
+			create_ambient_object = { type = "abandoned_starbase_01_object" }
 			last_created_ambient_object = {
 				set_location = {
 					target = prev
@@ -1421,9 +1327,7 @@ marauder_2_1 = {
 					angle = 150
 				}
 			}
-			create_ambient_object = {
-				type = "abandoned_starbase_01_object"
-			}
+			create_ambient_object = { type = "abandoned_starbase_01_object" }
 			last_created_ambient_object = {
 				set_location = {
 					target = prev
@@ -1431,9 +1335,7 @@ marauder_2_1 = {
 					angle = 210
 				}
 			}
-			create_ambient_object = {
-				type = "abandoned_starbase_01_object"
-			}
+			create_ambient_object = { type = "abandoned_starbase_01_object" }
 			last_created_ambient_object = {
 				set_location = {
 					target = prev
@@ -1441,9 +1343,7 @@ marauder_2_1 = {
 					angle = 270
 				}
 			}
-			create_ambient_object = {
-				type = "abandoned_starbase_01_object"
-			}
+			create_ambient_object = { type = "abandoned_starbase_01_object" }
 			last_created_ambient_object = {
 				set_location = {
 					target = prev
@@ -1461,9 +1361,7 @@ marauder_2_1 = {
 		orbit_angle = -80
 		size = 5
 		has_ring = no
-
 		flags = { raid_source }
-
 		init_effect = {
 			create_fleet = {
 				effect = {
@@ -1471,11 +1369,11 @@ marauder_2_1 = {
 					create_ship = {
 						name = random
 						design = "NAME_Ancestral_Glory"
-						graphical_culture = "madd_01"
+						graphical_culture = "pirate_01"
 					}
 					set_formation_scale = 2
 					set_fleet_stance = aggressive
-					# set_aggro_range_measure_from = self
+					set_aggro_range_measure_from = self
 					set_aggro_range = 250
 					set_location = {
 						target = prev
@@ -1489,19 +1387,16 @@ marauder_2_1 = {
 			}
 		}
 	}
-
 	planet = {
 		class = "pc_asteroid"
 		orbit_distance = 0
 		orbit_angle = -80
 		size = 5
 		has_ring = no
-
 		init_effect = {
 			set_deposit = d_minerals_8
 		}
 	}
-
 	planet = {
 		class = "pc_asteroid"
 		orbit_distance = 0
@@ -1509,7 +1404,6 @@ marauder_2_1 = {
 		size = 5
 		has_ring = no
 	}
-
 	planet = {
 		class = "pc_asteroid"
 		orbit_distance = 0
@@ -1517,26 +1411,22 @@ marauder_2_1 = {
 		size = 5
 		has_ring = no
 	}
-
 	planet = {
 		class = "pc_asteroid"
 		orbit_distance = 0
 		orbit_angle = -80
 		size = 5
 		has_ring = no
-
 		init_effect = {
 			set_deposit = d_minerals_8
 		}
 	}
-
 	planet = {
 		class = "pc_asteroid"
 		orbit_distance = 0
 		orbit_angle = -80
 		size = 5
 		has_ring = no
-
 		init_effect = {
 			create_fleet = {
 				effect = {
@@ -1546,7 +1436,7 @@ marauder_2_1 = {
 						create_ship = {
 							name = random
 							design = "NAME_Outrider"
-							graphical_culture = "madd_01"
+							graphical_culture = "pirate_01"
 						}
 					}
 					while = {
@@ -1554,7 +1444,7 @@ marauder_2_1 = {
 						create_ship = {
 							name = random
 							design = "NAME_Lancer"
-							graphical_culture = "madd_01"
+							graphical_culture = "pirate_01"
 						}
 					}
 					while = {
@@ -1562,12 +1452,12 @@ marauder_2_1 = {
 						create_ship = {
 							name = random
 							design = "NAME_Void_Champion"
-							graphical_culture = "madd_01"
+							graphical_culture = "pirate_01"
 						}
 					}
 					set_formation_scale = 2
 					set_fleet_stance = aggressive
-					# set_aggro_range_measure_from = self
+					set_aggro_range_measure_from = self
 					set_aggro_range = 250
 					set_location = {
 						target = prev
@@ -1581,7 +1471,6 @@ marauder_2_1 = {
 			}
 		}
 	}
-
 	planet = {
 		class = "pc_asteroid"
 		orbit_distance = 0
@@ -1589,7 +1478,6 @@ marauder_2_1 = {
 		size = 5
 		has_ring = no
 	}
-
 	planet = {
 		class = "pc_asteroid"
 		orbit_distance = 0
@@ -1597,19 +1485,16 @@ marauder_2_1 = {
 		size = 5
 		has_ring = no
 	}
-
 	planet = {
 		class = "pc_asteroid"
 		orbit_distance = 0
 		orbit_angle = -80
 		size = 5
 		has_ring = no
-
 		init_effect = {
 			set_deposit = d_minerals_8
 		}
 	}
-
 	planet = {
 		class = "pc_asteroid"
 		orbit_distance = 0
@@ -1617,14 +1502,12 @@ marauder_2_1 = {
 		size = 5
 		has_ring = no
 	}
-
 	planet = {
 		class = "pc_asteroid"
 		orbit_distance = 0
 		orbit_angle = -80
 		size = 5
 		has_ring = no
-
 		init_effect = {
 			create_fleet = {
 				effect = {
@@ -1634,7 +1517,7 @@ marauder_2_1 = {
 						create_ship = {
 							name = random
 							design = "NAME_Outrider"
-							graphical_culture = "madd_01"
+							graphical_culture = "pirate_01"
 						}
 					}
 					while = {
@@ -1642,7 +1525,7 @@ marauder_2_1 = {
 						create_ship = {
 							name = random
 							design = "NAME_Lancer"
-							graphical_culture = "madd_01"
+							graphical_culture = "pirate_01"
 						}
 					}
 					while = {
@@ -1650,12 +1533,12 @@ marauder_2_1 = {
 						create_ship = {
 							name = random
 							design = "NAME_Void_Champion"
-							graphical_culture = "madd_01"
+							graphical_culture = "pirate_01"
 						}
 					}
 					set_formation_scale = 2
 					set_fleet_stance = aggressive
-					# set_aggro_range_measure_from = self
+					set_aggro_range_measure_from = self
 					set_aggro_range = 250
 					set_location = {
 						target = prev
@@ -1669,13 +1552,11 @@ marauder_2_1 = {
 			}
 		}
 	}
-
 	planet = {
 		class = pc_barren_cold
 		orbit_distance = 40
 		size = 10
 		orbit_angle = 125
-
 		init_effect = {
 			create_fleet = {
 				effect = {
@@ -1683,11 +1564,11 @@ marauder_2_1 = {
 					create_ship = {
 						name = random
 						design = "NAME_Ancestral_Glory"
-						graphical_culture = "madd_01"
+						graphical_culture = "pirate_01"
 					}
 					set_formation_scale = 2
 					set_fleet_stance = aggressive
-					# set_aggro_range_measure_from = self
+					set_aggro_range_measure_from = self
 					set_aggro_range = 250
 					set_location = {
 						target = prev
@@ -1701,13 +1582,11 @@ marauder_2_1 = {
 			}
 		}
 	}
-
 	planet = {
 		class = pc_frozen
 		orbit_distance = 40
 		size = 6
 		orbit_angle = 225
-
 		init_effect = {
 			create_fleet = {
 				effect = {
@@ -1715,11 +1594,11 @@ marauder_2_1 = {
 					create_ship = {
 						name = random
 						design = "NAME_Ancestral_Glory"
-						graphical_culture = "madd_01"
+						graphical_culture = "pirate_01"
 					}
 					set_formation_scale = 2
 					set_fleet_stance = aggressive
-					# set_aggro_range_measure_from = self
+					set_aggro_range_measure_from = self
 					set_aggro_range = 250
 					set_location = {
 						target = prev
@@ -1748,9 +1627,7 @@ marauder_2_1 = {
 		create_marauder_starbase = yes
 		every_neighbor_system = {
 			set_star_flag = marauder_cluster
-			every_neighbor_system = {
-				set_star_flag = marauder_cluster
-			}
+			every_neighbor_system = { set_star_flag = marauder_cluster }
 		}
 	}
 }
@@ -1759,7 +1636,6 @@ marauder_2_1 = {
 marauder_2_2 = {
 	class = "rl_standard_stars"
 	flags = { marauder_system }
-
 	planet = {
 		count = 1
 		class = star
@@ -1767,7 +1643,6 @@ marauder_2_2 = {
 		orbit_angle = 1
 		size = { min = 20 max = 30 }
 		has_ring = no
-
 		init_effect = {
 			create_fleet = {
 				effect = {
@@ -1775,7 +1650,7 @@ marauder_2_2 = {
 					create_ship = {
 						name = random
 						design = "NAME_Void_Dwelling"
-						graphical_culture = "madd_01"
+						graphical_culture = "pirate_01"
 					}
 					set_location = {
 						target = prev
@@ -1790,7 +1665,7 @@ marauder_2_2 = {
 					create_ship = {
 						name = random
 						design = "NAME_Void_Dwelling"
-						graphical_culture = "madd_01"
+						graphical_culture = "pirate_01"
 					}
 					set_location = {
 						target = prev
@@ -1805,11 +1680,11 @@ marauder_2_2 = {
 					create_ship = {
 						name = random
 						design = "NAME_Ancestral_Glory"
-						graphical_culture = "madd_01"
+						graphical_culture = "pirate_01"
 					}
 					set_formation_scale = 2
 					set_fleet_stance = aggressive
-					# set_aggro_range_measure_from = self
+					set_aggro_range_measure_from = self
 					set_aggro_range = 250
 					set_location = {
 						target = prev
@@ -1829,7 +1704,7 @@ marauder_2_2 = {
 						create_ship = {
 							name = random
 							design = "NAME_Outrider"
-							graphical_culture = "madd_01"
+							graphical_culture = "pirate_01"
 						}
 					}
 					while = {
@@ -1837,7 +1712,7 @@ marauder_2_2 = {
 						create_ship = {
 							name = random
 							design = "NAME_Lancer"
-							graphical_culture = "madd_01"
+							graphical_culture = "pirate_01"
 						}
 					}
 					while = {
@@ -1845,12 +1720,12 @@ marauder_2_2 = {
 						create_ship = {
 							name = random
 							design = "NAME_Void_Champion"
-							graphical_culture = "madd_01"
+							graphical_culture = "pirate_01"
 						}
 					}
 					set_formation_scale = 2
 					set_fleet_stance = aggressive
-					# set_aggro_range_measure_from = self
+					set_aggro_range_measure_from = self
 					set_aggro_range = 250
 					set_location = {
 						target = prev
@@ -1872,9 +1747,7 @@ marauder_2_2 = {
 		class = "rl_unhabitable_planets"
 		orbit_distance = 20
 		orbit_angle = { min = 90 max = 270 }
-
 		change_orbit = @base_moon_distance
-
 		moon = {
 			count = { min = 0 max = 1 }
 			class = "rl_unhabitable_planets"
@@ -1892,12 +1765,12 @@ marauder_2_2 = {
 # System III
 marauder_2_3 = {
 	class = "rl_standard_stars"
+
 	asteroid_belt = {
 		type = rocky_asteroid_belt
 		radius = 95
 	}
 	flags = { marauder_system }
-
 	planet = {
 		count = 1
 		class = star
@@ -1905,7 +1778,6 @@ marauder_2_3 = {
 		orbit_angle = 1
 		size = { min = 20 max = 30 }
 		has_ring = no
-
 		init_effect = {
 			create_fleet = {
 				effect = {
@@ -1913,7 +1785,7 @@ marauder_2_3 = {
 					create_ship = {
 						name = random
 						design = "NAME_Void_Dwelling"
-						graphical_culture = "madd_01"
+						graphical_culture = "pirate_01"
 					}
 					set_location = {
 						target = prev
@@ -1928,7 +1800,7 @@ marauder_2_3 = {
 					create_ship = {
 						name = random
 						design = "NAME_Void_Dwelling"
-						graphical_culture = "madd_01"
+						graphical_culture = "pirate_01"
 					}
 					set_location = {
 						target = prev
@@ -1943,7 +1815,7 @@ marauder_2_3 = {
 					create_ship = {
 						name = random
 						design = "NAME_Warrior_Freehold"
-						graphical_culture = "madd_01"
+						graphical_culture = "pirate_01"
 					}
 					set_location = {
 						target = prev
@@ -1958,7 +1830,7 @@ marauder_2_3 = {
 					create_ship = {
 						name = random
 						design = "NAME_Warrior_Freehold"
-						graphical_culture = "madd_01"
+						graphical_culture = "pirate_01"
 					}
 					set_location = {
 						target = prev
@@ -1973,7 +1845,7 @@ marauder_2_3 = {
 					create_ship = {
 						name = random
 						design = "NAME_Warrior_Freehold"
-						graphical_culture = "madd_01"
+						graphical_culture = "pirate_01"
 					}
 					set_location = {
 						target = prev
@@ -1988,7 +1860,7 @@ marauder_2_3 = {
 					create_ship = {
 						name = random
 						design = "NAME_Warrior_Freehold"
-						graphical_culture = "madd_01"
+						graphical_culture = "pirate_01"
 					}
 					set_location = {
 						target = prev
@@ -2003,11 +1875,11 @@ marauder_2_3 = {
 					create_ship = {
 						name = random
 						design = "NAME_Ancestral_Glory"
-						graphical_culture = "madd_01"
+						graphical_culture = "pirate_01"
 					}
 					set_formation_scale = 2
 					set_fleet_stance = aggressive
-					# set_aggro_range_measure_from = self
+					set_aggro_range_measure_from = self
 					set_aggro_range = 250
 					set_location = {
 						target = prev
@@ -2027,7 +1899,7 @@ marauder_2_3 = {
 						create_ship = {
 							name = random
 							design = "NAME_Outrider"
-							graphical_culture = "madd_01"
+							graphical_culture = "pirate_01"
 						}
 					}
 					while = {
@@ -2035,7 +1907,7 @@ marauder_2_3 = {
 						create_ship = {
 							name = random
 							design = "NAME_Lancer"
-							graphical_culture = "madd_01"
+							graphical_culture = "pirate_01"
 						}
 					}
 					while = {
@@ -2043,12 +1915,12 @@ marauder_2_3 = {
 						create_ship = {
 							name = random
 							design = "NAME_Void_Champion"
-							graphical_culture = "madd_01"
+							graphical_culture = "pirate_01"
 						}
 					}
 					set_formation_scale = 2
 					set_fleet_stance = aggressive
-					# set_aggro_range_measure_from = self
+					set_aggro_range_measure_from = self
 					set_aggro_range = 250
 					set_location = {
 						target = prev
@@ -2080,15 +1952,12 @@ marauder_2_3 = {
 		orbit_distance = 0
 		orbit_angle = { min = 90 max = 270 }
 	}
-
 	planet = {
 		count = { min = 1 max = 3 }
 		class = "rl_unhabitable_planets"
 		orbit_distance = 25
 		orbit_angle = { min = 90 max = 270 }
-
 		change_orbit = @base_moon_distance
-
 		moon = {
 			count = { min = 0 max = 1 }
 			class = "rl_unhabitable_planets"
@@ -2102,9 +1971,7 @@ marauder_2_3 = {
 		create_marauder_starbase = yes
 		every_neighbor_system = {
 			set_star_flag = marauder_cluster
-			every_neighbor_system = {
-				set_star_flag = marauder_cluster
-			}
+			every_neighbor_system = { set_star_flag = marauder_cluster }
 		}
 	}
 }
@@ -2116,8 +1983,8 @@ marauder_2_3 = {
 marauder_3_1 = {
 	class = "sc_pulsar"
 	usage = misc_system_init
-
 	max_instances = 1
+
 	usage_odds = {
 		base = 0
 		modifier = {
@@ -2127,23 +1994,20 @@ marauder_3_1 = {
 			is_in_cluster = resource_cluster_3 # Defined in code; see RESOURCE_CLUSTER_COUNT
 			NOR = {
 				has_star_flag = empire_cluster
-				any_neighbor_system = {
-					has_star_flag = empire_cluster
-				}
+				is_fe_cluster = yes # Vfix
+				any_neighbor_system = { has_star_flag = empire_cluster is_fe_cluster = yes }
 			}
 		}
 	}
+
 	spawn_chance = 100
-
 	flags = { marauder_system marauder_capital_3 }
-
 	planet = {
 		class = star
 		orbit_distance = 0
 		orbit_angle = 1
 		size = { min = 20 max = 30 }
 		has_ring = no
-
 		init_effect = {
 			create_cluster = {
 				id = marauder_3_cluster
@@ -2161,22 +2025,20 @@ marauder_3_1 = {
 				portrait = random
 				traits = {
 					trait = "trait_pc_habitat_preference"
-					trait = "trait_void_dweller_1"
-					trait = "trait_robust"
+					trait = "trait_organic"
+					trait = "trait_extremely_adaptive"
 					trait = "trait_rapid_breeders"
 					trait = "trait_nomadic"
 					trait = "trait_quarrelsome"
-					trait = "trait_unruly"
 					trait = "trait_deviants"
-					trait = "trait_traditional"
 				}
 			}
 			create_country = {
 				name_list = random
 				species = last_created_species
 				type = dormant_marauders
-				civics = { civic = civic_anarcho_tribalism civic = civic_warrior_culture civic = civic_barbaric_despoilers }
-				origin = "origin_void_dwellers"
+				civics = { civic = civic_anarcho_tribalism }
+				origin = "origin_default"
 				flag = {
 					background = { category = "backgrounds" file = "00_solid.dds" }
 					colors = { "black" "black" "null" "null" }
@@ -2186,17 +2048,16 @@ marauder_3_1 = {
 					ethic = ethic_xenophobe
 				}
 				ignore_initial_colony_error = yes
-				effect = {
-					set_graphical_culture = madd_01
-					save_global_event_target_as = marauder_country_3
-					set_country_flag = marauder_3
-					set_name = random
-					create_ship_design = { design = "NAME_Marauder_Starbase" }
-					add_ship_design = last_created_design
-					set_custom_capital_location = prev
-				}
 			}
-
+			last_created_country = {
+				set_graphical_culture = pirate_01
+				save_global_event_target_as = marauder_country_3
+				set_country_flag = marauder_3
+				set_name = random
+				create_ship_design = { design = "NAME_Marauder_Starbase" }
+				add_ship_design = last_created_design
+				set_custom_capital_location = prev
+			}
 			create_fleet = {
 				effect = {
 					set_owner = event_target:marauder_country_3
@@ -2205,7 +2066,7 @@ marauder_3_1 = {
 						create_ship = {
 							name = random
 							design = "NAME_Outrider"
-							graphical_culture = "madd_01"
+							graphical_culture = "pirate_01"
 						}
 					}
 					while = {
@@ -2213,7 +2074,7 @@ marauder_3_1 = {
 						create_ship = {
 							name = random
 							design = "NAME_Lancer"
-							graphical_culture = "madd_01"
+							graphical_culture = "pirate_01"
 						}
 					}
 					while = {
@@ -2221,12 +2082,12 @@ marauder_3_1 = {
 						create_ship = {
 							name = random
 							design = "NAME_Void_Champion"
-							graphical_culture = "madd_01"
+							graphical_culture = "pirate_01"
 						}
 					}
 					set_formation_scale = 2
 					set_fleet_stance = aggressive
-					# set_aggro_range_measure_from = self
+					set_aggro_range_measure_from = self
 					set_aggro_range = 250
 					set_location = {
 						target = prev
@@ -2238,7 +2099,6 @@ marauder_3_1 = {
 					garrison = yes
 				}
 			}
-
 			create_fleet = {
 				effect = {
 					set_owner = event_target:marauder_country_3
@@ -2247,7 +2107,7 @@ marauder_3_1 = {
 						create_ship = {
 							name = random
 							design = "NAME_Outrider"
-							graphical_culture = "madd_01"
+							graphical_culture = "pirate_01"
 						}
 					}
 					while = {
@@ -2255,7 +2115,7 @@ marauder_3_1 = {
 						create_ship = {
 							name = random
 							design = "NAME_Lancer"
-							graphical_culture = "madd_01"
+							graphical_culture = "pirate_01"
 						}
 					}
 					while = {
@@ -2263,12 +2123,12 @@ marauder_3_1 = {
 						create_ship = {
 							name = random
 							design = "NAME_Void_Champion"
-							graphical_culture = "madd_01"
+							graphical_culture = "pirate_01"
 						}
 					}
 					set_formation_scale = 2
 					set_fleet_stance = aggressive
-					# set_aggro_range_measure_from = self
+					set_aggro_range_measure_from = self
 					set_aggro_range = 250
 					set_location = {
 						target = prev
@@ -2290,15 +2150,11 @@ marauder_3_1 = {
 		size = 40
 		orbit_angle = 120
 		has_ring = no
-
 		flags = { raid_source }
-
 		init_effect = {
 			set_deposit = d_energy_6
 		}
-
 		change_orbit = @base_moon_distance
-
 		moon = {
 			class = pc_molten
 			size = 10
@@ -2310,7 +2166,6 @@ marauder_3_1 = {
 			size = 8
 			orbit_angle = { min = 90 max = 270 }
 			orbit_distance = 8
-
 			init_effect = {
 				create_fleet = {
 					effect = {
@@ -2318,11 +2173,11 @@ marauder_3_1 = {
 						create_ship = {
 							name = random
 							design = "NAME_Ancestral_Glory"
-							graphical_culture = "madd_01"
+							graphical_culture = "pirate_01"
 						}
 						set_formation_scale = 2
 						set_fleet_stance = aggressive
-						# set_aggro_range_measure_from = self
+						set_aggro_range_measure_from = self
 						set_aggro_range = 250
 						set_location = {
 							target = prev
@@ -2332,7 +2187,6 @@ marauder_3_1 = {
 					}
 					settings = {
 						garrison = yes
-						uses_naval_capacity = no
 					}
 				}
 			}
@@ -2348,7 +2202,6 @@ marauder_3_1 = {
 			size = 9
 			orbit_angle = { min = 90 max = 270 }
 			orbit_distance = 7
-
 			init_effect = {
 				create_fleet = {
 					effect = {
@@ -2356,7 +2209,7 @@ marauder_3_1 = {
 						create_ship = {
 							name = random
 							design = "NAME_Void_Dwelling"
-							graphical_culture = "madd_01"
+							graphical_culture = "pirate_01"
 						}
 						set_location = {
 							target = prev
@@ -2378,7 +2231,6 @@ marauder_3_1 = {
 			size = 7
 			orbit_angle = { min = 90 max = 270 }
 			orbit_distance = 10
-
 			init_effect = {
 				create_fleet = {
 					effect = {
@@ -2386,7 +2238,7 @@ marauder_3_1 = {
 						create_ship = {
 							name = random
 							design = "NAME_Void_Dwelling"
-							graphical_culture = "madd_01"
+							graphical_culture = "pirate_01"
 						}
 						set_location = {
 							target = prev
@@ -2398,20 +2250,16 @@ marauder_3_1 = {
 			}
 		}
 	}
-
 	planet = {
 		class = pc_gas_giant
 		size = 35
 		orbit_angle = 220
 		orbit_distance = 55
 		has_ring = no
-
 		init_effect = {
 			set_deposit = d_energy_6
 		}
-
 		change_orbit = @base_moon_distance
-
 		moon = {
 			class = pc_barren
 			size = 10
@@ -2429,7 +2277,6 @@ marauder_3_1 = {
 			size = 6
 			orbit_angle = { min = 90 max = 270 }
 			orbit_distance = 5
-
 			init_effect = {
 				create_fleet = {
 					effect = {
@@ -2437,7 +2284,7 @@ marauder_3_1 = {
 						create_ship = {
 							name = random
 							design = "NAME_Void_Dwelling"
-							graphical_culture = "madd_01"
+							graphical_culture = "pirate_01"
 						}
 						set_location = {
 							target = prev
@@ -2453,7 +2300,6 @@ marauder_3_1 = {
 			size = 11
 			orbit_angle = { min = 90 max = 270 }
 			orbit_distance = 6
-
 			init_effect = {
 				create_fleet = {
 					effect = {
@@ -2461,7 +2307,7 @@ marauder_3_1 = {
 						create_ship = {
 							name = random
 							design = "NAME_Void_Dwelling"
-							graphical_culture = "madd_01"
+							graphical_culture = "pirate_01"
 						}
 						set_location = {
 							target = prev
@@ -2477,7 +2323,6 @@ marauder_3_1 = {
 			size = 7
 			orbit_angle = { min = 90 max = 270 }
 			orbit_distance = 10
-
 			init_effect = {
 				create_fleet = {
 					effect = {
@@ -2485,11 +2330,11 @@ marauder_3_1 = {
 						create_ship = {
 							name = random
 							design = "NAME_Ancestral_Glory"
-							graphical_culture = "madd_01"
+							graphical_culture = "pirate_01"
 						}
 						set_formation_scale = 2
 						set_fleet_stance = aggressive
-						# set_aggro_range_measure_from = self
+						set_aggro_range_measure_from = self
 						set_aggro_range = 250
 						set_location = {
 							target = prev
@@ -2499,26 +2344,21 @@ marauder_3_1 = {
 					}
 					settings = {
 						garrison = yes
-						uses_naval_capacity = no
 					}
 				}
 			}
 		}
 	}
-
 	planet = {
 		class = pc_gas_giant
 		size = 40
 		orbit_angle = 265
 		orbit_distance = 55
 		has_ring = no
-
 		init_effect = {
 			set_deposit = d_energy_6
 		}
-
 		change_orbit = @base_moon_distance
-
 		moon = {
 			class = pc_barren_cold
 			size = 10
@@ -2542,7 +2382,6 @@ marauder_3_1 = {
 			size = 11
 			orbit_angle = { min = 90 max = 270 }
 			orbit_distance = 6
-
 			init_effect = {
 				create_fleet = {
 					effect = {
@@ -2550,7 +2389,7 @@ marauder_3_1 = {
 						create_ship = {
 							name = random
 							design = "NAME_Void_Dwelling"
-							graphical_culture = "madd_01"
+							graphical_culture = "pirate_01"
 						}
 						set_location = {
 							target = prev
@@ -2572,7 +2411,6 @@ marauder_3_1 = {
 			size = 7
 			orbit_angle = { min = 90 max = 270 }
 			orbit_distance = 10
-
 			init_effect = {
 				create_fleet = {
 					effect = {
@@ -2580,11 +2418,11 @@ marauder_3_1 = {
 						create_ship = {
 							name = random
 							design = "NAME_Ancestral_Glory"
-							graphical_culture = "madd_01"
+							graphical_culture = "pirate_01"
 						}
 						set_formation_scale = 2
 						set_fleet_stance = aggressive
-						# set_aggro_range_measure_from = self
+						set_aggro_range_measure_from = self
 						set_aggro_range = 250
 						set_location = {
 							target = prev
@@ -2594,7 +2432,6 @@ marauder_3_1 = {
 					}
 					settings = {
 						garrison = yes
-						uses_naval_capacity = no
 					}
 				}
 			}
@@ -2604,7 +2441,6 @@ marauder_3_1 = {
 			size = 7
 			orbit_angle = { min = 90 max = 270 }
 			orbit_distance = 10
-
 			init_effect = {
 				create_fleet = {
 					effect = {
@@ -2612,7 +2448,7 @@ marauder_3_1 = {
 						create_ship = {
 							name = random
 							design = "NAME_Void_Dwelling"
-							graphical_culture = "madd_01"
+							graphical_culture = "pirate_01"
 						}
 						set_location = {
 							target = prev
@@ -2639,9 +2475,7 @@ marauder_3_1 = {
 		create_marauder_starbase = yes
 		every_neighbor_system = {
 			set_star_flag = marauder_cluster
-			every_neighbor_system = {
-				set_star_flag = marauder_cluster
-			}
+			every_neighbor_system = { set_star_flag = marauder_cluster }
 		}
 	}
 }
@@ -2650,7 +2484,6 @@ marauder_3_1 = {
 marauder_3_2 = {
 	class = "rl_standard_stars"
 	flags = { marauder_system }
-
 	planet = {
 		count = 1
 		class = star
@@ -2658,7 +2491,6 @@ marauder_3_2 = {
 		orbit_angle = 1
 		size = { min = 20 max = 30 }
 		has_ring = no
-
 		init_effect = {
 			create_fleet = {
 				effect = {
@@ -2666,7 +2498,7 @@ marauder_3_2 = {
 					create_ship = {
 						name = random
 						design = "NAME_Void_Dwelling"
-						graphical_culture = "madd_01"
+						graphical_culture = "pirate_01"
 					}
 					set_location = {
 						target = prev
@@ -2681,7 +2513,7 @@ marauder_3_2 = {
 					create_ship = {
 						name = random
 						design = "NAME_Void_Dwelling"
-						graphical_culture = "madd_01"
+						graphical_culture = "pirate_01"
 					}
 					set_location = {
 						target = prev
@@ -2696,11 +2528,11 @@ marauder_3_2 = {
 					create_ship = {
 						name = random
 						design = "NAME_Ancestral_Glory"
-						graphical_culture = "madd_01"
+						graphical_culture = "pirate_01"
 					}
 					set_formation_scale = 2
 					set_fleet_stance = aggressive
-					# set_aggro_range_measure_from = self
+					set_aggro_range_measure_from = self
 					set_aggro_range = 250
 					set_location = {
 						target = prev
@@ -2720,7 +2552,7 @@ marauder_3_2 = {
 						create_ship = {
 							name = random
 							design = "NAME_Outrider"
-							graphical_culture = "madd_01"
+							graphical_culture = "pirate_01"
 						}
 					}
 					while = {
@@ -2728,7 +2560,7 @@ marauder_3_2 = {
 						create_ship = {
 							name = random
 							design = "NAME_Lancer"
-							graphical_culture = "madd_01"
+							graphical_culture = "pirate_01"
 						}
 					}
 					while = {
@@ -2736,12 +2568,12 @@ marauder_3_2 = {
 						create_ship = {
 							name = random
 							design = "NAME_Void_Champion"
-							graphical_culture = "madd_01"
+							graphical_culture = "pirate_01"
 						}
 					}
 					set_formation_scale = 2
 					set_fleet_stance = aggressive
-					# set_aggro_range_measure_from = self
+					set_aggro_range_measure_from = self
 					set_aggro_range = 250
 					set_location = {
 						target = prev
@@ -2763,9 +2595,7 @@ marauder_3_2 = {
 		class = "rl_unhabitable_planets"
 		orbit_distance = 20
 		orbit_angle = { min = 90 max = 270 }
-
 		change_orbit = @base_moon_distance
-
 		moon = {
 			count = { min = 0 max = 1 }
 			class = "rl_unhabitable_planets"
@@ -2783,12 +2613,12 @@ marauder_3_2 = {
 # System III
 marauder_3_3 = {
 	class = "rl_standard_stars"
+
 	asteroid_belt = {
 		type = rocky_asteroid_belt
 		radius = 95
 	}
 	flags = { marauder_system }
-
 	planet = {
 		count = 1
 		class = star
@@ -2796,7 +2626,6 @@ marauder_3_3 = {
 		orbit_angle = 1
 		size = { min = 20 max = 30 }
 		has_ring = no
-
 		init_effect = {
 			create_fleet = {
 				effect = {
@@ -2804,7 +2633,7 @@ marauder_3_3 = {
 					create_ship = {
 						name = random
 						design = "NAME_Void_Dwelling"
-						graphical_culture = "madd_01"
+						graphical_culture = "pirate_01"
 					}
 					set_location = {
 						target = prev
@@ -2819,7 +2648,7 @@ marauder_3_3 = {
 					create_ship = {
 						name = random
 						design = "NAME_Void_Dwelling"
-						graphical_culture = "madd_01"
+						graphical_culture = "pirate_01"
 					}
 					set_location = {
 						target = prev
@@ -2834,7 +2663,7 @@ marauder_3_3 = {
 					create_ship = {
 						name = random
 						design = "NAME_Warrior_Freehold"
-						graphical_culture = "madd_01"
+						graphical_culture = "pirate_01"
 					}
 					set_location = {
 						target = prev
@@ -2849,7 +2678,7 @@ marauder_3_3 = {
 					create_ship = {
 						name = random
 						design = "NAME_Warrior_Freehold"
-						graphical_culture = "madd_01"
+						graphical_culture = "pirate_01"
 					}
 					set_location = {
 						target = prev
@@ -2864,7 +2693,7 @@ marauder_3_3 = {
 					create_ship = {
 						name = random
 						design = "NAME_Warrior_Freehold"
-						graphical_culture = "madd_01"
+						graphical_culture = "pirate_01"
 					}
 					set_location = {
 						target = prev
@@ -2879,7 +2708,7 @@ marauder_3_3 = {
 					create_ship = {
 						name = random
 						design = "NAME_Warrior_Freehold"
-						graphical_culture = "madd_01"
+						graphical_culture = "pirate_01"
 					}
 					set_location = {
 						target = prev
@@ -2894,11 +2723,11 @@ marauder_3_3 = {
 					create_ship = {
 						name = random
 						design = "NAME_Ancestral_Glory"
-						graphical_culture = "madd_01"
+						graphical_culture = "pirate_01"
 					}
 					set_formation_scale = 2
 					set_fleet_stance = aggressive
-					# set_aggro_range_measure_from = self
+					set_aggro_range_measure_from = self
 					set_aggro_range = 250
 					set_location = {
 						target = prev
@@ -2918,7 +2747,7 @@ marauder_3_3 = {
 						create_ship = {
 							name = random
 							design = "NAME_Outrider"
-							graphical_culture = "madd_01"
+							graphical_culture = "pirate_01"
 						}
 					}
 					while = {
@@ -2926,7 +2755,7 @@ marauder_3_3 = {
 						create_ship = {
 							name = random
 							design = "NAME_Lancer"
-							graphical_culture = "madd_01"
+							graphical_culture = "pirate_01"
 						}
 					}
 					while = {
@@ -2934,12 +2763,12 @@ marauder_3_3 = {
 						create_ship = {
 							name = random
 							design = "NAME_Void_Champion"
-							graphical_culture = "madd_01"
+							graphical_culture = "pirate_01"
 						}
 					}
 					set_formation_scale = 2
 					set_fleet_stance = aggressive
-					# set_aggro_range_measure_from = self
+					set_aggro_range_measure_from = self
 					set_aggro_range = 250
 					set_location = {
 						target = prev
@@ -2971,15 +2800,12 @@ marauder_3_3 = {
 		orbit_distance = 0
 		orbit_angle = { min = 90 max = 270 }
 	}
-
 	planet = {
 		count = { min = 1 max = 3 }
 		class = "rl_unhabitable_planets"
 		orbit_distance = 25
 		orbit_angle = { min = 90 max = 270 }
-
 		change_orbit = @base_moon_distance
-
 		moon = {
 			count = { min = 0 max = 1 }
 			class = "rl_unhabitable_planets"
@@ -2993,9 +2819,7 @@ marauder_3_3 = {
 		create_marauder_starbase = yes
 		every_neighbor_system = {
 			set_star_flag = marauder_cluster
-			every_neighbor_system = {
-				set_star_flag = marauder_cluster
-			}
+			every_neighbor_system = { set_star_flag = marauder_cluster }
 		}
 	}
 }

@@ -7,12 +7,11 @@
 #####													#####
 #############################################################
 #############################################################
-
 ######################
 ###- Basic Effect -###
 ######################
-
 ### Overwriting Cmt001
+
 CmtEffectDetectMidGameEdition = {
 	optimize_memory
 	set_global_flag = CmtFlagMidGameEdition
@@ -21,8 +20,8 @@ CmtEffectDetectMidGameEdition = {
 ################################
 ###- Trigger Event Manually -###
 ################################
-
 ### Scope: this = marauder country, prev = trigger country
+
 CmtEffectTriggerMarauderManually = {
 	optimize_memory
 	if = {
@@ -45,9 +44,11 @@ CmtEffectTriggerMarauderManually = {
 }
 
 ### Scope: this = stellar system with L-Gate
+
 CmtEffectDeleteLgateInSystem = {
 	optimize_memory
 	remove_star_flag = lgate
+
 	every_system_megastructure = {
 		limit = { is_megastructure_type = lgate_base }
 		remove_megastructure = this

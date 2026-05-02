@@ -13,14 +13,12 @@
 #	All script in this file require following scopes
 #	this: Location for creating fleets (e.g. planet)
 #
-
 ###################
 ###- Constants -###
 ###################
 # @CmtConstKhanConstructorUpperLimit =	5		## -1
 # @CmtConstKhanArmyUpperLimit =			40		## -1
 # @CmtConstKhanFleetPowerUpperLimit_Base = 100000		## 100 k
-
 # @CmtConstKhanFleetPowerUpperLimit_V1 =	25000		##		25 k
 # @CmtConstKhanFleetPowerUpperLimit_V2 =	50000		##		50 k
 # @CmtConstKhanFleetPowerUpperLimit_V3 =	75000		##		75 k
@@ -29,7 +27,6 @@
 # @CmtConstKhanFleetPowerUpperLimit_V6 =	250000		##		250 k
 # @CmtConstKhanFleetPowerUpperLimit_V7 =	500000		##		500 k
 # @CmtConstKhanFleetPowerUpperLimit_V8 =	1000000		## 1000 k
-
 # @CmtConstKhanFleetPowerUpperLimit_T1 =	37500		##		37.5 k
 # @CmtConstKhanFleetPowerUpperLimit_T2 =	62500		##		62.5 k
 # @CmtConstKhanFleetPowerUpperLimit_T3 =	87500		##		87.5 k
@@ -37,21 +34,18 @@
 # @CmtConstKhanFleetPowerUpperLimit_T5 =	200000		##		200 k
 # @CmtConstKhanFleetPowerUpperLimit_T6 =	375000		##		375 k
 # @CmtConstKhanFleetPowerUpperLimit_T7 =	750000		##		750 k
-
-@CmtConstGraygooFleetNumberUpperLimit =	100 ## >~4000 k
-@CmtGraygooFleetNumberGuardAwakeLimit =	0.7 # Percent of FleetLimit (1 = 100)
+@CmtConstGraygooFleetNumberUpperLimit = 100 ## >~4000 k
+@CmtGraygooFleetNumberGuardAwakeLimit = 0.7 # Percent of FleetLimit (1 = 100)
 
 ##############
 ###- Khan -###
 ##############
-
 ### The Fleet for Khan Own.
 # CmtEffectCreateAdmiralty_Khan1stFleet = {		### Exception: Leader = event_target:great_khan
 # 	event_target:raider_khanate = {
 # 		CmtEffectCreateFleet_Khan1stFleet = yes
 # 	}
 # }
-
 # DEPRECATED
 # CmtEffectCreateAdmiralty_Khan2ndFleetSet = {		### Exception: Leader = exiled_khan
 # 	optimize_memory
@@ -83,7 +77,6 @@
 # 		}
 # 	}
 # }
-
 ### Consorts of Khan
 # This = planet
 # Prev = event_target:raider_khanate
@@ -91,10 +84,18 @@ CmtEffectCreateAdmiralty_KhanStarterPack = {
 	optimize_memory
 	prev = {
 		get_marauder_species = { PLANET = prev }
-		event_target:CmtGlobalVar = { set_variable = { which = CmtVarWhileControlFleet value = CmtVarCombatFleetNumber_Khan } }
+		event_target:CmtGlobalVar = {
+			set_variable = { which = CmtVarWhileControlFleet value = CmtVarCombatFleetNumber_Khan }
+		}
 		while = {
-			limit = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarWhileControlFleet value > 0.875 } } }
-			event_target:CmtGlobalVar = { change_variable = { which = CmtVarWhileControlFleet value = -1 } }
+			limit = {
+				event_target:CmtGlobalVar = {
+					check_variable = { which = CmtVarWhileControlFleet value > 0.875 }
+				}
+			}
+			event_target:CmtGlobalVar = {
+				change_variable = { which = CmtVarWhileControlFleet value = -1 }
+			}
 			while = {
 				count = 3
 				CmtEffectCreateFleet_KhanStandard = yes
@@ -105,8 +106,14 @@ CmtEffectCreateAdmiralty_KhanStarterPack = {
 			CmtEffectCreateFleet_KhanConstructor = yes
 		}
 		while = {
-			limit = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarWhileControlFleet value > 0.125 } } }
-			event_target:CmtGlobalVar = { change_variable = { which = CmtVarWhileControlFleet value = -0.25 } }
+			limit = {
+				event_target:CmtGlobalVar = {
+					check_variable = { which = CmtVarWhileControlFleet value > 0.125 }
+				}
+			}
+			event_target:CmtGlobalVar = {
+				change_variable = { which = CmtVarWhileControlFleet value = -0.25 }
+			}
 			CmtEffectCreateFleet_KhanArmy = yes
 			random = { chance = 75 CmtEffectCreateFleet_KhanStandard = yes }
 			random = { chance = 75 CmtEffectCreateFleet_KhanConstructor = yes }
@@ -115,30 +122,59 @@ CmtEffectCreateAdmiralty_KhanStarterPack = {
 }
 
 ### Mercenaries
+
 CmtEffectCreateAdmiralty_KhanMercenaries1 = {
 	optimize_memory
 	event_target:raider_khanate = {
-		event_target:CmtGlobalVar = { set_variable = { which = CmtVarWhileControlFleet value = CmtVarCombatFleetNumber_Khan } }
+		event_target:CmtGlobalVar = {
+			set_variable = { which = CmtVarWhileControlFleet value = CmtVarCombatFleetNumber_Khan }
+		}
 		while = {
-			limit = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarWhileControlFleet value > 0.875 } } }
-			event_target:CmtGlobalVar = { change_variable = { which = CmtVarWhileControlFleet value = -1 } }
+			limit = {
+				event_target:CmtGlobalVar = {
+					check_variable = { which = CmtVarWhileControlFleet value > 0.875 }
+				}
+			}
+			event_target:CmtGlobalVar = {
+				change_variable = { which = CmtVarWhileControlFleet value = -1 }
+			}
 			CmtEffectCreateFleet_KhanArmadaVoidborn = yes
 			CmtEffectCreateFleet_KhanStarRiderFlotilla = yes
 			CmtEffectCreateFleet_KhanFirstStormWing = yes
 		}
 		if = {
-			limit = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarWhileControlFleet value > 0.625 } } }
-			event_target:CmtGlobalVar = { change_variable = { which = CmtVarWhileControlFleet value = -0.75 } }
+			limit = {
+				event_target:CmtGlobalVar = {
+					check_variable = { which = CmtVarWhileControlFleet value > 0.625 }
+				}
+			}
+			event_target:CmtGlobalVar = {
+				change_variable = { which = CmtVarWhileControlFleet value = -0.75 }
+			}
 			CmtEffectCreateFleet_KhanArmadaVoidborn = yes
 			CmtEffectCreateFleet_KhanStarRiderFlotilla = yes
-		} else_if = {
-			limit = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarWhileControlFleet value > 0.375 } } }
-			event_target:CmtGlobalVar = { change_variable = { which = CmtVarWhileControlFleet value = -0.25 } }
+		}
+		else_if = {
+			limit = {
+				event_target:CmtGlobalVar = {
+					check_variable = { which = CmtVarWhileControlFleet value > 0.375 }
+				}
+			}
+			event_target:CmtGlobalVar = {
+				change_variable = { which = CmtVarWhileControlFleet value = -0.25 }
+			}
 			CmtEffectCreateFleet_KhanStarRiderFlotilla = yes
 			CmtEffectCreateFleet_KhanFirstStormWing = yes
-		} else_if = {
-			limit = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarWhileControlFleet value > 0.175 } } }
-			event_target:CmtGlobalVar = { change_variable = { which = CmtVarWhileControlFleet value = -0.50 } }
+		}
+		else_if = {
+			limit = {
+				event_target:CmtGlobalVar = {
+					check_variable = { which = CmtVarWhileControlFleet value > 0.175 }
+				}
+			}
+			event_target:CmtGlobalVar = {
+				change_variable = { which = CmtVarWhileControlFleet value = -0.50 }
+			}
 			CmtEffectCreateFleet_KhanFirstStormWing = yes
 		}
 	}
@@ -147,27 +183,55 @@ CmtEffectCreateAdmiralty_KhanMercenaries1 = {
 CmtEffectCreateAdmiralty_KhanMercenaries2 = {
 	optimize_memory
 	event_target:raider_khanate = {
-		event_target:CmtGlobalVar = { set_variable = { which = CmtVarWhileControlFleet value = CmtVarCombatFleetNumber_Khan } }
+		event_target:CmtGlobalVar = {
+			set_variable = { which = CmtVarWhileControlFleet value = CmtVarCombatFleetNumber_Khan }
+		}
 		while = {
-			limit = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarWhileControlFleet value > 0.875 } } }
-			event_target:CmtGlobalVar = { change_variable = { which = CmtVarWhileControlFleet value = -1 } }
+			limit = {
+				event_target:CmtGlobalVar = {
+					check_variable = { which = CmtVarWhileControlFleet value > 0.875 }
+				}
+			}
+			event_target:CmtGlobalVar = {
+				change_variable = { which = CmtVarWhileControlFleet value = -1 }
+			}
 			CmtEffectCreateFleet_KhanDwamakBashers = yes
 			CmtEffectCreateFleet_KhanUnhingedScreamerFlotilla = yes
 			CmtEffectCreateFleet_KhanFrenziedVolunteerSquadron = yes
 		}
 		if = {
-			limit = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarWhileControlFleet value > 0.625 } } }
-			event_target:CmtGlobalVar = { change_variable = { which = CmtVarWhileControlFleet value = -0.75 } }
+			limit = {
+				event_target:CmtGlobalVar = {
+					check_variable = { which = CmtVarWhileControlFleet value > 0.625 }
+				}
+			}
+			event_target:CmtGlobalVar = {
+				change_variable = { which = CmtVarWhileControlFleet value = -0.75 }
+			}
 			CmtEffectCreateFleet_KhanDwamakBashers = yes
 			CmtEffectCreateFleet_KhanUnhingedScreamerFlotilla = yes
-		} else_if = {
-			limit = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarWhileControlFleet value > 0.375 } } }
-			event_target:CmtGlobalVar = { change_variable = { which = CmtVarWhileControlFleet value = -0.25 } }
+		}
+		else_if = {
+			limit = {
+				event_target:CmtGlobalVar = {
+					check_variable = { which = CmtVarWhileControlFleet value > 0.375 }
+				}
+			}
+			event_target:CmtGlobalVar = {
+				change_variable = { which = CmtVarWhileControlFleet value = -0.25 }
+			}
 			CmtEffectCreateFleet_KhanUnhingedScreamerFlotilla = yes
 			CmtEffectCreateFleet_KhanFrenziedVolunteerSquadron = yes
-		} else_if = {
-			limit = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarWhileControlFleet value > 0.175 } } }
-			event_target:CmtGlobalVar = { change_variable = { which = CmtVarWhileControlFleet value = -0.50 } }
+		}
+		else_if = {
+			limit = {
+				event_target:CmtGlobalVar = {
+					check_variable = { which = CmtVarWhileControlFleet value > 0.175 }
+				}
+			}
+			event_target:CmtGlobalVar = {
+				change_variable = { which = CmtVarWhileControlFleet value = -0.50 }
+			}
 			CmtEffectCreateFleet_KhanFrenziedVolunteerSquadron = yes
 		}
 	}
@@ -176,27 +240,55 @@ CmtEffectCreateAdmiralty_KhanMercenaries2 = {
 CmtEffectCreateAdmiralty_KhanMercenaries3 = {
 	optimize_memory
 	event_target:raider_khanate = {
-		event_target:CmtGlobalVar = { set_variable = { which = CmtVarWhileControlFleet value = CmtVarCombatFleetNumber_Khan } }
+		event_target:CmtGlobalVar = {
+			set_variable = { which = CmtVarWhileControlFleet value = CmtVarCombatFleetNumber_Khan }
+		}
 		while = {
-			limit = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarWhileControlFleet value > 0.875 } } }
-			event_target:CmtGlobalVar = { change_variable = { which = CmtVarWhileControlFleet value = -1 } }
+			limit = {
+				event_target:CmtGlobalVar = {
+					check_variable = { which = CmtVarWhileControlFleet value > 0.875 }
+				}
+			}
+			event_target:CmtGlobalVar = {
+				change_variable = { which = CmtVarWhileControlFleet value = -1 }
+			}
 			CmtEffectCreateFleet_KhanHerChosenChampions = yes
 			CmtEffectCreateFleet_KhanOrderEternalNight = yes
 			CmtEffectCreateFleet_KhanTwilightCongregation = yes
 		}
 		if = {
-			limit = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarWhileControlFleet value > 0.625 } } }
-			event_target:CmtGlobalVar = { change_variable = { which = CmtVarWhileControlFleet value = -0.75 } }
+			limit = {
+				event_target:CmtGlobalVar = {
+					check_variable = { which = CmtVarWhileControlFleet value > 0.625 }
+				}
+			}
+			event_target:CmtGlobalVar = {
+				change_variable = { which = CmtVarWhileControlFleet value = -0.75 }
+			}
 			CmtEffectCreateFleet_KhanHerChosenChampions = yes
 			CmtEffectCreateFleet_KhanOrderEternalNight = yes
-		} else_if = {
-			limit = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarWhileControlFleet value > 0.375 } } }
-			event_target:CmtGlobalVar = { change_variable = { which = CmtVarWhileControlFleet value = -0.25 } }
+		}
+		else_if = {
+			limit = {
+				event_target:CmtGlobalVar = {
+					check_variable = { which = CmtVarWhileControlFleet value > 0.375 }
+				}
+			}
+			event_target:CmtGlobalVar = {
+				change_variable = { which = CmtVarWhileControlFleet value = -0.25 }
+			}
 			CmtEffectCreateFleet_KhanOrderEternalNight = yes
 			CmtEffectCreateFleet_KhanTwilightCongregation = yes
-		} else_if = {
-			limit = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarWhileControlFleet value > 0.175 } } }
-			event_target:CmtGlobalVar = { change_variable = { which = CmtVarWhileControlFleet value = -0.50 } }
+		}
+		else_if = {
+			limit = {
+				event_target:CmtGlobalVar = {
+					check_variable = { which = CmtVarWhileControlFleet value > 0.175 }
+				}
+			}
+			event_target:CmtGlobalVar = {
+				change_variable = { which = CmtVarWhileControlFleet value = -0.50 }
+			}
 			CmtEffectCreateFleet_KhanTwilightCongregation = yes
 		}
 	}
@@ -350,14 +442,12 @@ CmtEffectCreateAdmiralty_KhanMercenaries3 = {
 # 		}
 # 	}
 # }
-
 ### Garrison (Satrap)
 # CmtEffectCreateAdmiralty_KhanEncourager = {
 # 	event_target:raider_khanate = {
 # 		CmtEffectCreateFleet_KhanEncourager = yes
 # 	}
 # }
-
 ### Reinforcement (Satrap)
 # This = location
 # CmtEffectCreateAdmiralty_KhanSubReinforcement = {
@@ -405,7 +495,6 @@ CmtEffectCreateAdmiralty_KhanMercenaries3 = {
 # 		}
 # 	}
 # }
-
 # Dynamic Fleet Limit (country)
 CmtEffectInitFleetUpperLimit = {
 	optimize_memory
@@ -419,33 +508,66 @@ CmtEffectInitFleetUpperLimit = {
 		huge = { change_variable = { which = CmtGraygooFleetNumberUpperLimit value = 10 } }
 	}
 	if = {
-		limit = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarWhileControlFleet value > 1.875 } } }
+		limit = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarWhileControlFleet value > 1.875 }
+			}
+		}
 		set_variable = { which = CmtVarCapitalDefenceNumber value = 7 }
-	} else_if = {
-		limit = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarWhileControlFleet value > 1.625 } } }
+	}
+	else_if = {
+		limit = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarWhileControlFleet value > 1.625 }
+			}
+		}
 		set_variable = { which = CmtVarCapitalDefenceNumber value = 6 }
-	} else_if = {
-		limit = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarWhileControlFleet value > 1.375 } } }
+	}
+	else_if = {
+		limit = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarWhileControlFleet value > 1.375 }
+			}
+		}
 		set_variable = { which = CmtVarCapitalDefenceNumber value = 5 }
-	} else_if = {
-		limit = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarWhileControlFleet value > 1.125 } } }
+	}
+	else_if = {
+		limit = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarWhileControlFleet value > 1.125 }
+			}
+		}
 		set_variable = { which = CmtVarCapitalDefenceNumber value = 4 }
-	} else_if = {
-		limit = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarWhileControlFleet value > 0.875 } } }
+	}
+	else_if = {
+		limit = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarWhileControlFleet value > 0.875 }
+			}
+		}
 		set_variable = { which = CmtVarCapitalDefenceNumber value = 3 }
-	} else_if = {
-		limit = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarWhileControlFleet value > 0.625 } } }
+	}
+	else_if = {
+		limit = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarWhileControlFleet value > 0.625 }
+			}
+		}
 		set_variable = { which = CmtVarCapitalDefenceNumber value = 2 }
-	} else_if = {
-		limit = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarWhileControlFleet value > 0.375 } } }
+	}
+	else_if = {
+		limit = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarWhileControlFleet value > 0.375 }
+			}
+		}
 		set_variable = { which = CmtVarCapitalDefenceNumber value = 1 }
-	} else = {
+	}
+	else = {
 		set_variable = { which = CmtVarCapitalDefenceNumber value = 0 }
 	}
-
 	set_variable = { which = CmtGraygooFleetNumberGuardAwakeLimit value = @CmtGraygooFleetNumberGuardAwakeLimit }
 	multiply_variable = { which = CmtGraygooFleetNumberGuardAwakeLimit value = CmtGraygooFleetNumberUpperLimit }
-
 	# set_variable = { which = CmtVarFleetAngle value = 0.03605 }
 	set_variable = { which = CmtVarFleetAngle value = 360.5 }
 	divide_variable = { which = CmtVarFleetAngle value = CmtVarCapitalDefenceNumber }
@@ -464,7 +586,9 @@ CmtEffectInitFleetUpperLimit = {
 CmtEffectCreateAdmiralty_DessanuCapitalDefence = {
 	optimize_memory
 	owner = {
-		event_target:CmtGlobalVar = { set_variable = { which = CmtVarWhileControlFleet value = CmtVarCombatFleetNumber_Dessanu } }
+		event_target:CmtGlobalVar = {
+			set_variable = { which = CmtVarWhileControlFleet value = CmtVarCombatFleetNumber_Dessanu }
+		}
 		CmtEffectInitFleetUpperLimit = yes
 		while = {
 			count = CmtVarCapitalDefenceNumber
@@ -477,7 +601,11 @@ CmtEffectCreateAdmiralty_DessanuCapitalDefence = {
 				# if = { limit = { prev = { check_variable = { which = CmtVarWhileFleetAngle value > 0 } } }
 				# 	set_location = { target = prevprev distance = 80 angle = CmtVarWhileFleetAngle }
 				# } else = {
-				set_location = { target = prevprev distance = 80 angle = random }
+				set_location = {
+					target = prevprev
+					distance = 80
+					angle = random
+				}
 				# }
 			}
 			change_variable = { which = CmtVarWhileFleetAngle value = CmtVarFleetAngle }
@@ -488,21 +616,34 @@ CmtEffectCreateAdmiralty_DessanuCapitalDefence = {
 CmtEffectCreateAdmiralty_DessanuGarryson = {
 	optimize_memory
 	owner = {
-	# event_target:gate_builders = {
-		event_target:CmtGlobalVar = { set_variable = { which = CmtVarWhileControlFleet value = CmtVarCombatFleetNumber_Dessanu } }
+		# event_target:gate_builders = {
+		event_target:CmtGlobalVar = {
+			set_variable = { which = CmtVarWhileControlFleet value = CmtVarCombatFleetNumber_Dessanu }
+		}
 		if = {
-			limit = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarWhileControlFleet value > 0.875 } } }
+			limit = {
+				event_target:CmtGlobalVar = {
+					check_variable = { which = CmtVarWhileControlFleet value > 0.875 }
+				}
+			}
 			CmtEffectCreateFleet_DessanuGarryson = yes
-		} else = {
+		}
+		else = {
 			while = {
-				limit = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarWhileControlFleet value > 0.125 } } }
-				event_target:CmtGlobalVar = { change_variable = { which = CmtVarWhileControlFleet value = -0.25 } }
-				random_list = {
-					100 = {
-						event_target:CmtGlobalVar = { set_variable = { which = CmtVarWhileControlFleet value = 0 } }
-						CmtEffectCreateFleet_DessanuGarryson = yes
+				limit = {
+					event_target:CmtGlobalVar = {
+						check_variable = { which = CmtVarWhileControlFleet value > 0.125 }
 					}
-					300 = { }
+				}
+				event_target:CmtGlobalVar = {
+					change_variable = { which = CmtVarWhileControlFleet value = -0.25 }
+				}
+				random = {
+					chance = 25
+					event_target:CmtGlobalVar = {
+						set_variable = { which = CmtVarWhileControlFleet value = 0 }
+					}
+					CmtEffectCreateFleet_DessanuGarryson = yes
 				}
 			}
 		}
@@ -521,7 +662,11 @@ CmtEffectCreateAdmiralty_DessanuRoamer = {
 			CmtFleetSetAuxParam_DessanuRoamer = { NUM = 2 }
 		}
 		if = {
-			limit = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarCombatFleetNumber_Dessanu value > 0.375 } } }
+			limit = {
+				event_target:CmtGlobalVar = {
+					check_variable = { which = CmtVarCombatFleetNumber_Dessanu value > 0.375 }
+				}
+			}
 			CmtEffectCreateFleet_DessanuRoamer = yes
 			event_target:lcluster2 = {
 				CmtFleetSetAuxParam_DessanuRoamer = { NUM = 3 }
@@ -532,14 +677,22 @@ CmtEffectCreateAdmiralty_DessanuRoamer = {
 			}
 		}
 		if = {
-			limit = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarCombatFleetNumber_Dessanu value > 0.625 } } }
+			limit = {
+				event_target:CmtGlobalVar = {
+					check_variable = { which = CmtVarCombatFleetNumber_Dessanu value > 0.625 }
+				}
+			}
 			CmtEffectCreateFleet_DessanuRoamer = yes
 			event_target:lcluster3 = {
 				CmtFleetSetAuxParam_DessanuRoamer = { NUM = 5 }
 			}
 		}
 		if = {
-			limit = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarCombatFleetNumber_Dessanu value > 0.875 } } }
+			limit = {
+				event_target:CmtGlobalVar = {
+					check_variable = { which = CmtVarCombatFleetNumber_Dessanu value > 0.875 }
+				}
+			}
 			CmtEffectCreateFleet_DessanuRoamer = yes
 			event_target:lcluster3b = {
 				CmtFleetSetAuxParam_DessanuRoamer = { NUM = 6 }
@@ -550,7 +703,11 @@ CmtEffectCreateAdmiralty_DessanuRoamer = {
 			}
 		}
 		if = {
-			limit = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarCombatFleetNumber_Dessanu value > 1.125 } } }
+			limit = {
+				event_target:CmtGlobalVar = {
+					check_variable = { which = CmtVarCombatFleetNumber_Dessanu value > 1.125 }
+				}
+			}
 			CmtEffectCreateFleet_DessanuRoamer = yes
 			event_target:lcluster4 = {
 				CmtFleetSetAuxParam_DessanuRoamer = { NUM = 8 }
@@ -561,7 +718,11 @@ CmtEffectCreateAdmiralty_DessanuRoamer = {
 			}
 		}
 		if = {
-			limit = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarCombatFleetNumber_Dessanu value > 1.375 } } }
+			limit = {
+				event_target:CmtGlobalVar = {
+					check_variable = { which = CmtVarCombatFleetNumber_Dessanu value > 1.375 }
+				}
+			}
 			event_target:lcluster2 = {
 				CmtFleetSetAuxParam_DessanuRoamer = { NUM = 10 }
 			}
@@ -571,7 +732,11 @@ CmtEffectCreateAdmiralty_DessanuRoamer = {
 			}
 		}
 		if = {
-			limit = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarCombatFleetNumber_Dessanu value > 1.625 } } }
+			limit = {
+				event_target:CmtGlobalVar = {
+					check_variable = { which = CmtVarCombatFleetNumber_Dessanu value > 1.625 }
+				}
+			}
 			CmtEffectCreateFleet_DessanuRoamer = yes
 			random_system = {
 				limit = { has_star_flag = lcluster }
@@ -579,7 +744,11 @@ CmtEffectCreateAdmiralty_DessanuRoamer = {
 			}
 		}
 		if = {
-			limit = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarCombatFleetNumber_Dessanu value > 1.875 } } }
+			limit = {
+				event_target:CmtGlobalVar = {
+					check_variable = { which = CmtVarCombatFleetNumber_Dessanu value > 1.875 }
+				}
+			}
 			CmtEffectCreateFleet_DessanuRoamer = yes
 			event_target:lcluster1 = {
 				CmtFleetSetAuxParam_DessanuRoamer = { NUM = 13 }
@@ -590,7 +759,11 @@ CmtEffectCreateAdmiralty_DessanuRoamer = {
 			}
 		}
 		if = {
-			limit = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarCombatFleetNumber_Dessanu value > 2.125 } } }
+			limit = {
+				event_target:CmtGlobalVar = {
+					check_variable = { which = CmtVarCombatFleetNumber_Dessanu value > 2.125 }
+				}
+			}
 			CmtEffectCreateFleet_DessanuRoamer = yes
 			random_system = {
 				limit = { has_star_flag = lcluster }
@@ -603,7 +776,11 @@ CmtEffectCreateAdmiralty_DessanuRoamer = {
 			}
 		}
 		if = {
-			limit = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarCombatFleetNumber_Dessanu value > 2.375 } } }
+			limit = {
+				event_target:CmtGlobalVar = {
+					check_variable = { which = CmtVarCombatFleetNumber_Dessanu value > 2.375 }
+				}
+			}
 			CmtEffectCreateFleet_DessanuRoamer = yes
 			random_system = {
 				limit = { has_star_flag = lcluster }
@@ -616,7 +793,11 @@ CmtEffectCreateAdmiralty_DessanuRoamer = {
 			}
 		}
 		if = {
-			limit = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarCombatFleetNumber_Dessanu value > 2.625 } } }
+			limit = {
+				event_target:CmtGlobalVar = {
+					check_variable = { which = CmtVarCombatFleetNumber_Dessanu value > 2.625 }
+				}
+			}
 			CmtEffectCreateFleet_DessanuRoamer = yes
 			random_system = {
 				limit = { has_star_flag = lcluster }
@@ -624,7 +805,11 @@ CmtEffectCreateAdmiralty_DessanuRoamer = {
 			}
 		}
 		if = {
-			limit = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarCombatFleetNumber_Dessanu value > 2.875 } } }
+			limit = {
+				event_target:CmtGlobalVar = {
+					check_variable = { which = CmtVarCombatFleetNumber_Dessanu value > 2.875 }
+				}
+			}
 			CmtEffectCreateFleet_DessanuRoamer = yes
 			random_system = {
 				limit = { has_star_flag = lcluster }
@@ -641,8 +826,10 @@ CmtEffectCreateAdmiralty_DessanuRoamer = {
 CmtEffectCreateAdmiralty_GraygooCapitalDefence = {
 	optimize_memory
 	owner = {
-	# event_target:graygoo_country = {
-		event_target:CmtGlobalVar = { set_variable = { which = CmtVarWhileControlFleet value = CmtVarCombatFleetNumber_Graygoo } }
+		# event_target:graygoo_country = {
+		event_target:CmtGlobalVar = {
+			set_variable = { which = CmtVarWhileControlFleet value = CmtVarCombatFleetNumber_Graygoo }
+		}
 		CmtEffectInitFleetUpperLimit = yes
 		# log="CmtVarCapitalDefenceNumber [This.CmtVarCapitalDefenceNumber]"
 		while = {
@@ -656,7 +843,11 @@ CmtEffectCreateAdmiralty_GraygooCapitalDefence = {
 				# if = { limit = { prev = { check_variable = { which = CmtVarWhileFleetAngle value > 0 } } }
 				# 	set_location = { target = prevprev distance = 80 angle = CmtVarWhileFleetAngle }
 				# } else = {
-				set_location = { target = prevprev distance = 80 angle = random }
+				set_location = {
+					target = prevprev
+					distance = 80
+					angle = random
+				}
 				# }
 			}
 			change_variable = { which = CmtVarWhileFleetAngle value = CmtVarFleetAngle }
@@ -667,20 +858,33 @@ CmtEffectCreateAdmiralty_GraygooCapitalDefence = {
 CmtEffectCreateAdmiralty_GraygooGarryson = {
 	optimize_memory
 	# event_target:graygoo_country = {
-	event_target:CmtGlobalVar = { set_variable = { which = CmtVarWhileControlFleet value = CmtVarCombatFleetNumber_Graygoo } }
+	event_target:CmtGlobalVar = {
+		set_variable = { which = CmtVarWhileControlFleet value = CmtVarCombatFleetNumber_Graygoo }
+	}
 	if = {
-		limit = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarWhileControlFleet value > 0.875 } } }
+		limit = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarWhileControlFleet value > 0.875 }
+			}
+		}
 		CmtEffectCreateFleet_GraygooGarryson = yes
-	} else = {
+	}
+	else = {
 		while = {
-			limit = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarWhileControlFleet value > 0.125 } } }
-			event_target:CmtGlobalVar = { change_variable = { which = CmtVarWhileControlFleet value = -0.25 } }
-			random_list = {
-				100 = {
-					event_target:CmtGlobalVar = { set_variable = { which = CmtVarWhileControlFleet value = 0 } }
-					CmtEffectCreateFleet_GraygooGarryson = yes
+			limit = {
+				event_target:CmtGlobalVar = {
+					check_variable = { which = CmtVarWhileControlFleet value > 0.125 }
 				}
-				300 = { }
+			}
+			event_target:CmtGlobalVar = {
+				change_variable = { which = CmtVarWhileControlFleet value = -0.25 }
+			}
+			random = {
+				chance = 25
+				event_target:CmtGlobalVar = {
+					set_variable = { which = CmtVarWhileControlFleet value = 0 }
+				}
+				CmtEffectCreateFleet_GraygooGarryson = yes
 			}
 		}
 	}
@@ -688,18 +892,27 @@ CmtEffectCreateAdmiralty_GraygooGarryson = {
 }
 
 CmtEffectCreateAdmiralty_GraygooRoamer = {
-# event_target:graygoo_country = {
-	CmtEffectCreateFleet_GraygooAttacker = { AMOUNT = $AMOUNT|1$ }
+	# event_target:graygoo_country = {
+	CmtEffectCreateFleet_GraygooAttacker = {
+		AMOUNT = $AMOUNT|1$
+	}
 	event_target:lcluster1 = {
 		CmtFleetSetAuxParam_GraygooRoamer = { NUM = 01 }
 	}
-	CmtEffectCreateFleet_GraygooAttacker = { AMOUNT = $AMOUNT|1$ }
+
+	CmtEffectCreateFleet_GraygooAttacker = {
+		AMOUNT = $AMOUNT|1$
+	}
 	event_target:lcluster1 = {
-			# limit = { has_star_flag = lcluster1 }
+		# limit = { has_star_flag = lcluster1 }
 		CmtFleetSetAuxParam_GraygooRoamer = { NUM = 02 }
 	}
 	if = {
-		limit = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarCombatFleetNumber_Graygoo value > 0.375 } } }
+		limit = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarCombatFleetNumber_Graygoo value > 0.375 }
+			}
+		}
 		CmtEffectCreateFleet_GraygooAttacker = { AMOUNT = $AMOUNT|1$ }
 		event_target:lcluster2 = {
 			# limit = { has_star_flag = lcluster2 }
@@ -712,7 +925,11 @@ CmtEffectCreateAdmiralty_GraygooRoamer = {
 		}
 	}
 	if = {
-		limit = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarCombatFleetNumber_Graygoo value > 0.625 } } }
+		limit = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarCombatFleetNumber_Graygoo value > 0.625 }
+			}
+		}
 		CmtEffectCreateFleet_GraygooAttacker = { AMOUNT = $AMOUNT|1$ }
 		event_target:lcluster4 = {
 			# limit = { has_star_flag = lcluster4 }
@@ -720,7 +937,11 @@ CmtEffectCreateAdmiralty_GraygooRoamer = {
 		}
 	}
 	if = {
-		limit = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarCombatFleetNumber_Graygoo value > 0.875 } } }
+		limit = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarCombatFleetNumber_Graygoo value > 0.875 }
+			}
+		}
 		CmtEffectCreateFleet_GraygooAttacker = { AMOUNT = $AMOUNT|1$ }
 		event_target:lcluster5 = {
 			# limit = { has_star_flag = lcluster5 }
@@ -733,7 +954,11 @@ CmtEffectCreateAdmiralty_GraygooRoamer = {
 		}
 	}
 	if = {
-		limit = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarCombatFleetNumber_Graygoo value > 1.125 } } }
+		limit = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarCombatFleetNumber_Graygoo value > 1.125 }
+			}
+		}
 		CmtEffectCreateFleet_GraygooAttacker = { AMOUNT = $AMOUNT|1$ }
 		random_system = {
 			limit = { has_star_flag = lcluster }
@@ -746,7 +971,11 @@ CmtEffectCreateAdmiralty_GraygooRoamer = {
 		}
 	}
 	if = {
-		limit = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarCombatFleetNumber_Graygoo value > 1.375 } } }
+		limit = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarCombatFleetNumber_Graygoo value > 1.375 }
+			}
+		}
 		CmtEffectCreateFleet_GraygooAttacker = { AMOUNT = $AMOUNT|1$ }
 		random_system = {
 			limit = { has_star_flag = lcluster }
@@ -759,7 +988,11 @@ CmtEffectCreateAdmiralty_GraygooRoamer = {
 		}
 	}
 	if = {
-		limit = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarCombatFleetNumber_Graygoo value > 1.625 } } }
+		limit = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarCombatFleetNumber_Graygoo value > 1.625 }
+			}
+		}
 		CmtEffectCreateFleet_GraygooAttacker = { AMOUNT = $AMOUNT|1$ }
 		random_system = {
 			limit = { has_star_flag = lcluster }
@@ -767,7 +1000,11 @@ CmtEffectCreateAdmiralty_GraygooRoamer = {
 		}
 	}
 	if = {
-		limit = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarCombatFleetNumber_Graygoo value > 1.875 } } }
+		limit = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarCombatFleetNumber_Graygoo value > 1.875 }
+			}
+		}
 		CmtEffectCreateFleet_GraygooAttacker = { AMOUNT = $AMOUNT|1$ }
 		random_system = {
 			limit = { has_star_flag = lcluster }
@@ -780,7 +1017,11 @@ CmtEffectCreateAdmiralty_GraygooRoamer = {
 		}
 	}
 	if = {
-		limit = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarCombatFleetNumber_Graygoo value > 2.125 } } }
+		limit = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarCombatFleetNumber_Graygoo value > 2.125 }
+			}
+		}
 		CmtEffectCreateFleet_GraygooAttacker = { AMOUNT = $AMOUNT|1$ }
 		random_system = {
 			limit = { has_star_flag = lcluster }
@@ -793,7 +1034,11 @@ CmtEffectCreateAdmiralty_GraygooRoamer = {
 		}
 	}
 	if = {
-		limit = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarCombatFleetNumber_Graygoo value > 2.375 } } }
+		limit = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarCombatFleetNumber_Graygoo value > 2.375 }
+			}
+		}
 		CmtEffectCreateFleet_GraygooAttacker = { AMOUNT = $AMOUNT|1$ }
 		random_system = {
 			limit = { has_star_flag = lcluster }
@@ -806,7 +1051,11 @@ CmtEffectCreateAdmiralty_GraygooRoamer = {
 		}
 	}
 	if = {
-		limit = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarCombatFleetNumber_Graygoo value > 2.625 } } }
+		limit = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarCombatFleetNumber_Graygoo value > 2.625 }
+			}
+		}
 		CmtEffectCreateFleet_GraygooAttacker = { AMOUNT = $AMOUNT|1$ }
 		random_system = {
 			limit = { has_star_flag = lcluster }
@@ -814,7 +1063,11 @@ CmtEffectCreateAdmiralty_GraygooRoamer = {
 		}
 	}
 	if = {
-		limit = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarCombatFleetNumber_Graygoo value > 2.875 } } }
+		limit = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarCombatFleetNumber_Graygoo value > 2.875 }
+			}
+		}
 		CmtEffectCreateFleet_GraygooAttacker = { AMOUNT = $AMOUNT|1$ }
 		random_system = {
 			limit = { has_star_flag = lcluster }
@@ -833,21 +1086,35 @@ CmtEffectCreateAdmiralty_GraygooAttackerA = {
 				# num_fleets < $UpperLimit|@CmtConstGraygooFleetNumberUpperLimit$
 				# CmtTriggerIsFleetLimit = { UpperLimit = CmtGraygooFleetNumberUpperLimit }
 			}
-			event_target:CmtGlobalVar = { set_variable = { which = CmtVarWhileControlFleet value = CmtVarCombatFleetNumber_Graygoo } }
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarWhileControlFleet value = CmtVarCombatFleetNumber_Graygoo }
+			}
 			while = {
-				limit = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarWhileControlFleet value > 0.875 } } }
-				event_target:CmtGlobalVar = { change_variable = { which = CmtVarWhileControlFleet value = -1 } }
+				limit = {
+					event_target:CmtGlobalVar = {
+						check_variable = { which = CmtVarWhileControlFleet value > 0.875 }
+					}
+				}
+				event_target:CmtGlobalVar = {
+					change_variable = { which = CmtVarWhileControlFleet value = -1 }
+				}
 				CmtEffectCreateFleet_GraygooAttacker = { AMOUNT = $AMOUNT|1$ }
 			}
 			while = {
-				limit = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarWhileControlFleet value > 0.125 } } }
-				event_target:CmtGlobalVar = { change_variable = { which = CmtVarWhileControlFleet value = -0.25 } }
-				random_list = {
-					10 = {
-						event_target:CmtGlobalVar = { set_variable = { which = CmtVarWhileControlFleet value = 0 } }
-						CmtEffectCreateFleet_GraygooAttacker = { AMOUNT = $AMOUNT|1$ }
+				limit = {
+					event_target:CmtGlobalVar = {
+						check_variable = { which = CmtVarWhileControlFleet value > 0.125 }
 					}
-					30 = { }
+				}
+				event_target:CmtGlobalVar = {
+					change_variable = { which = CmtVarWhileControlFleet value = -0.25 }
+				}
+				random = {
+					chance = 25
+					event_target:CmtGlobalVar = {
+						set_variable = { which = CmtVarWhileControlFleet value = 0 }
+					}
+					CmtEffectCreateFleet_GraygooAttacker = { AMOUNT = $AMOUNT|1$ }
 				}
 			}
 		}
@@ -863,18 +1130,35 @@ CmtEffectCreateAdmiralty_GraygooAttackerB = {
 				# num_fleets < $UpperLimit|@CmtConstGraygooFleetNumberUpperLimit$
 				# CmtTriggerIsFleetLimit = { UpperLimit = CmtGraygooFleetNumberUpperLimit }
 			}
-			event_target:CmtGlobalVar = { set_variable = { which = CmtVarWhileControlFleet value = CmtVarCombatFleetNumber_Graygoo } }
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarWhileControlFleet value = CmtVarCombatFleetNumber_Graygoo }
+			}
 			while = {
-				limit = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarWhileControlFleet value > 0.875 } } }
-				event_target:CmtGlobalVar = { change_variable = { which = CmtVarWhileControlFleet value = -1 } }
+				limit = {
+					event_target:CmtGlobalVar = {
+						check_variable = { which = CmtVarWhileControlFleet value > 0.875 }
+					}
+				}
+				event_target:CmtGlobalVar = {
+					change_variable = { which = CmtVarWhileControlFleet value = -1 }
+				}
 				CmtEffectCreateFleet_GraygooAttacker = { AMOUNT = $AMOUNT|1$ }
 				CmtEffectCreateFleet_GraygooAttacker = { AMOUNT = $AMOUNT|1$ }
 				CmtEffectCreateFleet_GraygooAttacker = { AMOUNT = $AMOUNT|1$ }
 			}
 			while = {
-				limit = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarWhileControlFleet value > 0.125 } } }
-				event_target:CmtGlobalVar = { change_variable = { which = CmtVarWhileControlFleet value = -0.25 } }
-				random = { chance = 75 CmtEffectCreateFleet_GraygooAttacker = { AMOUNT = $AMOUNT|1$ } }
+				limit = {
+					event_target:CmtGlobalVar = {
+						check_variable = { which = CmtVarWhileControlFleet value > 0.125 }
+					}
+				}
+				event_target:CmtGlobalVar = {
+					change_variable = { which = CmtVarWhileControlFleet value = -0.25 }
+				}
+				random = {
+					chance = 75
+					CmtEffectCreateFleet_GraygooAttacker = { AMOUNT = $AMOUNT|1$ }
+				}
 			}
 		}
 	}

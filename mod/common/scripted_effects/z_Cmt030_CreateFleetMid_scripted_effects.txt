@@ -7,7 +7,6 @@
 #####													#####
 #############################################################
 #############################################################
-
 ################
 ###- Effect -###
 ################
@@ -24,22 +23,10 @@ CmtEffectProgressLoop4 = {
 	optimize_memory
 	switch = {
 		trigger = has_country_flag
-		CmtFlagLoopA = {
-			remove_country_flag = CmtFlagLoopA
-			set_country_flag = CmtFlagLoopB
-		}
-		CmtFlagLoopB = {
-			remove_country_flag = CmtFlagLoopB
-			set_country_flag = CmtFlagLoopC
-		}
-		CmtFlagLoopC = {
-			remove_country_flag = CmtFlagLoopC
-			set_country_flag = CmtFlagLoopZ
-		}
-		CmtFlagLoopZ = {
-			remove_country_flag = CmtFlagLoopZ
-			set_country_flag = CmtFlagLoopA
-		}
+		CmtFlagLoopA = { remove_country_flag = CmtFlagLoopA set_country_flag = CmtFlagLoopB }
+		CmtFlagLoopB = { remove_country_flag = CmtFlagLoopB set_country_flag = CmtFlagLoopC }
+		CmtFlagLoopC = { remove_country_flag = CmtFlagLoopC set_country_flag = CmtFlagLoopZ }
+		CmtFlagLoopZ = { remove_country_flag = CmtFlagLoopZ set_country_flag = CmtFlagLoopA }
 	}
 }
 
@@ -47,13 +34,7 @@ CmtEffectProgressLoop2 = {
 	optimize_memory
 	switch = {
 		trigger = has_country_flag
-		CmtFlagLoopA = {
-			remove_country_flag = CmtFlagLoopA
-			set_country_flag = CmtFlagLoopZ
-		}
-		CmtFlagLoopZ = {
-			remove_country_flag = CmtFlagLoopZ
-			set_country_flag = CmtFlagLoopA
-		}
+		CmtFlagLoopA = { remove_country_flag = CmtFlagLoopA set_country_flag = CmtFlagLoopZ }
+		CmtFlagLoopZ = { remove_country_flag = CmtFlagLoopZ set_country_flag = CmtFlagLoopA }
 	}
 }

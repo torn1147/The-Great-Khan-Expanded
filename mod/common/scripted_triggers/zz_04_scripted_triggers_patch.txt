@@ -1,6 +1,5 @@
 ## For Compatibility
 ## Shared with: The Great Khan Expanded, A Deadly Tempest, Realistic Pirates, Daemonic Incursion, UAP
-
 # Workaround: as is_overlord_to is not working for Khan.
 # This = Satrapy
 is_subject_of_khan = {

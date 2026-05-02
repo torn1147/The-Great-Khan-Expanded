@@ -40,7 +40,6 @@ preset_satrapy_scholarium_nice_01 = {
 		base = 50
 		modifier = { add = @specialist_aligned_ethics_value is_materialist = yes }
 		modifier = { add = @specialist_unaligned_ethics_value is_spiritualist = yes }
-
 	}
 
 	potential = {
@@ -99,7 +98,6 @@ preset_satrapy_scholarium_nice_02 = {
 		base = 100
 		modifier = { add = @specialist_aligned_ethics_value is_materialist = yes }
 		modifier = { add = @specialist_unaligned_ethics_value is_spiritualist = yes }
-
 	}
 
 	potential = {
@@ -157,7 +155,6 @@ preset_satrapy_scholarium_mean_01 = {
 		base = -100
 		modifier = { add = @specialist_aligned_ethics_value is_materialist = yes }
 		modifier = { add = @specialist_unaligned_ethics_value is_spiritualist = yes }
-
 	}
 
 	potential = {
@@ -215,7 +212,6 @@ preset_satrapy_scholarium_mean_02 = {
 		base = -250
 		modifier = { add = @specialist_aligned_ethics_value is_materialist = yes }
 		modifier = { add = @specialist_unaligned_ethics_value is_spiritualist = yes }
-
 	}
 
 	potential = {
@@ -616,7 +612,6 @@ preset_satrapy_bulwark_nice_01 = {
 		base = 50
 		modifier = { add = @specialist_aligned_ethics_value is_militarist = yes }
 		modifier = { add = @specialist_unaligned_ethics_value is_pacifist = yes }
-
 	}
 
 	potential = {
@@ -677,7 +672,6 @@ preset_satrapy_bulwark_nice_02 = {
 		base = 100
 		modifier = { add = @specialist_aligned_ethics_value is_militarist = yes }
 		modifier = { add = @specialist_unaligned_ethics_value is_pacifist = yes }
-
 	}
 
 	potential = {
@@ -734,7 +728,6 @@ preset_satrapy_bulwark_mean_01 = {
 		base = -100
 		modifier = { add = @specialist_aligned_ethics_value is_militarist = yes }
 		modifier = { add = @specialist_unaligned_ethics_value is_pacifist = yes }
-
 	}
 
 	potential = {
@@ -791,7 +784,6 @@ preset_satrapy_bulwark_mean_02 = {
 		base = -250
 		modifier = { add = @specialist_aligned_ethics_value is_militarist = yes }
 		modifier = { add = @specialist_unaligned_ethics_value is_pacifist = yes }
-
 	}
 
 	potential = {
@@ -848,7 +840,6 @@ preset_satrapy_bulwark_mean_03 = {
 		base = -500
 		modifier = { add = @specialist_aligned_ethics_value is_militarist = yes }
 		modifier = { add = @specialist_unaligned_ethics_value is_pacifist = yes }
-
 	}
 
 	potential = {

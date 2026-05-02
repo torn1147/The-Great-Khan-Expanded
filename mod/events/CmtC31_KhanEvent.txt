@@ -1,3 +1,4 @@
+
 namespace = CrisisManagerControl
 
 #############################################
@@ -9,12 +10,11 @@ namespace = CrisisManagerControl
 #####									#####
 #############################################
 #############################################
-
 ##################################################
 ### Standard Awakening of Khan (Not Vengeance) ###
 ##################################################
-
 ### Check Trigger Condition (on_yearly_pulse)
+
 event = {
 	id = CrisisManagerControl.6101
 	hide_window = yes
@@ -35,7 +35,10 @@ event = {
 	}
 
 	immediate = {
-		if = { limit = { NOT = { has_global_flag = CmtFlagCheckKhanFirstChance } }
+		if = {
+			limit = {
+				NOT = { has_global_flag = CmtFlagCheckKhanFirstChance }
+			}
 			set_global_flag = CmtFlagCheckKhanFirstChance
 			event_target:CmtGlobalVar = {
 				# TODO make more dynamically
@@ -45,23 +48,44 @@ event = {
 				multiply_variable = { which = CmtFlagCheckKhanLastChance value = 360 }
 				# Because var with days parameter not working (v.3.8)
 				# CmtFlagCheckKhanLastChance = { DAYS = CmtFlagCheckKhanLastChance }
-				if		= { limit = { check_variable = { which = CmtFlagCheckKhanLastChance value >= @CmtConstKhanInterval_D5 } } country_event = { id = CrisisManagerControl.6111 days = @CmtConstKhanInterval_D5 } } # 35992
-				else_if = { limit = { check_variable = { which = CmtFlagCheckKhanLastChance value >= @CmtConstKhanInterval_D4 } } country_event = { id = CrisisManagerControl.6111 days = @CmtConstKhanInterval_D4 } } # 26992
-				else_if = { limit = { check_variable = { which = CmtFlagCheckKhanLastChance value >= @CmtConstKhanInterval_D3 } } country_event = { id = CrisisManagerControl.6111 days = @CmtConstKhanInterval_D3 } } # 17992 ~ 50yr - 10d
-				else_if = { limit = { check_variable = { which = CmtFlagCheckKhanLastChance value >= @CmtConstKhanInterval_D2 } } country_event = { id = CrisisManagerControl.6111 days = @CmtConstKhanInterval_D2 } } # 8992
-				else_if = { limit = { check_variable = { which = CmtFlagCheckKhanLastChance value >= @CmtConstKhanInterval_D1 } } country_event = { id = CrisisManagerControl.6111 days = @CmtConstKhanInterval_D1 } } # 3592
+				if = {
+					limit = {
+						check_variable = { which = CmtFlagCheckKhanLastChance value >= @CmtConstKhanInterval_D5 }
+					}
+					country_event = { id = CrisisManagerControl.6111 days = @CmtConstKhanInterval_D5 }
+				} # 35992
+				else_if = {
+					limit = {
+						check_variable = { which = CmtFlagCheckKhanLastChance value >= @CmtConstKhanInterval_D4 }
+					}
+					country_event = { id = CrisisManagerControl.6111 days = @CmtConstKhanInterval_D4 }
+				} # 26992
+				else_if = {
+					limit = {
+						check_variable = { which = CmtFlagCheckKhanLastChance value >= @CmtConstKhanInterval_D3 }
+					}
+					country_event = { id = CrisisManagerControl.6111 days = @CmtConstKhanInterval_D3 }
+				} # 17992 ~ 50yr - 10d
+				else_if = {
+					limit = {
+						check_variable = { which = CmtFlagCheckKhanLastChance value >= @CmtConstKhanInterval_D2 }
+					}
+					country_event = { id = CrisisManagerControl.6111 days = @CmtConstKhanInterval_D2 }
+				} # 8992
+				else_if = {
+					limit = {
+						check_variable = { which = CmtFlagCheckKhanLastChance value >= @CmtConstKhanInterval_D1 }
+					}
+					country_event = { id = CrisisManagerControl.6111 days = @CmtConstKhanInterval_D1 }
+				} # 3592
 			}
 		}
-
 		remove_global_flag = CmtFlagKillDoubleBookingKhan
 		every_country = {
 			limit = { CmtTriggerHasPotentialKhanAwaking = yes }
 			random_list = {
 				3 = { ## MTTH = 100 yr
-					modifier = {
-						factor = 0
-						has_global_flag = CmtFlagKillDoubleBookingKhan
-					}
+					modifier = { factor = 0 has_global_flag = CmtFlagKillDoubleBookingKhan }
 					modifier = { ## >= Earliest Year + 50 yr
 						factor = 2
 						has_global_flag = CmtFlagKhanProbabilityIncrease
@@ -93,23 +117,33 @@ event = {
 				97 = {
 					modifier = {
 						factor = 0
-						event_target:CmtGlobalVar = { check_variable = { which = CmtVarKhanTriggerProbability value = 5 } }
-						NOT = { has_global_flag = CmtFlagKillDoubleBookingKhan }
+						NOR = {
+							event_target:CmtGlobalVar = {
+								check_variable = { which = CmtVarKhanTriggerProbability value != 5 }
+							}
+							has_global_flag = CmtFlagKillDoubleBookingKhan
+						}
 					}
 					modifier = {
 						factor = 3
-						event_target:CmtGlobalVar = { check_variable = { which = CmtVarKhanTriggerProbability value = 1 } }
+						event_target:CmtGlobalVar = {
+							check_variable = { which = CmtVarKhanTriggerProbability value = 1 }
+						}
 					}
 					modifier = {
 						factor = 0.33
 						OR = {
-							event_target:CmtGlobalVar = { check_variable = { which = CmtVarKhanTriggerProbability value = 3 } }
+							event_target:CmtGlobalVar = {
+								check_variable = { which = CmtVarKhanTriggerProbability value = 3 }
+							}
 							has_global_flag = CmtFlagKhanProbabilityIncrease
 						}
 					}
 					modifier = {
 						factor = 0.1
-						event_target:CmtGlobalVar = { check_variable = { which = CmtVarKhanTriggerProbability value = 4 } }
+						event_target:CmtGlobalVar = {
+							check_variable = { which = CmtVarKhanTriggerProbability value = 4 }
+						}
 					}
 				}
 			}
@@ -125,6 +159,7 @@ country_event = {
 	id = CrisisManagerControl.6111
 	hide_window = yes
 	is_triggered_only = yes
+
 	immediate = {
 		set_global_flag = CmtFlagKhanProbabilityIncrease
 		remove_global_flag = CmtFlagCheckKhanFirstChance

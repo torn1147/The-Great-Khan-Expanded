@@ -7,12 +7,11 @@
 #####									#####
 #############################################
 #############################################
-
 #######################
 ###- Basic Trigger -###
 #######################
-
 ###	For Spawning Each Countries, Scope: this = Stellar System
+
 CmtTriggerSpawnableSystem = {
 	optimize_memory
 	NOR = {
@@ -41,6 +40,7 @@ CmtTriggerSpawnableSystem = {
 }
 
 ### End-Game Crises ###
+
 CmtTriggerIsPrethoryn = {
 	optimize_memory
 	is_country_type = swarm
@@ -81,6 +81,7 @@ CmtTriggerIsContingency = {
 CmtTriggerIsShroudSpirit = {
 	optimize_memory
 	is_country_type = shroud_spirits
+
 	any_owned_fleet = {
 		OR = {
 			is_ship_size = warped_consciousness
@@ -114,6 +115,7 @@ CmtTriggerIsExpCrisisCountry = {
 }
 
 ### Sleeper
+
 CmtTriggerIsOrganicSleeper = {
 	## Change to CmtTriggerSleeperPotentialAwakening
 	merg_is_fallen_empire = yes
@@ -191,36 +193,48 @@ CmtTriggerIsGraygoo = {
 ##############################
 ###- Exist Crisis Country -###
 ##############################
-
 ### End-Game Crisis
+
 CmtTriggerExistPrethoryn = {
 	optimize_memory
-	any_country = { CmtTriggerIsPrethoryn = yes }
+	any_country = {
+		CmtTriggerIsPrethoryn = yes
+	}
 }
 
 CmtTriggerExistExds = {
 	optimize_memory
-	any_country = { CmtTriggerIsExds = yes }
+	any_country = {
+		CmtTriggerIsExds = yes
+	}
 }
 
 CmtTriggerExistExpExds = {
 	optimize_memory
-	any_country = { CmtTriggerIsExpExds = yes }
+	any_country = {
+		CmtTriggerIsExpExds = yes
+	}
 }
 
 CmtTriggerExistContingency = {
 	optimize_memory
-	any_country = { CmtTriggerIsContingency = yes }
+	any_country = {
+		CmtTriggerIsContingency = yes
+	}
 }
 
 CmtTriggerExistShroudSpirit = {
 	optimize_memory
-	any_country = { CmtTriggerIsShroudSpirit = yes }
+	any_country = {
+		CmtTriggerIsShroudSpirit = yes
+	}
 }
 
 CmtTriggerExistCrisisCountry = {
 	optimize_memory
-	any_country = { CmtTriggerIsCrisisCountry = yes }
+	any_country = {
+		CmtTriggerIsCrisisCountry = yes
+	}
 }
 
 ### Mid-Game Crisis: replaced by CmtTriggerNowInKhanCrisis
@@ -230,7 +244,9 @@ CmtTriggerExistCrisisCountry = {
 
 CmtTriggerExistGraygoo = {
 	optimize_memory
-	any_country = { CmtTriggerIsGraygoo = yes }
+	any_country = {
+		CmtTriggerIsGraygoo = yes
+	}
 }
 
 #######################
@@ -270,7 +286,9 @@ CmtTriggerNowSleeperStayup = {
 
 # Replaced CmtTriggerExistKhanCountry
 CmtTriggerNowInKhanCrisis = {
-	any_country = { CmtTriggerIsKhanCountry = yes }
+	any_country = {
+		CmtTriggerIsKhanCountry = yes
+	}
 	# exists = event_target:raider_khanate
 	# any_country = {
 	# 	is_country_type = awakened_marauders

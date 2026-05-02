@@ -1,3 +1,4 @@
+
 namespace = CrisisManagerMenu
 
 #########################################
@@ -10,18 +11,20 @@ namespace = CrisisManagerMenu
 #####								#####
 #########################################
 #########################################
-
 ###################
 ###- Prethoryn -###
 ###################
-
 ### Forbid Prethoryn
+
 country_event = {
 	id = CrisisManagerMenu.4110
 	title = CrisisManagerMenu.4110.name
+
 	desc = {
 		text = CrisisManagerMenu.4110.desc1
-		trigger = { has_global_flag = CmtFlagForbiddenPrethoryn }
+		trigger = {
+			has_global_flag = CmtFlagForbiddenPrethoryn
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4110.desc2
@@ -39,6 +42,7 @@ country_event = {
 			has_global_flag = CmtFlagPrethorynNonRimAttack
 		}
 	}
+
 	picture = GFX_evt_physics_research
 	is_triggered_only = yes
 
@@ -48,13 +52,18 @@ country_event = {
 				limit = { has_country_flag = CmtFlagGoBack }
 				remove_country_flag = CmtFlagGoBack
 				country_event = { id = CrisisManagerMenu.4000 }
-			} else_if = {
+			}
+			else_if = {
 				limit = { has_country_flag = CmtFlagIndividual }
 				country_event = { id = CrisisManagerMenu.1021 }
-			} else_if = {
+			}
+			else_if = {
 				limit = { has_global_flag = CmtFlagForbiddenPrethoryn }
 				country_event = { id = CrisisManagerMenu.4000 }
-			} else = { country_event = { id = CrisisManagerMenu.4120 } }
+			}
+			else = {
+				country_event = { id = CrisisManagerMenu.4120 }
+			}
 		}
 	}
 
@@ -89,31 +98,56 @@ country_event = {
 	option = {
 		name = CmtTextGoBack.name
 		custom_tooltip = BLANK_STRING
-		trigger = { NOT = { has_country_flag = CmtFlagIndividual } }
-		hidden_effect = { set_country_flag = CmtFlagGoBack }
+		trigger = {
+			NOT = { has_country_flag = CmtFlagIndividual }
+		}
+		hidden_effect = {
+			set_country_flag = CmtFlagGoBack
+		}
 	}
-	abort_trigger = { NOT = { has_country_flag = CmtFlagNowInMenu } }
+
+	abort_trigger = {
+		NOT = { has_country_flag = CmtFlagNowInMenu }
+	}
 }
 
 ### Wounded Queen
+
 country_event = {
 	id = CrisisManagerMenu.4120
 	title = CrisisManagerMenu.4120.name
+
 	desc = {
 		text = CrisisManagerMenu.4120.desc1
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarPrethorynQueen value = 1 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarPrethorynQueen value = 1 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4120.desc2
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarPrethorynQueen value = 2 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarPrethorynQueen value = 2 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4120.desc3
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarPrethorynQueen value = 3 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarPrethorynQueen value = 3 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4120.desc4
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarPrethorynQueen value = 4 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarPrethorynQueen value = 4 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4120.desc
@@ -126,6 +160,7 @@ country_event = {
 			}
 		}
 	}
+
 	picture = GFX_evt_physics_research
 	is_triggered_only = yes
 
@@ -135,10 +170,14 @@ country_event = {
 				limit = { has_country_flag = CmtFlagGoBack }
 				remove_country_flag = CmtFlagGoBack
 				country_event = { id = CrisisManagerMenu.4110 }
-			} else_if = {
+			}
+			else_if = {
 				limit = { has_country_flag = CmtFlagIndividual }
 				country_event = { id = CrisisManagerMenu.1021 }
-			} else = { country_event = { id = CrisisManagerMenu.4130 } }
+			}
+			else = {
+				country_event = { id = CrisisManagerMenu.4130 }
+			}
 		}
 	}
 
@@ -149,55 +188,100 @@ country_event = {
 	option = {
 		name = "CrisisManagerMenu.4120a.title"
 		custom_tooltip = CrisisManagerMenu.4120a.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarPrethorynQueen value = 1 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarPrethorynQueen value = 1 }
+			}
+		}
 	}
 	option = {
 		name = CrisisManagerMenu.4120b.name
 		custom_tooltip = CrisisManagerMenu.4120b.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarPrethorynQueen value = 2 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarPrethorynQueen value = 2 }
+			}
+		}
 	}
 	option = {
 		name = CrisisManagerMenu.4120c.name
 		custom_tooltip = CrisisManagerMenu.4120c.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarPrethorynQueen value = 3 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarPrethorynQueen value = 3 }
+			}
+		}
 	}
 	option = {
 		name = CrisisManagerMenu.4120d.name
 		custom_tooltip = CrisisManagerMenu.4120d.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarPrethorynQueen value = 4 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarPrethorynQueen value = 4 }
+			}
+		}
 	}
 	option = {
 		name = CmtTextGoBack.name
 		custom_tooltip = BLANK_STRING
-		trigger = { NOT = { has_country_flag = CmtFlagIndividual } }
-		hidden_effect = { set_country_flag = CmtFlagGoBack }
+		trigger = {
+			NOT = { has_country_flag = CmtFlagIndividual }
+		}
+		hidden_effect = {
+			set_country_flag = CmtFlagGoBack
+		}
 	}
-	abort_trigger = { NOT = { has_country_flag = CmtFlagNowInMenu } }
+
+	abort_trigger = {
+		NOT = { has_country_flag = CmtFlagNowInMenu }
+	}
 }
 
 ### Sentinels
+
 country_event = {
 	id = CrisisManagerMenu.4130
 	title = CrisisManagerMenu.4130.name
+
 	desc = {
 		text = CrisisManagerMenu.4130.desc1
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarSentinelRise value = 1 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarSentinelRise value = 1 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4130.desc2
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarSentinelRise value = 2 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarSentinelRise value = 2 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4130.desc3
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarSentinelRise value = 3 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarSentinelRise value = 3 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4130.desc4
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarSentinelRise value = 4 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarSentinelRise value = 4 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4130.desc5
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarSentinelRise value = 5 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarSentinelRise value = 5 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4130.desc
@@ -210,26 +294,40 @@ country_event = {
 			}
 		}
 	}
+
 	picture = GFX_evt_federation_fleet
 	is_triggered_only = yes
 
 	after = {
 		hidden_effect = {
 			if = {
-				limit = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarSentinelRise value = 1 } } }
+				limit = {
+					event_target:CmtGlobalVar = {
+						check_variable = { which = CmtVarSentinelRise value = 1 }
+					}
+				}
 				set_global_flag = CmtFlagForbiddenAnatomy
 			}
 			if = {
 				limit = { has_country_flag = CmtFlagGoBack }
 				remove_country_flag = CmtFlagGoBack
 				country_event = { id = CrisisManagerMenu.4120 }
-			} else_if = {
+			}
+			else_if = {
 				limit = { has_country_flag = CmtFlagIndividual }
 				country_event = { id = CrisisManagerMenu.1021 }
-			} else_if = {
-				limit = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarSentinelRise value = 1 } } }
+			}
+			else_if = {
+				limit = {
+					event_target:CmtGlobalVar = {
+						check_variable = { which = CmtVarSentinelRise value = 1 }
+					}
+				}
 				country_event = { id = CrisisManagerMenu.4150 }
-			} else = { country_event = { id = CrisisManagerMenu.4140 } }
+			}
+			else = {
+				country_event = { id = CrisisManagerMenu.4140 }
+			}
 		}
 	}
 
@@ -240,49 +338,83 @@ country_event = {
 	option = {
 		name = "CrisisManagerMenu.4130a.title"
 		custom_tooltip = CrisisManagerMenu.4130a.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarSentinelRise value = 1 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarSentinelRise value = 1 }
+			}
+		}
 	}
 	option = {
 		name = "CrisisManagerMenu.4130b.title"
 		custom_tooltip = CrisisManagerMenu.4130b.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarSentinelRise value = 2 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarSentinelRise value = 2 }
+			}
+		}
 	}
 	option = {
 		name = CrisisManagerMenu.4130c.name
 		custom_tooltip = CrisisManagerMenu.4130c.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarSentinelRise value = 3 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarSentinelRise value = 3 }
+			}
+		}
 	}
 	option = {
 		name = "CrisisManagerMenu.4130d.title"
 		custom_tooltip = CrisisManagerMenu.4130d.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarSentinelRise value = 4 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarSentinelRise value = 4 }
+			}
+		}
 	}
 	option = {
 		name = CrisisManagerMenu.4130e.name
 		custom_tooltip = CrisisManagerMenu.4130e.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarSentinelRise value = 5 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarSentinelRise value = 5 }
+			}
+		}
 	}
 	option = {
 		name = CmtTextGoBack.name
 		custom_tooltip = BLANK_STRING
-		trigger = { NOT = { has_country_flag = CmtFlagIndividual } }
-		hidden_effect = { set_country_flag = CmtFlagGoBack }
+		trigger = {
+			NOT = { has_country_flag = CmtFlagIndividual }
+		}
+		hidden_effect = {
+			set_country_flag = CmtFlagGoBack
+		}
 	}
-	abort_trigger = { NOT = { has_country_flag = CmtFlagNowInMenu } }
+
+	abort_trigger = {
+		NOT = { has_country_flag = CmtFlagNowInMenu }
+	}
 }
 
 ### Anatomy Files: Also controlled by CrisisManagerMenu.4130 (Previous Event)
+
 country_event = {
 	id = CrisisManagerMenu.4140
 	title = CrisisManagerMenu.4140.name
+
 	desc = {
 		text = CrisisManagerMenu.4140.desc1
-		trigger = { has_global_flag = CmtFlagForbiddenAnatomy }
+		trigger = {
+			has_global_flag = CmtFlagForbiddenAnatomy
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4140.desc2
-		trigger = { NOT = { has_global_flag = CmtFlagForbiddenAnatomy } }
+		trigger = {
+			NOT = { has_global_flag = CmtFlagForbiddenAnatomy }
+		}
 	}
+
 	picture = GFX_evt_federation_fleet
 	is_triggered_only = yes
 
@@ -292,10 +424,14 @@ country_event = {
 				limit = { has_country_flag = CmtFlagGoBack }
 				remove_country_flag = CmtFlagGoBack
 				country_event = { id = CrisisManagerMenu.4130 }
-			} else_if = {
+			}
+			else_if = {
 				limit = { has_country_flag = CmtFlagIndividual }
 				country_event = { id = CrisisManagerMenu.1021 }
-			} else = { country_event = { id = CrisisManagerMenu.4150 } }
+			}
+			else = {
+				country_event = { id = CrisisManagerMenu.4150 }
+			}
 		}
 	}
 
@@ -306,41 +442,70 @@ country_event = {
 	option = {
 		name = "CrisisManagerMenu.4140a.title"
 		custom_tooltip = BLANK_STRING
-		hidden_effect = { set_global_flag = CmtFlagForbiddenAnatomy }
+		hidden_effect = {
+			set_global_flag = CmtFlagForbiddenAnatomy
+		}
 	}
 	option = {
 		name = CrisisManagerMenu.4140b.name
 		custom_tooltip = BLANK_STRING
-		hidden_effect = { remove_global_flag = CmtFlagForbiddenAnatomy }
+		hidden_effect = {
+			remove_global_flag = CmtFlagForbiddenAnatomy
+		}
 	}
 	option = {
 		name = CmtTextGoBack.name
 		custom_tooltip = BLANK_STRING
-		trigger = { NOT = { has_country_flag = CmtFlagIndividual } }
-		hidden_effect = { set_country_flag = CmtFlagGoBack }
+		trigger = {
+			NOT = { has_country_flag = CmtFlagIndividual }
+		}
+		hidden_effect = {
+			set_country_flag = CmtFlagGoBack
+		}
 	}
-	abort_trigger = { NOT = { has_country_flag = CmtFlagNowInMenu } }
+
+	abort_trigger = {
+		NOT = { has_country_flag = CmtFlagNowInMenu }
+	}
 }
 
 ### Feral Prethoryn
+
 country_event = {
 	id = CrisisManagerMenu.4150
 	title = CrisisManagerMenu.4150.name
+
 	desc = {
 		text = CrisisManagerMenu.4150.desc1
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarFeralPrethoryn value = 1 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarFeralPrethoryn value = 1 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4150.desc2
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarFeralPrethoryn value = 2 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarFeralPrethoryn value = 2 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4150.desc3
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarFeralPrethoryn value = 3 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarFeralPrethoryn value = 3 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4150.desc4
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarFeralPrethoryn value = 4 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarFeralPrethoryn value = 4 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4150.desc
@@ -353,6 +518,7 @@ country_event = {
 			}
 		}
 	}
+
 	picture = GFX_evt_physics_research
 	is_triggered_only = yes
 
@@ -362,13 +528,24 @@ country_event = {
 				limit = { has_country_flag = CmtFlagGoBack }
 				remove_country_flag = CmtFlagGoBack
 				if = {
-					limit = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarSentinelRise value = 1 } } }
+					limit = {
+						event_target:CmtGlobalVar = {
+							check_variable = { which = CmtVarSentinelRise value = 1 }
+						}
+					}
 					country_event = { id = CrisisManagerMenu.4130 }
-				} else = { country_event = { id = CrisisManagerMenu.4140 } }
-			} else_if = {
+				}
+				else = {
+					country_event = { id = CrisisManagerMenu.4140 }
+				}
+			}
+			else_if = {
 				limit = { has_country_flag = CmtFlagIndividual }
 				country_event = { id = CrisisManagerMenu.1021 }
-			} else = { country_event = { id = CrisisManagerMenu.4160 } }
+			}
+			else = {
+				country_event = { id = CrisisManagerMenu.4160 }
+			}
 		}
 	}
 
@@ -379,44 +556,74 @@ country_event = {
 	option = {
 		name = CrisisManagerMenu.4150a.name
 		custom_tooltip = BLANK_STRING
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarFeralPrethoryn value = 1 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarFeralPrethoryn value = 1 }
+			}
+		}
 	}
 	option = {
 		name = CrisisManagerMenu.4150b.name
 		custom_tooltip = BLANK_STRING
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarFeralPrethoryn value = 2 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarFeralPrethoryn value = 2 }
+			}
+		}
 	}
 	option = {
 		name = CrisisManagerMenu.4150c.name
 		custom_tooltip = BLANK_STRING
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarFeralPrethoryn value = 3 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarFeralPrethoryn value = 3 }
+			}
+		}
 	}
 	option = {
 		name = CrisisManagerMenu.4150d.name
 		custom_tooltip = BLANK_STRING
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarFeralPrethoryn value = 4 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarFeralPrethoryn value = 4 }
+			}
+		}
 	}
 	option = {
 		name = CmtTextGoBack.name
 		custom_tooltip = BLANK_STRING
-		trigger = { NOT = { has_country_flag = CmtFlagIndividual } }
-		hidden_effect = { set_country_flag = CmtFlagGoBack }
+		trigger = {
+			NOT = { has_country_flag = CmtFlagIndividual }
+		}
+		hidden_effect = {
+			set_country_flag = CmtFlagGoBack
+		}
 	}
-	abort_trigger = { NOT = { has_country_flag = CmtFlagNowInMenu } }
+
+	abort_trigger = {
+		NOT = { has_country_flag = CmtFlagNowInMenu }
+	}
 }
 
 ### Unlimited Flaver Text of Prethoryn.
+
 country_event = {
 	id = CrisisManagerMenu.4160
 	title = CrisisManagerMenu.4160.name
+
 	desc = {
 		text = CrisisManagerMenu.4160.desc1
-		trigger = { NOT = { has_global_flag = CmtFlagPrethorynUnlimitedFlavor } }
+		trigger = {
+			NOT = { has_global_flag = CmtFlagPrethorynUnlimitedFlavor }
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4160.desc2
-		trigger = { has_global_flag = CmtFlagPrethorynUnlimitedFlavor }
+		trigger = {
+			has_global_flag = CmtFlagPrethorynUnlimitedFlavor
+		}
 	}
+
 	picture = GFX_evt_physics_research
 	is_triggered_only = yes
 
@@ -426,10 +633,14 @@ country_event = {
 				limit = { has_country_flag = CmtFlagGoBack }
 				remove_country_flag = CmtFlagGoBack
 				country_event = { id = CrisisManagerMenu.4150 }
-			} else_if = {
+			}
+			else_if = {
 				limit = { has_country_flag = CmtFlagIndividual }
 				country_event = { id = CrisisManagerMenu.1021 }
-			} else = { country_event = { id = CrisisManagerMenu.4000 } }
+			}
+			else = {
+				country_event = { id = CrisisManagerMenu.4000 }
+			}
 		}
 	}
 
@@ -440,59 +651,94 @@ country_event = {
 	option = {
 		name = CrisisManagerMenu.4160a.name
 		custom_tooltip = BLANK_STRING
-		hidden_effect = { remove_global_flag = CmtFlagPrethorynUnlimitedFlavor }
+		hidden_effect = {
+			remove_global_flag = CmtFlagPrethorynUnlimitedFlavor
+		}
 	}
 	option = {
 		name = CrisisManagerMenu.4160b.name
 		custom_tooltip = CrisisManagerMenu.4160b.tooltip
-		hidden_effect = { set_global_flag = CmtFlagPrethorynUnlimitedFlavor }
+		hidden_effect = {
+			set_global_flag = CmtFlagPrethorynUnlimitedFlavor
+		}
 	}
 	option = {
 		name = CmtTextGoBack.name
 		custom_tooltip = BLANK_STRING
-		trigger = { NOT = { has_country_flag = CmtFlagIndividual } }
-		hidden_effect = { set_country_flag = CmtFlagGoBack }
+		trigger = {
+			NOT = { has_country_flag = CmtFlagIndividual }
+		}
+		hidden_effect = {
+			set_country_flag = CmtFlagGoBack
+		}
 	}
-	abort_trigger = { NOT = { has_country_flag = CmtFlagNowInMenu } }
+
+	abort_trigger = {
+		NOT = { has_country_flag = CmtFlagNowInMenu }
+	}
 }
 
 ### Dummy
+
 country_event = {
 	id = CrisisManagerMenu.4170
 	hide_window = yes
 	is_triggered_only = yes
 	is_test_event = yes
-	trigger = { always = no }
-	abort_trigger = { NOT = { has_country_flag = CmtFlagNowInMenu } }
+
+	trigger = {
+		always = no
+	}
+
+	abort_trigger = {
+		NOT = { has_country_flag = CmtFlagNowInMenu }
+	}
 }
+
 country_event = {
 	id = CrisisManagerMenu.4180
 	hide_window = yes
 	is_triggered_only = yes
 	is_test_event = yes
-	trigger = { always = no }
-	abort_trigger = { NOT = { has_country_flag = CmtFlagNowInMenu } }
+
+	trigger = {
+		always = no
+	}
+
+	abort_trigger = {
+		NOT = { has_country_flag = CmtFlagNowInMenu }
+	}
 }
+
 country_event = {
 	id = CrisisManagerMenu.4190
 	hide_window = yes
 	is_triggered_only = yes
 	is_test_event = yes
-	trigger = { always = no }
-	abort_trigger = { NOT = { has_country_flag = CmtFlagNowInMenu } }
+
+	trigger = {
+		always = no
+	}
+
+	abort_trigger = {
+		NOT = { has_country_flag = CmtFlagNowInMenu }
+	}
 }
 
 ###########################
 ###- Extradimensionals -###
 ###########################
-
 ### Forbid Extradimensionals
+
 country_event = {
 	id = CrisisManagerMenu.4210
 	title = CrisisManagerMenu.4210.name
+
 	desc = {
 		text = CrisisManagerMenu.4210.desc1
-		trigger = { has_global_flag = CmtFlagForbiddenExds }
+		trigger = {
+			has_global_flag = CmtFlagForbiddenExds
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4210.desc2
@@ -510,6 +756,7 @@ country_event = {
 			has_global_flag = CmtFlagNoJumpButExds
 		}
 	}
+
 	picture = GFX_evt_wormhole
 	is_triggered_only = yes
 
@@ -519,13 +766,18 @@ country_event = {
 				limit = { has_country_flag = CmtFlagGoBack }
 				remove_country_flag = CmtFlagGoBack
 				country_event = { id = CrisisManagerMenu.4000 }
-			} else_if = {
+			}
+			else_if = {
 				limit = { has_country_flag = CmtFlagIndividual }
 				country_event = { id = CrisisManagerMenu.1022 }
-			} else_if = {
+			}
+			else_if = {
 				limit = { has_global_flag = CmtFlagForbiddenExds }
 				country_event = { id = CrisisManagerMenu.4000 }
-			} else = { country_event = { id = CrisisManagerMenu.4220 } }
+			}
+			else = {
+				country_event = { id = CrisisManagerMenu.4220 }
+			}
 		}
 	}
 
@@ -560,39 +812,72 @@ country_event = {
 	option = {
 		name = CmtTextGoBack.name
 		custom_tooltip = BLANK_STRING
-		trigger = { NOT = { has_country_flag = CmtFlagIndividual } }
-		hidden_effect = { set_country_flag = CmtFlagGoBack }
+		trigger = {
+			NOT = { has_country_flag = CmtFlagIndividual }
+		}
+		hidden_effect = {
+			set_country_flag = CmtFlagGoBack
+		}
 	}
-	abort_trigger = { NOT = { has_country_flag = CmtFlagNowInMenu } }
+
+	abort_trigger = {
+		NOT = { has_country_flag = CmtFlagNowInMenu }
+	}
 }
 
 ### Condition of opeing 2nd/3rd portal
+
 country_event = {
 	id = CrisisManagerMenu.4220
 	title = CrisisManagerMenu.4220.name
+
 	desc = {
 		text = CrisisManagerMenu.4220.desc1
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarExdsChaserCondition value = 1 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarExdsChaserCondition value = 1 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4220.desc2
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarExdsChaserCondition value = 2 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarExdsChaserCondition value = 2 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4220.desc3
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarExdsChaserCondition value = 3 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarExdsChaserCondition value = 3 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4220.desc4
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarExdsChaserCondition value = 4 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarExdsChaserCondition value = 4 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4220.desc5
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarExdsChaserCondition value = 5 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarExdsChaserCondition value = 5 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4220.desc6
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarExdsChaserCondition value = 6 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarExdsChaserCondition value = 6 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4220.desc
@@ -605,6 +890,7 @@ country_event = {
 			}
 		}
 	}
+
 	picture = GFX_evt_wormhole
 	is_triggered_only = yes
 
@@ -614,10 +900,12 @@ country_event = {
 				limit = { has_country_flag = CmtFlagGoBack }
 				remove_country_flag = CmtFlagGoBack
 				country_event = { id = CrisisManagerMenu.4210 }
-			} else_if = {
+			}
+			else_if = {
 				limit = { has_country_flag = CmtFlagIndividual }
 				country_event = { id = CrisisManagerMenu.1022 }
-			} else_if = {
+			}
+			else_if = {
 				limit = {
 					event_target:CmtGlobalVar = {
 						OR = {
@@ -627,7 +915,10 @@ country_event = {
 					}
 				}
 				country_event = { id = CrisisManagerMenu.4240 }
-			} else = { country_event = { id = CrisisManagerMenu.4230 } }
+			}
+			else = {
+				country_event = { id = CrisisManagerMenu.4230 }
+			}
 		}
 	}
 
@@ -638,57 +929,93 @@ country_event = {
 	option = {
 		name = CrisisManagerMenu.4220a.name
 		custom_tooltip = CrisisManagerMenu.4220a.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarExdsChaserCondition value = 1 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarExdsChaserCondition value = 1 }
+			}
+		}
 	}
 	option = {
 		name = CrisisManagerMenu.4220b.name
 		custom_tooltip = CrisisManagerMenu.4220b.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarExdsChaserCondition value = 2 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarExdsChaserCondition value = 2 }
+			}
+		}
 	}
 	option = {
 		name = CrisisManagerMenu.4220c.name
 		custom_tooltip = CrisisManagerMenu.4220c.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarExdsChaserCondition value = 3 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarExdsChaserCondition value = 3 }
+			}
+		}
 	}
 	option = {
 		name = CrisisManagerMenu.4220d.name
 		custom_tooltip = CrisisManagerMenu.4220d.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarExdsChaserCondition value = 4 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarExdsChaserCondition value = 4 }
+			}
+		}
 	}
 	option = {
 		name = CrisisManagerMenu.4220e.name
 		custom_tooltip = CrisisManagerMenu.4220e.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarExdsChaserCondition value = 5 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarExdsChaserCondition value = 5 }
+			}
+		}
 	}
 	option = {
 		name = CrisisManagerMenu.4220f.name
 		custom_tooltip = CrisisManagerMenu.4220f.tooltip
 		hidden_effect = {
 			set_global_flag = CmtFlagExdsChaserAnywhere
-			event_target:CmtGlobalVar = { set_variable = { which = CmtVarExdsChaserCondition value = 6 } }
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarExdsChaserCondition value = 6 }
+			}
 		}
 	}
 	option = {
 		name = CmtTextGoBack.name
 		custom_tooltip = BLANK_STRING
-		trigger = { NOT = { has_country_flag = CmtFlagIndividual } }
-		hidden_effect = { set_country_flag = CmtFlagGoBack }
+		trigger = {
+			NOT = { has_country_flag = CmtFlagIndividual }
+		}
+		hidden_effect = {
+			set_country_flag = CmtFlagGoBack
+		}
 	}
-	abort_trigger = { NOT = { has_country_flag = CmtFlagNowInMenu } }
+
+	abort_trigger = {
+		NOT = { has_country_flag = CmtFlagNowInMenu }
+	}
 }
 
 ### Location of opeing 2nd/3rd portal: Also controlled by CrisisManagerMenu.4220 (Previous Event)
+
 country_event = {
 	id = CrisisManagerMenu.4230
 	title = CrisisManagerMenu.4230.name
+
 	desc = {
 		text = CrisisManagerMenu.4230.desc1
-		trigger = { NOT = { has_global_flag = CmtFlagExdsChaserAnywhere } }
+		trigger = {
+			NOT = { has_global_flag = CmtFlagExdsChaserAnywhere }
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4230.desc2
-		trigger = { has_global_flag = CmtFlagExdsChaserAnywhere }
+		trigger = {
+			has_global_flag = CmtFlagExdsChaserAnywhere
+		}
 	}
+
 	picture = GFX_evt_wormhole
 	is_triggered_only = yes
 
@@ -698,14 +1025,19 @@ country_event = {
 				limit = { has_country_flag = CmtFlagGoBack }
 				remove_country_flag = CmtFlagGoBack
 				country_event = { id = CrisisManagerMenu.4220 }
-			} else_if = {
+			}
+			else_if = {
 				limit = { has_country_flag = CmtFlagSpMenu } ## Specified Priority
 				remove_country_flag = CmtFlagSpMenu
 				country_event = { id = CrisisManagerMenu.4230 }
-			} else_if = {
+			}
+			else_if = {
 				limit = { has_country_flag = CmtFlagIndividual }
 				country_event = { id = CrisisManagerMenu.1022 }
-			} else = { country_event = { id = CrisisManagerMenu.4240 } }
+			}
+			else = {
+				country_event = { id = CrisisManagerMenu.4240 }
+			}
 		}
 	}
 
@@ -716,43 +1048,72 @@ country_event = {
 	option = {
 		name = CrisisManagerMenu.4230a1.name
 		custom_tooltip = CrisisManagerMenu.4230a1.tooltip
-		trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarExdsChaserCondition value != 6 } } }
-		hidden_effect = { remove_global_flag = CmtFlagExdsChaserAnywhere }
+		trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarExdsChaserCondition value != 6 }
+			}
+		}
+		hidden_effect = {
+			remove_global_flag = CmtFlagExdsChaserAnywhere
+		}
 	}
 	option = {
 		name = CrisisManagerMenu.4230a2.name
 		custom_tooltip = CrisisManagerMenu.4230a2.tooltip
-		trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarExdsChaserCondition value = 6 } } }
-		hidden_effect = { set_country_flag = CmtFlagSpMenu }
+		trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarExdsChaserCondition value = 6 }
+			}
+		}
+		hidden_effect = {
+			set_country_flag = CmtFlagSpMenu
+		}
 	}
 	option = {
 		name = "CrisisManagerMenu.4230b.title"
 		custom_tooltip = BLANK_STRING
-		hidden_effect = { set_global_flag = CmtFlagExdsChaserAnywhere }
+		hidden_effect = {
+			set_global_flag = CmtFlagExdsChaserAnywhere
+		}
 	}
 	option = {
 		name = CmtTextGoBack.name
 		custom_tooltip = BLANK_STRING
-		trigger = { NOT = { has_country_flag = CmtFlagIndividual } }
-		hidden_effect = { set_country_flag = CmtFlagGoBack }
+		trigger = {
+			NOT = { has_country_flag = CmtFlagIndividual }
+		}
+		hidden_effect = {
+			set_country_flag = CmtFlagGoBack
+		}
 	}
-	abort_trigger = { NOT = { has_country_flag = CmtFlagNowInMenu } }
+
+	abort_trigger = {
+		NOT = { has_country_flag = CmtFlagNowInMenu }
+	}
 }
 
 ### Less Reinforcement on Starbases Built.
+
 country_event = {
 	id = CrisisManagerMenu.4240
 	title = "CrisisManagerMenu.4240.title"
+
 	desc = {
 		text = CrisisManagerMenu.4240.desc1
-		trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarReinforceCycle_OnExdAnchorBuilt value > 510 } } }
+		trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarReinforceCycle_OnExdAnchorBuilt value > 510 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4240.descn
 		exclusive_trigger = {
 			event_target:CmtGlobalVar = {
-				NOT = { check_variable = { which = CmtVarReinforceCycle_OnExdAnchorBuilt value > 510 } }
-				check_variable = { which = CmtVarReinforceCycle_OnExdAnchorBuilt value > 1.5 }
+				NOR = {
+					check_variable = { which = CmtVarReinforceCycle_OnExdAnchorBuilt value > 510 }
+					check_variable = { which = CmtVarReinforceCycle_OnExdAnchorBuilt value <= 1.5 }
+				}
 			}
 		}
 	}
@@ -760,15 +1121,22 @@ country_event = {
 		text = CrisisManagerMenu.4240.desc6
 		exclusive_trigger = {
 			event_target:CmtGlobalVar = {
-				NOT = { check_variable = { which = CmtVarReinforceCycle_OnExdAnchorBuilt value > 1.5 } }
-				check_variable = { which = CmtVarReinforceCycle_OnExdAnchorBuilt value > 0.5 }
+				NOR = {
+					check_variable = { which = CmtVarReinforceCycle_OnExdAnchorBuilt value > 1.5 }
+					check_variable = { which = CmtVarReinforceCycle_OnExdAnchorBuilt value <= 0.5 }
+				}
 			}
 		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4240.desc
-		trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarReinforceCycle_OnExdAnchorBuilt value <= 0.5 } } }
+		trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarReinforceCycle_OnExdAnchorBuilt value <= 0.5 }
+			}
+		}
 	}
+
 	picture = GFX_evt_wormhole
 	is_triggered_only = yes
 
@@ -787,11 +1155,18 @@ country_event = {
 						}
 					}
 					country_event = { id = CrisisManagerMenu.4220 }
-				} else = { country_event = { id = CrisisManagerMenu.4230 } }
-			} else_if = {
+				}
+				else = {
+					country_event = { id = CrisisManagerMenu.4230 }
+				}
+			}
+			else_if = {
 				limit = { has_country_flag = CmtFlagIndividual }
 				country_event = { id = CrisisManagerMenu.1022 }
-			} else = { country_event = { id = CrisisManagerMenu.4250 } }
+			}
+			else = {
+				country_event = { id = CrisisManagerMenu.4250 }
+			}
 		}
 	}
 
@@ -802,49 +1177,86 @@ country_event = {
 	option = {
 		name = "CrisisManagerMenu.4240a.title"
 		custom_tooltip = BLANK_STRING
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarReinforceCycle_OnExdAnchorBuilt value = 512 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarReinforceCycle_OnExdAnchorBuilt value = 512 }
+			}
+		}
 	}
 	option = {
 		name = CrisisManagerMenu.4240b.name
 		custom_tooltip = CrisisManagerMenu.4240b.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarReinforceCycle_OnExdAnchorBuilt value = 10 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarReinforceCycle_OnExdAnchorBuilt value = 10 }
+			}
+		}
 	}
 	option = {
 		name = "CrisisManagerMenu.4240c.title"
 		custom_tooltip = BLANK_STRING
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarReinforceCycle_OnExdAnchorBuilt value = 5 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarReinforceCycle_OnExdAnchorBuilt value = 5 }
+			}
+		}
 	}
 	option = {
 		name = "CrisisManagerMenu.4240d.title"
 		custom_tooltip = BLANK_STRING
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarReinforceCycle_OnExdAnchorBuilt value = 3 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarReinforceCycle_OnExdAnchorBuilt value = 3 }
+			}
+		}
 	}
 	option = {
 		name = "CrisisManagerMenu.4240e.title"
 		custom_tooltip = BLANK_STRING
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarReinforceCycle_OnExdAnchorBuilt value = 2 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarReinforceCycle_OnExdAnchorBuilt value = 2 }
+			}
+		}
 	}
 	option = {
 		name = CrisisManagerMenu.4240f.name
 		custom_tooltip = BLANK_STRING
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarReinforceCycle_OnExdAnchorBuilt value = 1 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarReinforceCycle_OnExdAnchorBuilt value = 1 }
+			}
+		}
 	}
 	option = {
 		name = CmtTextGoBack.name
 		custom_tooltip = BLANK_STRING
-		trigger = { NOT = { has_country_flag = CmtFlagIndividual } }
-		hidden_effect = { set_country_flag = CmtFlagGoBack }
+		trigger = {
+			NOT = { has_country_flag = CmtFlagIndividual }
+		}
+		hidden_effect = {
+			set_country_flag = CmtFlagGoBack
+		}
 	}
-	abort_trigger = { NOT = { has_country_flag = CmtFlagNowInMenu } }
+
+	abort_trigger = {
+		NOT = { has_country_flag = CmtFlagNowInMenu }
+	}
 }
 
 ### Unstable Portals
+
 country_event = {
 	id = CrisisManagerMenu.4250
 	title = CrisisManagerMenu.4250.name
+
 	desc = {
 		text = CrisisManagerMenu.4250.desc0
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarExdsPortalStability value > @CmtConstPortalStability_T9 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarExdsPortalStability value > @CmtConstPortalStability_T9 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4250.desc1
@@ -859,8 +1271,13 @@ country_event = {
 	}
 	desc = {
 		text = CrisisManagerMenu.4250.desct
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarExdsPortalStability value < @CmtConstPortalStability_T0 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarExdsPortalStability value < @CmtConstPortalStability_T0 }
+			}
+		}
 	}
+
 	picture = GFX_evt_wormhole
 	is_triggered_only = yes
 
@@ -870,10 +1287,14 @@ country_event = {
 				limit = { has_country_flag = CmtFlagGoBack }
 				remove_country_flag = CmtFlagGoBack
 				country_event = { id = CrisisManagerMenu.4240 }
-			} else_if = {
+			}
+			else_if = {
 				limit = { has_country_flag = CmtFlagIndividual }
 				country_event = { id = CrisisManagerMenu.1022 }
-			} else = { country_event = { id = CrisisManagerMenu.4000 } }
+			}
+			else = {
+				country_event = { id = CrisisManagerMenu.4000 }
+			}
 		}
 	}
 
@@ -884,102 +1305,175 @@ country_event = {
 	option = {
 		name = CrisisManagerMenu.4250.V1.name
 		custom_tooltip = BLANK_STRING
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarExdsPortalStability value = @CmtConstPortalStability_V1 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarExdsPortalStability value = @CmtConstPortalStability_V1 }
+			}
+		}
 	}
 	option = {
 		name = "CrisisManagerMenu.4250.V2.title"
 		custom_tooltip = BLANK_STRING
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarExdsPortalStability value = @CmtConstPortalStability_V2 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarExdsPortalStability value = @CmtConstPortalStability_V2 }
+			}
+		}
 	}
 	option = {
 		name = "CrisisManagerMenu.4250.V3.title"
 		custom_tooltip = BLANK_STRING
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarExdsPortalStability value = @CmtConstPortalStability_V3 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarExdsPortalStability value = @CmtConstPortalStability_V3 }
+			}
+		}
 	}
 	option = {
 		name = "CrisisManagerMenu.4250.V4.title"
 		custom_tooltip = BLANK_STRING
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarExdsPortalStability value = @CmtConstPortalStability_V4 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarExdsPortalStability value = @CmtConstPortalStability_V4 }
+			}
+		}
 	}
 	option = {
 		name = "CrisisManagerMenu.4250.V5.title"
 		custom_tooltip = BLANK_STRING
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarExdsPortalStability value = @CmtConstPortalStability_V5 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarExdsPortalStability value = @CmtConstPortalStability_V5 }
+			}
+		}
 	}
 	option = {
 		name = "CrisisManagerMenu.4250.V6.title"
 		custom_tooltip = BLANK_STRING
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarExdsPortalStability value = @CmtConstPortalStability_V6 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarExdsPortalStability value = @CmtConstPortalStability_V6 }
+			}
+		}
 	}
 	option = {
 		name = "CrisisManagerMenu.4250.V7.title"
 		custom_tooltip = BLANK_STRING
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarExdsPortalStability value = @CmtConstPortalStability_V7 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarExdsPortalStability value = @CmtConstPortalStability_V7 }
+			}
+		}
 	}
 	option = {
 		name = "CrisisManagerMenu.4250.VA.title"
 		custom_tooltip = CrisisManagerMenu.4250.VA.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarExdsPortalStability value = @CmtConstPortalStability_VA } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarExdsPortalStability value = @CmtConstPortalStability_VA }
+			}
+		}
 	}
 	option = {
 		name = CmtTextGoBack.name
 		custom_tooltip = BLANK_STRING
-		trigger = { NOT = { has_country_flag = CmtFlagIndividual } }
-		hidden_effect = { set_country_flag = CmtFlagGoBack }
+		trigger = {
+			NOT = { has_country_flag = CmtFlagIndividual }
+		}
+		hidden_effect = {
+			set_country_flag = CmtFlagGoBack
+		}
 	}
-	abort_trigger = { NOT = { has_country_flag = CmtFlagNowInMenu } }
+
+	abort_trigger = {
+		NOT = { has_country_flag = CmtFlagNowInMenu }
+	}
 }
 
 ### Dummy
+
 country_event = {
 	id = CrisisManagerMenu.4260
 	hide_window = yes
 	is_triggered_only = yes
 	is_test_event = yes
-	trigger = { always = no }
-	abort_trigger = { NOT = { has_country_flag = CmtFlagNowInMenu } }
+
+	trigger = {
+		always = no
+	}
+
+	abort_trigger = {
+		NOT = { has_country_flag = CmtFlagNowInMenu }
+	}
 }
+
 country_event = {
 	id = CrisisManagerMenu.4270
 	hide_window = yes
 	is_triggered_only = yes
 	is_test_event = yes
-	trigger = { always = no }
-	abort_trigger = { NOT = { has_country_flag = CmtFlagNowInMenu } }
+
+	trigger = {
+		always = no
+	}
+
+	abort_trigger = {
+		NOT = { has_country_flag = CmtFlagNowInMenu }
+	}
 }
+
 country_event = {
 	id = CrisisManagerMenu.4280
 	hide_window = yes
 	is_triggered_only = yes
 	is_test_event = yes
-	trigger = { always = no }
-	abort_trigger = { NOT = { has_country_flag = CmtFlagNowInMenu } }
+
+	trigger = {
+		always = no
+	}
+
+	abort_trigger = {
+		NOT = { has_country_flag = CmtFlagNowInMenu }
+	}
 }
+
 country_event = {
 	id = CrisisManagerMenu.4290
 	hide_window = yes
 	is_triggered_only = yes
 	is_test_event = yes
-	trigger = { always = no }
-	abort_trigger = { NOT = { has_country_flag = CmtFlagNowInMenu } }
+
+	trigger = {
+		always = no
+	}
+
+	abort_trigger = {
+		NOT = { has_country_flag = CmtFlagNowInMenu }
+	}
 }
 
 #####################
 ###- Contingency -###
 #####################
-
 ### Forbid Contingency
+
 country_event = {
 	id = CrisisManagerMenu.4310
 	title = CrisisManagerMenu.4310.name
+
 	desc = {
 		text = CrisisManagerMenu.4310.desc1
-		trigger = { has_global_flag = CmtFlagForbiddenContingency }
+		trigger = {
+			has_global_flag = CmtFlagForbiddenContingency
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4310.desc2
-		trigger = { NOT = { has_global_flag = CmtFlagForbiddenContingency } }
+		trigger = {
+			NOT = { has_global_flag = CmtFlagForbiddenContingency }
+		}
 	}
+
 	picture = GFX_evt_glitchy_matrix
 	is_triggered_only = yes
 
@@ -989,13 +1483,18 @@ country_event = {
 				limit = { has_country_flag = CmtFlagGoBack }
 				remove_country_flag = CmtFlagGoBack
 				country_event = { id = CrisisManagerMenu.4000 }
-			} else_if = {
+			}
+			else_if = {
 				limit = { has_country_flag = CmtFlagIndividual }
 				country_event = { id = CrisisManagerMenu.1023 }
-			} else_if = {
+			}
+			else_if = {
 				limit = { has_global_flag = CmtFlagForbiddenContingency }
 				country_event = { id = CrisisManagerMenu.4000 }
-			} else = { country_event = { id = CrisisManagerMenu.4330 } }
+			}
+			else = {
+				country_event = { id = CrisisManagerMenu.4330 }
+			}
 		}
 	}
 
@@ -1006,47 +1505,79 @@ country_event = {
 	option = {
 		name = "CrisisManagerMenu.4310a.title"
 		custom_tooltip = CrisisManagerMenu.4310a.tooltip
-		hidden_effect = { set_global_flag = CmtFlagForbiddenContingency }
+		hidden_effect = {
+			set_global_flag = CmtFlagForbiddenContingency
+		}
 	}
 	option = {
 		name = CrisisManagerMenu.4310b.name
 		custom_tooltip = BLANK_STRING
-		hidden_effect = { remove_global_flag = CmtFlagForbiddenContingency }
+		hidden_effect = {
+			remove_global_flag = CmtFlagForbiddenContingency
+		}
 	}
 	option = {
 		name = CmtTextGoBack.name
 		custom_tooltip = BLANK_STRING
-		trigger = { NOT = { has_country_flag = CmtFlagIndividual } }
-		hidden_effect = { set_country_flag = CmtFlagGoBack }
+		trigger = {
+			NOT = { has_country_flag = CmtFlagIndividual }
+		}
+		hidden_effect = {
+			set_country_flag = CmtFlagGoBack
+		}
 	}
-	abort_trigger = { NOT = { has_country_flag = CmtFlagNowInMenu } }
+
+	abort_trigger = {
+		NOT = { has_country_flag = CmtFlagNowInMenu }
+	}
 }
 
 ### Not Implemented Yet: Number of Machine World
-
 ### Strength of Ghost Signal
+
 country_event = {
 	id = CrisisManagerMenu.4330
 	title = CrisisManagerMenu.4330.name
+
 	desc = {
 		text = CrisisManagerMenu.4330.desc1
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarGhostStrength value = 1 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarGhostStrength value = 1 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4330.desc2
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarGhostStrength value = 2 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarGhostStrength value = 2 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4330.desc3
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarGhostStrength value = 3 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarGhostStrength value = 3 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4330.desc4
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarGhostStrength value = 4 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarGhostStrength value = 4 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4330.desc5
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarGhostStrength value = 5 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarGhostStrength value = 5 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4330.desc
@@ -1059,6 +1590,7 @@ country_event = {
 			}
 		}
 	}
+
 	picture = GFX_evt_glitchy_matrix
 	is_triggered_only = yes
 
@@ -1068,10 +1600,14 @@ country_event = {
 				limit = { has_country_flag = CmtFlagGoBack }
 				remove_country_flag = CmtFlagGoBack
 				country_event = { id = CrisisManagerMenu.4310 }
-			} else_if = {
+			}
+			else_if = {
 				limit = { has_country_flag = CmtFlagIndividual }
 				country_event = { id = CrisisManagerMenu.1023 }
-			} else = { country_event = { id = CrisisManagerMenu.4340 } }
+			}
+			else = {
+				country_event = { id = CrisisManagerMenu.4340 }
+			}
 		}
 	}
 
@@ -1082,60 +1618,109 @@ country_event = {
 	option = {
 		name = CrisisManagerMenu.4330a.name
 		custom_tooltip = BLANK_STRING
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarGhostStrength value = 1 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarGhostStrength value = 1 }
+			}
+		}
 	}
 	option = {
 		name = CrisisManagerMenu.4330b.name
 		custom_tooltip = CrisisManagerMenu.4330b.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarGhostStrength value = 2 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarGhostStrength value = 2 }
+			}
+		}
 	}
 	option = {
 		name = CrisisManagerMenu.4330c.name
 		custom_tooltip = BLANK_STRING
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarGhostStrength value = 3 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarGhostStrength value = 3 }
+			}
+		}
 	}
 	option = {
 		name = CrisisManagerMenu.4330d.name
 		custom_tooltip = CrisisManagerMenu.4330d.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarGhostStrength value = 4 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarGhostStrength value = 4 }
+			}
+		}
 	}
 	option = {
 		name = CrisisManagerMenu.4330e.name
 		custom_tooltip = CrisisManagerMenu.4330e.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarGhostStrength value = 5 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarGhostStrength value = 5 }
+			}
+		}
 	}
 	option = {
 		name = CmtTextGoBack.name
 		custom_tooltip = BLANK_STRING
-		trigger = { NOT = { has_country_flag = CmtFlagIndividual } }
-		hidden_effect = { set_country_flag = CmtFlagGoBack }
+		trigger = {
+			NOT = { has_country_flag = CmtFlagIndividual }
+		}
+		hidden_effect = {
+			set_country_flag = CmtFlagGoBack
+		}
 	}
-	abort_trigger = { NOT = { has_country_flag = CmtFlagNowInMenu } }
+
+	abort_trigger = {
+		NOT = { has_country_flag = CmtFlagNowInMenu }
+	}
 }
 
 ### Synth Infiltration Event Speed
+
 country_event = {
 	id = CrisisManagerMenu.4340
 	title = CrisisManagerMenu.4340.name
+
 	desc = {
 		text = CrisisManagerMenu.4340.desc1
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarSynthTerrorEventSpeed value = 1 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarSynthTerrorEventSpeed value = 1 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4340.desc2
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarSynthTerrorEventSpeed value = 2 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarSynthTerrorEventSpeed value = 2 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4340.desc3
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarSynthTerrorEventSpeed value = 3 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarSynthTerrorEventSpeed value = 3 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4340.desc4
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarSynthTerrorEventSpeed value = 4 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarSynthTerrorEventSpeed value = 4 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4340.desc5
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarSynthTerrorEventSpeed value = 5 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarSynthTerrorEventSpeed value = 5 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4340.desc
@@ -1148,6 +1733,7 @@ country_event = {
 			}
 		}
 	}
+
 	picture = GFX_evt_glitchy_matrix
 	is_triggered_only = yes
 
@@ -1157,13 +1743,22 @@ country_event = {
 				limit = { has_country_flag = CmtFlagGoBack }
 				remove_country_flag = CmtFlagGoBack
 				country_event = { id = CrisisManagerMenu.4330 }
-			} else_if = {
+			}
+			else_if = {
 				limit = { has_country_flag = CmtFlagIndividual }
 				country_event = { id = CrisisManagerMenu.1023 }
-			} else_if = {
-				limit = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarSynthTerrorEventSpeed value = 1 } } }
+			}
+			else_if = {
+				limit = {
+					event_target:CmtGlobalVar = {
+						check_variable = { which = CmtVarSynthTerrorEventSpeed value = 1 }
+					}
+				}
 				country_event = { id = CrisisManagerMenu.4370 }
-			} else = { country_event = { id = CrisisManagerMenu.4350 } }
+			}
+			else = {
+				country_event = { id = CrisisManagerMenu.4350 }
+			}
 		}
 	}
 
@@ -1174,60 +1769,109 @@ country_event = {
 	option = {
 		name = "CrisisManagerMenu.4340a.title"
 		custom_tooltip = CrisisManagerMenu.4340a.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarSynthTerrorEventSpeed value = 1 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarSynthTerrorEventSpeed value = 1 }
+			}
+		}
 	}
 	option = {
 		name = CrisisManagerMenu.4340b.name
 		custom_tooltip = CrisisManagerMenu.4340b.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarSynthTerrorEventSpeed value = 2 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarSynthTerrorEventSpeed value = 2 }
+			}
+		}
 	}
 	option = {
 		name = CrisisManagerMenu.4340c.name
 		custom_tooltip = CrisisManagerMenu.4340c.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarSynthTerrorEventSpeed value = 3 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarSynthTerrorEventSpeed value = 3 }
+			}
+		}
 	}
 	option = {
 		name = CrisisManagerMenu.4340d.name
 		custom_tooltip = CrisisManagerMenu.4340d.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarSynthTerrorEventSpeed value = 4 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarSynthTerrorEventSpeed value = 4 }
+			}
+		}
 	}
 	option = {
 		name = CrisisManagerMenu.4340e.name
 		custom_tooltip = CrisisManagerMenu.4340e.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarSynthTerrorEventSpeed value = 5 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarSynthTerrorEventSpeed value = 5 }
+			}
+		}
 	}
 	option = {
 		name = CmtTextGoBack.name
 		custom_tooltip = BLANK_STRING
-		trigger = { NOT = { has_country_flag = CmtFlagIndividual } }
-		hidden_effect = { set_country_flag = CmtFlagGoBack }
+		trigger = {
+			NOT = { has_country_flag = CmtFlagIndividual }
+		}
+		hidden_effect = {
+			set_country_flag = CmtFlagGoBack
+		}
 	}
-	abort_trigger = { NOT = { has_country_flag = CmtFlagNowInMenu } }
+
+	abort_trigger = {
+		NOT = { has_country_flag = CmtFlagNowInMenu }
+	}
 }
 
 ### Frequency of Terrors
+
 country_event = {
 	id = CrisisManagerMenu.4350
 	title = CrisisManagerMenu.4350.name
+
 	desc = {
 		text = CrisisManagerMenu.4350.desc1
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarFreqTerror value = 1 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarFreqTerror value = 1 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4350.desc2
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarFreqTerror value = 2 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarFreqTerror value = 2 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4350.desc3
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarFreqTerror value = 3 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarFreqTerror value = 3 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4350.desc4
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarFreqTerror value = 4 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarFreqTerror value = 4 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4350.desc5
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarFreqTerror value = 5 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarFreqTerror value = 5 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4350.desc
@@ -1240,6 +1884,7 @@ country_event = {
 			}
 		}
 	}
+
 	picture = GFX_evt_glitchy_matrix
 	is_triggered_only = yes
 
@@ -1249,10 +1894,14 @@ country_event = {
 				limit = { has_country_flag = CmtFlagGoBack }
 				remove_country_flag = CmtFlagGoBack
 				country_event = { id = CrisisManagerMenu.4340 }
-			} else_if = {
+			}
+			else_if = {
 				limit = { has_country_flag = CmtFlagIndividual }
 				country_event = { id = CrisisManagerMenu.1023 }
-			} else = { country_event = { id = CrisisManagerMenu.4360 } }
+			}
+			else = {
+				country_event = { id = CrisisManagerMenu.4360 }
+			}
 		}
 	}
 
@@ -1263,49 +1912,83 @@ country_event = {
 	option = {
 		name = CrisisManagerMenu.4350a.name
 		custom_tooltip = CrisisManagerMenu.4350a.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarFreqTerror value = 1 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarFreqTerror value = 1 }
+			}
+		}
 	}
 	option = {
 		name = CrisisManagerMenu.4350b.name
 		custom_tooltip = CrisisManagerMenu.4350b.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarFreqTerror value = 2 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarFreqTerror value = 2 }
+			}
+		}
 	}
 	option = {
 		name = CrisisManagerMenu.4350c.name
 		custom_tooltip = CrisisManagerMenu.4350c.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarFreqTerror value = 3 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarFreqTerror value = 3 }
+			}
+		}
 	}
 	option = {
 		name = CrisisManagerMenu.4350d.name
 		custom_tooltip = CrisisManagerMenu.4350d.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarFreqTerror value = 4 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarFreqTerror value = 4 }
+			}
+		}
 	}
 	option = {
 		name = CrisisManagerMenu.4350e.name
 		custom_tooltip = CrisisManagerMenu.4350e.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarFreqTerror value = 5 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarFreqTerror value = 5 }
+			}
+		}
 	}
 	option = {
 		name = CmtTextGoBack.name
 		custom_tooltip = BLANK_STRING
-		trigger = { NOT = { has_country_flag = CmtFlagIndividual } }
-		hidden_effect = { set_country_flag = CmtFlagGoBack }
+		trigger = {
+			NOT = { has_country_flag = CmtFlagIndividual }
+		}
+		hidden_effect = {
+			set_country_flag = CmtFlagGoBack
+		}
 	}
-	abort_trigger = { NOT = { has_country_flag = CmtFlagNowInMenu } }
+
+	abort_trigger = {
+		NOT = { has_country_flag = CmtFlagNowInMenu }
+	}
 }
 
 ### Terrors to Psi, Hive
+
 country_event = {
 	id = CrisisManagerMenu.4360
 	title = CrisisManagerMenu.4360.name
+
 	desc = {
 		text = CrisisManagerMenu.4360.desc1
-		trigger = { NOT = { has_global_flag = CmtFlagSynthTerrorAll } }
+		trigger = {
+			NOT = { has_global_flag = CmtFlagSynthTerrorAll }
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4360.desc2
-		trigger = { has_global_flag = CmtFlagSynthTerrorAll }
+		trigger = {
+			has_global_flag = CmtFlagSynthTerrorAll
+		}
 	}
+
 	picture = GFX_evt_glitchy_matrix
 	is_triggered_only = yes
 
@@ -1315,10 +1998,14 @@ country_event = {
 				limit = { has_country_flag = CmtFlagGoBack }
 				remove_country_flag = CmtFlagGoBack
 				country_event = { id = CrisisManagerMenu.4350 }
-			} else_if = {
+			}
+			else_if = {
 				limit = { has_country_flag = CmtFlagIndividual }
 				country_event = { id = CrisisManagerMenu.1023 }
-			} else = { country_event = { id = CrisisManagerMenu.4370 } }
+			}
+			else = {
+				country_event = { id = CrisisManagerMenu.4370 }
+			}
 		}
 	}
 
@@ -1329,45 +2016,78 @@ country_event = {
 	option = {
 		name = CrisisManagerMenu.4360a.name
 		custom_tooltip = BLANK_STRING
-		hidden_effect = { remove_global_flag = CmtFlagSynthTerrorAll }
+		hidden_effect = {
+			remove_global_flag = CmtFlagSynthTerrorAll
+		}
 	}
 	option = {
 		name = "CrisisManagerMenu.4360b.title"
 		custom_tooltip = CrisisManagerMenu.4360b.tooltip
-		hidden_effect = { set_global_flag = CmtFlagSynthTerrorAll }
+		hidden_effect = {
+			set_global_flag = CmtFlagSynthTerrorAll
+		}
 	}
 	option = {
 		name = CmtTextGoBack.name
 		custom_tooltip = BLANK_STRING
-		trigger = { NOT = { has_country_flag = CmtFlagIndividual } }
-		hidden_effect = { set_country_flag = CmtFlagGoBack }
+		trigger = {
+			NOT = { has_country_flag = CmtFlagIndividual }
+		}
+		hidden_effect = {
+			set_country_flag = CmtFlagGoBack
+		}
 	}
-	abort_trigger = { NOT = { has_country_flag = CmtFlagNowInMenu } }
+
+	abort_trigger = {
+		NOT = { has_country_flag = CmtFlagNowInMenu }
+	}
 }
 
 ### Cybrex Resurfacing
+
 country_event = {
 	id = CrisisManagerMenu.4370
 	title = CrisisManagerMenu.4370.name
+
 	desc = {
 		text = CrisisManagerMenu.4370.desc1
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarCybrexResurfacing value = 1 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarCybrexResurfacing value = 1 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4370.desc2
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarCybrexResurfacing value = 2 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarCybrexResurfacing value = 2 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4370.desc3
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarCybrexResurfacing value = 3 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarCybrexResurfacing value = 3 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4370.desc4
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarCybrexResurfacing value = 4 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarCybrexResurfacing value = 4 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4370.desc5
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarCybrexResurfacing value = 5 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarCybrexResurfacing value = 5 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4370.desc
@@ -1380,6 +2100,7 @@ country_event = {
 			}
 		}
 	}
+
 	picture = GFX_evt_ringworld
 	is_triggered_only = yes
 
@@ -1394,89 +2115,149 @@ country_event = {
 				remove_country_flag = CmtFlagGoBack
 				remove_country_flag = CmtFlagConfigShowing4370
 				if = {
-					limit = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarSynthTerrorEventSpeed value = 1 } } }
+					limit = {
+						event_target:CmtGlobalVar = {
+							check_variable = { which = CmtVarSynthTerrorEventSpeed value = 1 }
+						}
+					}
 					country_event = { id = CrisisManagerMenu.4340 }
-				} else = { country_event = { id = CrisisManagerMenu.4360 } }
-			} else_if = {
+				}
+				else = {
+					country_event = { id = CrisisManagerMenu.4360 }
+				}
+			}
+			else_if = {
 				limit = { has_country_flag = CmtFlagIndividual }
 				country_event = { id = CrisisManagerMenu.1023 }
-			} else = { country_event = { id = CrisisManagerMenu.4000 } }
+			}
+			else = {
+				country_event = { id = CrisisManagerMenu.4000 }
+			}
 		}
 	}
 
 	option = {
 		name = CmtTextKeepCurrent.name
 		custom_tooltip = BLANK_STRING
-		hidden_effect = { remove_country_flag = CmtFlagConfigShowing4370 }
+		hidden_effect = {
+			remove_country_flag = CmtFlagConfigShowing4370
+		}
 	}
 	option = {
 		name = "CrisisManagerMenu.4370a.title"
 		custom_tooltip = CrisisManagerMenu.4370a.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarCybrexResurfacing value = 1 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarCybrexResurfacing value = 1 }
+			}
+		}
 	}
 	option = {
 		name = "CrisisManagerMenu.4370b.title"
 		custom_tooltip = CrisisManagerMenu.4370b.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarCybrexResurfacing value = 2 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarCybrexResurfacing value = 2 }
+			}
+		}
 	}
 	option = {
 		name = CrisisManagerMenu.4370c.name
 		custom_tooltip = CrisisManagerMenu.4370c.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarCybrexResurfacing value = 3 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarCybrexResurfacing value = 3 }
+			}
+		}
 	}
 	option = {
 		name = "CrisisManagerMenu.4370d.title"
 		custom_tooltip = CrisisManagerMenu.4370d.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarCybrexResurfacing value = 4 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarCybrexResurfacing value = 4 }
+			}
+		}
 	}
 	option = {
 		name = CrisisManagerMenu.4370e.name
 		custom_tooltip = CrisisManagerMenu.4370e.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarCybrexResurfacing value = 5 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarCybrexResurfacing value = 5 }
+			}
+		}
 	}
 	option = {
 		name = CmtTextGoBack.name
 		custom_tooltip = BLANK_STRING
-		trigger = { NOT = { has_country_flag = CmtFlagIndividual } }
-		hidden_effect = { set_country_flag = CmtFlagGoBack }
+		trigger = {
+			NOT = { has_country_flag = CmtFlagIndividual }
+		}
+		hidden_effect = {
+			set_country_flag = CmtFlagGoBack
+		}
 	}
-	abort_trigger = { NOT = { has_country_flag = CmtFlagNowInMenu } }
+
+	abort_trigger = {
+		NOT = { has_country_flag = CmtFlagNowInMenu }
+	}
 }
 
 ### Dummy
+
 country_event = {
 	id = CrisisManagerMenu.4380
 	hide_window = yes
 	is_triggered_only = yes
 	is_test_event = yes
-	trigger = { always = no }
-	abort_trigger = { NOT = { has_country_flag = CmtFlagNowInMenu } }
+
+	trigger = {
+		always = no
+	}
+
+	abort_trigger = {
+		NOT = { has_country_flag = CmtFlagNowInMenu }
+	}
 }
+
 country_event = {
 	id = CrisisManagerMenu.4390
 	hide_window = yes
 	is_triggered_only = yes
 	is_test_event = yes
-	trigger = { always = no }
-	abort_trigger = { NOT = { has_country_flag = CmtFlagNowInMenu } }
+
+	trigger = {
+		always = no
+	}
+
+	abort_trigger = {
+		NOT = { has_country_flag = CmtFlagNowInMenu }
+	}
 }
 
 ###############################
 ### Forced End of the Cycle ###
 ###############################
-
 ### Allow End of the Cycle.
+
 country_event = {
 	id = CrisisManagerMenu.4410
 	title = CrisisManagerMenu.4410.name
+
 	desc = {
 		text = CrisisManagerMenu.4410.desc1
-		trigger = { NOT = { has_global_flag = CmtFlagAllowForcedEoc } }
+		trigger = {
+			NOT = { has_global_flag = CmtFlagAllowForcedEoc }
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4410.desc2
-		trigger = { has_global_flag = CmtFlagAllowForcedEoc }
+		trigger = {
+			has_global_flag = CmtFlagAllowForcedEoc
+		}
 	}
+
 	picture = GFX_evt_unspeakable_horror
 	is_triggered_only = yes
 
@@ -1486,13 +2267,20 @@ country_event = {
 				limit = { has_country_flag = CmtFlagGoBack }
 				remove_country_flag = CmtFlagGoBack
 				country_event = { id = CrisisManagerMenu.4000 }
-			} else_if = {
+			}
+			else_if = {
 				limit = { has_country_flag = CmtFlagIndividual }
 				country_event = { id = CrisisManagerMenu.1022 }
-			} else_if = {
-				limit = { NOT = { has_global_flag = CmtFlagAllowForcedEoc } }
+			}
+			else_if = {
+				limit = {
+					NOT = { has_global_flag = CmtFlagAllowForcedEoc }
+				}
 				country_event = { id = CrisisManagerMenu.4000 }
-			} else = { country_event = { id = CrisisManagerMenu.4420 } }
+			}
+			else = {
+				country_event = { id = CrisisManagerMenu.4420 }
+			}
 		}
 	}
 
@@ -1503,37 +2291,62 @@ country_event = {
 	option = {
 		name = CrisisManagerMenu.4410a.name
 		custom_tooltip = BLANK_STRING
-		hidden_effect = { remove_global_flag = CmtFlagAllowForcedEoc }
+		hidden_effect = {
+			remove_global_flag = CmtFlagAllowForcedEoc
+		}
 	}
 	option = {
 		name = "CrisisManagerMenu.4410b.title"
 		custom_tooltip = BLANK_STRING
-		hidden_effect = { set_global_flag = CmtFlagAllowForcedEoc }
+		hidden_effect = {
+			set_global_flag = CmtFlagAllowForcedEoc
+		}
 	}
 	option = {
 		name = CmtTextGoBack.name
 		custom_tooltip = BLANK_STRING
-		trigger = { NOT = { has_country_flag = CmtFlagIndividual } }
-		hidden_effect = { set_country_flag = CmtFlagGoBack }
+		trigger = {
+			NOT = { has_country_flag = CmtFlagIndividual }
+		}
+		hidden_effect = {
+			set_country_flag = CmtFlagGoBack
+		}
 	}
-	abort_trigger = { NOT = { has_country_flag = CmtFlagNowInMenu } }
+
+	abort_trigger = {
+		NOT = { has_country_flag = CmtFlagNowInMenu }
+	}
 }
 
 ### Target Control of FEoC 1.
+
 country_event = {
 	id = CrisisManagerMenu.4420
 	title = CrisisManagerMenu.4420.name
+
 	desc = {
 		text = CrisisManagerMenu.4420.desc1
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarForcedEocTargetPlayer value = 1 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarForcedEocTargetPlayer value = 1 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4420.desc2
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarForcedEocTargetPlayer value = 2 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarForcedEocTargetPlayer value = 2 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4420.desc3
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarForcedEocTargetPlayer value = 3 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarForcedEocTargetPlayer value = 3 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4420.desc
@@ -1546,6 +2359,7 @@ country_event = {
 			}
 		}
 	}
+
 	picture = GFX_evt_unspeakable_horror
 	is_triggered_only = yes
 
@@ -1555,10 +2369,14 @@ country_event = {
 				limit = { has_country_flag = CmtFlagGoBack }
 				remove_country_flag = CmtFlagGoBack
 				country_event = { id = CrisisManagerMenu.4410 }
-			} else_if = {
+			}
+			else_if = {
 				limit = { has_country_flag = CmtFlagIndividual }
 				country_event = { id = CrisisManagerMenu.1022 }
-			} else = { country_event = { id = CrisisManagerMenu.4430 } }
+			}
+			else = {
+				country_event = { id = CrisisManagerMenu.4430 }
+			}
 		}
 	}
 
@@ -1569,42 +2387,75 @@ country_event = {
 	option = {
 		name = CrisisManagerMenu.4420a.name
 		custom_tooltip = CrisisManagerMenu.4420a.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarForcedEocTargetPlayer value = 1 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarForcedEocTargetPlayer value = 1 }
+			}
+		}
 	}
 	option = {
 		name = CrisisManagerMenu.4420b.name
 		custom_tooltip = BLANK_STRING
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarForcedEocTargetPlayer value = 2 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarForcedEocTargetPlayer value = 2 }
+			}
+		}
 	}
 	option = {
 		name = CrisisManagerMenu.4420c.name
 		custom_tooltip = CrisisManagerMenu.4420c.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarForcedEocTargetPlayer value = 3 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarForcedEocTargetPlayer value = 3 }
+			}
+		}
 	}
 	option = {
 		name = CmtTextGoBack.name
 		custom_tooltip = BLANK_STRING
-		trigger = { NOT = { has_country_flag = CmtFlagIndividual } }
-		hidden_effect = { set_country_flag = CmtFlagGoBack }
+		trigger = {
+			NOT = { has_country_flag = CmtFlagIndividual }
+		}
+		hidden_effect = {
+			set_country_flag = CmtFlagGoBack
+		}
 	}
-	abort_trigger = { NOT = { has_country_flag = CmtFlagNowInMenu } }
+
+	abort_trigger = {
+		NOT = { has_country_flag = CmtFlagNowInMenu }
+	}
 }
 
 ### Target Control of FEoC 2.
+
 country_event = {
 	id = CrisisManagerMenu.4430
 	title = CrisisManagerMenu.4430.name
+
 	desc = {
 		text = CrisisManagerMenu.4430.desc1
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarForcedEocTranscendence value = 1 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarForcedEocTranscendence value = 1 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4430.desc2
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarForcedEocTranscendence value = 2 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarForcedEocTranscendence value = 2 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4430.desc3
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarForcedEocTranscendence value = 3 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarForcedEocTranscendence value = 3 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4430.desc
@@ -1617,6 +2468,7 @@ country_event = {
 			}
 		}
 	}
+
 	picture = GFX_evt_unspeakable_horror
 	is_triggered_only = yes
 
@@ -1626,10 +2478,14 @@ country_event = {
 				limit = { has_country_flag = CmtFlagGoBack }
 				remove_country_flag = CmtFlagGoBack
 				country_event = { id = CrisisManagerMenu.4420 }
-			} else_if = {
+			}
+			else_if = {
 				limit = { has_country_flag = CmtFlagIndividual }
 				country_event = { id = CrisisManagerMenu.1022 }
-			} else = { country_event = { id = CrisisManagerMenu.4440 } }
+			}
+			else = {
+				country_event = { id = CrisisManagerMenu.4440 }
+			}
 		}
 	}
 
@@ -1640,46 +2496,83 @@ country_event = {
 	option = {
 		name = CrisisManagerMenu.4430a.name
 		custom_tooltip = CrisisManagerMenu.4430a.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarForcedEocTranscendence value = 1 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarForcedEocTranscendence value = 1 }
+			}
+		}
 	}
 	option = {
 		name = CrisisManagerMenu.4430b.name
 		custom_tooltip = CrisisManagerMenu.4430b.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarForcedEocTranscendence value = 2 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarForcedEocTranscendence value = 2 }
+			}
+		}
 	}
 	option = {
 		name = CrisisManagerMenu.4430c.name
 		custom_tooltip = CrisisManagerMenu.4430c.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarForcedEocTranscendence value = 3 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarForcedEocTranscendence value = 3 }
+			}
+		}
 	}
 	option = {
 		name = CmtTextGoBack.name
 		custom_tooltip = BLANK_STRING
-		trigger = { NOT = { has_country_flag = CmtFlagIndividual } }
-		hidden_effect = { set_country_flag = CmtFlagGoBack }
+		trigger = {
+			NOT = { has_country_flag = CmtFlagIndividual }
+		}
+		hidden_effect = {
+			set_country_flag = CmtFlagGoBack
+		}
 	}
-	abort_trigger = { NOT = { has_country_flag = CmtFlagNowInMenu } }
+
+	abort_trigger = {
+		NOT = { has_country_flag = CmtFlagNowInMenu }
+	}
 }
 
 ### Target Control of FEoC 3.
+
 country_event = {
 	id = CrisisManagerMenu.4440
 	title = CrisisManagerMenu.4440.name
+
 	desc = {
 		text = CrisisManagerMenu.4440.desc1
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarForcedEocCountryStrength value = 1 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarForcedEocCountryStrength value = 1 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4440.desc2
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarForcedEocCountryStrength value = 2 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarForcedEocCountryStrength value = 2 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4440.desc3
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarForcedEocCountryStrength value = 3 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarForcedEocCountryStrength value = 3 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4440.desc4
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarForcedEocCountryStrength value = 4 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarForcedEocCountryStrength value = 4 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4440.desc
@@ -1692,6 +2585,7 @@ country_event = {
 			}
 		}
 	}
+
 	picture = GFX_evt_unspeakable_horror
 	is_triggered_only = yes
 
@@ -1701,10 +2595,14 @@ country_event = {
 				limit = { has_country_flag = CmtFlagGoBack }
 				remove_country_flag = CmtFlagGoBack
 				country_event = { id = CrisisManagerMenu.4430 }
-			} else_if = {
+			}
+			else_if = {
 				limit = { has_country_flag = CmtFlagIndividual }
 				country_event = { id = CrisisManagerMenu.1022 }
-			} else = { country_event = { id = CrisisManagerMenu.4450 } }
+			}
+			else = {
+				country_event = { id = CrisisManagerMenu.4450 }
+			}
 		}
 	}
 
@@ -1715,44 +2613,74 @@ country_event = {
 	option = {
 		name = CrisisManagerMenu.4440a.name
 		custom_tooltip = CrisisManagerMenu.4440a.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarForcedEocCountryStrength value = 1 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarForcedEocCountryStrength value = 1 }
+			}
+		}
 	}
 	option = {
 		name = CrisisManagerMenu.4440b.name
 		custom_tooltip = CrisisManagerMenu.4440b.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarForcedEocCountryStrength value = 2 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarForcedEocCountryStrength value = 2 }
+			}
+		}
 	}
 	option = {
 		name = CrisisManagerMenu.4440c.name
 		custom_tooltip = CrisisManagerMenu.4440c.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarForcedEocCountryStrength value = 3 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarForcedEocCountryStrength value = 3 }
+			}
+		}
 	}
 	option = {
 		name = CrisisManagerMenu.4440d.name
 		custom_tooltip = CrisisManagerMenu.4440d.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarForcedEocCountryStrength value = 4 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarForcedEocCountryStrength value = 4 }
+			}
+		}
 	}
 	option = {
 		name = CmtTextGoBack.name
 		custom_tooltip = BLANK_STRING
-		trigger = { NOT = { has_country_flag = CmtFlagIndividual } }
-		hidden_effect = { set_country_flag = CmtFlagGoBack }
+		trigger = {
+			NOT = { has_country_flag = CmtFlagIndividual }
+		}
+		hidden_effect = {
+			set_country_flag = CmtFlagGoBack
+		}
 	}
-	abort_trigger = { NOT = { has_country_flag = CmtFlagNowInMenu } }
+
+	abort_trigger = {
+		NOT = { has_country_flag = CmtFlagNowInMenu }
+	}
 }
 
 ### Term of Covenant
+
 country_event = {
 	id = CrisisManagerMenu.4450
 	title = CrisisManagerMenu.4450.name
+
 	desc = {
 		text = CrisisManagerMenu.4450.desc1
-		trigger = { NOT = { has_global_flag = CmtFlagForcedEocCrisisTerm } }
+		trigger = {
+			NOT = { has_global_flag = CmtFlagForcedEocCrisisTerm }
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4450.desc2
-		trigger = { has_global_flag = CmtFlagForcedEocCrisisTerm }
+		trigger = {
+			has_global_flag = CmtFlagForcedEocCrisisTerm
+		}
 	}
+
 	picture = GFX_evt_unspeakable_horror
 	is_triggered_only = yes
 
@@ -1762,10 +2690,14 @@ country_event = {
 				limit = { has_country_flag = CmtFlagGoBack }
 				remove_country_flag = CmtFlagGoBack
 				country_event = { id = CrisisManagerMenu.4440 }
-			} else_if = {
+			}
+			else_if = {
 				limit = { has_country_flag = CmtFlagIndividual }
 				country_event = { id = CrisisManagerMenu.1022 }
-			} else = { country_event = { id = CrisisManagerMenu.4000 } }
+			}
+			else = {
+				country_event = { id = CrisisManagerMenu.4000 }
+			}
 		}
 	}
 
@@ -1776,79 +2708,135 @@ country_event = {
 	option = {
 		name = CrisisManagerMenu.4450a.name
 		custom_tooltip = CrisisManagerMenu.4450a.tooltip
-		hidden_effect = { remove_global_flag = CmtFlagForcedEocCrisisTerm }
+		hidden_effect = {
+			remove_global_flag = CmtFlagForcedEocCrisisTerm
+		}
 	}
 	option = {
 		name = CrisisManagerMenu.4450b.name
 		custom_tooltip = CrisisManagerMenu.4450b.tooltip
-		hidden_effect = { set_global_flag = CmtFlagForcedEocCrisisTerm }
+		hidden_effect = {
+			set_global_flag = CmtFlagForcedEocCrisisTerm
+		}
 	}
 	option = {
 		name = CmtTextGoBack.name
 		custom_tooltip = BLANK_STRING
-		trigger = { NOT = { has_country_flag = CmtFlagIndividual } }
-		hidden_effect = { set_country_flag = CmtFlagGoBack }
+		trigger = {
+			NOT = { has_country_flag = CmtFlagIndividual }
+		}
+		hidden_effect = {
+			set_country_flag = CmtFlagGoBack
+		}
 	}
-	abort_trigger = { NOT = { has_country_flag = CmtFlagNowInMenu } }
+
+	abort_trigger = {
+		NOT = { has_country_flag = CmtFlagNowInMenu }
+	}
 }
 
 ### Dummy
+
 country_event = {
 	id = CrisisManagerMenu.4460
 	hide_window = yes
 	is_triggered_only = yes
 	is_test_event = yes
-	trigger = { always = no }
-	abort_trigger = { NOT = { has_country_flag = CmtFlagNowInMenu } }
+
+	trigger = {
+		always = no
+	}
+
+	abort_trigger = {
+		NOT = { has_country_flag = CmtFlagNowInMenu }
+	}
 }
+
 country_event = {
 	id = CrisisManagerMenu.4470
 	hide_window = yes
 	is_triggered_only = yes
 	is_test_event = yes
-	trigger = { always = no }
-	abort_trigger = { NOT = { has_country_flag = CmtFlagNowInMenu } }
+
+	trigger = {
+		always = no
+	}
+
+	abort_trigger = {
+		NOT = { has_country_flag = CmtFlagNowInMenu }
+	}
 }
+
 country_event = {
 	id = CrisisManagerMenu.4480
 	hide_window = yes
 	is_triggered_only = yes
 	is_test_event = yes
-	trigger = { always = no }
-	abort_trigger = { NOT = { has_country_flag = CmtFlagNowInMenu } }
+
+	trigger = {
+		always = no
+	}
+
+	abort_trigger = {
+		NOT = { has_country_flag = CmtFlagNowInMenu }
+	}
 }
+
 country_event = {
 	id = CrisisManagerMenu.4490
 	hide_window = yes
 	is_triggered_only = yes
 	is_test_event = yes
-	trigger = { always = no }
-	abort_trigger = { NOT = { has_country_flag = CmtFlagNowInMenu } }
+
+	trigger = {
+		always = no
+	}
+
+	abort_trigger = {
+		NOT = { has_country_flag = CmtFlagNowInMenu }
+	}
 }
 
 ###########################
 ### Guardians of Galaxy ###
 ###########################
-
 ### Probability of Guardians Awakening
+
 country_event = {
 	id = CrisisManagerMenu.4710
 	title = CrisisManagerMenu.4710.name
+
 	desc = {
 		text = CrisisManagerMenu.4710.desc1
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarGuardiansProbability value = 1 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarGuardiansProbability value = 1 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4710.desc2
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarGuardiansProbability value = 2 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarGuardiansProbability value = 2 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4710.desc3
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarGuardiansProbability value = 3 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarGuardiansProbability value = 3 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4710.desc4
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarGuardiansProbability value = 4 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarGuardiansProbability value = 4 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4710.desc
@@ -1861,6 +2849,7 @@ country_event = {
 			}
 		}
 	}
+
 	picture = GFX_evt_fallen_empire_awakes
 	is_triggered_only = yes
 
@@ -1870,13 +2859,22 @@ country_event = {
 				limit = { has_country_flag = CmtFlagGoBack }
 				remove_country_flag = CmtFlagGoBack
 				country_event = { id = CrisisManagerMenu.4000 }
-			} else_if = {
+			}
+			else_if = {
 				limit = { has_country_flag = CmtFlagIndividual }
 				country_event = { id = CrisisManagerMenu.1024 }
-			} else_if = {
-				limit = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarGuardiansProbability value = 1 } } }
+			}
+			else_if = {
+				limit = {
+					event_target:CmtGlobalVar = {
+						check_variable = { which = CmtVarGuardiansProbability value = 1 }
+					}
+				}
 				country_event = { id = CrisisManagerMenu.4750 }
-			} else = { country_event = { id = CrisisManagerMenu.4720 } }
+			}
+			else = {
+				country_event = { id = CrisisManagerMenu.4720 }
+			}
 		}
 	}
 
@@ -1887,51 +2885,92 @@ country_event = {
 	option = {
 		name = CrisisManagerMenu.4710a.name
 		custom_tooltip = CrisisManagerMenu.4710a.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarGuardiansProbability value = 1 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarGuardiansProbability value = 1 }
+			}
+		}
 	}
 	option = {
 		name = CrisisManagerMenu.4710b.name
 		custom_tooltip = CrisisManagerMenu.4710b.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarGuardiansProbability value = 2 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarGuardiansProbability value = 2 }
+			}
+		}
 	}
 	option = {
 		name = CrisisManagerMenu.4710c.name
 		custom_tooltip = CrisisManagerMenu.4710c.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarGuardiansProbability value = 3 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarGuardiansProbability value = 3 }
+			}
+		}
 	}
 	option = {
 		name = CrisisManagerMenu.4710d.name
 		custom_tooltip = CrisisManagerMenu.4710d.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarGuardiansProbability value = 4 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarGuardiansProbability value = 4 }
+			}
+		}
 	}
 	option = {
 		name = CmtTextGoBack.name
 		custom_tooltip = BLANK_STRING
-		trigger = { NOT = { has_country_flag = CmtFlagIndividual } }
-		hidden_effect = { set_country_flag = CmtFlagGoBack }
+		trigger = {
+			NOT = { has_country_flag = CmtFlagIndividual }
+		}
+		hidden_effect = {
+			set_country_flag = CmtFlagGoBack
+		}
 	}
-	abort_trigger = { NOT = { has_country_flag = CmtFlagNowInMenu } }
+
+	abort_trigger = {
+		NOT = { has_country_flag = CmtFlagNowInMenu }
+	}
 }
 
 ### Delay of Guardians Awakening
+
 country_event = {
 	id = CrisisManagerMenu.4720
 	title = CrisisManagerMenu.4720.name
+
 	desc = {
 		text = CrisisManagerMenu.4720.desc1
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarTimingAwakingGuardians value = 1 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarTimingAwakingGuardians value = 1 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4720.desc2
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarTimingAwakingGuardians value = 2 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarTimingAwakingGuardians value = 2 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4720.desc3
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarTimingAwakingGuardians value = 3 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarTimingAwakingGuardians value = 3 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4720.desc4
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarTimingAwakingGuardians value = 4 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarTimingAwakingGuardians value = 4 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4720.desc
@@ -1944,6 +2983,7 @@ country_event = {
 			}
 		}
 	}
+
 	picture = GFX_evt_fallen_empire_awakes
 	is_triggered_only = yes
 
@@ -1953,10 +2993,14 @@ country_event = {
 				limit = { has_country_flag = CmtFlagGoBack }
 				remove_country_flag = CmtFlagGoBack
 				country_event = { id = CrisisManagerMenu.4710 }
-			} else_if = {
+			}
+			else_if = {
 				limit = { has_country_flag = CmtFlagIndividual }
 				country_event = { id = CrisisManagerMenu.1024 }
-			} else = { country_event = { id = CrisisManagerMenu.4730 } }
+			}
+			else = {
+				country_event = { id = CrisisManagerMenu.4730 }
+			}
 		}
 	}
 
@@ -1967,59 +3011,108 @@ country_event = {
 	option = {
 		name = CrisisManagerMenu.4720a.name
 		custom_tooltip = CrisisManagerMenu.4720a.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarTimingAwakingGuardians value = 1 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarTimingAwakingGuardians value = 1 }
+			}
+		}
 	}
 	option = {
 		name = CrisisManagerMenu.4720b.name
 		custom_tooltip = CrisisManagerMenu.4720b.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarTimingAwakingGuardians value = 2 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarTimingAwakingGuardians value = 2 }
+			}
+		}
 	}
 	option = {
 		name = CrisisManagerMenu.4720c.name
 		custom_tooltip = CrisisManagerMenu.4720c.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarTimingAwakingGuardians value = 3 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarTimingAwakingGuardians value = 3 }
+			}
+		}
 	}
 	option = {
 		name = CrisisManagerMenu.4720d.name
 		custom_tooltip = CrisisManagerMenu.4720d.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarTimingAwakingGuardians value = 4 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarTimingAwakingGuardians value = 4 }
+			}
+		}
 	}
 	option = {
 		name = CmtTextGoBack.name
 		custom_tooltip = BLANK_STRING
-		trigger = { NOT = { has_country_flag = CmtFlagIndividual } }
-		hidden_effect = { set_country_flag = CmtFlagGoBack }
+		trigger = {
+			NOT = { has_country_flag = CmtFlagIndividual }
+		}
+		hidden_effect = {
+			set_country_flag = CmtFlagGoBack
+		}
 	}
-	abort_trigger = { NOT = { has_country_flag = CmtFlagNowInMenu } }
+
+	abort_trigger = {
+		NOT = { has_country_flag = CmtFlagNowInMenu }
+	}
 }
 
 ### Dual Guardians
+
 country_event = {
 	id = CrisisManagerMenu.4730
 	title = CrisisManagerMenu.4730.name
+
 	desc = {
 		text = CrisisManagerMenu.4730.desc1
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarDoubleGurdian value = 1 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarDoubleGurdian value = 1 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4730.desc11
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarDoubleGurdian value = 1.1 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarDoubleGurdian value = 1.1 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4730.desc12
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarDoubleGurdian value = 1.2 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarDoubleGurdian value = 1.2 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4730.desc2
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarDoubleGurdian value = 2 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarDoubleGurdian value = 2 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4730.desc3
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarDoubleGurdian value = 3 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarDoubleGurdian value = 3 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4730.desc4
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarDoubleGurdian value = 4 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarDoubleGurdian value = 4 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4730.desc
@@ -2032,6 +3125,7 @@ country_event = {
 			}
 		}
 	}
+
 	picture = GFX_evt_fallen_empire_awakes
 	is_triggered_only = yes
 
@@ -2041,10 +3135,14 @@ country_event = {
 				limit = { has_country_flag = CmtFlagGoBack }
 				remove_country_flag = CmtFlagGoBack
 				country_event = { id = CrisisManagerMenu.4720 }
-			} else_if = {
+			}
+			else_if = {
 				limit = { has_country_flag = CmtFlagIndividual }
 				country_event = { id = CrisisManagerMenu.1024 }
-			} else = { country_event = { id = CrisisManagerMenu.4740 } }
+			}
+			else = {
+				country_event = { id = CrisisManagerMenu.4740 }
+			}
 		}
 	}
 
@@ -2055,57 +3153,102 @@ country_event = {
 	option = {
 		name = CrisisManagerMenu.4730a.name
 		custom_tooltip = CrisisManagerMenu.4730a.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarDoubleGurdian value = 1 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarDoubleGurdian value = 1 }
+			}
+		}
 	}
 	option = {
 		name = "CrisisManagerMenu.4730a1.title"
 		custom_tooltip = CrisisManagerMenu.4730a1.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarDoubleGurdian value = 1.1 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarDoubleGurdian value = 1.1 }
+			}
+		}
 	}
 	option = {
 		name = "CrisisManagerMenu.4730a2.title"
 		custom_tooltip = CrisisManagerMenu.4730a2.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarDoubleGurdian value = 1.2 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarDoubleGurdian value = 1.2 }
+			}
+		}
 	}
 	option = {
 		name = "CrisisManagerMenu.4730b.title"
 		custom_tooltip = CrisisManagerMenu.4730b.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarDoubleGurdian value = 2 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarDoubleGurdian value = 2 }
+			}
+		}
 	}
 	option = {
 		name = "CrisisManagerMenu.4730c.title"
 		custom_tooltip = CrisisManagerMenu.4730c.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarDoubleGurdian value = 3 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarDoubleGurdian value = 3 }
+			}
+		}
 	}
 	option = {
 		name = "CrisisManagerMenu.4730d.title"
 		custom_tooltip = CrisisManagerMenu.4730d.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarDoubleGurdian value = 4 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarDoubleGurdian value = 4 }
+			}
+		}
 	}
 	option = {
 		name = CmtTextGoBack.name
 		custom_tooltip = BLANK_STRING
-		trigger = { NOT = { has_country_flag = CmtFlagIndividual } }
-		hidden_effect = { set_country_flag = CmtFlagGoBack }
+		trigger = {
+			NOT = { has_country_flag = CmtFlagIndividual }
+		}
+		hidden_effect = {
+			set_country_flag = CmtFlagGoBack
+		}
 	}
-	abort_trigger = { NOT = { has_country_flag = CmtFlagNowInMenu } }
+
+	abort_trigger = {
+		NOT = { has_country_flag = CmtFlagNowInMenu }
+	}
 }
 
 ### Worn-Out Guardians
+
 country_event = {
 	id = CrisisManagerMenu.4740
 	title = CrisisManagerMenu.4740.name
+
 	desc = {
 		text = CrisisManagerMenu.4740.desc1
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarGuardianWornOut value = 1 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarGuardianWornOut value = 1 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4740.desc2
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarGuardianWornOut value = 2 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarGuardianWornOut value = 2 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4740.desc3
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarGuardianWornOut value = 3 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarGuardianWornOut value = 3 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4740.desc
@@ -2119,6 +3262,7 @@ country_event = {
 			}
 		}
 	}
+
 	picture = GFX_evt_fallen_empire_awakes
 	is_triggered_only = yes
 
@@ -2128,10 +3272,14 @@ country_event = {
 				limit = { has_country_flag = CmtFlagGoBack }
 				remove_country_flag = CmtFlagGoBack
 				country_event = { id = CrisisManagerMenu.4730 }
-			} else_if = {
+			}
+			else_if = {
 				limit = { has_country_flag = CmtFlagIndividual }
 				country_event = { id = CrisisManagerMenu.1024 }
-			} else = { country_event = { id = CrisisManagerMenu.4750 } }
+			}
+			else = {
+				country_event = { id = CrisisManagerMenu.4750 }
+			}
 		}
 	}
 
@@ -2142,46 +3290,83 @@ country_event = {
 	option = {
 		name = CrisisManagerMenu.4740a.name
 		custom_tooltip = BLANK_STRING
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarGuardianWornOut value = 1 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarGuardianWornOut value = 1 }
+			}
+		}
 	}
 	option = {
 		name = "CrisisManagerMenu.4740b.title"
 		custom_tooltip = CrisisManagerMenu.4740b.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarGuardianWornOut value = 2 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarGuardianWornOut value = 2 }
+			}
+		}
 	}
 	option = {
 		name = CrisisManagerMenu.4740c.name
 		custom_tooltip = CrisisManagerMenu.4740c.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarGuardianWornOut value = 3 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarGuardianWornOut value = 3 }
+			}
+		}
 	}
 	option = {
 		name = CmtTextGoBack.name
 		custom_tooltip = BLANK_STRING
-		trigger = { NOT = { has_country_flag = CmtFlagIndividual } }
-		hidden_effect = { set_country_flag = CmtFlagGoBack }
+		trigger = {
+			NOT = { has_country_flag = CmtFlagIndividual }
+		}
+		hidden_effect = {
+			set_country_flag = CmtFlagGoBack
+		}
 	}
-	abort_trigger = { NOT = { has_country_flag = CmtFlagNowInMenu } }
+
+	abort_trigger = {
+		NOT = { has_country_flag = CmtFlagNowInMenu }
+	}
 }
 
 ### Awakening of Fallen Machine Empire.
+
 country_event = {
 	id = CrisisManagerMenu.4750
 	title = CrisisManagerMenu.4750.name
+
 	desc = {
 		text = CrisisManagerMenu.4750.desc1
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarMechFeAwaking value = 1 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarMechFeAwaking value = 1 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4750.desc2
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarMechFeAwaking value = 2 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarMechFeAwaking value = 2 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4750.desc3
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarMechFeAwaking value = 3 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarMechFeAwaking value = 3 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4750.desc4
-		exclusive_trigger = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarMechFeAwaking value = 4 } } }
+		exclusive_trigger = {
+			event_target:CmtGlobalVar = {
+				check_variable = { which = CmtVarMechFeAwaking value = 4 }
+			}
+		}
 	}
 	desc = {
 		text = CrisisManagerMenu.4750.desc
@@ -2194,6 +3379,7 @@ country_event = {
 			}
 		}
 	}
+
 	picture = GFX_evt_fallen_empire_awakes
 	is_triggered_only = yes
 
@@ -2203,13 +3389,24 @@ country_event = {
 				limit = { has_country_flag = CmtFlagGoBack }
 				remove_country_flag = CmtFlagGoBack
 				if = {
-					limit = { event_target:CmtGlobalVar = { check_variable = { which = CmtVarGuardiansProbability value = 1 } } }
+					limit = {
+						event_target:CmtGlobalVar = {
+							check_variable = { which = CmtVarGuardiansProbability value = 1 }
+						}
+					}
 					country_event = { id = CrisisManagerMenu.4710 }
-				} else = { country_event = { id = CrisisManagerMenu.4740 } }
-			} else_if = {
+				}
+				else = {
+					country_event = { id = CrisisManagerMenu.4740 }
+				}
+			}
+			else_if = {
 				limit = { has_country_flag = CmtFlagIndividual }
 				country_event = { id = CrisisManagerMenu.1024 }
-			} else = { country_event = { id = CrisisManagerMenu.4000 } }
+			}
+			else = {
+				country_event = { id = CrisisManagerMenu.4000 }
+			}
 		}
 	}
 
@@ -2220,58 +3417,97 @@ country_event = {
 	option = {
 		name = CrisisManagerMenu.4750a.name
 		custom_tooltip = CrisisManagerMenu.4750a.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarMechFeAwaking value = 1 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarMechFeAwaking value = 1 }
+			}
+		}
 	}
 	option = {
 		name = CrisisManagerMenu.4750b.name
 		custom_tooltip = CrisisManagerMenu.4750b.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarMechFeAwaking value = 2 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarMechFeAwaking value = 2 }
+			}
+		}
 	}
 	option = {
 		name = CrisisManagerMenu.4750c.name
 		custom_tooltip = CrisisManagerMenu.4750c.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarMechFeAwaking value = 3 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarMechFeAwaking value = 3 }
+			}
+		}
 	}
 	option = {
 		name = CrisisManagerMenu.4750d.name
 		custom_tooltip = CrisisManagerMenu.4750d.tooltip
-		hidden_effect = { event_target:CmtGlobalVar = { set_variable = { which = CmtVarMechFeAwaking value = 4 } } }
+		hidden_effect = {
+			event_target:CmtGlobalVar = {
+				set_variable = { which = CmtVarMechFeAwaking value = 4 }
+			}
+		}
 	}
 	option = {
 		name = CmtTextGoBack.name
 		custom_tooltip = BLANK_STRING
-		trigger = { NOT = { has_country_flag = CmtFlagIndividual } }
-		hidden_effect = { set_country_flag = CmtFlagGoBack }
+		trigger = {
+			NOT = { has_country_flag = CmtFlagIndividual }
+		}
+		hidden_effect = {
+			set_country_flag = CmtFlagGoBack
+		}
 	}
-	abort_trigger = { NOT = { has_country_flag = CmtFlagNowInMenu } }
+
+	abort_trigger = {
+		NOT = { has_country_flag = CmtFlagNowInMenu }
+	}
 }
 
 ### Dummy
+
 country_event = {
 	id = CrisisManagerMenu.4760
 	hide_window = yes
 	is_triggered_only = yes
 	is_test_event = yes
-	trigger = { always = no }
+
+	trigger = {
+		always = no
+	}
 }
+
 country_event = {
 	id = CrisisManagerMenu.4770
 	hide_window = yes
 	is_triggered_only = yes
 	is_test_event = yes
-	trigger = { always = no }
+
+	trigger = {
+		always = no
+	}
 }
+
 country_event = {
 	id = CrisisManagerMenu.4780
 	hide_window = yes
 	is_triggered_only = yes
 	is_test_event = yes
-	trigger = { always = no }
+
+	trigger = {
+		always = no
+	}
 }
+
 country_event = {
 	id = CrisisManagerMenu.4790
 	hide_window = yes
 	is_triggered_only = yes
 	is_test_event = yes
-	trigger = { always = no }
+
+	trigger = {
+		always = no
+	}
 }

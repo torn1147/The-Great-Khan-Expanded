@@ -5,7 +5,6 @@
 # These triggers count all buildings that could occupy a zone's slots (planet-wide)
 # and check against the 3-slot (1 zone) or 6-slot (2+ zones) capacity.
 #########################################
-
 # True if planet has 2+ research-type zones (each adds 3 building slots)
 khan_has_multiple_research_zones = {
 	calc_true_if = {
@@ -88,12 +87,10 @@ khan_research_slots_available = {
 	OR = {
 		AND = {
 			khan_has_multiple_research_zones = yes
-			NOT = { khan_research_count_ge_6 = yes }
+			khan_research_count_ge_6 = no
 		}
-		AND = {
-			NOT = { khan_has_multiple_research_zones = yes }
-			NOT = { khan_research_count_ge_3 = yes }
-		}
+		khan_has_multiple_research_zones = yes
+		khan_research_count_ge_3 = yes
 	}
 }
 
@@ -177,12 +174,10 @@ khan_archives_slots_available = {
 	OR = {
 		AND = {
 			khan_has_multiple_research_zones = yes
-			NOT = { khan_archives_count_ge_6 = yes }
+			khan_archives_count_ge_6 = no
 		}
-		AND = {
-			NOT = { khan_has_multiple_research_zones = yes }
-			NOT = { khan_archives_count_ge_3 = yes }
-		}
+		khan_has_multiple_research_zones = yes
+		khan_archives_count_ge_3 = yes
 	}
 }
 
@@ -241,14 +236,10 @@ khan_foundry_count_ge_6 = {
 
 khan_foundry_slots_available = {
 	OR = {
-		AND = {
-			num_zones = { type = zone_foundry value >= 2 }
-			NOT = { khan_foundry_count_ge_6 = yes }
-		}
-		AND = {
-			NOT = { num_zones = { type = zone_foundry value >= 2 } }
-			NOT = { khan_foundry_count_ge_3 = yes }
-		}
+		num_zones = { type = zone_foundry value < 2 }
+		khan_foundry_count_ge_6 = yes
+		num_zones = { type = zone_foundry value >= 2 }
+		khan_foundry_count_ge_3 = yes
 	}
 }
 
@@ -306,14 +297,10 @@ khan_factory_count_ge_6 = {
 
 khan_factory_slots_available = {
 	OR = {
-		AND = {
-			num_zones = { type = zone_factory value >= 2 }
-			NOT = { khan_factory_count_ge_6 = yes }
-		}
-		AND = {
-			NOT = { num_zones = { type = zone_factory value >= 2 } }
-			NOT = { khan_factory_count_ge_3 = yes }
-		}
+		num_zones = { type = zone_factory value < 2 }
+		khan_factory_count_ge_6 = yes
+		num_zones = { type = zone_factory value >= 2 }
+		khan_factory_count_ge_3 = yes
 	}
 }
 
@@ -357,14 +344,10 @@ khan_fortress_count_ge_6 = {
 
 khan_fortress_slots_available = {
 	OR = {
-		AND = {
-			num_zones = { type = zone_fortress value >= 2 }
-			NOT = { khan_fortress_count_ge_6 = yes }
-		}
-		AND = {
-			NOT = { num_zones = { type = zone_fortress value >= 2 } }
-			NOT = { khan_fortress_count_ge_3 = yes }
-		}
+		num_zones = { type = zone_fortress value < 2 }
+		khan_fortress_count_ge_6 = yes
+		num_zones = { type = zone_fortress value >= 2 }
+		khan_fortress_count_ge_3 = yes
 	}
 }
 
@@ -402,14 +385,10 @@ khan_trade_count_ge_6 = {
 
 khan_trade_slots_available = {
 	OR = {
-		AND = {
-			num_zones = { type = zone_trade value >= 2 }
-			NOT = { khan_trade_count_ge_6 = yes }
-		}
-		AND = {
-			NOT = { num_zones = { type = zone_trade value >= 2 } }
-			NOT = { khan_trade_count_ge_3 = yes }
-		}
+		num_zones = { type = zone_trade value < 2 }
+		khan_trade_count_ge_6 = yes
+		num_zones = { type = zone_trade value >= 2 }
+		khan_trade_count_ge_3 = yes
 	}
 }
 
@@ -461,13 +440,9 @@ khan_unity_count_ge_6 = {
 
 khan_unity_slots_available = {
 	OR = {
-		AND = {
-			num_zones = { type = zone_unity value >= 2 }
-			NOT = { khan_unity_count_ge_6 = yes }
-		}
-		AND = {
-			NOT = { num_zones = { type = zone_unity value >= 2 } }
-			NOT = { khan_unity_count_ge_3 = yes }
-		}
+		num_zones = { type = zone_unity value < 2 }
+		khan_unity_count_ge_6 = yes
+		num_zones = { type = zone_unity value >= 2 }
+		khan_unity_count_ge_3 = yes
 	}
 }

@@ -2,7 +2,7 @@
 #############
 #	POWER	#
 #############
-#scout
+# scout
 # pirate_corvette marauder_corvette
 # pirate_destroyer marauder_destroyer
 # pirate_cruiser marauder_cruiser
@@ -12,99 +12,114 @@
 #############
 #	POWER	#
 #############
-@corvette_cost_1 =	10
-@corvette_cost_2 =	13
-@corvette_cost_3 =	17
-@corvette_cost_4 =	22
-@corvette_cost_5 =	28
-@corvette_cost_6 =	37
-@corvette_power_1 =	75
-@corvette_power_2 =	100
-@corvette_power_3 =	130
-@corvette_power_4 =	170
-@corvette_power_5 =	220
-@corvette_power_6 =	285
-@pirate_destroyer_power_1 =	130
-@pirate_destroyer_power_2 =	170
-@pirate_destroyer_power_3 =	225
-@pirate_destroyer_power_4 =	305
-@pirate_destroyer_power_5 =	410
-@pirate_destroyer_power_6 =	530
-@pirate_cruiser_power_1 =	260
-@pirate_cruiser_power_2 =	340
-@pirate_cruiser_power_3 =	460
-@pirate_cruiser_power_4 =	600
-@pirate_cruiser_power_5 =	770
-@pirate_cruiser_power_6 =	1000
+@corvette_cost_1 = 10
+@corvette_cost_2 = 13
+@corvette_cost_3 = 17
+@corvette_cost_4 = 22
+@corvette_cost_5 = 28
+@corvette_cost_6 = 37
+@corvette_power_1 = 75
+@corvette_power_2 = 100
+@corvette_power_3 = 130
+@corvette_power_4 = 170
+@corvette_power_5 = 220
+@corvette_power_6 = 285
+@pirate_destroyer_power_1 = 130
+@pirate_destroyer_power_2 = 170
+@pirate_destroyer_power_3 = 225
+@pirate_destroyer_power_4 = 305
+@pirate_destroyer_power_5 = 410
+@pirate_destroyer_power_6 = 530
+@pirate_cruiser_power_1 = 260
+@pirate_cruiser_power_2 = 340
+@pirate_cruiser_power_3 = 460
+@pirate_cruiser_power_4 = 600
+@pirate_cruiser_power_5 = 770
+@pirate_cruiser_power_6 = 1000
 # Battleships shoud be here
-@galleon_power_1 =	1000	# 1100
-@galleon_power_2 =	1350	# 1450
-@galleon_power_3 =	1800	# 1900
-@galleon_power_4 =	2400	# 2500
-@galleon_power_5 =	2900	# 3200
-@galleon_power_6 =	3900	# 4200
-@pirate_platform_power_1 =	180
-@pirate_platform_power_2 =	240
-@pirate_platform_power_3 =	320
-@pirate_platform_power_4 =	420
-@pirate_platform_power_5 =	555
-@pirate_platform_power_6 =	720
+@galleon_power_1 = 1000	# 1100
+@galleon_power_2 = 1350	# 1450
+@galleon_power_3 = 1800	# 1900
+@galleon_power_4 = 2400	# 2500
+@galleon_power_5 = 2900	# 3200
+@galleon_power_6 = 3900	# 4200
+@pirate_platform_power_1 = 180
+@pirate_platform_power_2 = 240
+@pirate_platform_power_3 = 320
+@pirate_platform_power_4 = 420
+@pirate_platform_power_5 = 555
+@pirate_platform_power_6 = 720
+
 #############
 #	COST	#
 #############
-@pirate_destroyer_cost_1 =	20
-@pirate_destroyer_cost_2 =	26
-@pirate_destroyer_cost_3 =	34
-@pirate_destroyer_cost_4 =	44
-@pirate_destroyer_cost_5 =	56
-@pirate_destroyer_cost_6 =	74
-@pirate_cruiser_cost_1 =	40
-@pirate_cruiser_cost_2 =	52
-@pirate_cruiser_cost_3 =	68
-@pirate_cruiser_cost_4 =	88
-@pirate_cruiser_cost_5 =	112
-@pirate_cruiser_cost_6 =	148
+@pirate_destroyer_cost_1 = 20
+@pirate_destroyer_cost_2 = 26
+@pirate_destroyer_cost_3 = 34
+@pirate_destroyer_cost_4 = 44
+@pirate_destroyer_cost_5 = 56
+@pirate_destroyer_cost_6 = 74
+@pirate_cruiser_cost_1 = 40
+@pirate_cruiser_cost_2 = 52
+@pirate_cruiser_cost_3 = 68
+@pirate_cruiser_cost_4 = 88
+@pirate_cruiser_cost_5 = 112
+@pirate_cruiser_cost_6 = 148
 # Battleships shoud be here
-@galleon_cost_1 =	160 # 160
-@galleon_cost_2 =	208 # 208
-@galleon_cost_3 =	272 # 272
-@galleon_cost_4 =	352 # 352
-@galleon_cost_5 =	448 # 448
-@galleon_cost_6 =	592 # 592
-@pirate_platform_cost_1 =	38
-@pirate_platform_cost_2 =	48
-@pirate_platform_cost_3 =	58
-@pirate_platform_cost_4 =	68
-@pirate_platform_cost_5 =	78
-@pirate_platform_cost_6 =	88
+@galleon_cost_1 = 160 # 160
+@galleon_cost_2 = 208 # 208
+@galleon_cost_3 = 272 # 272
+@galleon_cost_4 = 352 # 352
+@galleon_cost_5 = 448 # 448
+@galleon_cost_6 = 592 # 592
+@pirate_platform_cost_1 = 38
+@pirate_platform_cost_2 = 48
+@pirate_platform_cost_3 = 58
+@pirate_platform_cost_4 = 68
+@pirate_platform_cost_5 = 78
+@pirate_platform_cost_6 = 88
+
 ################
 # - REACTORS - #
 ################
 ################
 ####################	Fission Reactors - PIRATE	####################
 ################
+
 utility_component_template = {
 	key = "LITTLE_FISSION_REACTOR"
 	size = small
 	icon = "GFX_ship_part_reactor_1"
 	icon_frame = 1
 	power = @corvette_power_1
+
 	resources = {
 		category = ship_components
-		cost = { alloys = @corvette_cost_1 }
+		cost = {
+			alloys = @corvette_cost_1
+		}
 		upkeep = {
 			energy = 0.1
 			alloys = 0.01
 		}
 	}
-	prerequisites = { "tech_fission_power" }
+
+	prerequisites = {
+		"tech_fission_power"
+	}
+
 	component_set = "power_core"
+
 	size_restriction = {
 		pirate_corvette
 		marauder_corvette
 	}
+
 	upgrades_to = "LITTLE_FUSION_REACTOR"
-	ai_weight = { weight = 1 }
+
+	ai_weight = {
+		weight = 1
+	}
 }
 
 utility_component_template = {
@@ -113,22 +128,34 @@ utility_component_template = {
 	icon = "GFX_ship_part_reactor_1"
 	icon_frame = 1
 	power = @pirate_destroyer_power_1
+
 	resources = {
 		category = ship_components
-		cost = { alloys = @pirate_destroyer_cost_1 }
+		cost = {
+			alloys = @pirate_destroyer_cost_1
+		}
 		upkeep = {
 			energy = 0.2
 			alloys = 0.02
 		}
 	}
-	prerequisites = { "tech_fission_power" }
+
+	prerequisites = {
+		"tech_fission_power"
+	}
+
 	component_set = "power_core"
+
 	size_restriction = {
 		pirate_destroyer
 		marauder_destroyer
 	}
+
 	upgrades_to = "PIRATE_DESTROYER_FUSION_REACTOR"
-	ai_weight = { weight = 1 }
+
+	ai_weight = {
+		weight = 1
+	}
 }
 
 utility_component_template = {
@@ -137,22 +164,34 @@ utility_component_template = {
 	icon = "GFX_ship_part_reactor_1"
 	icon_frame = 1
 	power = @pirate_cruiser_power_1
+
 	resources = {
 		category = ship_components
-		cost = { alloys = @pirate_cruiser_cost_1 }
+		cost = {
+			alloys = @pirate_cruiser_cost_1
+		}
 		upkeep = {
 			energy = 0.4
 			alloys = 0.04
 		}
 	}
-	prerequisites = { "tech_fission_power" }
+
+	prerequisites = {
+		"tech_fission_power"
+	}
+
 	component_set = "power_core"
+
 	size_restriction = {
 		pirate_cruiser
 		marauder_cruiser
 	}
+
 	upgrades_to = "PIRATE_CRUISER_FUSION_REACTOR"
-	ai_weight = { weight = 1 }
+
+	ai_weight = {
+		weight = 1
+	}
 }
 
 utility_component_template = {
@@ -161,22 +200,34 @@ utility_component_template = {
 	icon = "GFX_ship_part_reactor_1"
 	icon_frame = 1
 	power = @galleon_power_1
+
 	resources = {
 		category = ship_components
-		cost = { alloys = @galleon_cost_1 }
+		cost = {
+			alloys = @galleon_cost_1
+		}
 		upkeep = {
 			energy = 1.6
 			alloys = 0.16
 		}
 	}
-	prerequisites = { "tech_fission_power" }
+
+	prerequisites = {
+		"tech_fission_power"
+	}
+
 	component_set = "power_core"
+
 	size_restriction = {
 		galleon
 		marauder_galleon
 	}
+
 	upgrades_to = "GALLEON_FUSION_REACTOR"
-	ai_weight = { weight = 1 }
+
+	ai_weight = {
+		weight = 1
+	}
 }
 
 utility_component_template = {
@@ -185,54 +236,79 @@ utility_component_template = {
 	icon = "GFX_ship_part_reactor_1"
 	icon_frame = 1
 	power = @pirate_platform_power_1
+
 	resources = {
 		category = ship_components
-		cost = { alloys = @pirate_platform_cost_1 }
+		cost = {
+			alloys = @pirate_platform_cost_1
+		}
 		upkeep = {
 			energy = 0.8
 			alloys = 0.08
 		}
 	}
-	prerequisites = { "tech_fission_power" }
+
+	prerequisites = {
+		"tech_fission_power"
+	}
+
 	class_restriction = {
 		shipclass_military_station
 		shipclass_military_special
 		shipclass_starbase
 	}
+
 	size_restriction = {
 		pirate_station
 		marauder_station
 	}
+
 	component_set = "power_core"
 	upgrades_to = "PIRATE_PLATFORM_FUSION_REACTOR"
-	ai_weight = { weight = 1 }
+
+	ai_weight = {
+		weight = 1
+	}
 }
 
 ###############
 ####################	Fusion Reactors Pirate	####################
 ###############
+
 utility_component_template = {
 	key = "LITTLE_FUSION_REACTOR"
 	size = small
 	icon = "GFX_ship_part_reactor_2"
 	icon_frame = 1
 	power = @corvette_power_2
+
 	resources = {
 		category = ship_components
-		cost = { alloys = @corvette_cost_2 }
+		cost = {
+			alloys = @corvette_cost_2
+		}
 		upkeep = {
 			energy = 0.13
 			alloys = 0.013
 		}
 	}
-	prerequisites = { "tech_fusion_power" }
+
+	prerequisites = {
+		"tech_fusion_power"
+	}
+
 	component_set = "power_core"
+
 	size_restriction = {
 		pirate_corvette
 		marauder_corvette
 	}
+
 	upgrades_to = "LITTLE_COLD_FUSION_REACTOR"
-	ai_weight = { weight = 2 }
+
+	ai_weight = {
+		weight = 2
+	}
 }
 
 utility_component_template = {
@@ -241,22 +317,34 @@ utility_component_template = {
 	icon = "GFX_ship_part_reactor_2"
 	icon_frame = 1
 	power = @pirate_destroyer_power_2
+
 	resources = {
 		category = ship_components
-		cost = { alloys = @pirate_destroyer_cost_2 }
+		cost = {
+			alloys = @pirate_destroyer_cost_2
+		}
 		upkeep = {
 			energy = 0.26
 			alloys = 0.026
 		}
 	}
-	prerequisites = { "tech_fusion_power" }
+
+	prerequisites = {
+		"tech_fusion_power"
+	}
+
 	component_set = "power_core"
+
 	size_restriction = {
 		pirate_destroyer
 		marauder_destroyer
 	}
+
 	upgrades_to = "PIRATE_DESTROYER_COLD_FUSION_REACTOR"
-	ai_weight = { weight = 2 }
+
+	ai_weight = {
+		weight = 2
+	}
 }
 
 utility_component_template = {
@@ -265,22 +353,34 @@ utility_component_template = {
 	icon = "GFX_ship_part_reactor_2"
 	icon_frame = 1
 	power = @pirate_cruiser_power_2
+
 	resources = {
 		category = ship_components
-		cost = { alloys = @pirate_cruiser_cost_2 }
+		cost = {
+			alloys = @pirate_cruiser_cost_2
+		}
 		upkeep = {
 			energy = 0.52
 			alloys = 0.052
 		}
 	}
-	prerequisites = { "tech_fusion_power" }
+
+	prerequisites = {
+		"tech_fusion_power"
+	}
+
 	component_set = "power_core"
+
 	size_restriction = {
 		pirate_cruiser
 		marauder_cruiser
 	}
+
 	upgrades_to = "PIRATE_CRUISER_COLD_FUSION_REACTOR"
-	ai_weight = { weight = 2 }
+
+	ai_weight = {
+		weight = 2
+	}
 }
 
 utility_component_template = {
@@ -289,22 +389,34 @@ utility_component_template = {
 	icon = "GFX_ship_part_reactor_2"
 	icon_frame = 1
 	power = @galleon_power_2
+
 	resources = {
 		category = ship_components
-		cost = { alloys = @galleon_cost_2 }
+		cost = {
+			alloys = @galleon_cost_2
+		}
 		upkeep = {
 			energy = 2.08
 			alloys = 0.208
 		}
 	}
-	prerequisites = { "tech_fusion_power" }
+
+	prerequisites = {
+		"tech_fusion_power"
+	}
+
 	component_set = "power_core"
+
 	size_restriction = {
 		galleon
 		marauder_galleon
 	}
+
 	upgrades_to = "GALLEON_COLD_FUSION_REACTOR"
-	ai_weight = { weight = 2 }
+
+	ai_weight = {
+		weight = 2
+	}
 }
 
 utility_component_template = {
@@ -313,54 +425,79 @@ utility_component_template = {
 	icon = "GFX_ship_part_reactor_2"
 	icon_frame = 1
 	power = @pirate_platform_power_2
+
 	resources = {
 		category = ship_components
-		cost = { alloys = @pirate_platform_cost_2 }
+		cost = {
+			alloys = @pirate_platform_cost_2
+		}
 		upkeep = {
 			energy = 0.88
 			alloys = 0.12
 		}
 	}
-	prerequisites = { "tech_fusion_power" }
+
+	prerequisites = {
+		"tech_fusion_power"
+	}
+
 	class_restriction = {
 		shipclass_military_station
 		shipclass_military_special
 		shipclass_starbase
 	}
+
 	size_restriction = {
 		pirate_station
 		marauder_station
 	}
+
 	component_set = "power_core"
 	upgrades_to = "PIRATE_PLATFORM_COLD_FUSION_REACTOR"
-	ai_weight = { weight = 2 }
+
+	ai_weight = {
+		weight = 2
+	}
 }
 
 ################
 ####################	Cold Fusion Reactors PIRATE	####################
 ################
+
 utility_component_template = {
 	key = "LITTLE_COLD_FUSION_REACTOR"
 	size = small
 	icon = "GFX_ship_part_reactor_3"
 	icon_frame = 1
 	power = @corvette_power_3
+
 	resources = {
 		category = ship_components
-		cost = { alloys = @corvette_cost_3 }
+		cost = {
+			alloys = @corvette_cost_3
+		}
 		upkeep = {
 			energy = 0.17
 			alloys = 0.017
 		}
 	}
-	prerequisites = { "tech_cold_fusion_power" }
+
+	prerequisites = {
+		"tech_cold_fusion_power"
+	}
+
 	component_set = "power_core"
+
 	size_restriction = {
 		pirate_corvette
 		marauder_corvette
 	}
+
 	upgrades_to = "LITTLE_ANTIMATTER_REACTOR"
-	ai_weight = { weight = 3 }
+
+	ai_weight = {
+		weight = 3
+	}
 }
 
 utility_component_template = {
@@ -369,22 +506,34 @@ utility_component_template = {
 	icon = "GFX_ship_part_reactor_3"
 	icon_frame = 1
 	power = @pirate_destroyer_power_3
+
 	resources = {
 		category = ship_components
-		cost = { alloys = @pirate_destroyer_cost_3 }
+		cost = {
+			alloys = @pirate_destroyer_cost_3
+		}
 		upkeep = {
 			energy = 0.34
 			alloys = 0.034
 		}
 	}
-	prerequisites = { "tech_cold_fusion_power" }
+
+	prerequisites = {
+		"tech_cold_fusion_power"
+	}
+
 	component_set = "power_core"
+
 	size_restriction = {
 		pirate_destroyer
 		marauder_destroyer
 	}
+
 	upgrades_to = "PIRATE_DESTROYER_ANTIMATTER_REACTOR"
-	ai_weight = { weight = 3 }
+
+	ai_weight = {
+		weight = 3
+	}
 }
 
 utility_component_template = {
@@ -393,22 +542,34 @@ utility_component_template = {
 	icon = "GFX_ship_part_reactor_3"
 	icon_frame = 1
 	power = @pirate_cruiser_power_3
+
 	resources = {
 		category = ship_components
-		cost = { alloys = @pirate_cruiser_cost_3 }
+		cost = {
+			alloys = @pirate_cruiser_cost_3
+		}
 		upkeep = {
 			energy = 0.68
 			alloys = 0.068
 		}
 	}
-	prerequisites = { "tech_cold_fusion_power" }
+
+	prerequisites = {
+		"tech_cold_fusion_power"
+	}
+
 	component_set = "power_core"
+
 	size_restriction = {
 		pirate_cruiser
 		marauder_cruiser
 	}
+
 	upgrades_to = "PIRATE_CRUISER_ANTIMATTER_REACTOR"
-	ai_weight = { weight = 3 }
+
+	ai_weight = {
+		weight = 3
+	}
 }
 
 utility_component_template = {
@@ -417,22 +578,34 @@ utility_component_template = {
 	icon = "GFX_ship_part_reactor_3"
 	icon_frame = 1
 	power = @galleon_power_3
+
 	resources = {
 		category = ship_components
-		cost = { alloys = @galleon_cost_3 }
+		cost = {
+			alloys = @galleon_cost_3
+		}
 		upkeep = {
 			energy = 2.7
 			alloys = 0.27
 		}
 	}
-	prerequisites = { "tech_cold_fusion_power" }
+
+	prerequisites = {
+		"tech_cold_fusion_power"
+	}
+
 	component_set = "power_core"
+
 	size_restriction = {
 		galleon
 		marauder_galleon
 	}
+
 	upgrades_to = "GALLEON_ANTIMATTER_REACTOR"
-	ai_weight = { weight = 3 }
+
+	ai_weight = {
+		weight = 3
+	}
 }
 
 utility_component_template = {
@@ -441,54 +614,80 @@ utility_component_template = {
 	icon = "GFX_ship_part_reactor_3"
 	icon_frame = 1
 	power = @pirate_platform_power_3
+
 	resources = {
 		category = ship_components
-		cost = { alloys = @pirate_platform_cost_3 }
+		cost = {
+			alloys = @pirate_platform_cost_3
+		}
 		upkeep = {
 			energy = 0.26
 			alloys = 0.026
 		}
 	}
-	prerequisites = { "tech_cold_fusion_power" }
+
+	prerequisites = {
+		"tech_cold_fusion_power"
+	}
+
 	component_set = "power_core"
+
 	class_restriction = {
 		shipclass_military_station
 		shipclass_military_special
 		shipclass_starbase
 	}
+
 	size_restriction = {
 		pirate_station
 		marauder_station
 	}
+
 	upgrades_to = "PIRATE_PLATFORM_ANTIMATTER_REACTOR"
-	ai_weight = { weight = 3 }
+
+	ai_weight = {
+		weight = 3
+	}
 }
 
 ###############
 ####################	Antimatter Reactors PIRATE	####################
 ###############
+
 utility_component_template = {
 	key = "LITTLE_ANTIMATTER_REACTOR"
 	size = small
 	icon = "GFX_ship_part_reactor_4"
 	icon_frame = 1
 	power = @corvette_power_4
+
 	resources = {
 		category = ship_components
-		cost = { alloys = @corvette_cost_4 }
+		cost = {
+			alloys = @corvette_cost_4
+		}
 		upkeep = {
 			energy = 0.22
 			alloys = 0.022
 		}
 	}
-	prerequisites = { "tech_antimatter_power" }
+
+	prerequisites = {
+		"tech_antimatter_power"
+	}
+
 	component_set = "power_core"
+
 	size_restriction = {
 		pirate_corvette
 		marauder_corvette
 	}
+
 	upgrades_to = "LITTLE_ZERO_POINT_REACTOR"
-	ai_weight = { weight = 4 }
+
+	ai_weight = {
+		weight = 4
+	}
 }
 
 utility_component_template = {
@@ -497,22 +696,34 @@ utility_component_template = {
 	icon = "GFX_ship_part_reactor_4"
 	icon_frame = 1
 	power = @pirate_destroyer_power_4
+
 	resources = {
 		category = ship_components
-		cost = { alloys = @pirate_destroyer_cost_4 }
+		cost = {
+			alloys = @pirate_destroyer_cost_4
+		}
 		upkeep = {
 			energy = 0.44
 			alloys = 0.044
 		}
 	}
-	prerequisites = { "tech_antimatter_power" }
+
+	prerequisites = {
+		"tech_antimatter_power"
+	}
+
 	component_set = "power_core"
+
 	size_restriction = {
 		pirate_destroyer
 		marauder_destroyer
 	}
+
 	upgrades_to = "PIRATE_DESTROYER_ZERO_POINT_REACTOR"
-	ai_weight = { weight = 4 }
+
+	ai_weight = {
+		weight = 4
+	}
 }
 
 utility_component_template = {
@@ -521,22 +732,34 @@ utility_component_template = {
 	icon = "GFX_ship_part_reactor_4"
 	icon_frame = 1
 	power = @pirate_cruiser_power_4
+
 	resources = {
 		category = ship_components
-		cost = { alloys = @pirate_cruiser_cost_4 }
+		cost = {
+			alloys = @pirate_cruiser_cost_4
+		}
 		upkeep = {
 			energy = 0.88
 			alloys = 0.088
 		}
 	}
-	prerequisites = { "tech_antimatter_power" }
+
+	prerequisites = {
+		"tech_antimatter_power"
+	}
+
 	component_set = "power_core"
+
 	size_restriction = {
 		pirate_cruiser
 		marauder_cruiser
 	}
+
 	upgrades_to = "PIRATE_CRUISER_ZERO_POINT_REACTOR"
-	ai_weight = { weight = 4 }
+
+	ai_weight = {
+		weight = 4
+	}
 }
 
 utility_component_template = {
@@ -545,22 +768,34 @@ utility_component_template = {
 	icon = "GFX_ship_part_reactor_4"
 	icon_frame = 1
 	power = @galleon_power_4
+
 	resources = {
 		category = ship_components
-		cost = { alloys = @galleon_cost_4 }
+		cost = {
+			alloys = @galleon_cost_4
+		}
 		upkeep = {
 			energy = 3.51
 			alloys = 0.351
 		}
 	}
-	prerequisites = { "tech_antimatter_power" }
+
+	prerequisites = {
+		"tech_antimatter_power"
+	}
+
 	component_set = "power_core"
+
 	size_restriction = {
 		galleon
 		marauder_galleon
 	}
+
 	upgrades_to = "GALLEON_ZERO_POINT_REACTOR"
-	ai_weight = { weight = 4 }
+
+	ai_weight = {
+		weight = 4
+	}
 }
 
 utility_component_template = {
@@ -569,54 +804,80 @@ utility_component_template = {
 	icon = "GFX_ship_part_reactor_4"
 	icon_frame = 1
 	power = @pirate_platform_power_4
+
 	resources = {
 		category = ship_components
-		cost = { alloys = @pirate_platform_cost_4 }
+		cost = {
+			alloys = @pirate_platform_cost_4
+		}
 		upkeep = {
 			energy = 0.44
 			alloys = 0.044
 		}
 	}
-	prerequisites = { "tech_antimatter_power" }
+
+	prerequisites = {
+		"tech_antimatter_power"
+	}
+
 	component_set = "power_core"
+
 	class_restriction = {
 		shipclass_military_station
 		shipclass_military_special
 		shipclass_starbase
 	}
+
 	size_restriction = {
 		pirate_station
 		marauder_station
 	}
+
 	upgrades_to = "PIRATE_PLATFORM_ZERO_POINT_REACTOR"
-	ai_weight = { weight = 4 }
+
+	ai_weight = {
+		weight = 4
+	}
 }
 
 ###############
 ####################	Zero-Point Reactors PIRATE	####################
 ###############
+
 utility_component_template = {
 	key = "LITTLE_ZERO_POINT_REACTOR"
 	size = small
 	icon = "GFX_ship_part_reactor_5"
 	icon_frame = 1
 	power = @corvette_power_5
+
 	resources = {
 		category = ship_components
-		cost = { alloys = @corvette_cost_5 }
+		cost = {
+			alloys = @corvette_cost_5
+		}
 		upkeep = {
 			energy = 0.28
 			alloys = 0.028
 		}
 	}
-	prerequisites = { "tech_zero_point_power" }
+
+	prerequisites = {
+		"tech_zero_point_power"
+	}
+
 	component_set = "power_core"
+
 	size_restriction = {
 		pirate_corvette
 		marauder_corvette
 	}
+
 	upgrades_to = "LITTLE_DARK_MATTER_REACTOR"
-	ai_weight = { weight = 5 }
+
+	ai_weight = {
+		weight = 5
+	}
 }
 
 utility_component_template = {
@@ -625,22 +886,34 @@ utility_component_template = {
 	icon = "GFX_ship_part_reactor_5"
 	icon_frame = 1
 	power = @pirate_destroyer_power_5
+
 	resources = {
 		category = ship_components
-		cost = { alloys = @pirate_destroyer_cost_5 }
+		cost = {
+			alloys = @pirate_destroyer_cost_5
+		}
 		upkeep = {
 			energy = 0.57
 			alloys = 0.057
 		}
 	}
-	prerequisites = { "tech_zero_point_power" }
+
+	prerequisites = {
+		"tech_zero_point_power"
+	}
+
 	component_set = "power_core"
+
 	size_restriction = {
 		pirate_destroyer
 		marauder_destroyer
 	}
+
 	upgrades_to = "PIRATE_DESTROYER_DARK_MATTER_REACTOR"
-	ai_weight = { weight = 5 }
+
+	ai_weight = {
+		weight = 5
+	}
 }
 
 utility_component_template = {
@@ -649,22 +922,34 @@ utility_component_template = {
 	icon = "GFX_ship_part_reactor_5"
 	icon_frame = 1
 	power = @pirate_cruiser_power_5
+
 	resources = {
 		category = ship_components
-		cost = { alloys = @pirate_cruiser_cost_5 }
+		cost = {
+			alloys = @pirate_cruiser_cost_5
+		}
 		upkeep = {
 			energy = 1.14
 			alloys = 0.114
 		}
 	}
-	prerequisites = { "tech_zero_point_power" }
+
+	prerequisites = {
+		"tech_zero_point_power"
+	}
+
 	component_set = "power_core"
+
 	size_restriction = {
 		pirate_cruiser
 		marauder_cruiser
 	}
+
 	upgrades_to = "PIRATE_CRUISER_DARK_MATTER_REACTOR"
-	ai_weight = { weight = 5 }
+
+	ai_weight = {
+		weight = 5
+	}
 }
 
 utility_component_template = {
@@ -673,22 +958,34 @@ utility_component_template = {
 	icon = "GFX_ship_part_reactor_5"
 	icon_frame = 1
 	power = @galleon_power_5
+
 	resources = {
 		category = ship_components
-		cost = { alloys = @galleon_cost_5 }
+		cost = {
+			alloys = @galleon_cost_5
+		}
 		upkeep = {
 			energy = 4.56
 			alloys = 0.456
 		}
 	}
-	prerequisites = { "tech_zero_point_power" }
+
+	prerequisites = {
+		"tech_zero_point_power"
+	}
+
 	component_set = "power_core"
+
 	size_restriction = {
 		galleon
 		marauder_galleon
 	}
+
 	upgrades_to = "GALLEON_DARK_MATTER_REACTOR"
-	ai_weight = { weight = 5 }
+
+	ai_weight = {
+		weight = 5
+	}
 }
 
 utility_component_template = {
@@ -697,38 +994,53 @@ utility_component_template = {
 	icon = "GFX_ship_part_reactor_5"
 	icon_frame = 1
 	power = @pirate_platform_power_5
+
 	resources = {
 		category = ship_components
-		cost = { alloys = @pirate_platform_cost_5 }
+		cost = {
+			alloys = @pirate_platform_cost_5
+		}
 		upkeep = {
 			energy = 0.57
 			alloys = 0.057
 		}
 	}
-	prerequisites = { "tech_zero_point_power" }
+
+	prerequisites = {
+		"tech_zero_point_power"
+	}
+
 	component_set = "power_core"
+
 	class_restriction = {
 		shipclass_military_station
 		shipclass_military_special
 		shipclass_starbase
 	}
+
 	size_restriction = {
 		pirate_station
 		marauder_station
 	}
+
 	upgrades_to = "PIRATE_PLATFORM_DARK_MATTER_REACTOR"
-	ai_weight = { weight = 5 }
+
+	ai_weight = {
+		weight = 5
+	}
 }
 
 ###############
 ####################	Engimatic Reactors PIRATE	####################
 ###############
+
 utility_component_template = {
 	key = "LITTLE_DARK_MATTER_REACTOR"
 	size = small
 	icon = "GFX_ship_part_dark_matter_power_core"
 	icon_frame = 1
 	power = @corvette_power_6
+
 	resources = {
 		category = ship_components
 		cost = {
@@ -740,13 +1052,21 @@ utility_component_template = {
 			alloys = 0.037
 		}
 	}
-	prerequisites = { "tech_dark_matter_power_core" }
+
+	prerequisites = {
+		"tech_dark_matter_power_core"
+	}
+
 	component_set = "power_core"
+
 	size_restriction = {
 		pirate_corvette
 		marauder_corvette
 	}
-	ai_weight = { weight = 6 }
+
+	ai_weight = {
+		weight = 6
+	}
 }
 
 utility_component_template = {
@@ -755,6 +1075,7 @@ utility_component_template = {
 	icon = "GFX_ship_part_dark_matter_power_core"
 	icon_frame = 1
 	power = @pirate_destroyer_power_6
+
 	resources = {
 		category = ship_components
 		cost = {
@@ -766,13 +1087,21 @@ utility_component_template = {
 			alloys = 0.074
 		}
 	}
-	prerequisites = { "tech_dark_matter_power_core" }
+
+	prerequisites = {
+		"tech_dark_matter_power_core"
+	}
+
 	component_set = "power_core"
+
 	size_restriction = {
 		pirate_destroyer
 		marauder_destroyer
 	}
-	ai_weight = { weight = 6 }
+
+	ai_weight = {
+		weight = 6
+	}
 }
 
 utility_component_template = {
@@ -781,6 +1110,7 @@ utility_component_template = {
 	icon = "GFX_ship_part_dark_matter_power_core"
 	icon_frame = 1
 	power = @pirate_cruiser_power_6
+
 	resources = {
 		category = ship_components
 		cost = {
@@ -792,13 +1122,21 @@ utility_component_template = {
 			alloys = 0.148
 		}
 	}
-	prerequisites = { "tech_dark_matter_power_core" }
+
+	prerequisites = {
+		"tech_dark_matter_power_core"
+	}
+
 	component_set = "power_core"
+
 	size_restriction = {
 		pirate_cruiser
 		marauder_cruiser
 	}
-	ai_weight = { weight = 6 }
+
+	ai_weight = {
+		weight = 6
+	}
 }
 
 utility_component_template = {
@@ -807,6 +1145,7 @@ utility_component_template = {
 	icon = "GFX_ship_part_dark_matter_power_core"
 	icon_frame = 1
 	power = @galleon_power_6
+
 	resources = {
 		category = ship_components
 		cost = {
@@ -818,21 +1157,24 @@ utility_component_template = {
 			alloys = 0.593
 		}
 	}
-	prerequisites = { "tech_dark_matter_power_core" }
+
+	prerequisites = {
+		"tech_dark_matter_power_core"
+	}
+
 	component_set = "power_core"
+
 	size_restriction = {
 		galleon
 		marauder_galleon
 	}
+
 	ai_weight = {
 		weight = 6
 		modifier = {
 			factor = 0
 			merg_is_default_empire = yes
-			has_monthly_income = {
-				resource = sr_dark_matter
-				value < 1
-			}
+			has_monthly_income = { resource = sr_dark_matter value < 1 }
 		}
 	}
 }
@@ -843,6 +1185,7 @@ utility_component_template = {
 	icon = "GFX_ship_part_dark_matter_power_core"
 	icon_frame = 1
 	power = @pirate_platform_power_6
+
 	resources = {
 		category = ship_components
 		cost = {
@@ -854,16 +1197,25 @@ utility_component_template = {
 			alloys = 0.074
 		}
 	}
-	prerequisites = { "tech_dark_matter_power_core" }
+
+	prerequisites = {
+		"tech_dark_matter_power_core"
+	}
+
 	component_set = "power_core"
+
 	class_restriction = {
 		shipclass_military_station
 		shipclass_military_special
 		shipclass_starbase
 	}
+
 	size_restriction = {
 		pirate_station
 		marauder_station
 	}
-	ai_weight = { weight = 6 }
+
+	ai_weight = {
+		weight = 6
+	}
 }

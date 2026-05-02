@@ -13,15 +13,12 @@
 # Information
 #
 #
-
 ###################
 ###- Constants -###
 ###################
-
 ##############
 ###- Khan -###
 ##############
-
 ### Base Over Satraps
 # CmtEffectCreateEncouragingBase = {
 # 	create_fleet = {
@@ -57,7 +54,6 @@
 # 		fleet_event = { id = marauder.560 days = 10 }
 # 	}
 # }
-
 ###########################
 ### Dessanu / Graygoo	###
 ###########################
