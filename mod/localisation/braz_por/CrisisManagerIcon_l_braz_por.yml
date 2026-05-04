@@ -1,7 +1,6 @@
 ﻿l_braz_por:
  CmtIconEnd_AFE: "£resource_time_grey£"
  CmtIconEnd_FE: "£resource_menace_grey£"
- CmtIconEnergy: "£energy£"
  CmtIconFanaticAuthoritarian: "£CmtEthicFanaticAuthoritarian£"
  CmtIconFanaticEgalitarian: "£CmtEthicFanaticEgalitarian£"
  CmtIconFanaticMaterialist: "£CmtEthicFanaticMateriarist£"
@@ -13,7 +12,6 @@
  CmtIconGestalt: "£CmtEthicGestalt£"
  CmtIconHiveMind: "£CmtLeaderTraitHive£"
  CmtIconMachine: "£CmtTraitMachine£"
- CmtIconMinerals: "£minerals£"
  CmtIconNavalCap: "£fleet_template_size£"
  CmtIconPsionic: "£CmtLeaderTraitPsionics£"
  CmtIconTemplateEvent: "£ship_stats_maintenance£"

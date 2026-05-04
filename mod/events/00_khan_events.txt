@@ -915,7 +915,7 @@ country_event = {
 		}
 	}
 	option = {
-		name = marauder_uprising_stall
+		name = "crisis.8060.war.b"
 		trigger = {
 			NOT = { has_country_flag = war_in_heaven_league_leader_declined }
 			from = { is_same_empire = event_target:raider_khanate }

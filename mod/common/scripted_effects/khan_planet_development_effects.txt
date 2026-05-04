@@ -320,9 +320,7 @@ khan_develop_planet = {
 	}
 	### P4 — BUILDING UPGRADES
 	else_if = {
-		limit = {
-			khan_has_upgradable_buildings = yes
-		}
+		limit = { khan_has_upgradable_buildings = yes }
 		## P4a — CAPITAL UPGRADES (highest priority — gates has_upgraded_capital and second city zone)
 		if = {
 			limit = {
