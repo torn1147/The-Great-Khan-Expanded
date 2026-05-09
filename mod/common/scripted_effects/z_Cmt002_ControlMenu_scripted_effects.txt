@@ -30,7 +30,7 @@ CmtEffectExitMenu = {
 CmtEffectSaveOriginalCountry = {
 	optimize_memory
 	if = {
-		limit = { merg_is_default_empire = yes }
+		limit = { is_country_type = default }
 		if = {
 			limit = { exists = event_target:OriginalCountry }
 			clear_global_event_target = OriginalCountry

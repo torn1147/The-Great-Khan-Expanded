@@ -41,7 +41,7 @@ can_take_hostile_actions = {
 	else_if = {	# Attacking primitives with non-interference
 		limit = {
 			root = {
-				merg_is_default_empire = yes
+				is_country_type = default
 				NOT = { has_policy_flag = interference_aggressive }
 			}
 			is_primitive = yes
@@ -54,7 +54,7 @@ can_take_hostile_actions = {
 	else_if = {
 		limit = {
 			is_primitive = yes
-			root = { merg_is_default_empire = yes }
+			root = { is_country_type = default }
 			capital_scope = {
 				root = {
 					NOT = { any_planet_within_border = { is_same_value = prevprev } }

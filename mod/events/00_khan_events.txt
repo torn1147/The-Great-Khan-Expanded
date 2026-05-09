@@ -97,7 +97,7 @@ country_event = {
 			order_by = trigger:fleet_power
 			inverse = yes
 			limit = {
-				merg_is_default_empire = yes
+				is_country_type = default
 				opinion_level = { who = prev level > neutral }
 				is_ai = yes
 				OR = {
@@ -624,7 +624,9 @@ country_event = {
 
 	immediate = {
 		if = {
-			limit = { merg_is_default_empire = no }
+			limit = {
+				NOT = { is_country_type = default }
+			}
 			set_country_type = default
 			set_origin = origin_khan_successor
 			### Need Naval Capacity
@@ -1059,7 +1061,7 @@ country_event = {
 	option = {
 		name = pick_great_khan
 		trigger = {
-			merg_is_default_empire = yes
+			is_country_type = default
 			# is_subject = no
 			# is_galactic_community_member = no
 			inline_script = { # ZOFE
@@ -1205,7 +1207,7 @@ country_event = {
 	option = {
 		name = pick_fe
 		trigger = {
-			merg_is_default_empire = yes
+			is_country_type = default
 			# is_subject = no
 			# is_galactic_community_member = no
 			exists = event_target:FirstSleeper
@@ -1245,7 +1247,7 @@ country_event = {
 				}
 			}
 			every_subject = {
-				limit = { merg_is_default_empire = yes }
+				limit = { is_country_type = default }
 				join_war = event_target:FirstSleeper
 			}
 		}
@@ -1465,7 +1467,7 @@ country_event = {
 		if = {
 			limit = { is_overlord = yes }
 			every_subject = {
-				limit = { merg_is_default_empire = yes }
+				limit = { is_country_type = default }
 				join_war = root
 			}
 		}
@@ -1817,9 +1819,7 @@ country_event = {
 		}
 		country_event = { id = marauder.78 days = 6 } ## Mercenaries Join the Great Khan.
 		every_playable_country = {
-			limit = {
-				NOT = { is_same_empire = root }
-			}
+			limit = { NOT = { is_same_empire = root } }
 			# add_opinion_modifier = { who = root modifier = opinion_destroying_galaxy }
 			add_opinion_modifier = { who = root modifier = opinion_doomed_us_all }
 			add_opinion_modifier = { who = root modifier = triggered_dc_opinion_of_assimilators }
@@ -2900,7 +2900,7 @@ country_event = {
 	trigger = {
 		has_global_flag = true_great_khan_crisis
 		NOT = { has_global_flag = great_khan_dead }
-		merg_is_default_empire = yes
+		is_country_type = default
 		is_ai = yes
 		is_subject = no
 		OR = {
@@ -2919,7 +2919,7 @@ country_event = {
 			# Added in v4.0 (due stuck bug, Khan didn't find enemies)
 			# Possible create a trade offer for systems to the next enemy in .551
 			any_neighbor_country = {
-				merg_is_default_empire = yes
+				is_country_type = default
 				NOR = {
 					is_same_empire = prevprev
 					is_subject_of_khan = yes
@@ -2993,7 +2993,7 @@ country_event = {
 			if = {
 				limit = { # (added in v4.0)
 					any_neighbor_country = {
-						merg_is_default_empire = yes
+						is_country_type = default
 						has_communications = prev
 						NOR = {
 							has_truce = prev
@@ -3003,7 +3003,7 @@ country_event = {
 					}
 					NOT = {
 						any_neighbor_country = { # Counts also subject neighbors somehow
-							merg_is_default_empire = yes
+							is_country_type = default
 							NOR = {
 								has_truce = prev
 								is_subject_of_khan = yes
@@ -3021,7 +3021,7 @@ country_event = {
 				# Possible create a trade offer for systems to the next enemy in .551
 				random_neighbor_country = {
 					limit = {
-						merg_is_default_empire = yes
+						is_country_type = default
 						has_communications = prev
 						NOR = {
 							has_truce = prev
@@ -3067,7 +3067,7 @@ country_event = {
 				if = {
 					limit = {
 						any_neighbor_country = {
-							merg_is_default_empire = yes
+							is_country_type = default
 							NOR = {
 								is_same_empire = prev
 								has_truce = prev
@@ -3078,7 +3078,7 @@ country_event = {
 					}
 					random_neighbor_country = {
 						limit = {
-							merg_is_default_empire = yes
+							is_country_type = default
 							NOR = {
 								is_same_empire = prev
 								has_truce = prev

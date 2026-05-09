@@ -14,44 +14,43 @@
 # 	}
 # }
 # Expanded version of country_type = default
-merg_is_default_empire = {
-	optimize_memory
-	OR = {
-		is_country_type = default
-		# Darkspace
-		# is_country_type = ds_nomads TODO
-		# Ethics & Civics Infinity
-		inline_script = {
-			script = merger_of_rules/toggled_code
-			code = " is_country_type = uo_une_member_active "
-			toggle = @post_revolutionary_re_revolution_years
-		}
-		# Scripted Triggers Undercoat
-		# has_country_flag = is_playable
-		# has_country_flag = is_empire # Underscore
-		# The Empty Vagrant
-		inline_script = {
-			script = merger_of_rules/toggled_code
-			code = " is_default_ev_country_type = yes "
-			toggle = @homeless_class_trait_weight
-		}
-		# ZOFE
-		inline_script = {
-			script = merger_of_rules/toggled_code
-			code = " is_zofe_country = yes "
-			toggle = @has_zofe_vanilla
-		}
-		# Human Fallen Empire
-		inline_script = {
-			script = merger_of_rules/toggled_code
-			code = " is_country_type = hfe_features_exodus "
-			toggle = @hfe_pirate_base_cost
-		}
-		# Nomads: The wondering Void Farers. TODO
-		# is_void_farer = yes
-	}
-}
-
+# merg_is_default_empire = {
+# 	optimize_memory
+# 	OR = {
+# 		is_country_type = default
+# 		# Darkspace
+# 		# is_country_type = ds_nomads TODO
+# 		# Ethics & Civics Infinity
+# 		inline_script = {
+# 			script = merger_of_rules/toggled_code
+# 			code = " is_country_type = uo_une_member_active "
+# 			toggle = @post_revolutionary_re_revolution_years
+# 		}
+# 		# Scripted Triggers Undercoat
+# 		# has_country_flag = is_playable
+# 		# has_country_flag = is_empire # Underscore
+# 		# The Empty Vagrant
+# 		inline_script = {
+# 			script = merger_of_rules/toggled_code
+# 			code = " is_default_ev_country_type = yes "
+# 			toggle = @homeless_class_trait_weight
+# 		}
+# 		# ZOFE
+# 		inline_script = {
+# 			script = merger_of_rules/toggled_code
+# 			code = " is_zofe_country = yes "
+# 			toggle = @has_zofe_vanilla
+# 		}
+# 		# Human Fallen Empire
+# 		inline_script = {
+# 			script = merger_of_rules/toggled_code
+# 			code = " is_country_type = hfe_features_exodus "
+# 			toggle = @hfe_pirate_base_cost
+# 		}
+# 		# Nomads: The wondering Void Farers. TODO
+# 		# is_void_farer = yes
+# 	}
+# }
 # Merger of Rules scripted triggers, very similar to vanilla is_country_type_with_subjects
 # Extended Merger of Rules with Nomads: The wondering Void Farers
 # These triggers are also meant as a library for modders who want to reuse them in their own mods.

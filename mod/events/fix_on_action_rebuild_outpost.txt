@@ -96,8 +96,8 @@ event = {
 									has_owner = yes
 									NOT = { is_planet = prevprev }
 									OR = {
-										merg_is_habitat = no
-										prevprev = { merg_is_habitat = yes }
+										NOT = { is_planet_class = pc_habitat }
+										prevprev = { is_planet_class = pc_habitat }
 									}
 									owner = {
 										NOR = {
@@ -182,8 +182,8 @@ event = {
 									has_owner = yes
 									NOT = { is_planet = prevprev }
 									OR = {
-										merg_is_habitat = no
-										prevprev = { merg_is_habitat = yes }
+										NOT = { is_planet_class = pc_habitat }
+										prevprev = { is_planet_class = pc_habitat }
 									}
 									owner = {
 										NOR = {

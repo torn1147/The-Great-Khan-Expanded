@@ -7,7 +7,7 @@ is_subject_of_khan = {
 	is_subject = yes # exists = overlord - should imply!?
 	exists = overlord # But this is PDX logic! WTF!
 	has_global_flag = marauder_crisis_started
-	merg_is_default_empire = yes
+	is_country_type = default
 	exists = event_target:raider_khanate
 	event_target:raider_khanate = {
 		is_scope_valid = yes

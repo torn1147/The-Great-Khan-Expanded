@@ -1,9 +1,10 @@
 [h3]Ever felt like the Great Khan doesn’t really do anything great? Then this mod is for you![/h3]
 [h3]Prologue[/h3]
-This is a continuation of [i][url=//steamcommunity.com/workshop/filedetails/2129462916]The Great Khan Expanded[/url] (2.7) by Kinneyj47[/i]. It has been completely overhauled and extended, several fixes, compat, +built-in [i]Crisis Manager s.b[/i].
+This is a continuation of [i][url=//steamcommunity.com/workshop/filedetails/2508704523]The Great Khan Expanded [3.14.☠][/url][/i].
+⚠️ **Beta Notice / Work in Progress**: With help of hypnagogia enjoyer this mod made the update step to v4.3, but because of the larger break it is still in a beta stage and currently in development. 
 
 [img]//i.imgur.com/UA9Shht.png[/img][img]//i.imgur.com/hA90SXc.png[/img]
-This mod adds three new subject types to help you navigate the mid-game crisis [spoiler](of course, only if the respective conditions are met)[/spoiler]:
+This mod adds three new subject types to help you navigate the mid-game crisis [spoiler]ofc only if the respective conditions are met[/spoiler]:
 ¹ [b][i]Machinesmith[/i][/b] grant the Great Khan addition [i]technology[/i] in exchange for being left alone.
 ² [b][i]Fabricator[/i][/b] suffer an alloy tax, and produce [i]fleets[/i] for the Khan in exchange for being left alone.
 ³ [i][b]Dominion[/b] (beta)[/i] suffer a lesser mineral and energy tax, their fight along with the Great Khan in exchange for being [i]"protected"[/i].
@@ -22,21 +23,6 @@ These are new (AI can use) features[strike], which are not fully tested,[/strike
 ⠀• Marauder Infighting: from time to time they fight on their borders [spoiler]– these were unfinished vanilla events[/spoiler]
 
 [img]//i.imgur.com/tJMHF5d.png[/img]
-⠀✔️ Crisis Manager – Mid-Game Edition
-⠀✔️ A Deadly Tempest [☠]
-⠀✔️ Realistic Pirates [☠]
-⠀✔️ Ariphaos Patch
-⠀✔️ Marauders Remodeled (only new games)
-⠀✔️ ZoFE 4.0
-⠀✔️ ACE
-⠀✔️ NSC3 must be below
-⠀✔️ (NSC) Freebooters Origin [☠]
-⠀✔️ BSW3 [url=//steamcommunity.com/workshop/filedetails/2608679059]- Patch[/url]
-⠀✔️ Real Space - Ships in Scaling Lite [url=//steamcommunity.com/workshop/filedetails/2738343929]- Patch[/url]
-⠀✔️ Real System Scale 6x [url=//steamcommunity.com/workshop/filedetails/2991974361]- Patch[/url]
-⠀✔️ ACOT override (should be above)
-⠀✔️ Khorgis Khan (should be below)
-⠀• probably mods modifying AI, ships of Horde or Gray Tempest.
 ⠀✖️ Probably NOT compat with mods: modifying Marauders before Great Khan reigns.
 
 [b]Load order[/b]: should be below all Crisis Managers and ADT and above NSC3
@@ -55,20 +41,13 @@ These are new (AI can use) features[strike], which are not fully tested,[/strike
 
 [h3]Localisations[/h3]
 ⠀• 🇺🇸 mainly Kinneyj47
-⠀• 🇩🇪
+⠀• 🇩🇪 FirePrince
 ⠀• 🇨🇳 [url=//steamcommunity.com/id/1996kid]彭定康说的[/url] (– 12.Aug.)
 ⠀• 🇯🇵 [url=//steamcommunity.com/workshop/filedetails/2618588215]Rio_Mizuhoshi[/url] (– 3.Oct.)
 ⠀• 🇪🇸 [url=//steamcommunity.com/id/76561198199986345]DARH[/url] (– 2.Dec.)
 ⠀• 🇷🇺 [url=//steamcommunity.com/workshop/filedetails/3038910324]Hann[/url] (– 21.Sep.2023)
 ⠀• 🇰🇷 [URL=//steamcommunity.com/workshop/filedetails/3460900014]AOS[/URL] (– 11.Apr.2025)
 ⠀• All other with fallback, if you would like to help and share translations into your language, please let me know.
-
-[h3]Recommendations[/h3]
-⠀• [url=//steamcommunity.com/workshop/filedetails/3253479588]Freebooters Origin [☠][/url] (reborn)
-⠀• [url=//steamcommunity.com/workshop/filedetails/2752952962]Realistic Pirates [☠][/url] (inbuilt compat)
-⠀• [url=//steamcommunity.com/workshop/filedetails/1899861671]Spaceborne Civs Expanded[/url] (inbuilt compat)
-⠀• [url=//steamcommunity.com/workshop/filedetails/2936292863]Marauders & Menacing Remodeled[/url] (inbuilt compat)
-⠀• [url=//steamcommunity.com/workshop/filedetails/2584335328]Powerful & Realistic Orbital Bombardments [☠][/url]
 
 [h3]Changes (technically)[/h3]
 Mainly touched:[code]
@@ -92,6 +71,7 @@ Everything for now in Freebooters Origin.
 ⠀• NaK1119 – the Crisis Manager
 ⠀• Jon Dunham – [url=//steamcommunity.com/workshop/filedetails/2855533605]Khan room[/url]
 ⠀• MrFunEGUY – Alternate Diadochi creation 
+⠀• Hypnagogia enjoyer – Major updating to v4.3
 
 [h3]Install/Uninstall[/h3]Shouldn’t be a problem if the Khan has no subjects.
 [i][u]Note[/u]: If you find any bug, you are welcome to report.[/i]

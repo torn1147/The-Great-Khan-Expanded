@@ -1,4 +1,4 @@
-version="4.3.5.0"
+version="4.3.5.1"
 tags={
 	"Events"
 	"Crisis"
@@ -12,4 +12,4 @@ dependencies={
 }
 name="The Great Khan Expanded [4.3.☠]"
 supported_version="v4.3.*"
-remote_file_id="2508704523"
+remote_file_id="3722393832"
