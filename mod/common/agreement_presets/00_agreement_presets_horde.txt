@@ -43,7 +43,7 @@ preset_machinesmith_satrapy = {
 	}
 
 	potential = {
-		is_country_type = default
+		merg_is_default_empire = yes
 		NOR = { has_been_declared_crisis = yes has_civic = civic_inwards_perfection }
 		from = {
 			OR = { is_country_type = awakened_marauders has_origin = origin_khan_successor }
@@ -96,7 +96,7 @@ preset_fabricator_satrapy = {
 	}
 
 	potential = {
-		is_country_type = default
+		merg_is_default_empire = yes
 		NOR = { has_been_declared_crisis = yes has_civic = civic_inwards_perfection }
 		from = {
 			OR = { is_country_type = awakened_marauders has_origin = origin_khan_successor }
@@ -150,7 +150,7 @@ preset_war_satrapy = {
 	}
 
 	potential = {
-		is_country_type = default
+		merg_is_default_empire = yes
 		has_been_declared_crisis = no
 		from = {
 			OR = { is_country_type = awakened_marauders has_origin = origin_khan_successor }

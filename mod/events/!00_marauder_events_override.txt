@@ -139,7 +139,7 @@ country_event = {
 		}
 		random_relation = {
 			limit = {
-				is_country_type = default
+				merg_is_default_empire = yes
 				has_policy_flag = refugees_allowed
 				has_communications = root
 			}
@@ -2817,9 +2817,9 @@ country_event = {
 						limit = { exists = last_created_leader }
 						switch = {
 							trigger = has_country_flag
-						marauder_1 = { last_created_leader = { set_leader_flag = hired_merc_leader_1 set_leader_flag = marauder_merc_leader } }
-						marauder_2 = { last_created_leader = { set_leader_flag = hired_merc_leader_2 set_leader_flag = marauder_merc_leader } }
-						marauder_3 = { last_created_leader = { set_leader_flag = hired_merc_leader_3 set_leader_flag = marauder_merc_leader } }
+							marauder_1 = { last_created_leader = { set_leader_flag = hired_merc_leader_1 set_leader_flag = marauder_merc_leader } }
+							marauder_2 = { last_created_leader = { set_leader_flag = hired_merc_leader_2 set_leader_flag = marauder_merc_leader } }
+							marauder_3 = { last_created_leader = { set_leader_flag = hired_merc_leader_3 set_leader_flag = marauder_merc_leader } }
 						}
 					}
 				}
@@ -5207,7 +5207,7 @@ country_event = {
 		# Removed, as it could nearly never end
 		# random_neighbor_country = {
 		# 	limit = {
-		# 		merg_is_default_empire = yes
+		# 		is_country_type = default
 		# 		is_ai = yes
 		# 		NOR = {
 		# 			is_same_value = prev
@@ -5273,7 +5273,7 @@ country_event = {
 				}
 			}
 		}
-		from = { is_country_type = default }
+		from = { merg_is_default_empire = yes }
 	}
 
 	immediate = {
@@ -5511,7 +5511,7 @@ country_event = {
 							NOT = { exists = starbase }
 							event_target:raider_khanate = { is_country_type = awakened_marauders }
 						}
-						event_target:raider_khanate = { # save_event_target_as = marauder_starbase_owner # TODO Error log drops: invalid starbase design Void Home??
+						event_target:raider_khanate = {
 							if = {
 								limit = {
 									NOT = { has_existing_ship_design = starbase_marauder }
@@ -5521,7 +5521,6 @@ country_event = {
 							}
 						}
 						create_starbase = { owner = event_target:raider_khanate size = "starbase_marauder" }
-						# create_marauder_starbase = yes # TODO Error log drops: Failed to create a starbase
 					}
 				}
 				### Create Defense Armies (for some job reasons common armies get deleted)
@@ -5828,7 +5827,7 @@ country_event = {
 			event_target:khan_destroyer = { # save_event_target_as = khan_destroyer
 				set_country_flag = no_khan_do
 				if = {
-					limit = { is_country_type = default } # is_ai = no
+					limit = { merg_is_default_empire = yes } # is_ai = no
 					country_event = { id = marauder.710 days = 7 } # Max days = 8
 					if = {
 						limit = {
@@ -5995,7 +5994,7 @@ country_event = {
 		}
 		else = {
 			if = {
-				limit = { exists = ruler }
+				limit = { exists = ruler exists = ruler.species }
 				ruler.species = { save_event_target_as = marauder_species }
 			}
 			else = {
@@ -6335,7 +6334,7 @@ country_event = {
 						limit = { is_colony = yes }
 						weights = { base = 1
 							modifier = { add = 33 is_capital = yes }
-							modifier = { add = 66 is_planet_class = pc_habitat }
+							modifier = { add = 66 merg_is_habitat = yes }
 						}
 						set_capital = yes
 					}
@@ -7265,10 +7264,10 @@ country_event = {
 					fleet_power < 250000
 					has_country_flag = has_machinesmith
 				}
-				create_marauder_constructors = yes # Full check included
+				CmtEffectCreateFleet_KhanConstructor = yes # Full check included
 				if = {
 					limit = { num_armies < 40 }
-					create_marauder_armies = yes
+					CmtEffectCreateFleet_KhanArmy = yes
 				}
 				random_subject = {
 					limit = {
@@ -7421,9 +7420,9 @@ country_event = {
 					}
 				}
 				# Legacy
-				# create_marauder_constructors = yes
+				# CmtEffectCreateFleet_KhanConstructor = yes
 				# if = { limit = { num_armies < 40 }
-				# 	create_marauder_armies = yes
+				# 	CmtEffectCreateFleet_KhanArmy = yes
 				# }
 				# if = { limit = { fleet_power < 200000 }
 				# 	create_marauder_fleet = yes
@@ -7443,7 +7442,7 @@ country_event = {
 			limit = {
 				is_colony = yes
 				NOR = {
-					is_planet_class = pc_habitat	# maybe add habitat development down the line
+					merg_is_habitat = yes	# maybe add habitat development down the line
 					has_planet_flag = khan_developed_this_cycle
 				}
 				OR = {
@@ -7612,7 +7611,7 @@ country_event = {
 			check_variable = { which = CmtVarKhanVengeance value != 1 }
 		}
 		OR = {
-			from = { is_country_type = default } # There are some unpredictable possibilities.
+			from = { merg_is_default_empire = yes } # There are some unpredictable possibilities.
 			AND = {
 				from = { is_pirate_country = no }
 				count_country = {
@@ -8287,16 +8286,32 @@ country_event = {
 							}
 						}
 					}
-					# Added in v4.0 (due stuck bug, Khan didn't find enemies)
+					# Vfix: Added in v4.0 (due stuck bug, Khan didn't move/find targets)
 					# Possible create a trade offer for systems to the next enemy in .551
-					# any_neighbor_country = {
-					#	merg_is_default_empire = yes
-					#	NOR = {
-					#		is_same_value = from
-					#		is_subject_of_khan = yes
-					#	}
-					#	is_hostile_to = root
-					# }	# TODO: Commented out because, why a tall sub-100k fleet player empire next to Khan shouldn't get option to surrender, the alternative is game over
+					OR = {
+						is_ai = no
+						# TODO: why a tall sub-100k fleet player empire next to Khan shouldn't get option to surrender, the alternative is game over
+						any_neighbor_country = {
+							merg_is_default_empire = yes
+							NOR = {
+								is_same_value = from
+								is_subject_of_khan = yes
+							}
+							is_hostile_to = root
+						}
+						any_system_within_border = {
+							any_neighbor_system = { has_owner = yes is_owned_by = root }
+							any_neighbor_system = {
+								has_owner = yes
+								owner = {
+									NOR = {
+										is_same_value = from
+										is_same_value = root
+									}
+								}
+							}
+						}
+					}
 				}
 			}
 			NOT = { has_active_event = { marauder.551 } }
@@ -8445,6 +8460,49 @@ country_event = {
 
 	immediate = {
 		set_country_flag = marauder_diplomacy_engaged
+		# Vfix: Added in v4.3 (due stuck bug, Khan didn't move/find targets)
+		if = {
+			limit = {
+				NOT = {
+					any_neighbor_country = {
+						merg_is_default_empire = yes
+						NOR = {
+							is_same_value = root
+							is_subject_of_khan = yes
+						}
+						is_hostile_to = from
+					}
+				}
+				any_system_within_border = {
+					any_neighbor_system = { has_owner = yes is_owned_by = root }
+					any_neighbor_system = {
+						has_owner = yes
+						owner = {
+							NOR = {
+								is_same_value = from
+								is_same_value = root
+							}
+						}
+					}
+				}
+			}
+			random_system_within_border = {
+				limit = {
+					exists = starbase
+					any_neighbor_system = { has_owner = yes is_owned_by = root }
+					any_neighbor_system = {
+						has_owner = yes
+						owner = {
+							NOR = {
+								is_same_value = from
+								is_same_value = root
+							}
+						}
+					}
+				}
+				starbase = { set_owner = from }
+			}
+		}
 	}
 
 	after = {
@@ -9227,7 +9285,7 @@ country_event = {
 	trigger = {
 		has_global_flag = marauder_crisis_ongoing
 		is_ai = yes
-		is_country_type = default
+		merg_is_default_empire = yes
 		CmtTriggerNowInKhanCrisis = yes
 		NOR = {
 			has_global_flag = great_khan_dead
@@ -9243,11 +9301,11 @@ country_event = {
 				}
 				check_variable = { which = "planets_lost_to_marauder" value < 51 }
 			}
-		}
-		relative_power = {
-			who = event_target:raider_khanate
-			category = fleet
-			value = pathetic
+			relative_power = {
+				who = event_target:raider_khanate
+				category = fleet
+				value != pathetic
+			}
 		}
 	}
 
@@ -10431,7 +10489,7 @@ country_event = {
 			}
 		}
 		else_if = {
-			limit = { is_country_type = default }
+			limit = { merg_is_default_empire = yes }
 			country_event = { id = khan.605 days = 2 scopes = { from = event_target:third_diadochi } }
 		}
 	}
@@ -10630,7 +10688,7 @@ country_event = {
 			}
 		}
 		else_if = {
-			limit = { is_country_type = default }
+			limit = { merg_is_default_empire = yes }
 			country_event = { id = khan.605 days = 2 scopes = { from = event_target:new_khanate } }
 		}
 		else = {
@@ -10839,7 +10897,7 @@ country_event = {
 			}
 		}
 		else_if = {
-			limit = { is_country_type = default }
+			limit = { merg_is_default_empire = yes }
 			country_event = { id = khan.605 days = 2 scopes = { from = event_target:new_khanate } }
 		}
 		event_target:new_khanate = {
@@ -11111,7 +11169,7 @@ country_event = {
 			event_target:restored_marauders_2 = {
 				owner_species = { save_event_target_as = marauder_species }
 				country_event = { id = khan.306 }
-				# create_marauder_successor_fleet = yes
+				# CmtEffectCreateFleet_KhanStandard = yes # create_marauder_successor_fleet = yes
 				event_target:second_marauder_system = {
 					prev = { CmtEffectCreateFleet_KhanStandard = yes }
 					clear_variable = marauder_distance_1
@@ -11293,7 +11351,7 @@ country_event = {
 				event_target:restored_marauders_3 = {
 					owner_species = { save_event_target_as = marauder_species }
 					country_event = { id = khan.306 }
-					# create_marauder_successor_fleet = yes
+					# CmtEffectCreateFleet_KhanStandard = yes # create_marauder_successor_fleet = yes
 					event_target:third_marauder_system = {
 						prev = { CmtEffectCreateFleet_KhanStandard = yes }
 						clear_variable = marauder_distance_1
@@ -11509,10 +11567,7 @@ country_event = {
 					weights = {
 						base = 1
 						modifier = { add = 1 is_asteroid = no }
-						modifier = {
-							add = 2
-							NOT = { is_planet_class = pc_gas_giant }
-						}
+						modifier = { add = 2 merg_is_gas_giant = no }
 						modifier = { add = 3 colonizable_planet = yes }
 					}
 					save_event_target_as = marauder_capital
@@ -11705,7 +11760,7 @@ country_event = {
 			}
 			owner_species = { save_event_target_as = marauder_species }
 			country_event = { id = khan.306 }
-			# create_marauder_successor_fleet = yes
+			# CmtEffectCreateFleet_KhanStandard = yes # create_marauder_successor_fleet = yes
 			save_event_target_as = new_khanate
 		}
 		# If Horde owns only planets on not owned system.

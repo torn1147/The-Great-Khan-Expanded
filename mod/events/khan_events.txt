@@ -59,7 +59,7 @@ event = {
 					limit = {
 						# Compare khan.529 (added in v4.0)
 						any_neighbor_country = { # Counts also subject neighbors somehow
-							is_country_type = default
+							merg_is_default_empire = yes
 							NOR = {
 								has_truce = prev
 								is_subject_of_khan = yes
@@ -1050,7 +1050,7 @@ country_event = {
 				limit = {
 					# Compare khan.529 (added in v4.0)
 					any_neighbor_country = { # Counts also subject neighbors somehow
-						is_country_type = default
+						merg_is_default_empire = yes
 						NOR = {
 							has_truce = prev
 							is_subject_of_khan = yes
@@ -1135,7 +1135,7 @@ country_event = {
 						## Set_hostile
 						every_relation = {
 							limit = {
-								is_country_type = default
+								merg_is_default_empire = yes
 								OR = {
 									is_hostile = root
 									has_attitude_behavior = { target = root behavior = attack }
@@ -1909,13 +1909,13 @@ country_event = {
 	trigger = {
 		is_scope_valid = yes
 		is_scope_type = country
-		is_country_type = default
+		merg_is_default_empire = yes
 		is_ai = no
 		exists = from
 		from = {
 			is_scope_valid = yes
 			is_scope_type = country
-			is_country_type = default
+			merg_is_default_empire = yes
 			is_ai = yes
 		}
 	}
@@ -1978,7 +1978,7 @@ country_event = {
 		else_if = {
 			limit = {
 				NOR = {
-					is_country_type = default
+					merg_is_default_empire = yes
 					is_ai = yes
 				}
 			}
@@ -1999,7 +1999,7 @@ country_event = {
 		else_if = {
 			limit = {
 				NOR = {
-					is_country_type = default
+					merg_is_default_empire = yes
 					is_ai = yes
 				}
 			}
@@ -2087,14 +2087,14 @@ country_event = {
 						is_controlled_by = root
 						is_owned_by = event_target:raider_khanate
 						is_controlled_by = event_target:raider_khanate
-						is_planet_class = pc_habitat
+						merg_is_habitat = yes
 					}
 				}
 				NOT = {
 					any_system_colony = {
 						is_controlled_by = root
 						OR = {
-							NOT = { is_planet_class = pc_habitat }
+							merg_is_habitat = no
 							prev = {
 								starbase = { has_starbase_size = starbase_marauder }
 							}
@@ -2110,7 +2110,7 @@ country_event = {
 						is_controlled_by = root
 						is_owned_by = event_target:raider_khanate
 						is_controlled_by = event_target:raider_khanate
-						is_planet_class = pc_habitat
+						merg_is_habitat = yes
 					}
 					owner = { is_default_or_fallen = yes }
 				}
@@ -2366,8 +2366,8 @@ country_event = {
 				prev = {
 					while = {
 						count = 2
-						create_marauder_armies = yes
-						create_marauder_constructors = yes
+						CmtEffectCreateFleet_KhanArmy = yes
+						CmtEffectCreateFleet_KhanConstructor = yes
 					}
 				}
 				# save_event_target_as = unit_spawn_point
@@ -2383,7 +2383,7 @@ country_event = {
 					# Own old to get the right design!?
 					prev = {
 						change_variable = { which = "successor_fleet_power" value = 20000 }
-						create_marauder_successor_fleet = yes
+						CmtEffectCreateFleet_KhanStandard = yes # create_marauder_successor_fleet = yes
 					}
 					last_created_leader = { set_owner = root }
 					last_created_fleet = { set_owner = root assign_leader = last_created_leader }
@@ -2934,7 +2934,7 @@ system_event = {
 				root = {
 					random_system_planet = {
 						limit = {
-							is_planet_class = pc_habitat
+							merg_is_habitat = yes
 							uses_district_set = habitat
 							is_colony = no
 							is_colonizable = yes

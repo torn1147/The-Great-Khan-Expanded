@@ -828,7 +828,7 @@ khan_develop_overflow = {
 			limit = {
 				is_colony = yes
 				NOR = {
-					is_planet_class = pc_habitat
+					merg_is_habitat = yes
 					num_unemployed = 0
 					free_district_slots <= 0
 				}
@@ -846,7 +846,7 @@ khan_develop_overflow = {
 			limit = {
 				is_colony = yes
 				NOR = {
-					is_planet_class = pc_habitat
+					merg_is_habitat = yes
 					num_unemployed = 0
 					free_district_slots <= 0
 					num_free_districts = { type = district_generator value < 1 }
@@ -873,7 +873,7 @@ khan_develop_overflow = {
 			limit = {
 				is_colony = yes
 				NOR = {
-					is_planet_class = pc_habitat
+					merg_is_habitat = yes
 					num_unemployed = 0
 					free_district_slots <= 0
 					num_free_districts = { type = district_mining value < 1 }
@@ -899,7 +899,7 @@ khan_develop_overflow = {
 			limit = {
 				is_colony = yes
 				NOR = {
-					is_planet_class = pc_habitat
+					merg_is_habitat = yes
 					num_unemployed = 0
 					free_district_slots <= 0
 					num_free_districts = { type = district_farming value < 1 }

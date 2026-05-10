@@ -42,7 +42,7 @@ has_total_war_cb = {
 		# End threat checks
 		AND = {
 			# OR = {
-			is_country_type = default
+			merg_is_default_empire = yes
 			# 	inline_script = { # ACOT SBTG
 			# 		script = merger_of_rules/toggled_code
 			# 		code = " is_progenitor_empires = yes"

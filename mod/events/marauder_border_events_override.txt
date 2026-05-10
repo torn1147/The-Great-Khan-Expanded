@@ -223,14 +223,14 @@ country_event = {
 								is_controlled_by = root
 								is_owned_by = event_target:new_khanate
 								is_controlled_by = event_target:new_khanate
-								is_planet_class = pc_habitat
+								merg_is_habitat = yes
 							}
 						}
 						NOT = {
 							any_system_colony = {
 								is_controlled_by = root
 								OR = {
-									NOT = { is_planet_class = pc_habitat }
+									merg_is_habitat = no
 									prev = {
 										starbase = { has_starbase_size = starbase_marauder }
 									}
@@ -246,7 +246,7 @@ country_event = {
 								is_controlled_by = root
 								is_owned_by = event_target:new_khanate
 								is_controlled_by = event_target:new_khanate
-								is_planet_class = pc_habitat
+								merg_is_habitat = yes
 							}
 							owner = { is_default_or_fallen = yes }
 						}
@@ -452,9 +452,9 @@ country_event = {
 							modifier = { add = 9 is_capital = yes }
 						}
 						prev = {
-							create_marauder_successor_fleet = yes
-							create_marauder_armies = yes
-							create_marauder_constructors = yes
+							CmtEffectCreateFleet_KhanStandard = yes # create_marauder_successor_fleet = yes
+							CmtEffectCreateFleet_KhanArmy = yes
+							CmtEffectCreateFleet_KhanConstructor = yes
 						}
 						while = {
 							count = 4
@@ -466,7 +466,7 @@ country_event = {
 							}
 							root = {
 								change_variable = { which = "successor_fleet_power" value = 20000 }
-								create_marauder_successor_fleet = yes
+								CmtEffectCreateFleet_KhanStandard = yes # create_marauder_successor_fleet = yes
 							}
 							last_created_leader = {
 								set_owner = prevprev
@@ -661,7 +661,7 @@ country_event = {
 					has_owner = yes
 					is_colony = yes
 					NOR = {
-						pop_amount < 1
+						pop_amount < 100
 						has_ground_combat = yes
 						is_occupied_flag = yes
 					}
@@ -978,7 +978,7 @@ country_event = {
 			}
 		}
 		else_if = {
-			limit = { is_country_type = default }
+			limit = { merg_is_default_empire = yes }
 			country_event = { id = khan.605 days = 2 scopes = { from = event_target:new_khanate } }
 		}
 		if = {

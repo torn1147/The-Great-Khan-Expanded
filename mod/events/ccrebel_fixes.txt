@@ -263,7 +263,7 @@ country_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		is_country_type = default
+		merg_is_default_empire = yes
 	}
 
 	immediate = {
@@ -1984,7 +1984,7 @@ country_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		is_country_type = default
+		merg_is_default_empire = yes
 		NOR = {
 			has_country_flag = cc_rebel_civic_sorted
 			is_multiplayer = yes # Avoid strange behavior (like OOS/CTD)

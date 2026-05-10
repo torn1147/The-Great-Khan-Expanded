@@ -97,7 +97,7 @@ country_event = {
 			order_by = trigger:fleet_power
 			inverse = yes
 			limit = {
-				is_country_type = default
+				merg_is_default_empire = yes
 				opinion_level = { who = prev level > neutral }
 				is_ai = yes
 				OR = {
@@ -292,7 +292,7 @@ country_event = {
 		else = {
 			random_playable_country = {
 				limit = {
-					# merg_is_default_empire = yes
+					# is_country_type = default
 					NOR = {
 						is_subject = yes
 						is_homicidal = yes
@@ -302,7 +302,7 @@ country_event = {
 						any_country = { merg_is_fallen_empire = yes is_at_war_with = prev }
 						# any_playable_country = {
 						# 	is_subject = no
-						# 	# merg_is_default_empire = yes
+						# 	# is_country_type = default
 						# 	relative_power = {
 						# 		who = prev
 						# 		value > equivalent
@@ -624,9 +624,7 @@ country_event = {
 
 	immediate = {
 		if = {
-			limit = {
-				NOT = { is_country_type = default }
-			}
+			limit = { merg_is_default_empire = no }
 			set_country_type = default
 			set_origin = origin_khan_successor
 			### Need Naval Capacity
@@ -1061,7 +1059,7 @@ country_event = {
 	option = {
 		name = pick_great_khan
 		trigger = {
-			is_country_type = default
+			merg_is_default_empire = yes
 			# is_subject = no
 			# is_galactic_community_member = no
 			inline_script = { # ZOFE
@@ -1207,7 +1205,7 @@ country_event = {
 	option = {
 		name = pick_fe
 		trigger = {
-			is_country_type = default
+			merg_is_default_empire = yes
 			# is_subject = no
 			# is_galactic_community_member = no
 			exists = event_target:FirstSleeper
@@ -1247,7 +1245,7 @@ country_event = {
 				}
 			}
 			every_subject = {
-				limit = { is_country_type = default }
+				limit = { merg_is_default_empire = yes }
 				join_war = event_target:FirstSleeper
 			}
 		}
@@ -1467,7 +1465,7 @@ country_event = {
 		if = {
 			limit = { is_overlord = yes }
 			every_subject = {
-				limit = { is_country_type = default }
+				limit = { merg_is_default_empire = yes }
 				join_war = root
 			}
 		}
@@ -2616,7 +2614,11 @@ country_event = {
 						free_building_slots <= 0
 					}
 				}
-				add_building = building_stronghold
+				add_building = {
+					district = district_city
+					zone = zone_fortress
+					building = building_stronghold
+				}
 			}
 			## Strategic Coordination Center
 			if = {
@@ -2900,7 +2902,7 @@ country_event = {
 	trigger = {
 		has_global_flag = true_great_khan_crisis
 		NOT = { has_global_flag = great_khan_dead }
-		is_country_type = default
+		merg_is_default_empire = yes
 		is_ai = yes
 		is_subject = no
 		OR = {
@@ -2919,7 +2921,7 @@ country_event = {
 			# Added in v4.0 (due stuck bug, Khan didn't find enemies)
 			# Possible create a trade offer for systems to the next enemy in .551
 			any_neighbor_country = {
-				is_country_type = default
+				merg_is_default_empire = yes
 				NOR = {
 					is_same_empire = prevprev
 					is_subject_of_khan = yes
@@ -2993,7 +2995,7 @@ country_event = {
 			if = {
 				limit = { # (added in v4.0)
 					any_neighbor_country = {
-						is_country_type = default
+						merg_is_default_empire = yes
 						has_communications = prev
 						NOR = {
 							has_truce = prev
@@ -3003,7 +3005,7 @@ country_event = {
 					}
 					NOT = {
 						any_neighbor_country = { # Counts also subject neighbors somehow
-							is_country_type = default
+							merg_is_default_empire = yes
 							NOR = {
 								has_truce = prev
 								is_subject_of_khan = yes
@@ -3021,7 +3023,7 @@ country_event = {
 				# Possible create a trade offer for systems to the next enemy in .551
 				random_neighbor_country = {
 					limit = {
-						is_country_type = default
+						merg_is_default_empire = yes
 						has_communications = prev
 						NOR = {
 							has_truce = prev
@@ -3067,7 +3069,7 @@ country_event = {
 				if = {
 					limit = {
 						any_neighbor_country = {
-							is_country_type = default
+							merg_is_default_empire = yes
 							NOR = {
 								is_same_empire = prev
 								has_truce = prev
@@ -3078,7 +3080,7 @@ country_event = {
 					}
 					random_neighbor_country = {
 						limit = {
-							is_country_type = default
+							merg_is_default_empire = yes
 							NOR = {
 								is_same_empire = prev
 								has_truce = prev
@@ -3637,10 +3639,10 @@ country_event = {
 
 	immediate = {
 		country_event = { id = khan.306 days = -1 } # Check/Create fallback rally_point
-		create_marauder_constructors = yes
+		CmtEffectCreateFleet_KhanConstructor = yes
 		if = {
 			limit = { num_armies < 40 }
-			create_marauder_armies = yes
+			CmtEffectCreateFleet_KhanArmy = yes
 		}
 		if = {
 			limit = {
@@ -3722,10 +3724,10 @@ country_event = {
 				limit = { # Make sure home system still owned.
 					any_planet_within_border = { has_planet_flag = marauder_rally_point }
 				}
-				create_marauder_constructors = yes
+				CmtEffectCreateFleet_KhanConstructor = yes
 				if = {
 					limit = { num_armies < 50 }
-					create_marauder_armies = yes
+					CmtEffectCreateFleet_KhanArmy = yes
 				}
 				# If at fleet cap, check again later.
 				if = {
@@ -3760,7 +3762,7 @@ country_event = {
 	immediate = {
 		country_event = { id = khan.306 days = -1 } # Check/Create fallback rally_point
 		# log="khan.870 Cycle"
-		create_marauder_constructors = yes # Full check included
+		CmtEffectCreateFleet_KhanConstructor = yes # Full check included
 		### Khan Fleet Watchdog — Idle + Transport Unstick
 		country_event = { id = khan_watchdog.10 }
 		### Khan District Overflow Pre-Check
@@ -3770,7 +3772,7 @@ country_event = {
 			limit = {
 				is_colony = yes
 				NOR = {
-					is_planet_class = pc_habitat	# maybe add habitat development down the line
+					merg_is_habitat = yes	# maybe add habitat development down the line
 					has_planet_flag = khan_developed_this_cycle
 				}
 				OR = {
@@ -3803,7 +3805,7 @@ country_event = {
 		}
 		if = {
 			limit = { num_armies < 50 }
-			create_marauder_armies = yes
+			CmtEffectCreateFleet_KhanArmy = yes
 		}
 		if = {
 			limit = {

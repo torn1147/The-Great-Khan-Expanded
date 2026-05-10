@@ -14,7 +14,7 @@
 
 CmtTriggerKhanAwakingMultipleCheck = {
 	optimize_memory
-	event_target:CmtGlobalVar = {
+	event_target:global_event_country = {
 		NOR = {
 			check_variable = { which = CmtVarKhanMultiple value = 1 }
 			has_global_flag = CmtFlagNowInKhanInterval
